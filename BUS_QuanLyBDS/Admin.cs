@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using XSystem.Security.Cryptography;
+using System.Security.Cryptography;
 
 namespace BUS_QuanLyBDS
 {
