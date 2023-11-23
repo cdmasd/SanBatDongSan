@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GaRvr8UefsZURFibRrZeOYMeYwVFKSPIjmwLR9cmWOSEzjYTCpK9gwO+zjKrBQ2sAJ0GCgJ4guy0UKS2cF49nw==",
+  "dgSpecHash": "Qkk0EFIcsGJsOb/iw4SBJjSRwhxoVQ3eo+rD4Y90/PoP7reJpLJMozaizxhr8JZblet0eh8584Dd0Gv1JIkDDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\SanBatDongSan\\QuanLyBDS\\QuanLyBDS.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\New Project\\SanBatDongSan\\QuanLyBDS\\QuanLyBDS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

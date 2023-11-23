@@ -54,7 +54,7 @@
             // 
             btnNap.FillColor = SystemColors.Highlight;
             btnNap.FillHoverColor = Color.MidnightBlue;
-            btnNap.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnNap.Location = new Point(645, 73);
             btnNap.MinimumSize = new Size(1, 1);
             btnNap.Name = "btnNap";
@@ -68,7 +68,7 @@
             // txtSodu
             // 
             txtSodu.Enabled = false;
-            txtSodu.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSodu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtSodu.Location = new Point(321, 107);
             txtSodu.Margin = new Padding(4, 5, 4, 5);
             txtSodu.MinimumSize = new Size(1, 16);
@@ -83,7 +83,7 @@
             // 
             // txtSdt
             // 
-            txtSdt.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSdt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtSdt.Location = new Point(321, 50);
             txtSdt.Margin = new Padding(4, 5, 4, 5);
             txtSdt.MinimumSize = new Size(1, 16);
@@ -98,7 +98,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(42, 107);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.MinimumSize = new Size(1, 16);
@@ -113,7 +113,7 @@
             // 
             // txtHoten
             // 
-            txtHoten.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtHoten.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtHoten.Location = new Point(42, 50);
             txtHoten.Margin = new Padding(4, 5, 4, 5);
             txtHoten.MinimumSize = new Size(1, 16);
@@ -129,46 +129,46 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(321, 83);
             label4.Name = "label4";
-            label4.Size = new Size(54, 19);
+            label4.Size = new Size(75, 25);
             label4.TabIndex = 21;
             label4.Text = "Số dư :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(321, 26);
             label3.Name = "label3";
-            label3.Size = new Size(102, 19);
+            label3.Size = new Size(137, 25);
             label3.TabIndex = 20;
             label3.Text = "Số điện thoại :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(42, 83);
             label2.Name = "label2";
-            label2.Size = new Size(53, 19);
+            label2.Size = new Size(71, 25);
             label2.TabIndex = 19;
             label2.Text = "Email :";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(42, 26);
             label1.Name = "label1";
-            label1.Size = new Size(60, 19);
+            label1.Size = new Size(80, 25);
             label1.TabIndex = 18;
             label1.Text = "Họ tên :";
             // 
             // txtNap
             // 
-            txtNap.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtNap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtNap.Location = new Point(620, 38);
             txtNap.Margin = new Padding(4, 5, 4, 5);
             txtNap.MinimumSize = new Size(1, 16);
@@ -185,7 +185,7 @@
             // 
             btnXoa.FillColor = SystemColors.Highlight;
             btnXoa.FillHoverColor = Color.MidnightBlue;
-            btnXoa.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnXoa.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnXoa.Location = new Point(624, 107);
             btnXoa.MinimumSize = new Size(1, 1);
             btnXoa.Name = "btnXoa";
@@ -194,6 +194,7 @@
             btnXoa.TabIndex = 27;
             btnXoa.Text = "Xoá khách hàng";
             btnXoa.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnXoa.Click += btnXoa_Click;
             // 
             // dtView
             // 
@@ -254,7 +255,7 @@
             txtId.AutoSize = true;
             txtId.Location = new Point(516, 16);
             txtId.Name = "txtId";
-            txtId.Size = new Size(55, 16);
+            txtId.Size = new Size(69, 20);
             txtId.TabIndex = 29;
             txtId.Text = "label5";
             // 
@@ -262,10 +263,10 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = SystemColors.Control;
-            label8.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label8.Location = new Point(335, 345);
             label8.Name = "label8";
-            label8.Size = new Size(118, 19);
+            label8.Size = new Size(158, 25);
             label8.TabIndex = 56;
             label8.Text = "Không có dữ liệu";
             label8.Visible = false;

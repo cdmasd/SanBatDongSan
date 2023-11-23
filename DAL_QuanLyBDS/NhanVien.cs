@@ -14,6 +14,7 @@ namespace DAL_QuanLyBDS
         IMongoCollection<BsonDocument> nhanvien = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("NhanVien");
         IMongoCollection<BsonDocument> ticket = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Ticket");
         IMongoCollection<BsonDocument> Khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
+        IMongoCollection<BsonDocument> taikhoan = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("TaiKhoan");
         public List<BsonDocument> Chuaduyet()
         {
             return dangtin.Find(new BsonDocument
@@ -128,5 +129,35 @@ namespace DAL_QuanLyBDS
                 return false;
             }
         }
+        public bool DeleteKhachhang(string id)
+        {
+            try
+            {
+                var filterBuilder = Builders<BsonDocument>.Filter.Eq("_id", id);
+                 
+                 Khachhang.DeleteOne(filterBuilder);
+                return true;  
+            }
+            catch
+            {
+                return false; 
+            }
+        }
+        public bool DeleteTaikhoanKH(string email, string id)
+        {
+
+            if (DeleteKhachhang(id))
+            {
+                var filter = Builders<BsonDocument>.Filter.Eq("Email", email);
+                taikhoan.DeleteOne(filter);
+                return true; 
+            }
+            else
+            {
+                return false; 
+            }
+
+        }
+
     }
 }
