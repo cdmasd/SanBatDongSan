@@ -33,7 +33,7 @@
             // FrmQLKhachHang_Admin
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(722, 565);
+            ClientSize = new Size(789, 565);
             Name = "FrmQLKhachHang_Admin";
             Text = "FrmQLKhachHang_Admin";
             ResumeLayout(false);

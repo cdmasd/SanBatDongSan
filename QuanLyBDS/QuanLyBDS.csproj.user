@@ -13,9 +13,6 @@
     <Compile Update="Admin\FrmHotro-Admin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Admin\FrmMainAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Admin\FrmMainnAdmin.cs">
       <SubType>Form</SubType>
     </Compile>

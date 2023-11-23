@@ -43,7 +43,7 @@ namespace QuanLyBDS
                 this.Text = mail;
                 if (dn.vaitro == "admin")
                 {
-                    FrmMainAdmin ad = new FrmMainAdmin();
+                    FrmMainnAdmin ad = new FrmMainnAdmin();
                     ad.TopLevel = false;
                     PanelMain.Controls.Add(ad);
                     ad.Show();

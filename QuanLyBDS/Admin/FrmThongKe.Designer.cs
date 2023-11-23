@@ -34,10 +34,12 @@
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(722, 565);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(789, 565);
             Name = "FrmThongKe";
             Padding = new Padding(0);
             ShowTitle = false;
+            Style = Sunny.UI.UIStyle.Custom;
             Text = "FrmThongKe";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
             ResumeLayout(false);
