@@ -86,7 +86,7 @@
             // uiLabel4
             // 
             uiLabel4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiLabel4.Location = new Point(383, 15);
+            uiLabel4.Location = new Point(436, 26);
             uiLabel4.Name = "uiLabel4";
             uiLabel4.Size = new Size(106, 23);
             uiLabel4.TabIndex = 3;
@@ -96,7 +96,7 @@
             // uiLabel5
             // 
             uiLabel5.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiLabel5.Location = new Point(383, 78);
+            uiLabel5.Location = new Point(436, 89);
             uiLabel5.Name = "uiLabel5";
             uiLabel5.Size = new Size(106, 23);
             uiLabel5.TabIndex = 4;
@@ -148,7 +148,7 @@
             // txtSodienthoai
             // 
             txtSodienthoai.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSodienthoai.Location = new Point(383, 40);
+            txtSodienthoai.Location = new Point(436, 51);
             txtSodienthoai.Margin = new Padding(4, 5, 4, 5);
             txtSodienthoai.MinimumSize = new Size(1, 16);
             txtSodienthoai.Name = "txtSodienthoai";
@@ -166,7 +166,7 @@
             DatetimePicker.CalendarTitleBackColor = SystemColors.ControlText;
             DatetimePicker.CalendarTitleForeColor = SystemColors.ButtonHighlight;
             DatetimePicker.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            DatetimePicker.Location = new Point(383, 104);
+            DatetimePicker.Location = new Point(436, 115);
             DatetimePicker.Name = "DatetimePicker";
             DatetimePicker.Size = new Size(261, 27);
             DatetimePicker.TabIndex = 10;
@@ -174,11 +174,16 @@
             // 
             // btnThem
             // 
+            btnThem.BackColor = SystemColors.Highlight;
+            btnThem.FillColor = SystemColors.Highlight;
+            btnThem.FillHoverColor = Color.MidnightBlue;
             btnThem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnThem.Location = new Point(316, 158);
+            btnThem.Location = new Point(369, 169);
             btnThem.MinimumSize = new Size(1, 1);
             btnThem.Name = "btnThem";
+            btnThem.RectColor = SystemColors.Highlight;
             btnThem.Size = new Size(74, 33);
+            btnThem.Style = Sunny.UI.UIStyle.Custom;
             btnThem.TabIndex = 11;
             btnThem.Text = "Thêm";
             btnThem.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -186,11 +191,16 @@
             // 
             // btnSua
             // 
+            btnSua.BackColor = SystemColors.Highlight;
+            btnSua.FillColor = SystemColors.Highlight;
+            btnSua.FillHoverColor = Color.MidnightBlue;
             btnSua.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSua.Location = new Point(422, 158);
+            btnSua.Location = new Point(475, 169);
             btnSua.MinimumSize = new Size(1, 1);
             btnSua.Name = "btnSua";
+            btnSua.RectColor = SystemColors.Highlight;
             btnSua.Size = new Size(74, 33);
+            btnSua.Style = Sunny.UI.UIStyle.Custom;
             btnSua.TabIndex = 12;
             btnSua.Text = "Sửa";
             btnSua.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -198,11 +208,16 @@
             // 
             // btnXoa
             // 
+            btnXoa.BackColor = SystemColors.Highlight;
+            btnXoa.FillColor = SystemColors.Highlight;
+            btnXoa.FillHoverColor = Color.MidnightBlue;
             btnXoa.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXoa.Location = new Point(528, 158);
+            btnXoa.Location = new Point(581, 169);
             btnXoa.MinimumSize = new Size(1, 1);
             btnXoa.Name = "btnXoa";
+            btnXoa.RectColor = SystemColors.Highlight;
             btnXoa.Size = new Size(74, 33);
+            btnXoa.Style = Sunny.UI.UIStyle.Custom;
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -210,11 +225,16 @@
             // 
             // btnDanhsach
             // 
+            btnDanhsach.BackColor = SystemColors.Highlight;
+            btnDanhsach.FillColor = SystemColors.Highlight;
+            btnDanhsach.FillHoverColor = Color.MidnightBlue;
             btnDanhsach.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDanhsach.Location = new Point(634, 158);
+            btnDanhsach.Location = new Point(687, 169);
             btnDanhsach.MinimumSize = new Size(1, 1);
             btnDanhsach.Name = "btnDanhsach";
+            btnDanhsach.RectColor = SystemColors.Highlight;
             btnDanhsach.Size = new Size(74, 33);
+            btnDanhsach.Style = Sunny.UI.UIStyle.Custom;
             btnDanhsach.TabIndex = 14;
             btnDanhsach.Text = "Danh sách";
             btnDanhsach.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -223,7 +243,7 @@
             // txtTimkiem
             // 
             txtTimkiem.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTimkiem.Location = new Point(155, 213);
+            txtTimkiem.Location = new Point(208, 219);
             txtTimkiem.Margin = new Padding(4, 5, 4, 5);
             txtTimkiem.MinimumSize = new Size(1, 16);
             txtTimkiem.Name = "txtTimkiem";
@@ -236,11 +256,16 @@
             // 
             // btnTimkiem
             // 
+            btnTimkiem.BackColor = SystemColors.Highlight;
+            btnTimkiem.FillColor = SystemColors.Highlight;
+            btnTimkiem.FillHoverColor = Color.MidnightBlue;
             btnTimkiem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTimkiem.Location = new Point(445, 211);
+            btnTimkiem.Location = new Point(498, 217);
             btnTimkiem.MinimumSize = new Size(1, 1);
             btnTimkiem.Name = "btnTimkiem";
+            btnTimkiem.RectColor = SystemColors.Highlight;
             btnTimkiem.Size = new Size(74, 33);
+            btnTimkiem.Style = Sunny.UI.UIStyle.Custom;
             btnTimkiem.TabIndex = 16;
             btnTimkiem.Text = "Tìm kiếm";
             btnTimkiem.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -295,7 +320,7 @@
             dtView.ScrollBarRectColor = Color.FromArgb(80, 160, 255);
             dtView.SelectedIndex = -1;
             dtView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtView.Size = new Size(698, 297);
+            dtView.Size = new Size(765, 297);
             dtView.TabIndex = 17;
             dtView.CellClick += dtView_CellClick;
             // 
@@ -303,7 +328,8 @@
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(722, 565);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(789, 565);
             Controls.Add(dtView);
             Controls.Add(btnTimkiem);
             Controls.Add(txtTimkiem);
@@ -324,6 +350,7 @@
             Name = "FrmQLNhanVien";
             Padding = new Padding(0);
             ShowTitle = false;
+            Style = Sunny.UI.UIStyle.Custom;
             Text = "FrmQLNhanVien";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
             Load += FrmQLNhanVien_Load;

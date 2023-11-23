@@ -33,7 +33,7 @@
             // FrmDoimatkhau_Admin
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(722, 565);
+            ClientSize = new Size(789, 565);
             Name = "FrmDoimatkhau_Admin";
             Text = "FrmDoimatkhau_Admin";
             ResumeLayout(false);

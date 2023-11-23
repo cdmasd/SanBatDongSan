@@ -234,7 +234,6 @@ C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBD
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.Admin.FrmDoimatkhau_Admin.resources
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.Admin.FrmDuyetbai_Admin.resources
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.Admin.FrmHotro_Admin.resources
-C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.Admin.FrmMainAdmin.resources
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.Admin.FrmMainnAdmin.resources
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.Admin.FrmQLKhachHang_Admin.resources
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.Admin.FrmQLNhanVien.resources
