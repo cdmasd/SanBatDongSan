@@ -111,8 +111,7 @@ namespace DAL_QuanLyBDS
         {
             try
             {
-                var filterBuilder = Builders<BsonDocument>.Filter;
-                var filter = filterBuilder.Eq("_id", id);
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
                 var updateBuilder = Builders<BsonDocument>.Update;
                 var update = updateBuilder
                     .Set("Email", email)

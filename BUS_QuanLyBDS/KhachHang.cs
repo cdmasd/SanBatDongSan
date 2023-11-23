@@ -11,9 +11,9 @@ namespace BUS_QuanLyBDS
     {
         DAL_QuanLyBDS.KhachHang kh = new DAL_QuanLyBDS.KhachHang();
         // phần khách hàng đăng bài 
-        public bool DangTin(string tieuDe, string loaiNha, double dienTich, int soPhong, double gia, string diaChi, string hinhAnh)
+        public bool DangTin(string tieuDe, string loaiNha, double dienTich, int soPhong, double gia, string diaChi, string hinhAnh,string email)
         {
-            return kh.DangTin(tieuDe, loaiNha, dienTich, soPhong, gia, diaChi, hinhAnh);
+            return kh.DangTin(tieuDe, loaiNha, dienTich, soPhong, gia, diaChi, hinhAnh,email);
         }
         public List<BsonDocument> getBaiDang()
         {
