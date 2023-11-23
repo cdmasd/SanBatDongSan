@@ -12,8 +12,26 @@ namespace DAL_QuanLyBDS
     {
         IMongoCollection<BsonDocument> Khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
         IMongoCollection<BsonDocument> khachhangdangtin = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("KhachHangDangTin");
-
-        public bool DangTin(string tieuDe, string loaiNha, double dienTich, int soPhong, double gia, string diaChi, string hinhAnh)
+        public string getidKh(string email)
+        {
+            var result = Khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            return result[0]["_id"].ToString();
+        }
+        public void UpdateSodu(string email)
+        {
+            var result = Khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            var filter = Builders<BsonDocument>.Filter.Eq("Email", email);
+            var sodu = result[0]["Sodu"];
+            var update = Builders<BsonDocument>.Update.Set("Sodu",(int.Parse(sodu.ToString()) -  20000));
+            Khachhang.UpdateOne(filter, update);
+        }
+        public bool DangTin(string tieuDe, string loaiNha, double dienTich, int soPhong, double gia, string diaChi, string hinhAnh,string email)
         {
             try
             {
@@ -29,12 +47,13 @@ namespace DAL_QuanLyBDS
                     {"Gia", gia},
                     {"Diachi", diaChi},
                     {"Hinhanh", hinhAnh},
+                    {"_idnguoidang",getidKh(email) },
                     {"Thoigiandang", DateTime.Now.ToString("dd-MM-yyyy")},
                     {"Trangthai", false}
                 };
 
                 khachhangdangtin.InsertOne(dangtinDocument);
-
+                UpdateSodu(email);
                 Console.WriteLine("Đăng tin thành công, vui lòng chờ nhân viên kiểm duyệt nội dung!");
                 return true;
             }

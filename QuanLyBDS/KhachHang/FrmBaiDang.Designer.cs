@@ -154,6 +154,7 @@
             txtDientich.TabIndex = 8;
             txtDientich.TextAlignment = ContentAlignment.MiddleLeft;
             txtDientich.Watermark = "";
+            txtDientich.KeyPress += txtDientich_KeyPress;
             // 
             // txtSophong
             // 
@@ -169,6 +170,7 @@
             txtSophong.TabIndex = 9;
             txtSophong.TextAlignment = ContentAlignment.MiddleLeft;
             txtSophong.Watermark = "";
+            txtSophong.KeyPress += txtSophong_KeyPress;
             // 
             // txtGia
             // 
@@ -184,6 +186,7 @@
             txtGia.TabIndex = 10;
             txtGia.TextAlignment = ContentAlignment.MiddleLeft;
             txtGia.Watermark = "";
+            txtGia.KeyPress += txtGia_KeyPress;
             // 
             // txtHinhanh
             // 

@@ -69,7 +69,7 @@ namespace QuanLyBDS.KhachHang
                 }
 
                 // Gọi phương thức DangTin từ lớp BUS và truyền địa chỉ email
-                bool result = kh.DangTin(tieuDe, loaiNha, dientich, sophong, gia, diaChi, hinhAnh);
+                bool result = kh.DangTin(tieuDe, loaiNha, dientich, sophong, gia, diaChi, hinhAnh, FrmMain.mail);
 
                 if (result)
                 {
@@ -105,6 +105,30 @@ namespace QuanLyBDS.KhachHang
                 filSavePath = saveDirectory + "\\Images\\" + fileName;
                 txtHinhanh.Text = "\\Images\\" + fileName;
 
+            }
+        }
+
+        private void txtDientich_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSophong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
