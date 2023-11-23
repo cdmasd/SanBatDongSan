@@ -51,7 +51,7 @@ namespace QuanLyBDS
                 }
                 else if (dn.vaitro == "khachhang")
                 {
-                    FrmMainKhachHang kh = new FrmMainKhachHang();
+                    FrmMainnKhachHang kh = new FrmMainnKhachHang();
                     kh.TopLevel = false;
                     PanelMain.Controls.Add(kh);
                     kh.Show();

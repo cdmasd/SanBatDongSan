@@ -51,7 +51,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(16, 77);
+            label2.Location = new Point(16, 73);
             label2.Name = "label2";
             label2.Size = new Size(238, 19);
             label2.TabIndex = 1;
@@ -60,7 +60,7 @@
             // txtHotro
             // 
             txtHotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHotro.Location = new Point(16, 38);
+            txtHotro.Location = new Point(16, 36);
             txtHotro.Margin = new Padding(4, 5, 4, 5);
             txtHotro.MinimumSize = new Size(1, 16);
             txtHotro.Name = "txtHotro";
@@ -73,11 +73,14 @@
             // 
             // btnGuiyeucau
             // 
+            btnGuiyeucau.FillColor = SystemColors.Highlight;
+            btnGuiyeucau.FillHoverColor = Color.MidnightBlue;
             btnGuiyeucau.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGuiyeucau.Location = new Point(610, 518);
+            btnGuiyeucau.Location = new Point(676, 518);
             btnGuiyeucau.MinimumSize = new Size(1, 1);
             btnGuiyeucau.Name = "btnGuiyeucau";
             btnGuiyeucau.Size = new Size(100, 35);
+            btnGuiyeucau.Style = Sunny.UI.UIStyle.Custom;
             btnGuiyeucau.TabIndex = 4;
             btnGuiyeucau.Text = "Gửi yêu cầu";
             btnGuiyeucau.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -85,7 +88,7 @@
             // txtSodt
             // 
             txtSodt.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSodt.Location = new Point(471, 38);
+            txtSodt.Location = new Point(471, 36);
             txtSodt.Margin = new Padding(4, 5, 4, 5);
             txtSodt.MinimumSize = new Size(1, 16);
             txtSodt.Name = "txtSodt";
@@ -109,14 +112,14 @@
             // txtChitiethotro
             // 
             txtChitiethotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtChitiethotro.Location = new Point(16, 101);
+            txtChitiethotro.Location = new Point(16, 100);
             txtChitiethotro.Margin = new Padding(4, 5, 4, 5);
             txtChitiethotro.MinimumSize = new Size(1, 16);
             txtChitiethotro.Multiline = true;
             txtChitiethotro.Name = "txtChitiethotro";
             txtChitiethotro.Padding = new Padding(5);
             txtChitiethotro.ShowText = false;
-            txtChitiethotro.Size = new Size(693, 409);
+            txtChitiethotro.Size = new Size(760, 409);
             txtChitiethotro.TabIndex = 5;
             txtChitiethotro.TextAlignment = ContentAlignment.MiddleLeft;
             txtChitiethotro.Watermark = "";
@@ -125,7 +128,8 @@
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(722, 565);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(789, 565);
             Controls.Add(txtChitiethotro);
             Controls.Add(txtSodt);
             Controls.Add(label3);
@@ -136,6 +140,7 @@
             Name = "FrmHoTro";
             Padding = new Padding(0);
             ShowTitle = false;
+            Style = Sunny.UI.UIStyle.Custom;
             Text = "FrmHoTro";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
             ResumeLayout(false);
