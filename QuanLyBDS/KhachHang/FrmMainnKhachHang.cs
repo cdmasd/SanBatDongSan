@@ -1,5 +1,4 @@
-﻿using Sunny.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,24 +10,26 @@ using System.Windows.Forms;
 
 namespace QuanLyBDS.KhachHang
 {
-    public partial class FrmMainKhachHang : UIForm
+    public partial class FrmMainnKhachHang : Form
     {
-        public FrmMainKhachHang()
+        public FrmMainnKhachHang()
         {
             InitializeComponent();
         }
+
         void ResetColor()
         {
-            btnThongtin.BackColor = SystemColors.MenuHighlight;
-            btnDangbds.BackColor = SystemColors.MenuHighlight;
-            btnDanhsachbaidang.BackColor = SystemColors.MenuHighlight;
-            btnHotro.BackColor = SystemColors.MenuHighlight;
-            btnDoimk.BackColor = SystemColors.MenuHighlight;
+            btnThongtin.BackColor = SystemColors.Highlight;
+            btnDangbds.BackColor = SystemColors.Highlight;
+            btnDanhsachbaidang.BackColor = SystemColors.Highlight;
+            btnHotro.BackColor = SystemColors.Highlight;
+            btnDoimk.BackColor = SystemColors.Highlight;
+            btnNaptien.BackColor = SystemColors.Highlight;
         }
         private void btnThongtin_Click(object sender, EventArgs e)
         {
             ResetColor();
-            btnThongtin.BackColor = Color.SteelBlue;
+            btnThongtin.BackColor = SystemColors.ActiveCaption;
             if (!CheckExistForm("FrmThongTin"))
             {
                 FrmThongTin tt = new FrmThongTin();
@@ -46,7 +47,7 @@ namespace QuanLyBDS.KhachHang
         private void btnDangbds_Click(object sender, EventArgs e)
         {
             ResetColor();
-            btnDangbds.BackColor = Color.SteelBlue;
+            btnDangbds.BackColor = SystemColors.ActiveCaption;
             if (!CheckExistForm("FrmBaiDang"))
             {
                 FrmBaiDang bd = new FrmBaiDang();
@@ -62,29 +63,10 @@ namespace QuanLyBDS.KhachHang
             }
         }
 
-        private void btnThongkebds_Click(object sender, EventArgs e)
-        {
-            ResetColor();
-            btnDanhsachbaidang.BackColor = Color.SteelBlue;
-            if (!CheckExistForm("FrmDanhSachBaiDang"))
-            {
-                FrmDanhSachBaiDang listbd = new FrmDanhSachBaiDang();
-                listbd.TopLevel = false;
-                panelKhachHang.Controls.Add(listbd);
-                listbd.Show();
-                listbd.BringToFront();
-
-            }
-            else
-            {
-                ActiveChildForm("FrmDanhSachBaiDang");
-            }
-        }
-
         private void btnHotro_Click(object sender, EventArgs e)
         {
             ResetColor();
-            btnHotro.BackColor = Color.SteelBlue;
+            btnHotro.BackColor = SystemColors.ActiveCaption;
             if (!CheckExistForm("FrmHoTro"))
             {
                 FrmHoTro hotro = new FrmHoTro();
@@ -103,7 +85,7 @@ namespace QuanLyBDS.KhachHang
         private void btnDoimk_Click(object sender, EventArgs e)
         {
             ResetColor();
-            btnDoimk.BackColor = Color.SteelBlue;
+            btnDoimk.BackColor = SystemColors.ActiveCaption;
             if (!CheckExistForm("FrmDoiMatKhau"))
             {
                 FrmDoiMatKhau dmk = new FrmDoiMatKhau();
@@ -151,9 +133,26 @@ namespace QuanLyBDS.KhachHang
         private void btnNaptien_Click(object sender, EventArgs e)
         {
             ResetColor();
-            btnDoimk.BackColor = Color.SteelBlue;
+            btnNaptien.BackColor = SystemColors.ActiveCaption;
         }
+        private void btnDanhsachbaidang_Click(object sender, EventArgs e)
+        {
+            ResetColor();
+            btnDanhsachbaidang.BackColor = SystemColors.ActiveCaption;
+            if (!CheckExistForm("FrmDanhSachBaiDang"))
+            {
+                FrmDanhSachBaiDang listbd = new FrmDanhSachBaiDang();
+                listbd.TopLevel = false;
+                panelKhachHang.Controls.Add(listbd);
+                listbd.Show();
+                listbd.BringToFront();
 
+            }
+            else
+            {
+                ActiveChildForm("FrmDanhSachBaiDang");
+            }
+        }
         private void btnDangxuat_Click(object sender, EventArgs e)
         {
             FrmMain.mail = "Quản lý bất động sản";

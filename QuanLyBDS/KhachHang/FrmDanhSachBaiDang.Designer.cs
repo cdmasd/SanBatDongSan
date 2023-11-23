@@ -51,16 +51,20 @@
             txtHinhanh = new Sunny.UI.UITextBox();
             label6 = new Label();
             txtId = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             SuspendLayout();
             // 
             // btnUpdate
             // 
-            btnUpdate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpdate.Location = new Point(561, 165);
+            btnUpdate.FillColor = SystemColors.Highlight;
+            btnUpdate.FillHoverColor = Color.MidnightBlue;
+            btnUpdate.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUpdate.Location = new Point(634, 179);
             btnUpdate.MinimumSize = new Size(1, 1);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(100, 35);
+            btnUpdate.Style = Sunny.UI.UIStyle.Custom;
             btnUpdate.TabIndex = 27;
             btnUpdate.Text = "Cập nhật";
             btnUpdate.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -68,11 +72,14 @@
             // 
             // btnUpload
             // 
-            btnUpload.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpload.Location = new Point(407, 165);
+            btnUpload.FillColor = SystemColors.Highlight;
+            btnUpload.FillHoverColor = Color.MidnightBlue;
+            btnUpload.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUpload.Location = new Point(480, 179);
             btnUpload.MinimumSize = new Size(1, 1);
             btnUpload.Name = "btnUpload";
             btnUpload.Size = new Size(100, 35);
+            btnUpload.Style = Sunny.UI.UIStyle.Custom;
             btnUpload.TabIndex = 26;
             btnUpload.Text = "Upload";
             btnUpload.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -80,8 +87,8 @@
             // 
             // txtGia
             // 
-            txtGia.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtGia.Location = new Point(103, 196);
+            txtGia.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtGia.Location = new Point(141, 205);
             txtGia.Margin = new Padding(4, 5, 4, 5);
             txtGia.MinimumSize = new Size(1, 16);
             txtGia.Name = "txtGia";
@@ -94,8 +101,8 @@
             // 
             // txtSophong
             // 
-            txtSophong.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSophong.Location = new Point(103, 153);
+            txtSophong.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSophong.Location = new Point(141, 162);
             txtSophong.Margin = new Padding(4, 5, 4, 5);
             txtSophong.MinimumSize = new Size(1, 16);
             txtSophong.Name = "txtSophong";
@@ -108,8 +115,8 @@
             // 
             // txtDientich
             // 
-            txtDientich.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDientich.Location = new Point(103, 110);
+            txtDientich.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDientich.Location = new Point(141, 119);
             txtDientich.Margin = new Padding(4, 5, 4, 5);
             txtDientich.MinimumSize = new Size(1, 16);
             txtDientich.Name = "txtDientich";
@@ -124,8 +131,8 @@
             // 
             cbLoainha.DataSource = null;
             cbLoainha.FillColor = Color.White;
-            cbLoainha.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbLoainha.Location = new Point(103, 67);
+            cbLoainha.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbLoainha.Location = new Point(141, 76);
             cbLoainha.Margin = new Padding(4, 5, 4, 5);
             cbLoainha.MinimumSize = new Size(63, 0);
             cbLoainha.Name = "cbLoainha";
@@ -137,8 +144,8 @@
             // 
             // txtTieude
             // 
-            txtTieude.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTieude.Location = new Point(103, 24);
+            txtTieude.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTieude.Location = new Point(141, 33);
             txtTieude.Margin = new Padding(4, 5, 4, 5);
             txtTieude.MinimumSize = new Size(1, 16);
             txtTieude.Name = "txtTieude";
@@ -152,50 +159,50 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(56, 199);
+            label5.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(94, 208);
             label5.Name = "label5";
-            label5.Size = new Size(53, 25);
+            label5.Size = new Size(38, 19);
             label5.TabIndex = 18;
             label5.Text = "Giá :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(17, 156);
+            label4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(55, 165);
             label4.Name = "label4";
-            label4.Size = new Size(108, 25);
+            label4.Size = new Size(77, 19);
             label4.TabIndex = 17;
             label4.Text = "Số phòng :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(20, 113);
+            label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(58, 122);
             label3.Name = "label3";
-            label3.Size = new Size(98, 25);
+            label3.Size = new Size(74, 19);
             label3.TabIndex = 16;
             label3.Text = "Diện tích :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(21, 70);
+            label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(59, 79);
             label2.Name = "label2";
-            label2.Size = new Size(98, 25);
+            label2.Size = new Size(73, 19);
             label2.TabIndex = 15;
             label2.Text = "Loại nhà :";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(29, 27);
+            label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(67, 36);
             label1.Name = "label1";
-            label1.Size = new Size(89, 25);
+            label1.Size = new Size(65, 19);
             label1.TabIndex = 14;
             label1.Text = "Tiêu đề :";
             // 
@@ -252,13 +259,13 @@
             dtView.ScrollBarRectColor = Color.FromArgb(80, 160, 255);
             dtView.SelectedIndex = -1;
             dtView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtView.Size = new Size(698, 303);
+            dtView.Size = new Size(765, 303);
             dtView.TabIndex = 28;
             // 
             // txtDiachi
             // 
-            txtDiachi.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDiachi.Location = new Point(436, 62);
+            txtDiachi.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDiachi.Location = new Point(509, 76);
             txtDiachi.Margin = new Padding(4, 5, 4, 5);
             txtDiachi.MinimumSize = new Size(1, 16);
             txtDiachi.Name = "txtDiachi";
@@ -272,17 +279,17 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(432, 36);
+            label7.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(505, 50);
             label7.Name = "label7";
-            label7.Size = new Size(200, 25);
+            label7.Size = new Size(149, 19);
             label7.TabIndex = 30;
             label7.Text = "Địa chỉ bất động sản :";
             // 
             // txtHinhanh
             // 
-            txtHinhanh.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHinhanh.Location = new Point(436, 122);
+            txtHinhanh.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtHinhanh.Location = new Point(509, 136);
             txtHinhanh.Margin = new Padding(4, 5, 4, 5);
             txtHinhanh.MinimumSize = new Size(1, 16);
             txtHinhanh.Name = "txtHinhanh";
@@ -296,27 +303,41 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(432, 96);
+            label6.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(505, 110);
             label6.Name = "label6";
-            label6.Size = new Size(101, 25);
+            label6.Size = new Size(75, 19);
             label6.TabIndex = 29;
             label6.Text = "Hình ảnh :";
             // 
             // txtId
             // 
             txtId.AutoSize = true;
-            txtId.Location = new Point(340, 46);
+            txtId.Location = new Point(371, 53);
             txtId.Name = "txtId";
-            txtId.Size = new Size(69, 20);
+            txtId.Size = new Size(55, 16);
             txtId.TabIndex = 33;
             txtId.Text = "label8";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = SystemColors.Control;
+            label8.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(335, 392);
+            label8.Name = "label8";
+            label8.Size = new Size(118, 19);
+            label8.TabIndex = 57;
+            label8.Text = "Không có dữ liệu";
+            label8.Visible = false;
             // 
             // FrmDanhSachBaiDang
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(722, 565);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(789, 565);
+            Controls.Add(label8);
             Controls.Add(txtId);
             Controls.Add(txtDiachi);
             Controls.Add(label7);
@@ -338,6 +359,7 @@
             Name = "FrmDanhSachBaiDang";
             Padding = new Padding(0);
             ShowTitle = false;
+            Style = Sunny.UI.UIStyle.Custom;
             Text = "FrmDanhSachBaiDang";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
             Load += FrmDanhSachBaiDang_Load;
@@ -366,5 +388,6 @@
         private Sunny.UI.UITextBox txtHinhanh;
         private Label label6;
         private Label txtId;
+        private Label label8;
     }
 }
