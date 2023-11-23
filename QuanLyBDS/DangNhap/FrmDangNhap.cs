@@ -42,7 +42,6 @@ namespace QuanLyBDS
             UILocalize.SuccessTitle = "Success";
             UILocalize.ErrorTitle = "Error";
         }
-
         void ResetValues()
         {
             txtEmailre.Text = null;
@@ -96,6 +95,7 @@ namespace QuanLyBDS
             btnLayma.Visible = false;
             label3.Visible = false;
         }
+        // Mở giao diện của register
         void RegisterView()
         {
             lb1re.Visible = true;
@@ -141,7 +141,42 @@ namespace QuanLyBDS
             btnKhach.Enabled = false;
             btnKhach.Visible = false;
         }
-        // Mở giao diện của register
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            txtEmailEmpty.Visible = false;
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtPasswordEmpty.Visible = false;
+        }
+        private void txtEmailre_TextChanged(object sender, EventArgs e)
+        {
+            txtEmailreEmpty.Visible = false;
+            txtEmailreInvalid.Visible = false;
+        }
+
+        private void txtSoDTre_TextChanged(object sender, EventArgs e)
+        {
+            txtSodtreEmpty.Visible = false;
+            txtSodtreInvalid.Visible = false;
+        }
+
+        private void txtHoTenre_TextChanged(object sender, EventArgs e)
+        {
+            txtHotenreEmpty.Visible = false;
+        }
+
+        private void txtPasswordre_TextChanged(object sender, EventArgs e)
+        {
+            txtPasswordreEmpty.Visible = false;
+        }
+
+        private void txtXacthuc_TextChanged(object sender, EventArgs e)
+        {
+            txtXacnhanEmpty.Visible = false;
+            txtXacthucsai.Visible = false;
+        }
         private void btnTaoTaiKhoan_Click(object sender, EventArgs e)
         {
             RegisterView();
@@ -155,35 +190,8 @@ namespace QuanLyBDS
         #region chức năng
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtEmailre.Text) || string.IsNullOrEmpty(txtHoTenre.Text)
-                || string.IsNullOrWhiteSpace(txtSoDTre.Text) || string.IsNullOrEmpty(txtPasswordre.Text))
+            if (!registerEmpty())
             {
-                ShowErrorNotifier("Các trường không được để rỗng");
-                txtEmailre.Focus();
-                return;
-            }
-            if (!isEmail(txtEmailre.Text.Trim()))
-            {
-                ShowErrorNotifier("Sai định dạng email");
-                txtEmailre.Focus();
-                return;
-            }
-            if (!isPhone(txtSoDTre.Text.Trim()))
-            {
-                ShowErrorNotifier("Sai định dạng số điện thoại");
-                txtSoDTre.Focus();
-                return;
-            }
-            if (string.IsNullOrEmpty(txtXacthuc.Text))
-            {
-                ShowErrorNotifier("Vui lòng lấy mã xác thực và kiểm tra email");
-                txtXacthuc.Focus();
-                return;
-            }
-            if (txtXacthuc.Text != num)
-            {
-                ShowErrorNotifier("Mã xác thực không chính xác");
-                txtXacthuc.Focus();
                 return;
             }
             if (dn.insertKhachhang(txtEmailre.Text, txtHoTenre.Text, txtSoDTre.Text, txtPasswordre.Text))
@@ -194,16 +202,15 @@ namespace QuanLyBDS
             }
             else
             {
-                UIMessageDialog.ShowErrorDialog(this, "Dăng kí không thành công,email hoặc số điện thoại đã tồn tại");
+                ShowErrorDialog("Dăng kí không thành công,email hoặc số điện thoại đã tồn tại");
             }
             ResetValues();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtEmail.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
+            if (!loginEmpty())
             {
-                ShowErrorNotifier("Các trường không được rỗng");
                 return;
             }
             if (dn.checkAccount(txtEmail.Text, txtPassword.Text))
@@ -232,7 +239,7 @@ namespace QuanLyBDS
             }
             else
             {
-                UIMessageDialog.ShowSuccessDialog(this, "Đăng nhập không thành công, kiểm tra lại email hoặc mật khẩu");
+                ShowErrorDialog("Đăng nhập không thành công, kiểm tra lại email hoặc mật khẩu");
                 txtEmail.Text = "";
                 txtPassword.Text = "";
                 txtEmail.Focus();
@@ -367,6 +374,77 @@ namespace QuanLyBDS
             {
                 e.Handled = true;
             }
+        }
+
+        #endregion
+        #region Kiểm tra rỗng
+        bool loginEmpty()
+        {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                txtEmailEmpty.Visible = true;
+                txtEmail.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                txtPasswordEmpty.Visible = true;
+                txtPassword.Focus();
+                return false;
+            }
+            return true;
+        }
+        bool registerEmpty()
+        {
+            if (string.IsNullOrWhiteSpace(txtEmailre.Text))
+            {
+                txtEmailreEmpty.Visible = true;
+                txtEmailre.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtHoTenre.Text))
+            {
+                txtHotenreEmpty.Visible = true;
+                txtHoTenre.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtSoDTre.Text))
+            {
+                txtSodtreEmpty.Visible = true;
+                txtSoDTre.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtPasswordre.Text))
+            {
+                txtPasswordreEmpty.Visible = true;
+                txtPasswordre.Focus();
+                return false;
+            }
+            if (!isEmail(txtEmailre.Text.Trim()))
+            {
+                txtEmailreInvalid.Visible = true;
+                txtEmailre.Focus();
+                return false;
+            }
+            if (!isPhone(txtSoDTre.Text.Trim()))
+            {
+                txtSodtreInvalid.Visible = true;
+                txtSoDTre.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtXacthuc.Text))
+            {
+                txtXacnhanEmpty.Visible = true;
+                txtXacthuc.Focus();
+                return false;
+            }
+            if (txtXacthuc.Text != num)
+            {
+                txtXacthucsai.Visible = true;
+                txtXacthuc.Focus();
+                return false;
+            }
+            return true;
         }
 
         #endregion

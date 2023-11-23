@@ -61,6 +61,15 @@
             pictureBox1 = new PictureBox();
             picBackground = new PictureBox();
             PanelDangNhap = new Sunny.UI.UIPanel();
+            txtXacthucsai = new Label();
+            txtXacnhanEmpty = new Label();
+            txtSodtreInvalid = new Label();
+            txtEmailreInvalid = new Label();
+            txtPasswordreEmpty = new Label();
+            txtSodtreEmpty = new Label();
+            txtEmailreEmpty = new Label();
+            txtPasswordEmpty = new Label();
+            txtEmailEmpty = new Label();
             btnTaoTaiKhoan = new Sunny.UI.UILinkLabel();
             label3 = new Label();
             btnLayma = new Sunny.UI.UIButton();
@@ -84,6 +93,7 @@
             chkRemember = new Sunny.UI.UICheckBox();
             txtPassword = new Sunny.UI.UITextBox();
             txtEmail = new Sunny.UI.UITextBox();
+            txtHotenreEmpty = new Label();
             label2 = new Label();
             label1 = new Label();
             uiLabel1 = new Sunny.UI.UILabel();
@@ -93,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBackground).BeginInit();
             PanelDangNhap.SuspendLayout();
+            txtEmail.SuspendLayout();
             SuspendLayout();
             // 
             // UIPanel
@@ -493,6 +504,15 @@
             // 
             // PanelDangNhap
             // 
+            PanelDangNhap.Controls.Add(txtXacthucsai);
+            PanelDangNhap.Controls.Add(txtXacnhanEmpty);
+            PanelDangNhap.Controls.Add(txtSodtreInvalid);
+            PanelDangNhap.Controls.Add(txtEmailreInvalid);
+            PanelDangNhap.Controls.Add(txtPasswordreEmpty);
+            PanelDangNhap.Controls.Add(txtSodtreEmpty);
+            PanelDangNhap.Controls.Add(txtEmailreEmpty);
+            PanelDangNhap.Controls.Add(txtPasswordEmpty);
+            PanelDangNhap.Controls.Add(txtEmailEmpty);
             PanelDangNhap.Controls.Add(btnTaoTaiKhoan);
             PanelDangNhap.Controls.Add(label3);
             PanelDangNhap.Controls.Add(btnLayma);
@@ -530,6 +550,114 @@
             PanelDangNhap.TabIndex = 1;
             PanelDangNhap.Text = null;
             PanelDangNhap.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // txtXacthucsai
+            // 
+            txtXacthucsai.AutoSize = true;
+            txtXacthucsai.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtXacthucsai.ForeColor = Color.Red;
+            txtXacthucsai.Location = new Point(117, 400);
+            txtXacthucsai.Name = "txtXacthucsai";
+            txtXacthucsai.Size = new Size(156, 15);
+            txtXacthucsai.TabIndex = 60;
+            txtXacthucsai.Text = "Mã xác nhận không chính xác";
+            txtXacthucsai.Visible = false;
+            // 
+            // txtXacnhanEmpty
+            // 
+            txtXacnhanEmpty.AutoSize = true;
+            txtXacnhanEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtXacnhanEmpty.ForeColor = Color.Red;
+            txtXacnhanEmpty.Location = new Point(118, 400);
+            txtXacnhanEmpty.Name = "txtXacnhanEmpty";
+            txtXacnhanEmpty.Size = new Size(175, 15);
+            txtXacnhanEmpty.TabIndex = 59;
+            txtXacnhanEmpty.Text = "Vui lòng lấy mã và kiểm tra email";
+            txtXacnhanEmpty.Visible = false;
+            // 
+            // txtSodtreInvalid
+            // 
+            txtSodtreInvalid.AutoSize = true;
+            txtSodtreInvalid.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSodtreInvalid.ForeColor = Color.Red;
+            txtSodtreInvalid.Location = new Point(276, 232);
+            txtSodtreInvalid.Name = "txtSodtreInvalid";
+            txtSodtreInvalid.Size = new Size(143, 15);
+            txtSodtreInvalid.TabIndex = 58;
+            txtSodtreInvalid.Text = "Số điện thoại không hợp lệ";
+            txtSodtreInvalid.Visible = false;
+            // 
+            // txtEmailreInvalid
+            // 
+            txtEmailreInvalid.AutoSize = true;
+            txtEmailreInvalid.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmailreInvalid.ForeColor = Color.Red;
+            txtEmailreInvalid.Location = new Point(316, 112);
+            txtEmailreInvalid.Name = "txtEmailreInvalid";
+            txtEmailreInvalid.Size = new Size(103, 15);
+            txtEmailreInvalid.TabIndex = 57;
+            txtEmailreInvalid.Text = "Email không hợp lệ";
+            txtEmailreInvalid.Visible = false;
+            // 
+            // txtPasswordreEmpty
+            // 
+            txtPasswordreEmpty.AutoSize = true;
+            txtPasswordreEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPasswordreEmpty.ForeColor = Color.Red;
+            txtPasswordreEmpty.Location = new Point(252, 293);
+            txtPasswordreEmpty.Name = "txtPasswordreEmpty";
+            txtPasswordreEmpty.Size = new Size(165, 15);
+            txtPasswordreEmpty.TabIndex = 56;
+            txtPasswordreEmpty.Text = "Không được để trống mật khẩu";
+            txtPasswordreEmpty.Visible = false;
+            // 
+            // txtSodtreEmpty
+            // 
+            txtSodtreEmpty.AutoSize = true;
+            txtSodtreEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSodtreEmpty.ForeColor = Color.Red;
+            txtSodtreEmpty.Location = new Point(233, 232);
+            txtSodtreEmpty.Name = "txtSodtreEmpty";
+            txtSodtreEmpty.Size = new Size(185, 15);
+            txtSodtreEmpty.TabIndex = 55;
+            txtSodtreEmpty.Text = "Không được để trống số điện thoại";
+            txtSodtreEmpty.Visible = false;
+            // 
+            // txtEmailreEmpty
+            // 
+            txtEmailreEmpty.AutoSize = true;
+            txtEmailreEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmailreEmpty.ForeColor = Color.Red;
+            txtEmailreEmpty.Location = new Point(272, 112);
+            txtEmailreEmpty.Name = "txtEmailreEmpty";
+            txtEmailreEmpty.Size = new Size(146, 15);
+            txtEmailreEmpty.TabIndex = 53;
+            txtEmailreEmpty.Text = "Không được để trống email";
+            txtEmailreEmpty.Visible = false;
+            // 
+            // txtPasswordEmpty
+            // 
+            txtPasswordEmpty.AutoSize = true;
+            txtPasswordEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPasswordEmpty.ForeColor = Color.Red;
+            txtPasswordEmpty.Location = new Point(254, 232);
+            txtPasswordEmpty.Name = "txtPasswordEmpty";
+            txtPasswordEmpty.Size = new Size(165, 15);
+            txtPasswordEmpty.TabIndex = 52;
+            txtPasswordEmpty.Text = "Không được để trống mật khẩu";
+            txtPasswordEmpty.Visible = false;
+            // 
+            // txtEmailEmpty
+            // 
+            txtEmailEmpty.AutoSize = true;
+            txtEmailEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmailEmpty.ForeColor = Color.Red;
+            txtEmailEmpty.Location = new Point(274, 163);
+            txtEmailEmpty.Name = "txtEmailEmpty";
+            txtEmailEmpty.Size = new Size(146, 15);
+            txtEmailEmpty.TabIndex = 51;
+            txtEmailEmpty.Text = "Không được để trống email";
+            txtEmailEmpty.Visible = false;
             // 
             // btnTaoTaiKhoan
             // 
@@ -580,6 +708,7 @@
             txtSoDTre.TabIndex = 38;
             txtSoDTre.TextAlignment = ContentAlignment.MiddleLeft;
             txtSoDTre.Watermark = "";
+            txtSoDTre.TextChanged += txtSoDTre_TextChanged;
             txtSoDTre.KeyPress += txtSoDTre_KeyPress;
             // 
             // txtXacthuc
@@ -595,6 +724,7 @@
             txtXacthuc.TabIndex = 40;
             txtXacthuc.TextAlignment = ContentAlignment.MiddleLeft;
             txtXacthuc.Watermark = "";
+            txtXacthuc.TextChanged += txtXacthuc_TextChanged;
             // 
             // btnKhach
             // 
@@ -653,12 +783,13 @@
             txtPasswordre.MinimumSize = new Size(1, 16);
             txtPasswordre.Name = "txtPasswordre";
             txtPasswordre.Padding = new Padding(5);
-            txtPasswordre.PasswordChar = '*';
+            txtPasswordre.PasswordChar = '•';
             txtPasswordre.ShowText = false;
             txtPasswordre.Size = new Size(295, 29);
             txtPasswordre.TabIndex = 39;
             txtPasswordre.TextAlignment = ContentAlignment.MiddleLeft;
             txtPasswordre.Watermark = "";
+            txtPasswordre.TextChanged += txtPasswordre_TextChanged;
             // 
             // lb5re
             // 
@@ -693,6 +824,7 @@
             txtHoTenre.TabIndex = 37;
             txtHoTenre.TextAlignment = ContentAlignment.MiddleLeft;
             txtHoTenre.Watermark = "";
+            txtHoTenre.TextChanged += txtHoTenre_TextChanged;
             // 
             // lb3re
             // 
@@ -717,6 +849,7 @@
             txtEmailre.TabIndex = 36;
             txtEmailre.TextAlignment = ContentAlignment.MiddleLeft;
             txtEmailre.Watermark = "";
+            txtEmailre.TextChanged += txtEmailre_TextChanged;
             // 
             // lb2re
             // 
@@ -792,15 +925,17 @@
             txtPassword.MinimumSize = new Size(1, 16);
             txtPassword.Name = "txtPassword";
             txtPassword.Padding = new Padding(5);
-            txtPassword.PasswordChar = '-';
+            txtPassword.PasswordChar = '•';
             txtPassword.ShowText = false;
             txtPassword.Size = new Size(295, 29);
             txtPassword.TabIndex = 28;
             txtPassword.TextAlignment = ContentAlignment.MiddleLeft;
             txtPassword.Watermark = "";
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // txtEmail
             // 
+            txtEmail.Controls.Add(txtHotenreEmpty);
             txtEmail.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(122, 180);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
@@ -812,6 +947,19 @@
             txtEmail.TabIndex = 27;
             txtEmail.TextAlignment = ContentAlignment.MiddleLeft;
             txtEmail.Watermark = "";
+            txtEmail.TextChanged += txtEmail_TextChanged;
+            // 
+            // txtHotenreEmpty
+            // 
+            txtHotenreEmpty.AutoSize = true;
+            txtHotenreEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtHotenreEmpty.ForeColor = Color.Red;
+            txtHotenreEmpty.Location = new Point(147, -7);
+            txtHotenreEmpty.Name = "txtHotenreEmpty";
+            txtHotenreEmpty.Size = new Size(150, 15);
+            txtHotenreEmpty.TabIndex = 54;
+            txtHotenreEmpty.Text = "Không được để trống họ tên";
+            txtHotenreEmpty.Visible = false;
             // 
             // label2
             // 
@@ -864,6 +1012,8 @@
             ((System.ComponentModel.ISupportInitialize)picBackground).EndInit();
             PanelDangNhap.ResumeLayout(false);
             PanelDangNhap.PerformLayout();
+            txtEmail.ResumeLayout(false);
+            txtEmail.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -927,5 +1077,15 @@
         private Sunny.UI.UILabel uiLabel6;
         private Sunny.UI.UIPanel uiPanel2;
         private PictureBox pictureBox1;
+        private Label txtEmailEmpty;
+        private Label txtPasswordEmpty;
+        private Label txtEmailreEmpty;
+        private Label txtHotenreEmpty;
+        private Label txtSodtreEmpty;
+        private Label txtPasswordreEmpty;
+        private Label txtEmailreInvalid;
+        private Label txtSodtreInvalid;
+        private Label txtXacnhanEmpty;
+        private Label txtXacthucsai;
     }
 }
