@@ -94,5 +94,26 @@ namespace QuanLyBDS.NhanVien
 
             }
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(txtEmail.Text))
+            {
+                ShowErrorDialog("Vui lòng chọn khách hàng cần xoá");
+                return; 
+                
+            }
+            if (nv.DeleteTaikhoanKH( txtEmail.Text, txtId.Text))
+            {
+                ShowSuccessDialog("Xoá thành công");
+                LoadDataQLyKhachhang(); 
+            }
+            else
+            {
+                ShowErrorDialog("Xoá thất bại");
+                return; 
+            }
+        }
     }
 }

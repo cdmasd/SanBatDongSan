@@ -45,5 +45,9 @@ namespace BUS_QuanLyBDS
         {
             return nv.UpdataKhachhang(id, email, hoten, sdt, sodu);
         }
+        public bool DeleteTaikhoanKH(string email, string id)
+        {
+            return nv.DeleteTaikhoanKH(email, id); 
+        }
     }
 }
