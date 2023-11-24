@@ -45,11 +45,14 @@ namespace QuanLyBDS.NhanVien
                 // Load header name
                 foreach (var header in dataBaiDang[0].Names)
                 {
-                    if (header != "ThoiGianDang")
+                    if (header != "_idnguoidang")
                     {
-                        if (header != "TrangThai")
+                        if (header != "Thoigiandang")
                         {
-                            dtView.Columns.Add(header, header);
+                            if (header != "Trangthai")
+                            {
+                                dtView.Columns.Add(header, header);
+                            }
                         }
                     }
                     else
