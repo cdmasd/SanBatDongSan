@@ -13,7 +13,7 @@ namespace QuanLyBDS.NhanVien
 {
     public partial class FrmDoimatkhau : UIForm
     {
-        DAL_QuanLyBDS.DangNhap dn = new DAL_QuanLyBDS.DangNhap();
+        BUS_QuanLyBDS.DangNhap dn = new BUS_QuanLyBDS.DangNhap();
         public FrmDoimatkhau()
         {
             InitializeComponent();
