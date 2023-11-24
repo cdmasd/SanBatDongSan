@@ -117,14 +117,13 @@ namespace DAL_QuanLyBDS
                     .Set("Email", email)
                     .Set("Hoten", hoten)
                     .Set("Sodienthoai", sdt)
-                    .Set("SoDu", sodu);
+                    .Set("Sodu", sodu);
                 var result = Khachhang.UpdateOne(filter, update);
                 return result.ModifiedCount > 0;
             }
             catch (Exception ex)
             {
 
-                Console.WriteLine($"Lỗi khi cập nhật bài đăng: {ex.Message}");
                 return false;
             }
         }

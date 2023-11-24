@@ -22,17 +22,9 @@ namespace QuanLyBDS.KhachHang
         public FrmDanhSachBaiDang()
         {
             InitializeComponent();
-            Loainha();
+            cbLoainha.DropDownStyle = UIDropDownStyle.DropDownList;
             dtView.CellClick += dtView_CellClick;
             LoadDataBaiDang();
-        }
-        private void Loainha()
-        {
-            cbLoainha.Items.Add("Nhà cấp 3");
-            cbLoainha.Items.Add("Nhà cấp 4");
-            cbLoainha.Items.Add("Biệt thự");
-            cbLoainha.Items.Add("Vincome");
-            cbLoainha.Items.Add("Khác");
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {

@@ -21,15 +21,7 @@ namespace QuanLyBDS.KhachHang
         public FrmBaiDang()
         {
             InitializeComponent();
-            Loainha();
-        }
-        private void Loainha()
-        {
-            cbLoainha.Items.Add("Nhà cấp 3");
-            cbLoainha.Items.Add("Nhà cấp 4");
-            cbLoainha.Items.Add("Biệt thự");
-            cbLoainha.Items.Add("Vincome");
-            cbLoainha.Items.Add("Khác");
+            cbLoainha.DropDownStyle = UIDropDownStyle.DropDownList;
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
