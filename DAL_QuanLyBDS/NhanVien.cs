@@ -19,14 +19,14 @@ namespace DAL_QuanLyBDS
         {
             return dangtin.Find(new BsonDocument
             {
-                { "TrangThai", false }
+                { "Trangthai", false }
             }).ToList();
         }
         public List<BsonDocument> Daduyet()
         {
             return dangtin.Find(new BsonDocument
             {
-                { "TrangThai", true }
+                { "Trangthai", true }
             }).ToList();
         }
         public bool DeleteBaiDang(string id)

@@ -10,6 +10,7 @@ namespace QuanLyBDS
     {
         public static int session = 0; // kiểm tra đăng nhập chưa
         public static string mail;
+        public static string vaitro;
         FrmDangNhap dn = new FrmDangNhap();
         public FrmMain()
         {
@@ -33,6 +34,7 @@ namespace QuanLyBDS
             OpenVaitro();
             if (session == 0)
             {
+                this.Text = mail;
                 DangNhap();
             }
         }
@@ -40,15 +42,8 @@ namespace QuanLyBDS
         {
             if (session == 1)
             {
-                if (dn.vaitro == "guest")
-                {
-                    FrmMainGuest guest = new FrmMainGuest();
-                    guest.TopLevel = false;
-                    PanelMain.Controls.Add(guest);
-                    guest.Show();
-                }
                 this.Text = mail;
-                if (dn.vaitro == "admin")
+                if (vaitro == "admin")
                 {
                     FrmMainnAdmin ad = new FrmMainnAdmin();
                     ad.TopLevel = false;
@@ -56,7 +51,7 @@ namespace QuanLyBDS
                     ad.Show();
                     ad.FormClosed += new FormClosedEventHandler(FrmMainAdmin_FormClosed);
                 }
-                else if (dn.vaitro == "khachhang")
+                else if (vaitro == "khachhang")
                 {
                     FrmMainnKhachHang kh = new FrmMainnKhachHang();
                     kh.TopLevel = false;
@@ -64,17 +59,21 @@ namespace QuanLyBDS
                     kh.Show();
                     kh.FormClosed += new FormClosedEventHandler(FrmMainKhachHang_FormClosed);
                 }
-                else if (dn.vaitro == "nhanvien")
+                else if (vaitro == "nhanvien")
                 {
                     FrmMainnNhanVien nv = new FrmMainnNhanVien();
                     nv.TopLevel = false;
                     PanelMain.Controls.Add(nv);
                     nv.Show();
                     nv.FormClosed += new FormClosedEventHandler(FrmMainNhanVien_FormClosed);
-                } 
-            } else
-            {
-                dn.vaitro = "guest";
+                }
+                if (vaitro == "guest")
+                {
+                    FrmMainGuest guest = new FrmMainGuest();
+                    guest.TopLevel = false;
+                    PanelMain.Controls.Add(guest);
+                    guest.Show();
+                }
             }
         }
         void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)

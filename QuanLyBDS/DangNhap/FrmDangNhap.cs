@@ -11,7 +11,6 @@ namespace QuanLyBDS
     public partial class FrmDangNhap : UIForm
     {
         BUS_QuanLyBDS.DangNhap dn = new BUS_QuanLyBDS.DangNhap();
-        public string vaitro { get; set; }
         string num;
         string newpass;
         public FrmDangNhap()
@@ -215,11 +214,11 @@ namespace QuanLyBDS
             }
             if (dn.checkAccount(txtEmail.Text, txtPassword.Text))
             {
-                UIMessageDialog.ShowSuccessDialog(this, "Đăng nhập thành công");
+                ShowSuccessDialog("Đăng nhập thành công");
                 // Gửi kết quả đăng nhập cho frmMain
                 FrmMain.mail = txtEmail.Text;
                 FrmMain.session = 1;
-                vaitro = dn.getRole(txtEmail.Text);
+                FrmMain.vaitro = dn.getRole(txtEmail.Text);
                 // Lưu thông tin tài khoản
                 Properties.Settings.Default.isSave = chkRemember.Checked;
                 if (chkRemember.Checked)
@@ -250,7 +249,7 @@ namespace QuanLyBDS
         {
             FrmMain.mail = "Sàn bất động sản";
             FrmMain.session = 1;
-            vaitro = "guest";
+            FrmMain.vaitro = "guest";
             this.Close();
         }
         private void btnLayma_Click(object sender, EventArgs e)
