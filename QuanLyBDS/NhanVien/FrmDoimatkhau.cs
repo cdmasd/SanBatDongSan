@@ -17,30 +17,35 @@ namespace QuanLyBDS.NhanVien
         public FrmDoimatkhau()
         {
             InitializeComponent();
+            txtEmail.Text = FrmMain.mail;
         }
 
         private void btnDoimatkhau_Click(object sender, EventArgs e)
         {
-            string Email = txtEmail.Text;
             string OldPass = txtMatkhauhientai.Text;
             string NewPass = txtMatkhaumoi.Text;
+            string verifyPass = txtVerify.Text;
+            if (NewPass != verifyPass)
+            {
+                ShowErrorDialog("Mật khẩu nhập lại không chính xác");
+                txtVerify.Focus();
+                return;
+            }
             try
             {
-                if (dn.checkAccount(Email, OldPass))
+                if (dn.checkAccount(FrmMain.mail, OldPass))
                 {
-                    dn.changePass(Email, NewPass);
-                    MessageBox.Show("Đổi mật khẩu thành công.");
-
-
+                    dn.changePass(FrmMain.mail, NewPass);
+                    ShowSuccessDialog("Đổi mật khẩu thành công.");
                 }
                 else
                 {
-                    MessageBox.Show("Mật khẩu cũ không đúng hoặc email không tồn tại.");
+                    ShowErrorDialog("Mật khẩu cũ không đúng hoặc email không tồn tại.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
+                ShowErrorDialog($"Đã xảy ra lỗi: {ex.Message}");
             }
         }
     }

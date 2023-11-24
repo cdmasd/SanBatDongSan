@@ -40,6 +40,13 @@ namespace QuanLyBDS
         {
             if (session == 1)
             {
+                if (dn.vaitro == "guest")
+                {
+                    FrmMainGuest guest = new FrmMainGuest();
+                    guest.TopLevel = false;
+                    PanelMain.Controls.Add(guest);
+                    guest.Show();
+                }
                 this.Text = mail;
                 if (dn.vaitro == "admin")
                 {
@@ -64,14 +71,10 @@ namespace QuanLyBDS
                     PanelMain.Controls.Add(nv);
                     nv.Show();
                     nv.FormClosed += new FormClosedEventHandler(FrmMainNhanVien_FormClosed);
-                }
-                else
-                {
-                    FrmMainGuest guest = new FrmMainGuest();
-                    guest.TopLevel = false;
-                    PanelMain.Controls.Add(guest);
-                    guest.Show();
-                }
+                } 
+            } else
+            {
+                dn.vaitro = "guest";
             }
         }
         void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)

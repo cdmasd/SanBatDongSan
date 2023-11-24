@@ -35,7 +35,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            uiTextBox1 = new Sunny.UI.UITextBox();
+            txtVerify = new Sunny.UI.UITextBox();
             label4 = new Label();
             SuspendLayout();
             // 
@@ -62,6 +62,7 @@
             txtMatkhaumoi.MinimumSize = new Size(1, 16);
             txtMatkhaumoi.Name = "txtMatkhaumoi";
             txtMatkhaumoi.Padding = new Padding(5);
+            txtMatkhaumoi.PasswordChar = '•';
             txtMatkhaumoi.ShowText = false;
             txtMatkhaumoi.Size = new Size(241, 29);
             txtMatkhaumoi.Style = Sunny.UI.UIStyle.Custom;
@@ -77,6 +78,7 @@
             txtMatkhauhientai.MinimumSize = new Size(1, 16);
             txtMatkhauhientai.Name = "txtMatkhauhientai";
             txtMatkhauhientai.Padding = new Padding(5);
+            txtMatkhauhientai.PasswordChar = '•';
             txtMatkhauhientai.ShowText = false;
             txtMatkhauhientai.Size = new Size(241, 29);
             txtMatkhauhientai.Style = Sunny.UI.UIStyle.Custom;
@@ -86,6 +88,7 @@
             // 
             // txtEmail
             // 
+            txtEmail.Enabled = false;
             txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(272, 140);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
@@ -129,20 +132,21 @@
             label1.TabIndex = 7;
             label1.Text = "Email";
             // 
-            // uiTextBox1
+            // txtVerify
             // 
-            uiTextBox1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox1.Location = new Point(272, 353);
-            uiTextBox1.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox1.MinimumSize = new Size(1, 16);
-            uiTextBox1.Name = "uiTextBox1";
-            uiTextBox1.Padding = new Padding(5);
-            uiTextBox1.ShowText = false;
-            uiTextBox1.Size = new Size(241, 29);
-            uiTextBox1.Style = Sunny.UI.UIStyle.Custom;
-            uiTextBox1.TabIndex = 14;
-            uiTextBox1.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox1.Watermark = "";
+            txtVerify.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtVerify.Location = new Point(272, 353);
+            txtVerify.Margin = new Padding(4, 5, 4, 5);
+            txtVerify.MinimumSize = new Size(1, 16);
+            txtVerify.Name = "txtVerify";
+            txtVerify.Padding = new Padding(5);
+            txtVerify.PasswordChar = '•';
+            txtVerify.ShowText = false;
+            txtVerify.Size = new Size(241, 29);
+            txtVerify.Style = Sunny.UI.UIStyle.Custom;
+            txtVerify.TabIndex = 14;
+            txtVerify.TextAlignment = ContentAlignment.MiddleLeft;
+            txtVerify.Watermark = "";
             // 
             // label4
             // 
@@ -160,7 +164,7 @@
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(789, 565);
-            Controls.Add(uiTextBox1);
+            Controls.Add(txtVerify);
             Controls.Add(label4);
             Controls.Add(btnDoimatkhau);
             Controls.Add(txtMatkhaumoi);
@@ -188,7 +192,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private Sunny.UI.UITextBox uiTextBox1;
+        private Sunny.UI.UITextBox txtVerify;
         private Label label4;
     }
 }
