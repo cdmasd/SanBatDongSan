@@ -35,13 +35,16 @@
             txtSodt = new Sunny.UI.UITextBox();
             label3 = new Label();
             txtChitiethotro = new Sunny.UI.UITextBox();
+            panel1 = new Panel();
+            label4 = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(16, 9);
+            label1.Location = new Point(377, 231);
             label1.Name = "label1";
             label1.Size = new Size(131, 19);
             label1.TabIndex = 0;
@@ -51,7 +54,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(16, 73);
+            label2.Location = new Point(377, 295);
             label2.Name = "label2";
             label2.Size = new Size(238, 19);
             label2.TabIndex = 1;
@@ -60,13 +63,14 @@
             // txtHotro
             // 
             txtHotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHotro.Location = new Point(16, 36);
+            txtHotro.Location = new Point(377, 258);
             txtHotro.Margin = new Padding(4, 5, 4, 5);
             txtHotro.MinimumSize = new Size(1, 16);
             txtHotro.Name = "txtHotro";
             txtHotro.Padding = new Padding(5);
             txtHotro.ShowText = false;
             txtHotro.Size = new Size(238, 29);
+            txtHotro.Style = Sunny.UI.UIStyle.Custom;
             txtHotro.TabIndex = 2;
             txtHotro.TextAlignment = ContentAlignment.MiddleLeft;
             txtHotro.Watermark = "";
@@ -76,7 +80,7 @@
             btnGuiyeucau.FillColor = SystemColors.Highlight;
             btnGuiyeucau.FillHoverColor = Color.MidnightBlue;
             btnGuiyeucau.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGuiyeucau.Location = new Point(676, 518);
+            btnGuiyeucau.Location = new Point(1037, 740);
             btnGuiyeucau.MinimumSize = new Size(1, 1);
             btnGuiyeucau.Name = "btnGuiyeucau";
             btnGuiyeucau.Size = new Size(100, 35);
@@ -88,13 +92,14 @@
             // txtSodt
             // 
             txtSodt.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSodt.Location = new Point(471, 36);
+            txtSodt.Location = new Point(832, 258);
             txtSodt.Margin = new Padding(4, 5, 4, 5);
             txtSodt.MinimumSize = new Size(1, 16);
             txtSodt.Name = "txtSodt";
             txtSodt.Padding = new Padding(5);
             txtSodt.ShowText = false;
             txtSodt.Size = new Size(238, 29);
+            txtSodt.Style = Sunny.UI.UIStyle.Custom;
             txtSodt.TabIndex = 4;
             txtSodt.TextAlignment = ContentAlignment.MiddleLeft;
             txtSodt.Watermark = "";
@@ -103,7 +108,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(471, 9);
+            label3.Location = new Point(832, 231);
             label3.Name = "label3";
             label3.Size = new Size(192, 19);
             label3.TabIndex = 3;
@@ -112,7 +117,7 @@
             // txtChitiethotro
             // 
             txtChitiethotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtChitiethotro.Location = new Point(16, 100);
+            txtChitiethotro.Location = new Point(377, 322);
             txtChitiethotro.Margin = new Padding(4, 5, 4, 5);
             txtChitiethotro.MinimumSize = new Size(1, 16);
             txtChitiethotro.Multiline = true;
@@ -120,16 +125,39 @@
             txtChitiethotro.Padding = new Padding(5);
             txtChitiethotro.ShowText = false;
             txtChitiethotro.Size = new Size(760, 409);
+            txtChitiethotro.Style = Sunny.UI.UIStyle.Custom;
             txtChitiethotro.TabIndex = 5;
             txtChitiethotro.TextAlignment = ContentAlignment.MiddleLeft;
             txtChitiethotro.Watermark = "";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.DodgerBlue;
+            panel1.Controls.Add(label4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1600, 138);
+            panel1.TabIndex = 19;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(261, 46);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 31);
+            label4.TabIndex = 0;
+            label4.Text = "Hỗ Trợ";
             // 
             // FrmHoTro
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(789, 565);
+            ClientSize = new Size(1600, 965);
+            Controls.Add(panel1);
             Controls.Add(txtChitiethotro);
             Controls.Add(txtSodt);
             Controls.Add(label3);
@@ -143,6 +171,8 @@
             Style = Sunny.UI.UIStyle.Custom;
             Text = "FrmHoTro";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,5 +186,7 @@
         private Sunny.UI.UITextBox txtSodt;
         private Label label3;
         private Sunny.UI.UITextBox txtChitiethotro;
+        private Panel panel1;
+        private Label label4;
     }
 }

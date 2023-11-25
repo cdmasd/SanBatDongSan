@@ -43,13 +43,16 @@
             dtView = new Sunny.UI.UIDataGridView();
             label8 = new Label();
             txtId = new Label();
+            panel1 = new Panel();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // txtChitiethotro
             // 
             txtChitiethotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtChitiethotro.Location = new Point(14, 106);
+            txtChitiethotro.Location = new Point(360, 319);
             txtChitiethotro.Margin = new Padding(4, 5, 4, 5);
             txtChitiethotro.MinimumSize = new Size(1, 16);
             txtChitiethotro.Multiline = true;
@@ -65,7 +68,7 @@
             // txtSodt
             // 
             txtSodt.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSodt.Location = new Point(554, 39);
+            txtSodt.Location = new Point(900, 252);
             txtSodt.Margin = new Padding(4, 5, 4, 5);
             txtSodt.MinimumSize = new Size(1, 16);
             txtSodt.Name = "txtSodt";
@@ -81,7 +84,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(554, 10);
+            label3.Location = new Point(900, 223);
             label3.Name = "label3";
             label3.Size = new Size(192, 19);
             label3.TabIndex = 9;
@@ -92,7 +95,7 @@
             btnDahotro.FillColor = SystemColors.Highlight;
             btnDahotro.FillHoverColor = Color.MidnightBlue;
             btnDahotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDahotro.Location = new Point(677, 205);
+            btnDahotro.Location = new Point(1023, 418);
             btnDahotro.MinimumSize = new Size(1, 1);
             btnDahotro.Name = "btnDahotro";
             btnDahotro.Size = new Size(100, 35);
@@ -105,7 +108,7 @@
             // txtHotro
             // 
             txtHotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHotro.Location = new Point(14, 39);
+            txtHotro.Location = new Point(360, 252);
             txtHotro.Margin = new Padding(4, 5, 4, 5);
             txtHotro.MinimumSize = new Size(1, 16);
             txtHotro.Name = "txtHotro";
@@ -121,7 +124,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(14, 78);
+            label2.Location = new Point(360, 291);
             label2.Name = "label2";
             label2.Size = new Size(238, 19);
             label2.TabIndex = 7;
@@ -131,7 +134,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(14, 10);
+            label1.Location = new Point(360, 223);
             label1.Name = "label1";
             label1.Size = new Size(131, 19);
             label1.TabIndex = 6;
@@ -164,7 +167,7 @@
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
-            dtView.Location = new Point(12, 251);
+            dtView.Location = new Point(358, 464);
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
@@ -196,7 +199,7 @@
             label8.AutoSize = true;
             label8.BackColor = SystemColors.Control;
             label8.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(335, 393);
+            label8.Location = new Point(681, 606);
             label8.Name = "label8";
             label8.Size = new Size(118, 19);
             label8.TabIndex = 55;
@@ -206,19 +209,41 @@
             // txtId
             // 
             txtId.AutoSize = true;
-            txtId.Location = new Point(314, 39);
+            txtId.Location = new Point(660, 252);
             txtId.Name = "txtId";
             txtId.Size = new Size(55, 16);
             txtId.TabIndex = 56;
             txtId.Text = "label4";
             txtId.Visible = false;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.DodgerBlue;
+            panel1.Controls.Add(label4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1600, 138);
+            panel1.TabIndex = 57;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(261, 46);
+            label4.Name = "label4";
+            label4.Size = new Size(103, 31);
+            label4.TabIndex = 0;
+            label4.Text = "Hỗ Trợ";
+            // 
             // FrmHotro
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(789, 565);
+            ClientSize = new Size(1600, 965);
+            Controls.Add(panel1);
             Controls.Add(txtId);
             Controls.Add(label8);
             Controls.Add(dtView);
@@ -237,6 +262,8 @@
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
             Load += FrmHotro_Load;
             ((System.ComponentModel.ISupportInitialize)dtView).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,5 +280,7 @@
         private Sunny.UI.UIDataGridView dtView;
         private Label label8;
         private Label txtId;
+        private Panel panel1;
+        private Label label4;
     }
 }

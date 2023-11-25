@@ -33,7 +33,7 @@
             // FrmHotro_Admin
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(789, 565);
+            ClientSize = new Size(1600, 965);
             Name = "FrmHotro_Admin";
             Text = "FrmHotro_Admin";
             ResumeLayout(false);

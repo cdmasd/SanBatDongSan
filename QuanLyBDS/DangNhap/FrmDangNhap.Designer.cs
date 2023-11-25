@@ -28,36 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDangNhap));
             UIPanel = new Sunny.UI.UIPanel();
             uiPanel1 = new Sunny.UI.UIPanel();
-            uiLinkLabel1 = new Sunny.UI.UILinkLabel();
-            label4 = new Label();
-            uiButton1 = new Sunny.UI.UIButton();
-            uiTextBox1 = new Sunny.UI.UITextBox();
-            uiTextBox2 = new Sunny.UI.UITextBox();
-            uiButton2 = new Sunny.UI.UIButton();
-            uiLinkLabel2 = new Sunny.UI.UILinkLabel();
-            uiLabel3 = new Sunny.UI.UILabel();
-            uiButton3 = new Sunny.UI.UIButton();
-            uiTextBox3 = new Sunny.UI.UITextBox();
-            label5 = new Label();
-            label6 = new Label();
-            uiTextBox4 = new Sunny.UI.UITextBox();
-            label7 = new Label();
-            uiTextBox5 = new Sunny.UI.UITextBox();
-            label8 = new Label();
-            uiLabel4 = new Sunny.UI.UILabel();
-            uiLabel5 = new Sunny.UI.UILabel();
-            uiButton4 = new Sunny.UI.UIButton();
-            uiLinkLabel3 = new Sunny.UI.UILinkLabel();
-            uiCheckBox1 = new Sunny.UI.UICheckBox();
-            uiTextBox6 = new Sunny.UI.UITextBox();
-            uiTextBox7 = new Sunny.UI.UITextBox();
-            label9 = new Label();
-            label10 = new Label();
-            uiLabel6 = new Sunny.UI.UILabel();
-            uiPanel2 = new Sunny.UI.UIPanel();
+            panel1 = new Panel();
             pictureBox1 = new PictureBox();
             picBackground = new PictureBox();
             PanelDangNhap = new Sunny.UI.UIPanel();
@@ -99,7 +72,7 @@
             uiLabel1 = new Sunny.UI.UILabel();
             UIPanel.SuspendLayout();
             uiPanel1.SuspendLayout();
-            uiPanel2.SuspendLayout();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBackground).BeginInit();
             PanelDangNhap.SuspendLayout();
@@ -109,385 +82,51 @@
             // UIPanel
             // 
             UIPanel.Controls.Add(uiPanel1);
-            UIPanel.Controls.Add(uiPanel2);
             UIPanel.Controls.Add(picBackground);
-            UIPanel.Dock = DockStyle.Left;
+            UIPanel.Dock = DockStyle.Fill;
             UIPanel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             UIPanel.Location = new Point(0, 0);
             UIPanel.Margin = new Padding(4, 5, 4, 5);
             UIPanel.MinimumSize = new Size(1, 1);
             UIPanel.Name = "UIPanel";
             UIPanel.Radius = 0;
-            UIPanel.Size = new Size(484, 565);
+            UIPanel.Size = new Size(1800, 965);
             UIPanel.TabIndex = 0;
             UIPanel.Text = null;
             UIPanel.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // uiPanel1
             // 
-            uiPanel1.Controls.Add(uiLinkLabel1);
-            uiPanel1.Controls.Add(label4);
-            uiPanel1.Controls.Add(uiButton1);
-            uiPanel1.Controls.Add(uiTextBox1);
-            uiPanel1.Controls.Add(uiTextBox2);
-            uiPanel1.Controls.Add(uiButton2);
-            uiPanel1.Controls.Add(uiLinkLabel2);
-            uiPanel1.Controls.Add(uiLabel3);
-            uiPanel1.Controls.Add(uiButton3);
-            uiPanel1.Controls.Add(uiTextBox3);
-            uiPanel1.Controls.Add(label5);
-            uiPanel1.Controls.Add(label6);
-            uiPanel1.Controls.Add(uiTextBox4);
-            uiPanel1.Controls.Add(label7);
-            uiPanel1.Controls.Add(uiTextBox5);
-            uiPanel1.Controls.Add(label8);
-            uiPanel1.Controls.Add(uiLabel4);
-            uiPanel1.Controls.Add(uiLabel5);
-            uiPanel1.Controls.Add(uiButton4);
-            uiPanel1.Controls.Add(uiLinkLabel3);
-            uiPanel1.Controls.Add(uiCheckBox1);
-            uiPanel1.Controls.Add(uiTextBox6);
-            uiPanel1.Controls.Add(uiTextBox7);
-            uiPanel1.Controls.Add(label9);
-            uiPanel1.Controls.Add(label10);
-            uiPanel1.Controls.Add(uiLabel6);
+            uiPanel1.Controls.Add(panel1);
             uiPanel1.Dock = DockStyle.Fill;
             uiPanel1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiPanel1.Location = new Point(484, 0);
+            uiPanel1.Location = new Point(0, 0);
             uiPanel1.Margin = new Padding(4, 5, 4, 5);
             uiPanel1.MinimumSize = new Size(1, 1);
             uiPanel1.Name = "uiPanel1";
             uiPanel1.Radius = 0;
-            uiPanel1.Size = new Size(1, 565);
+            uiPanel1.Size = new Size(1800, 965);
             uiPanel1.TabIndex = 3;
             uiPanel1.Text = null;
             uiPanel1.TextAlignment = ContentAlignment.MiddleCenter;
             // 
-            // uiLinkLabel1
+            // panel1
             // 
-            uiLinkLabel1.ActiveLinkColor = Color.FromArgb(220, 155, 40);
-            uiLinkLabel1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiLinkLabel1.LinkBehavior = LinkBehavior.AlwaysUnderline;
-            uiLinkLabel1.Location = new Point(294, 398);
-            uiLinkLabel1.Name = "uiLinkLabel1";
-            uiLinkLabel1.Size = new Size(133, 26);
-            uiLinkLabel1.TabIndex = 33;
-            uiLinkLabel1.TabStop = true;
-            uiLinkLabel1.Text = "Tạo tài khoản";
-            uiLinkLabel1.VisitedLinkColor = Color.FromArgb(230, 80, 80);
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(121, 344);
-            label4.Name = "label4";
-            label4.Size = new Size(99, 19);
-            label4.TabIndex = 50;
-            label4.Text = "Mã xác nhận :";
-            // 
-            // uiButton1
-            // 
-            uiButton1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiButton1.Location = new Point(328, 369);
-            uiButton1.MinimumSize = new Size(1, 1);
-            uiButton1.Name = "uiButton1";
-            uiButton1.Size = new Size(87, 29);
-            uiButton1.TabIndex = 49;
-            uiButton1.Text = "Lấy mã";
-            uiButton1.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            // 
-            // uiTextBox1
-            // 
-            uiTextBox1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox1.Location = new Point(121, 249);
-            uiTextBox1.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox1.MinimumSize = new Size(1, 16);
-            uiTextBox1.Name = "uiTextBox1";
-            uiTextBox1.Padding = new Padding(5);
-            uiTextBox1.ShowText = false;
-            uiTextBox1.Size = new Size(295, 29);
-            uiTextBox1.TabIndex = 38;
-            uiTextBox1.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox1.Watermark = "";
-            // 
-            // uiTextBox2
-            // 
-            uiTextBox2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox2.Location = new Point(121, 369);
-            uiTextBox2.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox2.MinimumSize = new Size(1, 16);
-            uiTextBox2.Name = "uiTextBox2";
-            uiTextBox2.Padding = new Padding(5);
-            uiTextBox2.ShowText = false;
-            uiTextBox2.Size = new Size(187, 29);
-            uiTextBox2.TabIndex = 40;
-            uiTextBox2.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox2.Watermark = "";
-            // 
-            // uiButton2
-            // 
-            uiButton2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiButton2.Location = new Point(214, 441);
-            uiButton2.MinimumSize = new Size(1, 1);
-            uiButton2.Name = "uiButton2";
-            uiButton2.Size = new Size(116, 35);
-            uiButton2.TabIndex = 46;
-            uiButton2.Text = "Khách truy cập";
-            uiButton2.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            // 
-            // uiLinkLabel2
-            // 
-            uiLinkLabel2.ActiveLinkColor = Color.FromArgb(220, 155, 40);
-            uiLinkLabel2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiLinkLabel2.LinkBehavior = LinkBehavior.AlwaysUnderline;
-            uiLinkLabel2.Location = new Point(282, 499);
-            uiLinkLabel2.Name = "uiLinkLabel2";
-            uiLinkLabel2.Size = new Size(96, 26);
-            uiLinkLabel2.TabIndex = 45;
-            uiLinkLabel2.TabStop = true;
-            uiLinkLabel2.Text = "Đăng nhập";
-            uiLinkLabel2.TextAlign = ContentAlignment.MiddleCenter;
-            uiLinkLabel2.VisitedLinkColor = Color.FromArgb(230, 80, 80);
-            // 
-            // uiLabel3
-            // 
-            uiLabel3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiLabel3.Location = new Point(157, 501);
-            uiLabel3.Name = "uiLabel3";
-            uiLabel3.Size = new Size(131, 23);
-            uiLabel3.TabIndex = 44;
-            uiLabel3.Text = "Đã có tài khoản ?";
-            uiLabel3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // uiButton3
-            // 
-            uiButton3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiButton3.Location = new Point(214, 433);
-            uiButton3.MinimumSize = new Size(1, 1);
-            uiButton3.Name = "uiButton3";
-            uiButton3.Size = new Size(100, 35);
-            uiButton3.TabIndex = 43;
-            uiButton3.Text = "Đăng ký";
-            uiButton3.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            // 
-            // uiTextBox3
-            // 
-            uiTextBox3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox3.Location = new Point(121, 309);
-            uiTextBox3.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox3.MinimumSize = new Size(1, 16);
-            uiTextBox3.Name = "uiTextBox3";
-            uiTextBox3.Padding = new Padding(5);
-            uiTextBox3.PasswordChar = '*';
-            uiTextBox3.ShowText = false;
-            uiTextBox3.Size = new Size(295, 29);
-            uiTextBox3.TabIndex = 39;
-            uiTextBox3.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox3.Watermark = "";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(121, 284);
-            label5.Name = "label5";
-            label5.Size = new Size(77, 19);
-            label5.TabIndex = 41;
-            label5.Text = "Mật khẩu :";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(121, 225);
-            label6.Name = "label6";
-            label6.Size = new Size(102, 19);
-            label6.TabIndex = 37;
-            label6.Text = "Số điện thoại :";
-            // 
-            // uiTextBox4
-            // 
-            uiTextBox4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox4.Location = new Point(121, 189);
-            uiTextBox4.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox4.MinimumSize = new Size(1, 16);
-            uiTextBox4.Name = "uiTextBox4";
-            uiTextBox4.Padding = new Padding(5);
-            uiTextBox4.ShowText = false;
-            uiTextBox4.Size = new Size(295, 29);
-            uiTextBox4.TabIndex = 37;
-            uiTextBox4.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox4.Watermark = "";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(121, 164);
-            label7.Name = "label7";
-            label7.Size = new Size(79, 19);
-            label7.TabIndex = 38;
-            label7.Text = "Họ và tên :";
-            // 
-            // uiTextBox5
-            // 
-            uiTextBox5.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox5.Location = new Point(121, 129);
-            uiTextBox5.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox5.MinimumSize = new Size(1, 16);
-            uiTextBox5.Name = "uiTextBox5";
-            uiTextBox5.Padding = new Padding(5);
-            uiTextBox5.ShowText = false;
-            uiTextBox5.Size = new Size(295, 29);
-            uiTextBox5.TabIndex = 36;
-            uiTextBox5.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox5.Watermark = "";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(121, 104);
-            label8.Name = "label8";
-            label8.Size = new Size(53, 19);
-            label8.TabIndex = 35;
-            label8.Text = "Email :";
-            // 
-            // uiLabel4
-            // 
-            uiLabel4.Font = new Font("Roboto Condensed", 23F, FontStyle.Bold, GraphicsUnit.Point);
-            uiLabel4.Location = new Point(191, 40);
-            uiLabel4.Name = "uiLabel4";
-            uiLabel4.Size = new Size(171, 33);
-            uiLabel4.TabIndex = 34;
-            uiLabel4.Text = "Register";
-            uiLabel4.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // uiLabel5
-            // 
-            uiLabel5.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiLabel5.Location = new Point(157, 396);
-            uiLabel5.Name = "uiLabel5";
-            uiLabel5.Size = new Size(140, 23);
-            uiLabel5.TabIndex = 32;
-            uiLabel5.Text = "Chưa có tài khoản ?";
-            uiLabel5.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // uiButton4
-            // 
-            uiButton4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiButton4.Location = new Point(222, 344);
-            uiButton4.MinimumSize = new Size(1, 1);
-            uiButton4.Name = "uiButton4";
-            uiButton4.Size = new Size(100, 35);
-            uiButton4.TabIndex = 31;
-            uiButton4.Text = "Đăng nhập";
-            uiButton4.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            // 
-            // uiLinkLabel3
-            // 
-            uiLinkLabel3.ActiveLinkColor = Color.FromArgb(220, 155, 40);
-            uiLinkLabel3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiLinkLabel3.LinkBehavior = LinkBehavior.AlwaysUnderline;
-            uiLinkLabel3.Location = new Point(295, 293);
-            uiLinkLabel3.Name = "uiLinkLabel3";
-            uiLinkLabel3.Size = new Size(121, 26);
-            uiLinkLabel3.TabIndex = 30;
-            uiLinkLabel3.TabStop = true;
-            uiLinkLabel3.Text = "Quên mật khẩu ?";
-            uiLinkLabel3.VisitedLinkColor = Color.FromArgb(230, 80, 80);
-            // 
-            // uiCheckBox1
-            // 
-            uiCheckBox1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiCheckBox1.Location = new Point(121, 290);
-            uiCheckBox1.MinimumSize = new Size(1, 1);
-            uiCheckBox1.Name = "uiCheckBox1";
-            uiCheckBox1.Size = new Size(167, 29);
-            uiCheckBox1.TabIndex = 29;
-            uiCheckBox1.Text = "Ghi nhớ tài khoản";
-            // 
-            // uiTextBox6
-            // 
-            uiTextBox6.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox6.Location = new Point(121, 249);
-            uiTextBox6.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox6.MinimumSize = new Size(1, 16);
-            uiTextBox6.Name = "uiTextBox6";
-            uiTextBox6.Padding = new Padding(5);
-            uiTextBox6.PasswordChar = '-';
-            uiTextBox6.ShowText = false;
-            uiTextBox6.Size = new Size(295, 29);
-            uiTextBox6.TabIndex = 28;
-            uiTextBox6.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox6.Watermark = "";
-            // 
-            // uiTextBox7
-            // 
-            uiTextBox7.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox7.Location = new Point(122, 180);
-            uiTextBox7.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox7.MinimumSize = new Size(1, 16);
-            uiTextBox7.Name = "uiTextBox7";
-            uiTextBox7.Padding = new Padding(5);
-            uiTextBox7.ShowText = false;
-            uiTextBox7.Size = new Size(295, 29);
-            uiTextBox7.TabIndex = 27;
-            uiTextBox7.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox7.Watermark = "";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(120, 225);
-            label9.Name = "label9";
-            label9.Size = new Size(83, 20);
-            label9.TabIndex = 26;
-            label9.Text = "Mật khẩu :";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(121, 156);
-            label10.Name = "label10";
-            label10.Size = new Size(56, 20);
-            label10.TabIndex = 25;
-            label10.Text = "Email :";
-            // 
-            // uiLabel6
-            // 
-            uiLabel6.Font = new Font("Roboto Condensed", 23F, FontStyle.Bold, GraphicsUnit.Point);
-            uiLabel6.Location = new Point(139, 29);
-            uiLabel6.Name = "uiLabel6";
-            uiLabel6.Size = new Size(276, 54);
-            uiLabel6.TabIndex = 24;
-            uiLabel6.Text = "Login To System";
-            uiLabel6.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // uiPanel2
-            // 
-            uiPanel2.Controls.Add(pictureBox1);
-            uiPanel2.Dock = DockStyle.Left;
-            uiPanel2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiPanel2.Location = new Point(0, 0);
-            uiPanel2.Margin = new Padding(4, 5, 4, 5);
-            uiPanel2.MinimumSize = new Size(1, 1);
-            uiPanel2.Name = "uiPanel2";
-            uiPanel2.Radius = 0;
-            uiPanel2.Size = new Size(484, 565);
-            uiPanel2.TabIndex = 2;
-            uiPanel2.Text = null;
-            uiPanel2.TextAlignment = ContentAlignment.MiddleCenter;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1192, 965);
+            panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Image = Properties.Resources.building;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(484, 565);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.Size = new Size(1192, 965);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -497,7 +136,7 @@
             picBackground.Image = Properties.Resources.building;
             picBackground.Location = new Point(0, 0);
             picBackground.Name = "picBackground";
-            picBackground.Size = new Size(484, 565);
+            picBackground.Size = new Size(1800, 965);
             picBackground.SizeMode = PictureBoxSizeMode.AutoSize;
             picBackground.TabIndex = 0;
             picBackground.TabStop = false;
@@ -539,24 +178,25 @@
             PanelDangNhap.Controls.Add(label2);
             PanelDangNhap.Controls.Add(label1);
             PanelDangNhap.Controls.Add(uiLabel1);
-            PanelDangNhap.Dock = DockStyle.Fill;
+            PanelDangNhap.Dock = DockStyle.Right;
             PanelDangNhap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PanelDangNhap.Location = new Point(484, 0);
+            PanelDangNhap.Location = new Point(1190, 0);
             PanelDangNhap.Margin = new Padding(4, 5, 4, 5);
             PanelDangNhap.MinimumSize = new Size(1, 1);
             PanelDangNhap.Name = "PanelDangNhap";
             PanelDangNhap.Radius = 0;
-            PanelDangNhap.Size = new Size(516, 565);
+            PanelDangNhap.Size = new Size(610, 965);
             PanelDangNhap.TabIndex = 1;
             PanelDangNhap.Text = null;
             PanelDangNhap.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // txtXacthucsai
             // 
+            txtXacthucsai.Anchor = AnchorStyles.None;
             txtXacthucsai.AutoSize = true;
             txtXacthucsai.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtXacthucsai.ForeColor = Color.Red;
-            txtXacthucsai.Location = new Point(117, 400);
+            txtXacthucsai.Location = new Point(166, 526);
             txtXacthucsai.Name = "txtXacthucsai";
             txtXacthucsai.Size = new Size(156, 15);
             txtXacthucsai.TabIndex = 60;
@@ -565,10 +205,11 @@
             // 
             // txtXacnhanEmpty
             // 
+            txtXacnhanEmpty.Anchor = AnchorStyles.None;
             txtXacnhanEmpty.AutoSize = true;
             txtXacnhanEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtXacnhanEmpty.ForeColor = Color.Red;
-            txtXacnhanEmpty.Location = new Point(118, 400);
+            txtXacnhanEmpty.Location = new Point(167, 526);
             txtXacnhanEmpty.Name = "txtXacnhanEmpty";
             txtXacnhanEmpty.Size = new Size(175, 15);
             txtXacnhanEmpty.TabIndex = 59;
@@ -577,10 +218,11 @@
             // 
             // txtSodtreInvalid
             // 
+            txtSodtreInvalid.Anchor = AnchorStyles.None;
             txtSodtreInvalid.AutoSize = true;
             txtSodtreInvalid.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtSodtreInvalid.ForeColor = Color.Red;
-            txtSodtreInvalid.Location = new Point(276, 232);
+            txtSodtreInvalid.Location = new Point(325, 358);
             txtSodtreInvalid.Name = "txtSodtreInvalid";
             txtSodtreInvalid.Size = new Size(143, 15);
             txtSodtreInvalid.TabIndex = 58;
@@ -589,10 +231,11 @@
             // 
             // txtEmailreInvalid
             // 
+            txtEmailreInvalid.Anchor = AnchorStyles.None;
             txtEmailreInvalid.AutoSize = true;
             txtEmailreInvalid.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmailreInvalid.ForeColor = Color.Red;
-            txtEmailreInvalid.Location = new Point(316, 112);
+            txtEmailreInvalid.Location = new Point(365, 238);
             txtEmailreInvalid.Name = "txtEmailreInvalid";
             txtEmailreInvalid.Size = new Size(103, 15);
             txtEmailreInvalid.TabIndex = 57;
@@ -601,10 +244,11 @@
             // 
             // txtPasswordreEmpty
             // 
+            txtPasswordreEmpty.Anchor = AnchorStyles.None;
             txtPasswordreEmpty.AutoSize = true;
             txtPasswordreEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtPasswordreEmpty.ForeColor = Color.Red;
-            txtPasswordreEmpty.Location = new Point(252, 293);
+            txtPasswordreEmpty.Location = new Point(301, 419);
             txtPasswordreEmpty.Name = "txtPasswordreEmpty";
             txtPasswordreEmpty.Size = new Size(165, 15);
             txtPasswordreEmpty.TabIndex = 56;
@@ -613,10 +257,11 @@
             // 
             // txtSodtreEmpty
             // 
+            txtSodtreEmpty.Anchor = AnchorStyles.None;
             txtSodtreEmpty.AutoSize = true;
             txtSodtreEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtSodtreEmpty.ForeColor = Color.Red;
-            txtSodtreEmpty.Location = new Point(233, 232);
+            txtSodtreEmpty.Location = new Point(282, 358);
             txtSodtreEmpty.Name = "txtSodtreEmpty";
             txtSodtreEmpty.Size = new Size(185, 15);
             txtSodtreEmpty.TabIndex = 55;
@@ -625,10 +270,11 @@
             // 
             // txtEmailreEmpty
             // 
+            txtEmailreEmpty.Anchor = AnchorStyles.None;
             txtEmailreEmpty.AutoSize = true;
             txtEmailreEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmailreEmpty.ForeColor = Color.Red;
-            txtEmailreEmpty.Location = new Point(272, 112);
+            txtEmailreEmpty.Location = new Point(321, 238);
             txtEmailreEmpty.Name = "txtEmailreEmpty";
             txtEmailreEmpty.Size = new Size(146, 15);
             txtEmailreEmpty.TabIndex = 53;
@@ -637,10 +283,11 @@
             // 
             // txtPasswordEmpty
             // 
+            txtPasswordEmpty.Anchor = AnchorStyles.None;
             txtPasswordEmpty.AutoSize = true;
             txtPasswordEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtPasswordEmpty.ForeColor = Color.Red;
-            txtPasswordEmpty.Location = new Point(254, 232);
+            txtPasswordEmpty.Location = new Point(303, 358);
             txtPasswordEmpty.Name = "txtPasswordEmpty";
             txtPasswordEmpty.Size = new Size(165, 15);
             txtPasswordEmpty.TabIndex = 52;
@@ -649,10 +296,11 @@
             // 
             // txtEmailEmpty
             // 
+            txtEmailEmpty.Anchor = AnchorStyles.None;
             txtEmailEmpty.AutoSize = true;
             txtEmailEmpty.Font = new Font("Roboto Condensed", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmailEmpty.ForeColor = Color.Red;
-            txtEmailEmpty.Location = new Point(274, 163);
+            txtEmailEmpty.Location = new Point(323, 289);
             txtEmailEmpty.Name = "txtEmailEmpty";
             txtEmailEmpty.Size = new Size(146, 15);
             txtEmailEmpty.TabIndex = 51;
@@ -662,9 +310,10 @@
             // btnTaoTaiKhoan
             // 
             btnTaoTaiKhoan.ActiveLinkColor = Color.FromArgb(220, 155, 40);
+            btnTaoTaiKhoan.Anchor = AnchorStyles.None;
             btnTaoTaiKhoan.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnTaoTaiKhoan.LinkBehavior = LinkBehavior.AlwaysUnderline;
-            btnTaoTaiKhoan.Location = new Point(294, 398);
+            btnTaoTaiKhoan.Location = new Point(343, 524);
             btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
             btnTaoTaiKhoan.Size = new Size(133, 26);
             btnTaoTaiKhoan.TabIndex = 33;
@@ -675,9 +324,10 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(121, 344);
+            label3.Location = new Point(170, 470);
             label3.Name = "label3";
             label3.Size = new Size(99, 19);
             label3.TabIndex = 50;
@@ -685,8 +335,9 @@
             // 
             // btnLayma
             // 
+            btnLayma.Anchor = AnchorStyles.None;
             btnLayma.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLayma.Location = new Point(328, 369);
+            btnLayma.Location = new Point(377, 495);
             btnLayma.MinimumSize = new Size(1, 1);
             btnLayma.Name = "btnLayma";
             btnLayma.Size = new Size(87, 29);
@@ -697,8 +348,9 @@
             // 
             // txtSoDTre
             // 
+            txtSoDTre.Anchor = AnchorStyles.None;
             txtSoDTre.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSoDTre.Location = new Point(121, 249);
+            txtSoDTre.Location = new Point(170, 375);
             txtSoDTre.Margin = new Padding(4, 5, 4, 5);
             txtSoDTre.MinimumSize = new Size(1, 16);
             txtSoDTre.Name = "txtSoDTre";
@@ -713,8 +365,9 @@
             // 
             // txtXacthuc
             // 
+            txtXacthuc.Anchor = AnchorStyles.None;
             txtXacthuc.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtXacthuc.Location = new Point(121, 369);
+            txtXacthuc.Location = new Point(170, 495);
             txtXacthuc.Margin = new Padding(4, 5, 4, 5);
             txtXacthuc.MinimumSize = new Size(1, 16);
             txtXacthuc.Name = "txtXacthuc";
@@ -728,8 +381,9 @@
             // 
             // btnKhach
             // 
+            btnKhach.Anchor = AnchorStyles.None;
             btnKhach.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnKhach.Location = new Point(214, 441);
+            btnKhach.Location = new Point(263, 567);
             btnKhach.MinimumSize = new Size(1, 1);
             btnKhach.Name = "btnKhach";
             btnKhach.Size = new Size(116, 35);
@@ -741,9 +395,10 @@
             // btnDangNhapre
             // 
             btnDangNhapre.ActiveLinkColor = Color.FromArgb(220, 155, 40);
+            btnDangNhapre.Anchor = AnchorStyles.None;
             btnDangNhapre.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnDangNhapre.LinkBehavior = LinkBehavior.AlwaysUnderline;
-            btnDangNhapre.Location = new Point(282, 499);
+            btnDangNhapre.Location = new Point(331, 625);
             btnDangNhapre.Name = "btnDangNhapre";
             btnDangNhapre.Size = new Size(96, 26);
             btnDangNhapre.TabIndex = 45;
@@ -755,8 +410,9 @@
             // 
             // lb6re
             // 
+            lb6re.Anchor = AnchorStyles.None;
             lb6re.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lb6re.Location = new Point(157, 501);
+            lb6re.Location = new Point(206, 627);
             lb6re.Name = "lb6re";
             lb6re.Size = new Size(131, 23);
             lb6re.TabIndex = 44;
@@ -765,8 +421,9 @@
             // 
             // btnRegister
             // 
+            btnRegister.Anchor = AnchorStyles.None;
             btnRegister.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRegister.Location = new Point(214, 433);
+            btnRegister.Location = new Point(263, 559);
             btnRegister.MinimumSize = new Size(1, 1);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(100, 35);
@@ -777,8 +434,9 @@
             // 
             // txtPasswordre
             // 
+            txtPasswordre.Anchor = AnchorStyles.None;
             txtPasswordre.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPasswordre.Location = new Point(121, 309);
+            txtPasswordre.Location = new Point(170, 435);
             txtPasswordre.Margin = new Padding(4, 5, 4, 5);
             txtPasswordre.MinimumSize = new Size(1, 16);
             txtPasswordre.Name = "txtPasswordre";
@@ -793,9 +451,10 @@
             // 
             // lb5re
             // 
+            lb5re.Anchor = AnchorStyles.None;
             lb5re.AutoSize = true;
             lb5re.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lb5re.Location = new Point(121, 284);
+            lb5re.Location = new Point(170, 410);
             lb5re.Name = "lb5re";
             lb5re.Size = new Size(77, 19);
             lb5re.TabIndex = 41;
@@ -803,9 +462,10 @@
             // 
             // lb4re
             // 
+            lb4re.Anchor = AnchorStyles.None;
             lb4re.AutoSize = true;
             lb4re.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lb4re.Location = new Point(121, 225);
+            lb4re.Location = new Point(170, 351);
             lb4re.Name = "lb4re";
             lb4re.Size = new Size(102, 19);
             lb4re.TabIndex = 37;
@@ -813,8 +473,9 @@
             // 
             // txtHoTenre
             // 
+            txtHoTenre.Anchor = AnchorStyles.None;
             txtHoTenre.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHoTenre.Location = new Point(121, 189);
+            txtHoTenre.Location = new Point(170, 315);
             txtHoTenre.Margin = new Padding(4, 5, 4, 5);
             txtHoTenre.MinimumSize = new Size(1, 16);
             txtHoTenre.Name = "txtHoTenre";
@@ -828,9 +489,10 @@
             // 
             // lb3re
             // 
+            lb3re.Anchor = AnchorStyles.None;
             lb3re.AutoSize = true;
             lb3re.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lb3re.Location = new Point(121, 164);
+            lb3re.Location = new Point(170, 290);
             lb3re.Name = "lb3re";
             lb3re.Size = new Size(79, 19);
             lb3re.TabIndex = 38;
@@ -838,8 +500,9 @@
             // 
             // txtEmailre
             // 
+            txtEmailre.Anchor = AnchorStyles.None;
             txtEmailre.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmailre.Location = new Point(121, 129);
+            txtEmailre.Location = new Point(170, 255);
             txtEmailre.Margin = new Padding(4, 5, 4, 5);
             txtEmailre.MinimumSize = new Size(1, 16);
             txtEmailre.Name = "txtEmailre";
@@ -853,9 +516,10 @@
             // 
             // lb2re
             // 
+            lb2re.Anchor = AnchorStyles.None;
             lb2re.AutoSize = true;
             lb2re.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lb2re.Location = new Point(121, 104);
+            lb2re.Location = new Point(170, 230);
             lb2re.Name = "lb2re";
             lb2re.Size = new Size(53, 19);
             lb2re.TabIndex = 35;
@@ -863,8 +527,9 @@
             // 
             // lb1re
             // 
+            lb1re.Anchor = AnchorStyles.None;
             lb1re.Font = new Font("Roboto Condensed", 23F, FontStyle.Bold, GraphicsUnit.Point);
-            lb1re.Location = new Point(191, 40);
+            lb1re.Location = new Point(240, 166);
             lb1re.Name = "lb1re";
             lb1re.Size = new Size(171, 33);
             lb1re.TabIndex = 34;
@@ -873,8 +538,9 @@
             // 
             // uiLabel2
             // 
+            uiLabel2.Anchor = AnchorStyles.None;
             uiLabel2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiLabel2.Location = new Point(157, 396);
+            uiLabel2.Location = new Point(206, 522);
             uiLabel2.Name = "uiLabel2";
             uiLabel2.Size = new Size(140, 23);
             uiLabel2.TabIndex = 32;
@@ -883,8 +549,9 @@
             // 
             // btnLogin
             // 
+            btnLogin.Anchor = AnchorStyles.None;
             btnLogin.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnLogin.Location = new Point(222, 344);
+            btnLogin.Location = new Point(271, 470);
             btnLogin.MinimumSize = new Size(1, 1);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(100, 35);
@@ -896,9 +563,10 @@
             // btnForgotPassword
             // 
             btnForgotPassword.ActiveLinkColor = Color.FromArgb(220, 155, 40);
+            btnForgotPassword.Anchor = AnchorStyles.None;
             btnForgotPassword.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnForgotPassword.LinkBehavior = LinkBehavior.AlwaysUnderline;
-            btnForgotPassword.Location = new Point(295, 293);
+            btnForgotPassword.Location = new Point(344, 419);
             btnForgotPassword.Name = "btnForgotPassword";
             btnForgotPassword.Size = new Size(121, 26);
             btnForgotPassword.TabIndex = 30;
@@ -909,8 +577,9 @@
             // 
             // chkRemember
             // 
+            chkRemember.Anchor = AnchorStyles.None;
             chkRemember.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            chkRemember.Location = new Point(121, 290);
+            chkRemember.Location = new Point(170, 416);
             chkRemember.MinimumSize = new Size(1, 1);
             chkRemember.Name = "chkRemember";
             chkRemember.Size = new Size(167, 29);
@@ -919,8 +588,9 @@
             // 
             // txtPassword
             // 
+            txtPassword.Anchor = AnchorStyles.None;
             txtPassword.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPassword.Location = new Point(121, 249);
+            txtPassword.Location = new Point(170, 375);
             txtPassword.Margin = new Padding(4, 5, 4, 5);
             txtPassword.MinimumSize = new Size(1, 16);
             txtPassword.Name = "txtPassword";
@@ -935,9 +605,10 @@
             // 
             // txtEmail
             // 
+            txtEmail.Anchor = AnchorStyles.None;
             txtEmail.Controls.Add(txtHotenreEmpty);
             txtEmail.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.Location = new Point(122, 180);
+            txtEmail.Location = new Point(171, 306);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.MinimumSize = new Size(1, 16);
             txtEmail.Name = "txtEmail";
@@ -963,8 +634,9 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Location = new Point(120, 225);
+            label2.Location = new Point(169, 351);
             label2.Name = "label2";
             label2.Size = new Size(83, 20);
             label2.TabIndex = 26;
@@ -972,8 +644,9 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Location = new Point(121, 156);
+            label1.Location = new Point(170, 282);
             label1.Name = "label1";
             label1.Size = new Size(56, 20);
             label1.TabIndex = 25;
@@ -981,8 +654,9 @@
             // 
             // uiLabel1
             // 
+            uiLabel1.Anchor = AnchorStyles.None;
             uiLabel1.Font = new Font("Roboto Condensed", 23F, FontStyle.Bold, GraphicsUnit.Point);
-            uiLabel1.Location = new Point(139, 29);
+            uiLabel1.Location = new Point(188, 155);
             uiLabel1.Name = "uiLabel1";
             uiLabel1.Size = new Size(276, 54);
             uiLabel1.TabIndex = 24;
@@ -993,7 +667,7 @@
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1000, 565);
+            ClientSize = new Size(1800, 965);
             Controls.Add(PanelDangNhap);
             Controls.Add(UIPanel);
             Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -1006,8 +680,7 @@
             UIPanel.ResumeLayout(false);
             UIPanel.PerformLayout();
             uiPanel1.ResumeLayout(false);
-            uiPanel1.PerformLayout();
-            uiPanel2.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBackground).EndInit();
             PanelDangNhap.ResumeLayout(false);
@@ -1049,34 +722,6 @@
         private Sunny.UI.UITextBox txtXacthuc;
         private Label label3;
         private Sunny.UI.UIPanel uiPanel1;
-        private Sunny.UI.UILinkLabel uiLinkLabel1;
-        private Label label4;
-        private Sunny.UI.UIButton uiButton1;
-        private Sunny.UI.UITextBox uiTextBox1;
-        private Sunny.UI.UITextBox uiTextBox2;
-        private Sunny.UI.UIButton uiButton2;
-        private Sunny.UI.UILinkLabel uiLinkLabel2;
-        private Sunny.UI.UILabel uiLabel3;
-        private Sunny.UI.UIButton uiButton3;
-        private Sunny.UI.UITextBox uiTextBox3;
-        private Label label5;
-        private Label label6;
-        private Sunny.UI.UITextBox uiTextBox4;
-        private Label label7;
-        private Sunny.UI.UITextBox uiTextBox5;
-        private Label label8;
-        private Sunny.UI.UILabel uiLabel4;
-        private Sunny.UI.UILabel uiLabel5;
-        private Sunny.UI.UIButton uiButton4;
-        private Sunny.UI.UILinkLabel uiLinkLabel3;
-        private Sunny.UI.UICheckBox uiCheckBox1;
-        private Sunny.UI.UITextBox uiTextBox6;
-        private Sunny.UI.UITextBox uiTextBox7;
-        private Label label9;
-        private Label label10;
-        private Sunny.UI.UILabel uiLabel6;
-        private Sunny.UI.UIPanel uiPanel2;
-        private PictureBox pictureBox1;
         private Label txtEmailEmpty;
         private Label txtPasswordEmpty;
         private Label txtEmailreEmpty;
@@ -1087,5 +732,7 @@
         private Label txtSodtreInvalid;
         private Label txtXacnhanEmpty;
         private Label txtXacthucsai;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

@@ -49,8 +49,11 @@
             panelGuest = new Panel();
             btnTimkiem = new Sunny.UI.UIButton();
             btnXemanh = new Sunny.UI.UIButton();
+            panel1 = new Panel();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             panelGuest.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // dtView
@@ -59,6 +62,7 @@
             dtView.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 249, 255);
             dtView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dtView.Anchor = AnchorStyles.None;
             dtView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtView.BackgroundColor = Color.FromArgb(243, 249, 255);
             dtView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -83,7 +87,7 @@
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
-            dtView.Location = new Point(12, 153);
+            dtView.Location = new Point(410, 383);
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
@@ -106,19 +110,22 @@
             dtView.SelectedIndex = -1;
             dtView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtView.Size = new Size(756, 400);
+            dtView.Style = Sunny.UI.UIStyle.Custom;
             dtView.TabIndex = 45;
             // 
             // cbLoainha
             // 
+            cbLoainha.Anchor = AnchorStyles.None;
             cbLoainha.DataSource = null;
             cbLoainha.FillColor = Color.White;
             cbLoainha.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbLoainha.Location = new Point(26, 44);
+            cbLoainha.Location = new Point(424, 274);
             cbLoainha.Margin = new Padding(4, 5, 4, 5);
             cbLoainha.MinimumSize = new Size(63, 0);
             cbLoainha.Name = "cbLoainha";
             cbLoainha.Padding = new Padding(0, 0, 30, 2);
             cbLoainha.Size = new Size(150, 29);
+            cbLoainha.Style = Sunny.UI.UIStyle.Custom;
             cbLoainha.TabIndex = 46;
             cbLoainha.Text = "Loại Nhà";
             cbLoainha.TextAlignment = ContentAlignment.MiddleLeft;
@@ -126,15 +133,17 @@
             // 
             // cbDientich
             // 
+            cbDientich.Anchor = AnchorStyles.None;
             cbDientich.DataSource = null;
             cbDientich.FillColor = Color.White;
             cbDientich.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbDientich.Location = new Point(277, 44);
+            cbDientich.Location = new Point(675, 274);
             cbDientich.Margin = new Padding(4, 5, 4, 5);
             cbDientich.MinimumSize = new Size(63, 0);
             cbDientich.Name = "cbDientich";
             cbDientich.Padding = new Padding(0, 0, 30, 2);
             cbDientich.Size = new Size(150, 29);
+            cbDientich.Style = Sunny.UI.UIStyle.Custom;
             cbDientich.TabIndex = 47;
             cbDientich.Text = "Diện tích";
             cbDientich.TextAlignment = ContentAlignment.MiddleLeft;
@@ -142,15 +151,17 @@
             // 
             // cbSophong
             // 
+            cbSophong.Anchor = AnchorStyles.None;
             cbSophong.DataSource = null;
             cbSophong.FillColor = Color.White;
             cbSophong.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbSophong.Location = new Point(528, 44);
+            cbSophong.Location = new Point(926, 274);
             cbSophong.Margin = new Padding(4, 5, 4, 5);
             cbSophong.MinimumSize = new Size(63, 0);
             cbSophong.Name = "cbSophong";
             cbSophong.Padding = new Padding(0, 0, 30, 2);
             cbSophong.Size = new Size(150, 29);
+            cbSophong.Style = Sunny.UI.UIStyle.Custom;
             cbSophong.TabIndex = 48;
             cbSophong.Text = "Số phòng";
             cbSophong.TextAlignment = ContentAlignment.MiddleLeft;
@@ -158,15 +169,17 @@
             // 
             // cbGia
             // 
+            cbGia.Anchor = AnchorStyles.None;
             cbGia.DataSource = null;
             cbGia.FillColor = Color.White;
             cbGia.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbGia.Location = new Point(277, 98);
+            cbGia.Location = new Point(675, 328);
             cbGia.Margin = new Padding(4, 5, 4, 5);
             cbGia.MinimumSize = new Size(63, 0);
             cbGia.Name = "cbGia";
             cbGia.Padding = new Padding(0, 0, 30, 2);
             cbGia.Size = new Size(150, 29);
+            cbGia.Style = Sunny.UI.UIStyle.Custom;
             cbGia.TabIndex = 49;
             cbGia.Text = "Khoảng giá";
             cbGia.TextAlignment = ContentAlignment.MiddleLeft;
@@ -174,15 +187,17 @@
             // 
             // cbDiachi
             // 
+            cbDiachi.Anchor = AnchorStyles.None;
             cbDiachi.DataSource = null;
             cbDiachi.FillColor = Color.White;
             cbDiachi.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbDiachi.Location = new Point(26, 98);
+            cbDiachi.Location = new Point(424, 328);
             cbDiachi.Margin = new Padding(4, 5, 4, 5);
             cbDiachi.MinimumSize = new Size(63, 0);
             cbDiachi.Name = "cbDiachi";
             cbDiachi.Padding = new Padding(0, 0, 30, 2);
             cbDiachi.Size = new Size(150, 29);
+            cbDiachi.Style = Sunny.UI.UIStyle.Custom;
             cbDiachi.TabIndex = 50;
             cbDiachi.Text = "Địa chỉ";
             cbDiachi.TextAlignment = ContentAlignment.MiddleLeft;
@@ -190,9 +205,10 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Roboto Condensed", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(820, 174);
+            label1.Location = new Point(1218, 404);
             label1.Name = "label1";
             label1.Size = new Size(132, 23);
             label1.TabIndex = 51;
@@ -260,6 +276,7 @@
             // 
             // panelGuest
             // 
+            panelGuest.Anchor = AnchorStyles.None;
             panelGuest.BorderStyle = BorderStyle.FixedSingle;
             panelGuest.Controls.Add(txtSodt);
             panelGuest.Controls.Add(label5);
@@ -267,7 +284,7 @@
             panelGuest.Controls.Add(label3);
             panelGuest.Controls.Add(txtHoten);
             panelGuest.Controls.Add(label2);
-            panelGuest.Location = new Point(785, 209);
+            panelGuest.Location = new Point(1183, 439);
             panelGuest.Name = "panelGuest";
             panelGuest.Size = new Size(203, 268);
             panelGuest.TabIndex = 52;
@@ -275,11 +292,12 @@
             // 
             // btnTimkiem
             // 
+            btnTimkiem.Anchor = AnchorStyles.None;
             btnTimkiem.BackColor = SystemColors.Highlight;
             btnTimkiem.FillColor = SystemColors.Highlight;
             btnTimkiem.FillHoverColor = Color.MidnightBlue;
             btnTimkiem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTimkiem.Location = new Point(550, 92);
+            btnTimkiem.Location = new Point(948, 322);
             btnTimkiem.MinimumSize = new Size(1, 1);
             btnTimkiem.Name = "btnTimkiem";
             btnTimkiem.Size = new Size(100, 35);
@@ -291,11 +309,12 @@
             // 
             // btnXemanh
             // 
+            btnXemanh.Anchor = AnchorStyles.None;
             btnXemanh.BackColor = SystemColors.Highlight;
             btnXemanh.FillColor = SystemColors.Highlight;
             btnXemanh.FillHoverColor = Color.MidnightBlue;
             btnXemanh.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXemanh.Location = new Point(839, 500);
+            btnXemanh.Location = new Point(1237, 730);
             btnXemanh.MinimumSize = new Size(1, 1);
             btnXemanh.Name = "btnXemanh";
             btnXemanh.Size = new Size(100, 35);
@@ -305,12 +324,34 @@
             btnXemanh.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnXemanh.Click += btnXemanh_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.DodgerBlue;
+            panel1.Controls.Add(label4);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1800, 138);
+            panel1.TabIndex = 55;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(261, 46);
+            label4.Name = "label4";
+            label4.Size = new Size(177, 31);
+            label4.TabIndex = 0;
+            label4.Text = "Khách Thăm";
+            // 
             // FrmMainGuest
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1000, 565);
+            ClientSize = new Size(1800, 965);
+            Controls.Add(panel1);
             Controls.Add(btnXemanh);
             Controls.Add(btnTimkiem);
             Controls.Add(panelGuest);
@@ -330,6 +371,8 @@
             ((System.ComponentModel.ISupportInitialize)dtView).EndInit();
             panelGuest.ResumeLayout(false);
             panelGuest.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -352,5 +395,7 @@
         private Panel panelGuest;
         private Sunny.UI.UIButton btnTimkiem;
         private Sunny.UI.UIButton btnXemanh;
+        private Panel panel1;
+        private Label label4;
     }
 }

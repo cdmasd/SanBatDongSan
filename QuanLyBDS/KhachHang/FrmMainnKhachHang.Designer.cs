@@ -59,7 +59,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(168, 565);
+            panel1.Size = new Size(499, 965);
             panel1.TabIndex = 9;
             // 
             // btnDangxuat
@@ -72,7 +72,7 @@
             btnDangxuat.Image = Properties.Resources.logout_icon_183821;
             btnDangxuat.Location = new Point(0, 377);
             btnDangxuat.Name = "btnDangxuat";
-            btnDangxuat.Size = new Size(168, 42);
+            btnDangxuat.Size = new Size(499, 42);
             btnDangxuat.TabIndex = 10;
             btnDangxuat.Text = "Đăng xuất";
             btnDangxuat.TextAlign = ContentAlignment.MiddleRight;
@@ -90,7 +90,7 @@
             btnDoimk.Image = (Image)resources.GetObject("btnDoimk.Image");
             btnDoimk.Location = new Point(0, 335);
             btnDoimk.Name = "btnDoimk";
-            btnDoimk.Size = new Size(168, 42);
+            btnDoimk.Size = new Size(499, 42);
             btnDoimk.TabIndex = 9;
             btnDoimk.Text = "Đổi mật khẩu";
             btnDoimk.TextAlign = ContentAlignment.MiddleRight;
@@ -108,7 +108,7 @@
             btnNaptien.Image = (Image)resources.GetObject("btnNaptien.Image");
             btnNaptien.Location = new Point(0, 293);
             btnNaptien.Name = "btnNaptien";
-            btnNaptien.Size = new Size(168, 42);
+            btnNaptien.Size = new Size(499, 42);
             btnNaptien.TabIndex = 7;
             btnNaptien.Text = "Nạp tiền";
             btnNaptien.TextAlign = ContentAlignment.MiddleRight;
@@ -126,7 +126,7 @@
             btnHotro.Image = (Image)resources.GetObject("btnHotro.Image");
             btnHotro.Location = new Point(0, 251);
             btnHotro.Name = "btnHotro";
-            btnHotro.Size = new Size(168, 42);
+            btnHotro.Size = new Size(499, 42);
             btnHotro.TabIndex = 5;
             btnHotro.Text = "Gửi hỗ trợ";
             btnHotro.TextAlign = ContentAlignment.MiddleRight;
@@ -144,7 +144,7 @@
             btnDanhsachbaidang.Image = (Image)resources.GetObject("btnDanhsachbaidang.Image");
             btnDanhsachbaidang.Location = new Point(0, 209);
             btnDanhsachbaidang.Name = "btnDanhsachbaidang";
-            btnDanhsachbaidang.Size = new Size(168, 42);
+            btnDanhsachbaidang.Size = new Size(499, 42);
             btnDanhsachbaidang.TabIndex = 4;
             btnDanhsachbaidang.Text = "Bài đăng";
             btnDanhsachbaidang.TextAlign = ContentAlignment.MiddleRight;
@@ -162,7 +162,7 @@
             btnDangbds.Image = (Image)resources.GetObject("btnDangbds.Image");
             btnDangbds.Location = new Point(0, 167);
             btnDangbds.Name = "btnDangbds";
-            btnDangbds.Size = new Size(168, 42);
+            btnDangbds.Size = new Size(499, 42);
             btnDangbds.TabIndex = 3;
             btnDangbds.Text = "Đăng bài";
             btnDangbds.TextAlign = ContentAlignment.MiddleRight;
@@ -180,7 +180,7 @@
             btnThongtin.Image = (Image)resources.GetObject("btnThongtin.Image");
             btnThongtin.Location = new Point(0, 125);
             btnThongtin.Name = "btnThongtin";
-            btnThongtin.Size = new Size(168, 42);
+            btnThongtin.Size = new Size(499, 42);
             btnThongtin.TabIndex = 2;
             btnThongtin.Text = "Thông tin";
             btnThongtin.TextAlign = ContentAlignment.MiddleRight;
@@ -194,7 +194,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(168, 125);
+            panel2.Size = new Size(499, 125);
             panel2.TabIndex = 0;
             // 
             // pictureBox1
@@ -203,7 +203,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(168, 125);
+            pictureBox1.Size = new Size(499, 125);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -212,16 +212,16 @@
             // 
             panelKhachHang.BackColor = SystemColors.ActiveCaption;
             panelKhachHang.Dock = DockStyle.Right;
-            panelKhachHang.Location = new Point(168, 0);
+            panelKhachHang.Location = new Point(499, 0);
             panelKhachHang.Name = "panelKhachHang";
-            panelKhachHang.Size = new Size(832, 565);
+            panelKhachHang.Size = new Size(1301, 965);
             panelKhachHang.TabIndex = 8;
             // 
             // FrmMainnKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 565);
+            ClientSize = new Size(1800, 965);
             Controls.Add(panel1);
             Controls.Add(panelKhachHang);
             FormBorderStyle = FormBorderStyle.None;

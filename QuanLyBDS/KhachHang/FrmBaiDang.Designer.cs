@@ -46,14 +46,17 @@
             picHinhAnh = new PictureBox();
             txtDiachi = new Sunny.UI.UITextBox();
             label7 = new Label();
+            panel1 = new Panel();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)picHinhAnh).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(48, 26);
+            label1.Location = new Point(425, 209);
             label1.Name = "label1";
             label1.Size = new Size(65, 19);
             label1.TabIndex = 0;
@@ -63,7 +66,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(40, 61);
+            label2.Location = new Point(417, 244);
             label2.Name = "label2";
             label2.Size = new Size(73, 19);
             label2.TabIndex = 1;
@@ -73,7 +76,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(39, 96);
+            label3.Location = new Point(416, 279);
             label3.Name = "label3";
             label3.Size = new Size(74, 19);
             label3.TabIndex = 2;
@@ -83,7 +86,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(36, 131);
+            label4.Location = new Point(413, 314);
             label4.Name = "label4";
             label4.Size = new Size(77, 19);
             label4.TabIndex = 3;
@@ -93,7 +96,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(75, 166);
+            label5.Location = new Point(452, 349);
             label5.Name = "label5";
             label5.Size = new Size(38, 19);
             label5.TabIndex = 4;
@@ -103,7 +106,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(518, 84);
+            label6.Location = new Point(895, 267);
             label6.Name = "label6";
             label6.Size = new Size(75, 19);
             label6.TabIndex = 5;
@@ -112,7 +115,7 @@
             // txtTieude
             // 
             txtTieude.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTieude.Location = new Point(122, 23);
+            txtTieude.Location = new Point(499, 206);
             txtTieude.Margin = new Padding(4, 5, 4, 5);
             txtTieude.MinimumSize = new Size(1, 16);
             txtTieude.Name = "txtTieude";
@@ -130,7 +133,7 @@
             cbLoainha.FillColor = Color.White;
             cbLoainha.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbLoainha.Items.AddRange(new object[] { "Chung cư", "Căn hộ mini", "Nhà nguyên căn", "Biệt thự", "Văn phòng" });
-            cbLoainha.Location = new Point(122, 58);
+            cbLoainha.Location = new Point(499, 241);
             cbLoainha.Margin = new Padding(4, 5, 4, 5);
             cbLoainha.MinimumSize = new Size(63, 0);
             cbLoainha.Name = "cbLoainha";
@@ -144,7 +147,7 @@
             // txtDientich
             // 
             txtDientich.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDientich.Location = new Point(122, 93);
+            txtDientich.Location = new Point(499, 276);
             txtDientich.Margin = new Padding(4, 5, 4, 5);
             txtDientich.MinimumSize = new Size(1, 16);
             txtDientich.Name = "txtDientich";
@@ -160,7 +163,7 @@
             // txtSophong
             // 
             txtSophong.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSophong.Location = new Point(122, 128);
+            txtSophong.Location = new Point(499, 311);
             txtSophong.Margin = new Padding(4, 5, 4, 5);
             txtSophong.MinimumSize = new Size(1, 16);
             txtSophong.Name = "txtSophong";
@@ -176,7 +179,7 @@
             // txtGia
             // 
             txtGia.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtGia.Location = new Point(122, 163);
+            txtGia.Location = new Point(499, 346);
             txtGia.Margin = new Padding(4, 5, 4, 5);
             txtGia.MinimumSize = new Size(1, 16);
             txtGia.Name = "txtGia";
@@ -192,7 +195,7 @@
             // txtHinhanh
             // 
             txtHinhanh.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHinhanh.Location = new Point(522, 110);
+            txtHinhanh.Location = new Point(899, 293);
             txtHinhanh.Margin = new Padding(4, 5, 4, 5);
             txtHinhanh.MinimumSize = new Size(1, 16);
             txtHinhanh.Name = "txtHinhanh";
@@ -209,7 +212,7 @@
             btnUpload.FillColor = SystemColors.Highlight;
             btnUpload.FillHoverColor = Color.MidnightBlue;
             btnUpload.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpload.Location = new Point(493, 151);
+            btnUpload.Location = new Point(870, 334);
             btnUpload.MinimumSize = new Size(1, 1);
             btnUpload.Name = "btnUpload";
             btnUpload.Size = new Size(100, 35);
@@ -224,7 +227,7 @@
             btnInsert.FillColor = SystemColors.Highlight;
             btnInsert.FillHoverColor = Color.MidnightBlue;
             btnInsert.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnInsert.Location = new Point(644, 151);
+            btnInsert.Location = new Point(1021, 334);
             btnInsert.MinimumSize = new Size(1, 1);
             btnInsert.Name = "btnInsert";
             btnInsert.Size = new Size(100, 35);
@@ -240,7 +243,7 @@
             uiLine1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             uiLine1.LineColor = SystemColors.MenuHighlight;
             uiLine1.LineColor2 = Color.FromArgb(80, 160, 255);
-            uiLine1.Location = new Point(214, 204);
+            uiLine1.Location = new Point(591, 387);
             uiLine1.MinimumSize = new Size(1, 1);
             uiLine1.Name = "uiLine1";
             uiLine1.Size = new Size(360, 29);
@@ -251,7 +254,7 @@
             // picHinhAnh
             // 
             picHinhAnh.BorderStyle = BorderStyle.FixedSingle;
-            picHinhAnh.Location = new Point(12, 239);
+            picHinhAnh.Location = new Point(389, 422);
             picHinhAnh.Name = "picHinhAnh";
             picHinhAnh.Size = new Size(765, 314);
             picHinhAnh.SizeMode = PictureBoxSizeMode.Zoom;
@@ -261,7 +264,7 @@
             // txtDiachi
             // 
             txtDiachi.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDiachi.Location = new Point(522, 50);
+            txtDiachi.Location = new Point(899, 233);
             txtDiachi.Margin = new Padding(4, 5, 4, 5);
             txtDiachi.MinimumSize = new Size(1, 16);
             txtDiachi.Name = "txtDiachi";
@@ -277,18 +280,40 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(518, 24);
+            label7.Location = new Point(895, 207);
             label7.Name = "label7";
             label7.Size = new Size(149, 19);
             label7.TabIndex = 12;
             label7.Text = "Địa chỉ bất động sản :";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.DodgerBlue;
+            panel1.Controls.Add(label9);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1600, 138);
+            panel1.TabIndex = 59;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(261, 46);
+            label9.Name = "label9";
+            label9.Size = new Size(133, 31);
+            label9.TabIndex = 0;
+            label9.Text = "Đăng Bài";
             // 
             // FrmBaiDang
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(789, 565);
+            ClientSize = new Size(1600, 965);
+            Controls.Add(panel1);
             Controls.Add(txtDiachi);
             Controls.Add(label7);
             Controls.Add(picHinhAnh);
@@ -314,6 +339,8 @@
             Text = "FrmBaiDang";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
             ((System.ComponentModel.ISupportInitialize)picHinhAnh).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -338,5 +365,7 @@
         private PictureBox picHinhAnh;
         private Sunny.UI.UITextBox txtDiachi;
         private Label label7;
+        private Panel panel1;
+        private Label label9;
     }
 }

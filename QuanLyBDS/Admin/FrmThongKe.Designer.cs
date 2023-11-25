@@ -35,7 +35,7 @@
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(789, 565);
+            ClientSize = new Size(1600, 965);
             Name = "FrmThongKe";
             Padding = new Padding(0);
             ShowTitle = false;
