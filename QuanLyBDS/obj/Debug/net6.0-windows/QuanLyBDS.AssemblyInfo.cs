@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuanLyBDS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62b29d0b66ffbbae7410dd165fa5507c23736d72")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuanLyBDS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuanLyBDS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

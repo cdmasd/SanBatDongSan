@@ -88,8 +88,22 @@ namespace QuanLyBDS.NhanVien
 
         private void btnXem_Click(object sender, EventArgs e)
         {
-            HinhAnh ha = new HinhAnh(txtHinhanh.Text);
-            ha.Show();
+            string localFilePath = txtHinhanh.Text;
+
+            if (!string.IsNullOrEmpty(localFilePath))
+            {
+                string imageUrl = new Uri(localFilePath).AbsoluteUri;
+                ShowImageDialog(imageUrl);
+            }
+            else
+            {
+                MessageBox.Show("Không có đường dẫn hình ảnh.");
+            }
+        }
+        private void ShowImageDialog(string imageUrl)
+        {
+            HinhAnh hinhanh = new HinhAnh(imageUrl);
+            hinhanh.ShowDialog();
         }
 
         private void btnTuchoi_Click(object sender, EventArgs e)

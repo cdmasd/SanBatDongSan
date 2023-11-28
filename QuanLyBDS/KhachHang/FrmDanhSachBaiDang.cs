@@ -1,4 +1,6 @@
-﻿using MongoDB.Bson;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using MongoDB.Bson;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -15,31 +17,60 @@ namespace QuanLyBDS.KhachHang
     public partial class FrmDanhSachBaiDang : UIForm
     {
         BUS_QuanLyBDS.KhachHang kh = new BUS_QuanLyBDS.KhachHang();
-        string checkUrlImage;
-        string fileName;
-        string filSavePath;
-        string fileAddress;
+        private const string CloudName = "dzhievecr";
+        private const string ApiKey = "155172834399586";
+        private const string ApiSecret = "a4qvVx8GHsPG8xZYTaedG5XJVc8";
+        private Cloudinary cloudinary;
+        private string imagePath;
         public FrmDanhSachBaiDang()
         {
             InitializeComponent();
             cbLoainha.DropDownStyle = UIDropDownStyle.DropDownList;
             dtView.CellClick += dtView_CellClick;
             LoadDataBaiDang();
+            InitializeCloudinary();
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlopen = new OpenFileDialog();
-            dlopen.Filter = "Bitmap(*.bmp)|*.bmp|JPEG(*.jpg)|*.jpg|PNG(*.png)|*.png|GIF(*.gif)|*.gif|ALL file(*.*)|*.*";
-            dlopen.FilterIndex = 2;
-            dlopen.Title = "Chọn hình ảnh sản phẩm";
-            if (dlopen.ShowDialog() == DialogResult.OK)
-            {
-                fileAddress = dlopen.FileName;
-                fileName = Path.GetFileName(dlopen.FileName);
-                string saveDirectory = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
-                filSavePath = saveDirectory + "\\Images\\" + fileName;
-                txtHinhanh.Text = "\\Images\\" + fileName;
+            OpenFileDialog dl = new OpenFileDialog();
+            dl.Filter = "Image | *.jpg;*.png;*.jpeg";
+            DialogResult result = dl.ShowDialog();
 
+            if (result == DialogResult.OK)
+            {
+
+                txtHinhanh.Text = dl.FileName;
+                imagePath = dl.FileName;
+            }
+        }
+        private string UploadImageToCloudinary(string path)
+        {
+            try
+            {
+                var uploadParams = new ImageUploadParams
+                {
+                    File = new FileDescription(path),
+                };
+
+                var uploadResult = cloudinary.Upload(uploadParams);
+                return uploadResult.Uri.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tải lên hình ảnh: {ex.Message}");
+                return null;
+            }
+        }
+        private void InitializeCloudinary()
+        {
+            try
+            {
+                Account account = new Account(CloudName, ApiKey, ApiSecret);
+                cloudinary = new Cloudinary(account);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi khởi tạo Cloudinary: {ex.Message}");
             }
         }
 
@@ -66,17 +97,28 @@ namespace QuanLyBDS.KhachHang
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
                     return;
                 }
-                bool result = kh.UpdateBaidang(id, tieuDe, loaiNha, dientich, sophong, gia, diaChi, hinhAnh);
-
-                if (result)
+                string cloudinaryUrl = UploadImageToCloudinary(imagePath);
+                if (cloudinaryUrl != null)
                 {
-                    MessageBox.Show("Cập nhật thành công");
-                    LoadDataBaiDang();
+                    hinhAnh = cloudinaryUrl;
+                    bool result = kh.UpdateBaidang(id, tieuDe, loaiNha, dientich, sophong, gia, diaChi, hinhAnh);
+
+                    if (result)
+                    {
+                        MessageBox.Show("Cập nhật thành công");
+                        LoadDataBaiDang();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật thất bại. Vui lòng kiểm tra lại thông tin.");
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại. Vui lòng kiểm tra lại thông tin.");
+                    MessageBox.Show("Lỗi khi tải lên ảnh lên Cloudinary. Vui lòng thử lại.");
                 }
+
             }
             catch (FormatException)
             {
@@ -167,6 +209,11 @@ namespace QuanLyBDS.KhachHang
         private void FrmDanhSachBaiDang_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            UploadImageToCloudinary(imagePath);
         }
     }
 }

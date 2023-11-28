@@ -50,6 +50,7 @@
             Name = "HinhAnh";
             Text = "Hình ảnh";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
+            Load += HinhAnh_Load;
             ((System.ComponentModel.ISupportInitialize)pic).EndInit();
             ResumeLayout(false);
         }
