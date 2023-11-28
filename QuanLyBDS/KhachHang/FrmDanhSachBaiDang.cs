@@ -95,13 +95,13 @@ namespace QuanLyBDS.KhachHang
 
                 // Lấy dữ liệu từ các ô của dòng được chọn
                 string id = selectedRow.Cells["_id"].Value.ToString();
-                string tieuDe = selectedRow.Cells["TieuDe"].Value.ToString();
-                string loaiNha = selectedRow.Cells["LoaiNha"].Value.ToString();
-                string dienTich = selectedRow.Cells["DienTich"].Value.ToString();
-                string soPhong = selectedRow.Cells["SoPhong"].Value.ToString();
+                string tieuDe = selectedRow.Cells["Tieude"].Value.ToString();
+                string loaiNha = selectedRow.Cells["Loainha"].Value.ToString();
+                string dienTich = selectedRow.Cells["Dientich"].Value.ToString();
+                string soPhong = selectedRow.Cells["Sophong"].Value.ToString();
                 string gia = selectedRow.Cells["Gia"].Value.ToString();
-                string diaChi = selectedRow.Cells["DiaChi"].Value.ToString();
-                string hinhAnh = selectedRow.Cells["HinhAnh"].Value.ToString();
+                string diaChi = selectedRow.Cells["Diachi"].Value.ToString();
+                string hinhAnh = selectedRow.Cells["Hinhanh"].Value.ToString();
 
                 // Hiển thị dữ liệu lên các controls
                 txtId.Text = id;
@@ -124,9 +124,9 @@ namespace QuanLyBDS.KhachHang
             {
                 foreach (var header in dataBaiDang[0].Names)
                 {
-                    if (header != "ThoiGianDang")
+                    if (header != "Thoigiandang")
                     {
-                        if (header != "Duyet")
+                        if (header != "Trangthai")
                         {
                             dtView.Columns.Add(header, header);
                         }

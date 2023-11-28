@@ -49,17 +49,15 @@ namespace DAL_QuanLyBDS
                     {"Hinhanh", hinhAnh},
                     {"_idnguoidang",getidKh(email) },
                     {"Thoigiandang", DateTime.Now.ToString("dd-MM-yyyy")},
-                    {"Trangthai", false}
+                    {"Trangthai", "Chưa duyệt"}
                 };
 
                 khachhangdangtin.InsertOne(dangtinDocument);
                 UpdateSodu(email);
-                Console.WriteLine("Đăng tin thành công, vui lòng chờ nhân viên kiểm duyệt nội dung!");
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Lỗi khi đăng tin: {ex.Message}");
                 return false;
             }
         }
@@ -103,7 +101,8 @@ namespace DAL_QuanLyBDS
                     .Set("Sophong", soPhong)
                     .Set("Gia", gia)
                     .Set("Diachi", diaChi)
-                    .Set("Hinhanh", hinhAnh);
+                    .Set("Hinhanh", hinhAnh)
+                    .Set("Trangthai", "Chưa duyệt");
 
                 // Thực hiện hoạt động cập nhật với bộ lọc và cập nhật đã xác định
                 var result = khachhangdangtin.UpdateOne(filter, update);
@@ -114,7 +113,6 @@ namespace DAL_QuanLyBDS
             catch (Exception ex)
             {
                 // Xử lý bất kỳ ngoại lệ nào xảy ra trong quá trình cập nhật
-                Console.WriteLine($"Lỗi khi cập nhật bài đăng: {ex.Message}");
                 return false;
             }
         }
@@ -141,8 +139,6 @@ namespace DAL_QuanLyBDS
             }
             catch (Exception ex)
             {
-
-                Console.WriteLine($"Lỗi khi cập nhật bài đăng: {ex.Message}");
                 return false;
             }
         }
@@ -157,7 +153,6 @@ namespace DAL_QuanLyBDS
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Lỗi khi xóa bài đăng: {ex.Message}");
                 return false;
             }
 

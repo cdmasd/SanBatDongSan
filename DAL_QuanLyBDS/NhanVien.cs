@@ -19,14 +19,14 @@ namespace DAL_QuanLyBDS
         {
             return dangtin.Find(new BsonDocument
             {
-                { "Trangthai", false }
+                { "Trangthai", "Chưa duyệt" }
             }).ToList();
         }
         public List<BsonDocument> Daduyet()
         {
             return dangtin.Find(new BsonDocument
             {
-                { "Trangthai", true }
+                { "Trangthai", "Đã duyệt" }
             }).ToList();
         }
         public bool DeleteBaiDang(string id)
@@ -57,7 +57,7 @@ namespace DAL_QuanLyBDS
             try
             {
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-                var update = Builders<BsonDocument>.Update.Set("TrangThai", true).Set("NguoiDuyet", getNameNv(email));
+                var update = Builders<BsonDocument>.Update.Set("Trangthai", "Đã duyệt").Set("Nguoiduyet", getNameNv(email));
                 var result = dangtin.UpdateOne(filter, update);
                 if (result.ModifiedCount > 0)
                 {
@@ -77,7 +77,7 @@ namespace DAL_QuanLyBDS
         {
             return ticket.Find(new BsonDocument
             {
-                { "TrangThai", false }
+                { "Trangthai", false }
             }).ToList();
         }
         public bool Hotro(string id, string email)
@@ -85,7 +85,7 @@ namespace DAL_QuanLyBDS
             try
             {
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-                var update = Builders<BsonDocument>.Update.Set("TrangThai", true).Set("NguoiHoTro", getNameNv(email));
+                var update = Builders<BsonDocument>.Update.Set("Trangthai", true).Set("Nguoihotro", getNameNv(email));
                 var result = ticket.UpdateOne(filter, update);
                 if (result.ModifiedCount > 0)
                 {

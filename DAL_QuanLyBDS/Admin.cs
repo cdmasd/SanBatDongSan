@@ -401,14 +401,14 @@ namespace DAL_QuanLyBDS
 
         public long BaiDangDaDuyet()
         {
-            var filterTrue = Builders<BsonDocument>.Filter.Eq("Trangthai", true);
+            var filterTrue = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
             var countTrue = baiDangColl.CountDocuments(filterTrue);
             return countTrue;
         }
 
         public long BaiDangChuaDuyet()
         {
-            var filterFalse = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
+            var filterFalse = Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa duyệt");
             var countFalse = baiDangColl.CountDocuments(filterFalse);
             return countFalse;
         }
