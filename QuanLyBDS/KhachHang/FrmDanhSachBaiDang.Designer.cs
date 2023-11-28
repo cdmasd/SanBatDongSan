@@ -54,6 +54,9 @@
             label8 = new Label();
             panel1 = new Panel();
             label9 = new Label();
+            btnTimKiem = new Sunny.UI.UIButton();
+            label10 = new Label();
+            uiTextBox1 = new Sunny.UI.UITextBox();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -258,7 +261,7 @@
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
-            dtView.Location = new Point(384, 408);
+            dtView.Location = new Point(413, 497);
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
@@ -355,7 +358,7 @@
             label8.AutoSize = true;
             label8.BackColor = SystemColors.Control;
             label8.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(707, 550);
+            label8.Location = new Point(735, 635);
             label8.Name = "label8";
             label8.Size = new Size(118, 19);
             label8.TabIndex = 57;
@@ -383,12 +386,54 @@
             label9.TabIndex = 0;
             label9.Text = "Danh Sách Nhân Viên";
             // 
+            // btnTimKiem
+            // 
+            btnTimKiem.FillColor = SystemColors.Highlight;
+            btnTimKiem.FillHoverColor = Color.MidnightBlue;
+            btnTimKiem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTimKiem.Location = new Point(879, 431);
+            btnTimKiem.MinimumSize = new Size(1, 1);
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(100, 35);
+            btnTimKiem.Style = Sunny.UI.UIStyle.Custom;
+            btnTimKiem.TabIndex = 64;
+            btnTimKiem.Text = "Tìm Kiếm";
+            btnTimKiem.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(592, 440);
+            label10.Name = "label10";
+            label10.Size = new Size(70, 19);
+            label10.TabIndex = 63;
+            label10.Text = "Tìm Kiếm";
+            // 
+            // uiTextBox1
+            // 
+            uiTextBox1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            uiTextBox1.Location = new Point(669, 435);
+            uiTextBox1.Margin = new Padding(4, 5, 4, 5);
+            uiTextBox1.MinimumSize = new Size(1, 16);
+            uiTextBox1.Name = "uiTextBox1";
+            uiTextBox1.Padding = new Padding(5);
+            uiTextBox1.ShowText = false;
+            uiTextBox1.Size = new Size(203, 27);
+            uiTextBox1.Style = Sunny.UI.UIStyle.Custom;
+            uiTextBox1.TabIndex = 62;
+            uiTextBox1.TextAlignment = ContentAlignment.MiddleLeft;
+            uiTextBox1.Watermark = "";
+            // 
             // FrmDanhSachBaiDang
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1600, 965);
+            Controls.Add(btnTimKiem);
+            Controls.Add(label10);
+            Controls.Add(uiTextBox1);
             Controls.Add(panel1);
             Controls.Add(label8);
             Controls.Add(txtId);
@@ -446,5 +491,8 @@
         private Label label8;
         private Panel panel1;
         private Label label9;
+        private Sunny.UI.UIButton btnTimKiem;
+        private Label label10;
+        private Sunny.UI.UITextBox uiTextBox1;
     }
 }

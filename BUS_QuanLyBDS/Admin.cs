@@ -6,6 +6,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace BUS_QuanLyBDS
 {
@@ -99,5 +101,61 @@ namespace BUS_QuanLyBDS
         {
             return dal_Admin.TimKiemNhanVienTheoId(Id);
         }
+
+        public long TongKhachHang()
+        {
+            return dal_Admin.TongKhachHang();
+        }
+
+        public long TongSoLuongBaiDang()
+        {
+            return dal_Admin.TongSoLuongBaiDang();
+        }
+
+        public double TongGiaTriBDS()
+        {
+            return dal_Admin.TongGiaTriBDS();
+        }
+
+        public List<ThongKeDTO> ThongKeBaiDang()
+        {
+            return dal_Admin.ThongKeBaiDang();
+        }
+
+        public List<ThongKeDTO> ThongKeTop5()
+        {
+            return dal_Admin.ThongKeTop5();
+        }
+
+        public double TongDoanhThu()
+        {
+            return dal_Admin.TongDoanhThu();
+        }
+
+        public List<ThongKeDoanhThuDTO> ThongKeDoanhThu()
+        {
+            return dal_Admin.ThongKeDoanhThu();
+        }
+
+        public long TicketDaDuyet()
+        {
+            return dal_Admin.TicketDaDuyet();
+        }
+
+        public long TicketChuaDuyet()
+        {
+            return dal_Admin.TicketChuaDuyet();
+        }
+
+        public long BaiDangDaDuyet()
+        {
+            return dal_Admin.BaiDangDaDuyet();
+        }
+
+        public long BaiDangChuaDuyet()
+        {
+            return dal_Admin.BaiDangChuaDuyet();
+        }
+
     }
 }

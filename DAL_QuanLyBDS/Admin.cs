@@ -1,16 +1,17 @@
 ﻿using DTO_QuanLyBDS;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL_QuanLyBDS
 {
     public class Admin : Context
     {
+        IMongoCollection<BsonDocument> baiDangColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("KhachHangDangTin");
+
+        IMongoCollection<BsonDocument> khachHangColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
+
+        IMongoCollection<BsonDocument> ticketColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Ticket");
+
         private IMongoCollection<NhanVienDTO> NhanVienCollection()
         {
             var db = client.GetDatabase("QLBatDongSan");
@@ -21,6 +22,12 @@ namespace DAL_QuanLyBDS
         {
             var db = client.GetDatabase("QLBatDongSan");
             return db.GetCollection<TaiKhoanDTO>("TaiKhoan");
+        }
+
+        private IMongoCollection<LogNapTien> LogNapTienCollection()
+        {
+            var db = client.GetDatabase("QLBatDongSan");
+            return db.GetCollection<LogNapTien>("LogNapTien");
         }
 
         public List<NhanVienDTO> DanhSachNhanVien()
@@ -175,5 +182,240 @@ namespace DAL_QuanLyBDS
                 return ex.Message;
             }
         }
+
+        public long TongKhachHang()
+        {
+            try
+            {
+                IMongoDatabase db = client.GetDatabase("QLBatDongSan");
+                IMongoCollection<BsonDocument> coll = db.GetCollection<BsonDocument>("Khachhang");
+                long count = coll.CountDocuments(new BsonDocument());
+                return count;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public long TongSoLuongBaiDang()
+        {
+            try
+            {
+                IMongoDatabase db = client.GetDatabase("QLBatDongSan");
+                IMongoCollection<BsonDocument> coll = db.GetCollection<BsonDocument>("KhachHangDangTin");
+                long count = coll.CountDocuments(new BsonDocument());
+                return count;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public double TongGiaTriBDS()
+        {
+            try
+            {
+                var aggregate = baiDangColl.Aggregate().Group(new BsonDocument
+                {
+                    {"_id", "$null" },
+                    {"totalPrice", new BsonDocument("$sum", "$Gia") }
+                }).FirstOrDefault();
+
+                double tongGia = 0;
+                if (aggregate != null)
+                {
+                    tongGia = aggregate["totalPrice"].AsDouble;
+                }
+                return tongGia;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public double TongDoanhThu()
+        {
+            var aggregate = khachHangColl.Aggregate().Group(new BsonDocument
+                {
+                    {"_id","_null" },
+                    {"doanhThu", new BsonDocument("$sum", "$Sodu") }
+                }).FirstOrDefault();
+
+            double doanhThu = 0;
+            if (aggregate != null)
+            {
+                doanhThu = aggregate["doanhThu"].AsDouble;
+            }
+            return doanhThu;
+        }
+
+        public List<ThongKeDTO> ThongKeBaiDang()
+        {
+            try
+            {
+                IMongoDatabase database = client.GetDatabase("QLBatDongSan"); // Thay "TenCSDL" bằng tên của CSDL MongoDB của bạn
+                IMongoCollection<BaiDangDTO> collection = database.GetCollection<BaiDangDTO>("KhachHangDangTin");
+
+                var group = new BsonDocument
+                {
+                    {
+                        "$group",
+                        new BsonDocument
+                        {
+                            {"_id", new BsonDocument("$dateFromString", new BsonDocument("dateString", "$Thoigiandang").Add("format", "%d-%m-%Y"))},
+                            {"Soluongbaidang", new BsonDocument("$sum", 1)}
+                        }
+                    }
+                };
+
+                var project = new BsonDocument
+                {
+                    {
+                        "$project",
+                        new BsonDocument
+                        {
+                            {"_id", 0},
+                            {"Thoigiandang", "$_id"},
+                            {"Soluongbaidang", 1}
+                        }
+                    }
+                };
+
+                var pipeline = new[] { BsonDocument.Parse(group.ToJson()), BsonDocument.Parse(project.ToJson()) };
+                var result = collection.Aggregate<ThongKeDTO>(pipeline).ToList();
+                return result;
+            }
+            catch
+            {
+                return new List<ThongKeDTO>();
+            }
+        }
+
+        public List<ThongKeDTO> ThongKeTop5()
+        {
+            try
+            {
+                IMongoDatabase database = client.GetDatabase("QLBatDongSan");
+                IMongoCollection<BaiDangDTO> collection = database.GetCollection<BaiDangDTO>("KhachHangDangTin");
+
+                var group = new BsonDocument
+                {
+                    {
+                        "$group",
+                        new BsonDocument
+                        {
+                            {"_id", "$Loainha"},
+                            {"Soluongbaidang", new BsonDocument("$sum", 1)}
+                        }
+                    }
+                };
+
+                var project = new BsonDocument
+                {
+                    {
+                        "$project",
+                        new BsonDocument
+                        {
+                            {"_id", 0},
+                            {"Loainha", "$_id"},
+                            {"Soluongbaidang", 1}
+                        }
+                    }
+                };
+
+                var sort = new BsonDocument("$sort", new BsonDocument("Soluongbaidang", -1));
+
+                var limit = new BsonDocument("$limit", 5);
+
+                var pipeline = new[] { BsonDocument.Parse(sort.ToJson()), BsonDocument.Parse(limit.ToJson()), BsonDocument.Parse(group.ToJson()), BsonDocument.Parse(project.ToJson()) };
+
+                var result = collection.Aggregate<ThongKeDTO>(pipeline).ToList();
+
+                return collection.Aggregate<ThongKeDTO>(pipeline).ToList();
+            }
+            catch
+            {
+                return new List<ThongKeDTO>();
+            }
+        }
+
+        public List<ThongKeDoanhThuDTO> ThongKeDoanhThu()
+        {
+            try
+            {
+                var lognaptienCollection = LogNapTienCollection();
+                var groupStage = new BsonDocument
+                {
+                    {
+                        "$group", new BsonDocument
+                        {
+                            { "_id", "$Ngaynap" },
+                            { "Tongtiennap", new BsonDocument("$sum", "$Tiennap") }
+                        }
+                    }
+                };
+
+                        var projectStage = new BsonDocument
+                {
+                    {
+                        "$project", new BsonDocument
+                        {
+                            { "_id", 0 },
+                            { "Ngaynap", "$_id" },
+                            { "Tongtiennap", 1 }
+                        }
+                    }
+                };
+
+                var sortStage = new BsonDocument("$sort", new BsonDocument("Ngaynap", 1));
+
+                var pipeline = new[] { groupStage, projectStage, sortStage };
+
+                var result = lognaptienCollection.Aggregate<ThongKeDoanhThuDTO>(pipeline).ToList();
+
+                return result;
+            }
+            catch
+            {
+                return new List<ThongKeDoanhThuDTO>();
+            }
+
+        }
+
+        public long TicketChuaDuyet()
+        {
+            var filterFalse = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
+            var countFalse = ticketColl.CountDocuments(filterFalse);
+            return countFalse;
+        }
+
+        public long TicketDaDuyet()
+        {
+            var filterTrue = Builders<BsonDocument>.Filter.Eq("Trangthai", true);
+            var countTrue = ticketColl.CountDocuments(filterTrue);
+            return countTrue;
+        }
+
+        public long BaiDangDaDuyet()
+        {
+            var filterTrue = Builders<BsonDocument>.Filter.Eq("Trangthai", true);
+            var countTrue = baiDangColl.CountDocuments(filterTrue);
+            return countTrue;
+        }
+
+        public long BaiDangChuaDuyet()
+        {
+            var filterFalse = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
+            var countFalse = baiDangColl.CountDocuments(filterFalse);
+            return countFalse;
+        }
+
+        /*public List<> ThongKeNgayHomNay()
+        {
+
+        }*/
     }
 }

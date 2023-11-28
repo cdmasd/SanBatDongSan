@@ -243,7 +243,7 @@
             uiLine1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             uiLine1.LineColor = SystemColors.MenuHighlight;
             uiLine1.LineColor2 = Color.FromArgb(80, 160, 255);
-            uiLine1.Location = new Point(591, 387);
+            uiLine1.Location = new Point(601, 423);
             uiLine1.MinimumSize = new Size(1, 1);
             uiLine1.Name = "uiLine1";
             uiLine1.Size = new Size(360, 29);
@@ -254,7 +254,7 @@
             // picHinhAnh
             // 
             picHinhAnh.BorderStyle = BorderStyle.FixedSingle;
-            picHinhAnh.Location = new Point(389, 422);
+            picHinhAnh.Location = new Point(399, 458);
             picHinhAnh.Name = "picHinhAnh";
             picHinhAnh.Size = new Size(765, 314);
             picHinhAnh.SizeMode = PictureBoxSizeMode.Zoom;
