@@ -74,7 +74,6 @@ namespace QuanLyBDS.Admin
             option.ToolTip.Visible = true;
             option.YAxis.Scale = true;
 
-            option.XAxis.Name = "Ngày Đăng";
             option.XAxis.AxisLabel.Angle = 45;//(0° ~ 90°)
 
             option.YAxis.Name = "Số Bài đăng";
@@ -164,7 +163,6 @@ namespace QuanLyBDS.Admin
             option.ToolTip.Visible = true;
             option.YAxis.Scale = true;
 
-            option.XAxis.Name = "Ngày";
             option.XAxis.AxisLabel.Angle = 45;
 
             option.YAxis.Name = "Doanh Thu";

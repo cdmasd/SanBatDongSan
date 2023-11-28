@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace BUS_QuanLyBDS
 {
     public class Admin
     {
         private readonly DAL_QuanLyBDS.Admin dal_Admin;
-
+        private const string apiKey = "c9edb9285c810b4fae2b8829e8586f4976b45e55";
         public Admin()
         {
             dal_Admin = new DAL_QuanLyBDS.Admin();
@@ -90,6 +92,47 @@ namespace BUS_QuanLyBDS
                 return (true);
             else
                 return (false);
+        }
+
+        public async Task<string> KiemTraEmailTonTai(string email)
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    string apiUrl = $"https://api.hunter.io/v2/email-verifier?email={email}&api_key={apiKey}";
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        // phân tích JSON response
+                        var data = JObject.Parse(jsonResponse);
+                        string status = data["data"]["result"].ToString();
+
+                        if (status.Equals("deliverable", StringComparison.OrdinalIgnoreCase))
+                        {
+                            return "Email hợp lệ";
+                        }
+                        else if (status.Equals("undeliverable", StringComparison.OrdinalIgnoreCase))
+                        {
+                            return "Không thể gửi mail cho địa chỉ email này\n hãy kiểm tra lại địa chỉ email";
+                        }
+                        else
+                        {
+                            return "Trạng thái email không xác định \n hãy kiểm tra lại email";
+                        }
+                    }
+                    else
+                    {
+                        return "Địa chỉ email không hợp lệ";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string XoaNhanVien(string Email)

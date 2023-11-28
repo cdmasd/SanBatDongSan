@@ -71,7 +71,7 @@
             // 
             chartThongKeBaiDang.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartThongKeBaiDang.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartThongKeBaiDang.Location = new Point(968, 249);
+            chartThongKeBaiDang.Location = new Point(535, 249);
             chartThongKeBaiDang.MinimumSize = new Size(1, 1);
             chartThongKeBaiDang.Name = "chartThongKeBaiDang";
             chartThongKeBaiDang.Size = new Size(572, 386);
@@ -220,7 +220,7 @@
             panel5.Controls.Add(label5);
             panel5.Location = new Point(1045, 109);
             panel5.Name = "panel5";
-            panel5.Size = new Size(482, 134);
+            panel5.Size = new Size(451, 134);
             panel5.TabIndex = 4;
             // 
             // labelDoanhThu
@@ -254,7 +254,7 @@
             panel6.Controls.Add(label6);
             panel6.Location = new Point(39, 641);
             panel6.Name = "panel6";
-            panel6.Size = new Size(349, 220);
+            panel6.Size = new Size(490, 220);
             panel6.TabIndex = 4;
             // 
             // labelBaiDangDaDuyet
@@ -316,10 +316,10 @@
             // 
             chartTop5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartTop5.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartTop5.Location = new Point(39, 249);
+            chartTop5.Location = new Point(1113, 249);
             chartTop5.MinimumSize = new Size(1, 1);
             chartTop5.Name = "chartTop5";
-            chartTop5.Size = new Size(427, 386);
+            chartTop5.Size = new Size(383, 612);
             chartTop5.Style = Sunny.UI.UIStyle.Custom;
             chartTop5.SubFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chartTop5.TabIndex = 10;
@@ -350,9 +350,9 @@
             panel7.Controls.Add(labelTicketDaDuyet);
             panel7.Controls.Add(label8);
             panel7.Controls.Add(label9);
-            panel7.Location = new Point(394, 641);
+            panel7.Location = new Point(535, 641);
             panel7.Name = "panel7";
-            panel7.Size = new Size(377, 220);
+            panel7.Size = new Size(572, 220);
             panel7.TabIndex = 17;
             // 
             // labelTicketChuaDuyet
@@ -403,7 +403,7 @@
             // 
             chartDoanhThu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartDoanhThu.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartDoanhThu.Location = new Point(472, 249);
+            chartDoanhThu.Location = new Point(39, 249);
             chartDoanhThu.MinimumSize = new Size(1, 1);
             chartDoanhThu.Name = "chartDoanhThu";
             chartDoanhThu.Size = new Size(490, 386);

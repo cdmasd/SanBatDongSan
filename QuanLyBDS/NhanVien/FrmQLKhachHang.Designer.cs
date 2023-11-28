@@ -47,13 +47,10 @@
             dtView = new Sunny.UI.UIDataGridView();
             txtId = new Label();
             label8 = new Label();
-            panel1 = new Panel();
-            label5 = new Label();
             btnTimKiem = new Sunny.UI.UIButton();
             label6 = new Label();
             uiTextBox1 = new Sunny.UI.UITextBox();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnNap
@@ -61,7 +58,7 @@
             btnNap.FillColor = SystemColors.Highlight;
             btnNap.FillHoverColor = Color.MidnightBlue;
             btnNap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNap.Location = new Point(1059, 267);
+            btnNap.Location = new Point(1043, 156);
             btnNap.MinimumSize = new Size(1, 1);
             btnNap.Name = "btnNap";
             btnNap.Size = new Size(85, 28);
@@ -75,7 +72,7 @@
             // 
             txtSodu.Enabled = false;
             txtSodu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSodu.Location = new Point(735, 301);
+            txtSodu.Location = new Point(719, 190);
             txtSodu.Margin = new Padding(4, 5, 4, 5);
             txtSodu.MinimumSize = new Size(1, 16);
             txtSodu.Name = "txtSodu";
@@ -90,7 +87,7 @@
             // txtSdt
             // 
             txtSdt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSdt.Location = new Point(735, 244);
+            txtSdt.Location = new Point(719, 133);
             txtSdt.Margin = new Padding(4, 5, 4, 5);
             txtSdt.MinimumSize = new Size(1, 16);
             txtSdt.Name = "txtSdt";
@@ -105,7 +102,7 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.Location = new Point(456, 301);
+            txtEmail.Location = new Point(440, 190);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.MinimumSize = new Size(1, 16);
             txtEmail.Name = "txtEmail";
@@ -120,7 +117,7 @@
             // txtHoten
             // 
             txtHoten.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHoten.Location = new Point(456, 244);
+            txtHoten.Location = new Point(440, 133);
             txtHoten.Margin = new Padding(4, 5, 4, 5);
             txtHoten.MinimumSize = new Size(1, 16);
             txtHoten.Name = "txtHoten";
@@ -136,7 +133,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(735, 277);
+            label4.Location = new Point(719, 166);
             label4.Name = "label4";
             label4.Size = new Size(59, 20);
             label4.TabIndex = 21;
@@ -146,7 +143,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(735, 220);
+            label3.Location = new Point(719, 109);
             label3.Name = "label3";
             label3.Size = new Size(110, 20);
             label3.TabIndex = 20;
@@ -156,7 +153,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(456, 277);
+            label2.Location = new Point(440, 166);
             label2.Name = "label2";
             label2.Size = new Size(56, 20);
             label2.TabIndex = 19;
@@ -166,7 +163,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(456, 220);
+            label1.Location = new Point(440, 109);
             label1.Name = "label1";
             label1.Size = new Size(65, 20);
             label1.TabIndex = 18;
@@ -175,7 +172,7 @@
             // txtNap
             // 
             txtNap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNap.Location = new Point(1034, 232);
+            txtNap.Location = new Point(1018, 121);
             txtNap.Margin = new Padding(4, 5, 4, 5);
             txtNap.MinimumSize = new Size(1, 16);
             txtNap.Name = "txtNap";
@@ -192,7 +189,7 @@
             btnXoa.FillColor = SystemColors.Highlight;
             btnXoa.FillHoverColor = Color.MidnightBlue;
             btnXoa.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXoa.Location = new Point(1038, 301);
+            btnXoa.Location = new Point(1022, 190);
             btnXoa.MinimumSize = new Size(1, 1);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(127, 31);
@@ -229,7 +226,7 @@
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
-            dtView.Location = new Point(426, 437);
+            dtView.Location = new Point(410, 326);
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
@@ -259,7 +256,7 @@
             // txtId
             // 
             txtId.AutoSize = true;
-            txtId.Location = new Point(930, 210);
+            txtId.Location = new Point(914, 99);
             txtId.Name = "txtId";
             txtId.Size = new Size(55, 16);
             txtId.TabIndex = 29;
@@ -270,40 +267,19 @@
             label8.AutoSize = true;
             label8.BackColor = SystemColors.Control;
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(749, 627);
+            label8.Location = new Point(733, 516);
             label8.Name = "label8";
             label8.Size = new Size(126, 20);
             label8.TabIndex = 56;
             label8.Text = "Không có dữ liệu";
             label8.Visible = false;
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.DodgerBlue;
-            panel1.Controls.Add(label5);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1600, 138);
-            panel1.TabIndex = 57;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(261, 46);
-            label5.Name = "label5";
-            label5.Size = new Size(290, 31);
-            label5.TabIndex = 0;
-            label5.Text = "Quản Lý Khách Hàng";
-            // 
             // btnTimKiem
             // 
             btnTimKiem.FillColor = SystemColors.Highlight;
             btnTimKiem.FillHoverColor = Color.MidnightBlue;
             btnTimKiem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTimKiem.Location = new Point(912, 380);
+            btnTimKiem.Location = new Point(896, 269);
             btnTimKiem.MinimumSize = new Size(1, 1);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(100, 35);
@@ -316,7 +292,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(625, 389);
+            label6.Location = new Point(609, 278);
             label6.Name = "label6";
             label6.Size = new Size(70, 19);
             label6.TabIndex = 63;
@@ -325,7 +301,7 @@
             // uiTextBox1
             // 
             uiTextBox1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox1.Location = new Point(702, 384);
+            uiTextBox1.Location = new Point(686, 273);
             uiTextBox1.Margin = new Padding(4, 5, 4, 5);
             uiTextBox1.MinimumSize = new Size(1, 16);
             uiTextBox1.Name = "uiTextBox1";
@@ -346,7 +322,6 @@
             Controls.Add(btnTimKiem);
             Controls.Add(label6);
             Controls.Add(uiTextBox1);
-            Controls.Add(panel1);
             Controls.Add(label8);
             Controls.Add(txtId);
             Controls.Add(dtView);
@@ -368,8 +343,6 @@
             Text = "FrmQLKhachHang";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
             ((System.ComponentModel.ISupportInitialize)dtView).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -390,8 +363,6 @@
         private Sunny.UI.UIDataGridView dtView;
         private Label txtId;
         private Label label8;
-        private Panel panel1;
-        private Label label5;
         private Sunny.UI.UIButton btnTimKiem;
         private Label label6;
         private Sunny.UI.UITextBox uiTextBox1;

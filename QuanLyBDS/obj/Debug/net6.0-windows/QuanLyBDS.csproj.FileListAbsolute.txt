@@ -399,3 +399,4 @@ D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\refint
 D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.pdb
 D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.genruntimeconfig.cache
 D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\ref\QuanLyBDS.dll
+D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

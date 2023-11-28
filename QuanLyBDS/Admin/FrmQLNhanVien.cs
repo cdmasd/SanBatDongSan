@@ -34,11 +34,17 @@ namespace QuanLyBDS.Admin
             LoadData();
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private async void btnThem_Click(object sender, EventArgs e)
         {
             if (txtHoten.Text == string.Empty || txtEmail.Text == string.Empty || txtDiachi.Text == string.Empty || txtSodienthoai.Text == string.Empty || !bus_Admin.KiemTraEmail(txtEmail.Text.Trim()))
             {
                 KiemTraTextBox();
+                return;
+            }
+            string emailCheck = await bus_Admin.KiemTraEmailTonTai(txtEmail.Text.Trim());
+            if (emailCheck != "Email hợp lệ")
+            {
+                MessageBox.Show(emailCheck,"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string thongBao = bus_Admin.ThemNhanVien(
@@ -166,27 +172,27 @@ namespace QuanLyBDS.Admin
         {
             if (txtHoten.Text == string.Empty)
             {
-                UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", "Họ Tên đang trống", UIStyle.Red);
+                MessageBox.Show("Họ Tên đang trống","Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtEmail.Text == string.Empty)
             {
-                UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", "Email đang trống", UIStyle.Red);
+                MessageBox.Show("Email đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtDiachi.Text == string.Empty)
             {
-                UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", "Địa chỉ đang trống", UIStyle.Red);
+                MessageBox.Show("Địa chỉ đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtSodienthoai.Text == string.Empty)
             {
-                UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", "Số điện đang trống", UIStyle.Red);
+                MessageBox.Show("Số điện đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!bus_Admin.KiemTraEmail(txtEmail.Text.Trim()))
             {
-                UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", "mail không hợp lệ", UIStyle.Red);
+                MessageBox.Show("mail không hợp lệ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
