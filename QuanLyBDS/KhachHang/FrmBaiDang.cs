@@ -34,21 +34,11 @@ namespace QuanLyBDS.KhachHang
                 string tieuDe = txtTieude.Text;
                 string loaiNha = cbLoainha.Text;
                 // Convert string inputs to appropriate numeric types
-                if (!double.TryParse(txtDientich.Text, out double dientich))
+                if (!double.TryParse(txtDientich.Text, out double dientich) ||
+                     !int.TryParse(txtSophong.Text, out int sophong) ||
+                     !double.TryParse(txtGia.Text, out double gia))
                 {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng cho diện tích.");
-                    return;
-                }
-
-                if (!int.TryParse(txtSophong.Text, out int sophong))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng cho số phòng.");
-                    return;
-                }
-
-                if (!double.TryParse(txtGia.Text, out double gia))
-                {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng cho giá.");
+                    MessageBox.Show("Không được nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -57,7 +47,7 @@ namespace QuanLyBDS.KhachHang
                 // Kiểm tra nếu có dữ liệu bị bỏ trống
                 if (string.IsNullOrEmpty(tieuDe) || string.IsNullOrEmpty(loaiNha) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(imagePath))
                 {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin và chọn ảnh.");
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin và chọn ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -74,25 +64,21 @@ namespace QuanLyBDS.KhachHang
 
                     if (result)
                     {
-                        MessageBox.Show("Đăng tin thành công. Vui lòng chờ duyệt từ phía nhân viên.");
+                        MessageBox.Show("Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
                     {
-                        MessageBox.Show("Đăng tin thất bại. Vui lòng kiểm tra lại thông tin.");
+                        MessageBox.Show("Số dư của bạn không đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi khi tải lên ảnh lên Cloudinary. Vui lòng thử lại.");
+                    MessageBox.Show("Lỗi khi tải lên ảnh lên thư viện. Vui lòng thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Vui lòng nhập đúng định dạng cho các trường số.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                MessageBox.Show("Lỗi phát sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -123,7 +109,7 @@ namespace QuanLyBDS.KhachHang
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi tải lên hình ảnh: {ex.Message}");
+                MessageBox.Show("Lỗi khi tải ảnh lên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -136,7 +122,7 @@ namespace QuanLyBDS.KhachHang
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi khởi tạo Cloudinary: {ex.Message}");
+                MessageBox.Show("Lỗi khởi tạo thư viện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -36,12 +36,12 @@ namespace QuanLyBDS.NhanVien
                 catch (Exception ex)
                 {
                     // Handle the exception (e.g., log, show error message)
-                    MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi khi tải ảnh lên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Không có đường dẫn hình ảnh.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Không có đường dẫn hình ảnh.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

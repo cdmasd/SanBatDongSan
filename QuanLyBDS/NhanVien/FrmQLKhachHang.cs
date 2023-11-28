@@ -33,13 +33,13 @@ namespace QuanLyBDS.NhanVien
             bool result = nv.UpdateKhachhang(id, email, hoten, sdt, sodu);
             if (result)
             {
-                MessageBox.Show("Nạp tiền thành công");
+                MessageBox.Show("Đã nạp tiền khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 LoadDataQLyKhachhang();
                 dtView.Refresh();
             }
             else
             {
-                MessageBox.Show("Nạp tiền thất bại");
+                MessageBox.Show("Chọn khách hàng nạp tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void LoadDataQLyKhachhang()
@@ -100,18 +100,18 @@ namespace QuanLyBDS.NhanVien
 
             if (string.IsNullOrEmpty(txtEmail.Text))
             {
-                ShowErrorDialog("Vui lòng chọn khách hàng cần xoá");
+                MessageBox.Show("Chọn khách hàng cần xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; 
                 
             }
             if (nv.DeleteTaikhoanKH( txtEmail.Text, txtId.Text))
             {
-                ShowSuccessDialog("Xoá thành công");
+                MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LoadDataQLyKhachhang(); 
             }
             else
             {
-                ShowErrorDialog("Xoá thất bại");
+                MessageBox.Show("Không tìm thấy email khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; 
             }
         }

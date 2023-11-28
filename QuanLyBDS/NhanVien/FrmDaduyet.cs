@@ -40,12 +40,12 @@ namespace QuanLyBDS.NhanVien
                 }
                 else
                 {
-                    MessageBox.Show("Bảng không tồn tại dữ liệu");
+                    MessageBox.Show("Hàng không tồn tại dữ liệu","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
             }
             catch
             {
-                MessageBox.Show("Lỗi phát sinh");
+                MessageBox.Show("Lỗi phát sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -62,9 +62,9 @@ namespace QuanLyBDS.NhanVien
                 // Load header name
                 foreach (var header in dataBaiDang[0].Names)
                 {
-                    if (header != "ThoiGianDang")
+                    if (header != "Thoigiandang")
                     {
-                        if (header != "TrangThai")
+                        if (header != "Trangthai")
                         {
                             dtView.Columns.Add(header, header);
                         }
@@ -106,16 +106,16 @@ namespace QuanLyBDS.NhanVien
             {
                 if (nv.DeleteBaiDang(txtId.Text))
                 {
-                    ShowSuccessNotifier("Thành công");
+                    MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
-                    ShowErrorNotifier("Thất bại");
+                    MessageBox.Show("Xoá thất bại, Không tìm thấy đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                ShowErrorNotifier("Vui lòng chọn bài đăng trước");
+                MessageBox.Show("Vui lòng đối tượng cần xoá ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             LoadBaiDang();
         }

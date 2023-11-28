@@ -57,7 +57,7 @@ namespace QuanLyBDS.KhachHang
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi tải lên hình ảnh: {ex.Message}");
+                MessageBox.Show("Lỗi khi tải ảnh lên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -70,7 +70,7 @@ namespace QuanLyBDS.KhachHang
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi khởi tạo Cloudinary: {ex.Message}");
+                MessageBox.Show("Lỗi khởi tạo thư viện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -86,7 +86,7 @@ namespace QuanLyBDS.KhachHang
                     !int.TryParse(txtSophong.Text, out int sophong) ||
                     !double.TryParse(txtGia.Text, out double gia))
                 {
-                    MessageBox.Show("Vui lòng nhập đúng định dạng cho các trường số.");
+                    MessageBox.Show("Không được nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 string diaChi = txtDiachi.Text;
@@ -94,7 +94,7 @@ namespace QuanLyBDS.KhachHang
 
                 if (string.IsNullOrEmpty(tieuDe) || string.IsNullOrEmpty(loaiNha) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(hinhAnh))
                 {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin và chọn ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 string cloudinaryUrl = UploadImageToCloudinary(imagePath);
@@ -105,28 +105,24 @@ namespace QuanLyBDS.KhachHang
 
                     if (result)
                     {
-                        MessageBox.Show("Cập nhật thành công");
+                        MessageBox.Show("Đã cập nhật bài đăng của bạn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         LoadDataBaiDang();
                     }
                     else
                     {
-                        MessageBox.Show("Cập nhật thất bại. Vui lòng kiểm tra lại thông tin.");
+                        MessageBox.Show("Vui lòng chọn bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
                     }
 
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi khi tải lên ảnh lên Cloudinary. Vui lòng thử lại.");
+                    MessageBox.Show("Lỗi khi tải lên ảnh lên thư viện. Vui lòng thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
-            catch (FormatException)
-            {
-                MessageBox.Show("Vui lòng nhập đúng định dạng cho các trường số.");
-            }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                MessageBox.Show("Lỗi phát sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void dtView_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -81,12 +81,12 @@ namespace QuanLyBDS.NhanVien
                 }
                 else
                 {
-                    MessageBox.Show("Bảng không tồn tại dữ liệu");
+                    MessageBox.Show("Hàng không tồn tại dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch
             {
-                MessageBox.Show("Lỗi phát sinh");
+                MessageBox.Show("Lỗi phát sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         void resetValues()
@@ -100,12 +100,12 @@ namespace QuanLyBDS.NhanVien
         {
             if (nv.Hotro(txtId.Text, FrmMain.mail))
             {
-                ShowSuccessNotifier("Thành công");
+                MessageBox.Show("Đã phản hồi khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 resetValues();
             }
             else
             {
-                ShowErrorNotifier("Thất bại");
+                MessageBox.Show("Vui lòng chọn khách hàng phản hồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             LoadBaiDang();
         }

@@ -27,7 +27,7 @@ namespace QuanLyBDS.NhanVien
             string verifyPass = txtVerify.Text;
             if (NewPass != verifyPass)
             {
-                ShowErrorDialog("Mật khẩu nhập lại không chính xác");
+                MessageBox.Show("Mật khẩu nhập lại không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtVerify.Focus();
                 return;
             }
@@ -36,16 +36,16 @@ namespace QuanLyBDS.NhanVien
                 if (dn.checkAccount(FrmMain.mail, OldPass))
                 {
                     dn.changePass(FrmMain.mail, NewPass);
-                    ShowSuccessDialog("Đổi mật khẩu thành công.");
+                    MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
-                    ShowErrorDialog("Mật khẩu cũ không đúng hoặc email không tồn tại.");
+                    MessageBox.Show("Mật khẩu hiện tại không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                ShowErrorDialog($"Đã xảy ra lỗi: {ex.Message}");
+                MessageBox.Show("Lỗi không tìm thấy email", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

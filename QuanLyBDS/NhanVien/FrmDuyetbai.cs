@@ -97,7 +97,7 @@ namespace QuanLyBDS.NhanVien
             }
             else
             {
-                MessageBox.Show("Không có đường dẫn hình ảnh.");
+                MessageBox.Show("Không tìm thấy hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void ShowImageDialog(string imageUrl)
@@ -113,16 +113,16 @@ namespace QuanLyBDS.NhanVien
                 if (nv.DeleteBaiDang(txtId.Text))
                 {
                     resetValues();
-                    ShowSuccessNotifier("Thành công");
+                    MessageBox.Show("Đã từ chối ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
                 {
-                    ShowErrorNotifier("Thất bại");
+                    MessageBox.Show("Không tìm thấy bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                ShowErrorNotifier("Vui lòng chọn bài đăng trước");
+                MessageBox.Show("Vui lòng chọn đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             LoadBaiDang();
         }
@@ -146,12 +146,12 @@ namespace QuanLyBDS.NhanVien
                 }
                 else
                 {
-                    MessageBox.Show("Bảng không tồn tại dữ liệu");
+                    MessageBox.Show("Hàng không tồn tại dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
             {
-                MessageBox.Show("Lỗi phát sinh");
+                MessageBox.Show("Lỗi phát sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -161,17 +161,17 @@ namespace QuanLyBDS.NhanVien
             {
                 if (nv.Duyetbai(txtId.Text, FrmMain.mail))
                 {
-                    ShowSuccessNotifier("Thành công");
+                    MessageBox.Show("Duyệt thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     resetValues();
                 }
                 else
                 {
-                    ShowErrorNotifier("Thất bại");
+                    MessageBox.Show("Không tìm thấy bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                ShowErrorNotifier("Vui lòng chọn bài đăng trước");
+                 MessageBox.Show("Vui lòng chọn đối tượng","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             LoadBaiDang();
         }
