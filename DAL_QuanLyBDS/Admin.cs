@@ -1,6 +1,8 @@
 ﻿using DTO_QuanLyBDS;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace DAL_QuanLyBDS
 {
@@ -11,6 +13,8 @@ namespace DAL_QuanLyBDS
         IMongoCollection<BsonDocument> khachHangColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
 
         IMongoCollection<BsonDocument> ticketColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Ticket");
+
+        IMongoCollection<BsonDocument> logNapColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("LogNapTien");
 
         private IMongoCollection<NhanVienDTO> NhanVienCollection()
         {
@@ -142,44 +146,6 @@ namespace DAL_QuanLyBDS
             catch
             {
                 return new List<NhanVienDTO>();
-            }
-        }
-
-        public string DoiMatKhau(string email, string matkhauhientai, string matkhaumoi)
-        {
-            try
-            {
-                var tkColl = TaiKhoanCollection();
-                var tkTonTai = tkColl.Find(new BsonDocument
-                {
-                    { "Email", email },
-                    { "Matkhau", matkhauhientai }
-                }).ToList();
-
-                if (tkTonTai != null)
-                {
-                    var updateFilter = Builders<TaiKhoanDTO>.Filter.Eq("Email", email);
-                    var update = Builders<TaiKhoanDTO>.Update.Set("Matkhau", matkhaumoi);
-
-                    var result = tkColl.UpdateOne(updateFilter, update);
-
-                    if (result.IsAcknowledged && result.ModifiedCount > 0)
-                    {
-                        return "Đổi mật khẩu thành công";
-                    }
-                    else
-                    {
-                        return "Có lỗi xảy ra khi cập nhật mật khẩu mới.";
-                    }
-                }
-                else
-                {
-                    return "Sai mật khẩu hiện tại";
-                }
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
             }
         }
 
@@ -358,7 +324,7 @@ namespace DAL_QuanLyBDS
                     }
                 };
 
-                        var projectStage = new BsonDocument
+                var projectStage = new BsonDocument
                 {
                     {
                         "$project", new BsonDocument
@@ -413,9 +379,536 @@ namespace DAL_QuanLyBDS
             return countFalse;
         }
 
-        /*public List<> ThongKeNgayHomNay()
+        public int ThongKeBaiDangTrongThang()
         {
+            try
+            {
+                var currentMonth = DateTime.Now.Month;
+                var currentYear = DateTime.Now.Year;
 
-        }*/
+                var firstDayOfMonth = new DateTime(currentYear, currentMonth, 1);
+                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+                var filter = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Gte("Thoigiandang", firstDayOfMonth.ToString("dd-MM-yyyy")),
+                    Builders<BsonDocument>.Filter.Lte("Thoigiandang", lastDayOfMonth.ToString("dd-MM-yyyy"))
+                );
+
+                var documents = baiDangColl.Find(filter).ToList();
+
+                var count = 0;
+
+                foreach (var document in documents)
+                {
+                    if (DateTime.TryParseExact(document["Thoigiandang"].AsString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate.Month == currentMonth && parsedDate.Year == currentYear)
+                        {
+                            count++;
+                        }
+                    }
+                }
+
+                return count;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int ThongKeKhachHangTrongThang()
+        {
+            try
+            {
+                var currentMonth = DateTime.Now.Month;
+                var currentYear = DateTime.Now.Year;
+
+                var firstDayOfMonth = new DateTime(currentYear, currentMonth, 1);
+                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+                var filter = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Gte("Ngaydangki", firstDayOfMonth.ToString("dd-MM-yyyy")),
+                    Builders<BsonDocument>.Filter.Lte("Ngaydangki", lastDayOfMonth.ToString("dd-MM-yyyy"))
+                );
+
+                var documents = khachHangColl.Find(filter).ToList();
+
+                var count = 0;
+
+                foreach (var document in documents)
+                {
+                    if (DateTime.TryParseExact(document["Ngaydangki"].AsString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate.Month == currentMonth && parsedDate.Year == currentYear)
+                        {
+                            count++;
+                        }
+                    }
+                }
+
+                return count;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public double ThongKeTongGiaTriBDS()
+        {
+            try
+            {
+                var currentMonth = DateTime.Now.Month;
+                var currentYear = DateTime.Now.Year;
+
+                var firstDayOfMonth = new DateTime(currentYear, currentMonth, 1);
+                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+                var filter = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Gte("Thoigiandang", firstDayOfMonth.ToString("dd-MM-yyyy")),
+                    Builders<BsonDocument>.Filter.Lte("Thoigiandang", lastDayOfMonth.ToString("dd-MM-yyyy"))
+                );
+
+                var documents = baiDangColl.Find(filter).ToList();
+
+                double sum = 0;
+
+                foreach (var document in documents)
+                {
+                    if (DateTime.TryParseExact(document["Thoigiandang"].AsString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate.Month == currentMonth && parsedDate.Year == currentYear)
+                        {
+                            sum += document["Gia"].AsDouble;
+                        }
+                    }
+                }
+
+                return sum;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public double ThongKeDoanhThuTrongThang()
+        {
+            try
+            {
+                var currentMonth = DateTime.Now.Month;
+                var currentYear = DateTime.Now.Year;
+
+                var firstDayOfMonth = new DateTime(currentYear, currentMonth, 1);
+                var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+
+                var filter = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Gte("Ngaynap", firstDayOfMonth.ToString("dd-MM-yyyy")),
+                    Builders<BsonDocument>.Filter.Lte("Ngaynap", lastDayOfMonth.ToString("dd-MM-yyyy"))
+                );
+
+                var documents = logNapColl.Find(filter).ToList();
+
+                double sum = 0;
+
+                foreach (var document in documents)
+                {
+                    if (DateTime.TryParseExact(document["Ngaynap"].AsString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate.Month == currentMonth && parsedDate.Year == currentYear)
+                        {
+                            sum += document["Tiennap"].AsDouble;
+                        }
+                    }
+                }
+
+                return sum;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public List<ThongKeDTO> ThongKeBaiDangTrongThangChart()
+        {
+            try
+            {
+                var currentMonth = DateTime.Now.Month;
+                var currentYear = DateTime.Now.Year;
+
+                var match = new BsonDocument
+                {
+                    {
+                        "$match",
+                        new BsonDocument
+                        {
+                            {"$expr", new BsonDocument
+                                {
+                                    {"$and", new BsonArray
+                                        {
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$month", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Thoigiandang" }, { "format", "%d-%m-%Y" } })), currentMonth}} },
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$year", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Thoigiandang" }, { "format", "%d-%m-%Y" } })), currentYear}} }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+
+                var group = new BsonDocument
+                {
+                    {
+                        "$group",
+                        new BsonDocument
+                        {
+                            {"_id", new BsonDocument("$dateFromString", new BsonDocument("dateString", "$Thoigiandang").Add("format", "%d-%m-%Y"))},
+                            {"Soluongbaidang", new BsonDocument("$sum", 1)}
+                        }
+                    }
+                };
+
+                var project = new BsonDocument
+                {
+                    {
+                        "$project",
+                        new BsonDocument
+                        {
+                            {"_id", 0},
+                            {"Thoigiandang", "$_id"},
+                            {"Soluongbaidang", 1}
+                        }
+                    }
+                };
+
+                var pipeline = new[] { BsonDocument.Parse(match.ToJson()), BsonDocument.Parse(group.ToJson()), BsonDocument.Parse(project.ToJson()) };
+                var result = baiDangColl.Aggregate<ThongKeDTO>(pipeline).ToList();
+                return result;
+            }
+            catch
+            {
+                return new List<ThongKeDTO>();
+            }
+        }
+
+        public List<ThongKeDTO> ThongKeLoaiNhaTrongThangChart()
+        {
+            try
+            {
+                var currentMonth = DateTime.Now.Month;
+                var currentYear = DateTime.Now.Year;
+
+                var match = new BsonDocument
+                {
+                    {
+                        "$match",
+                        new BsonDocument
+                        {
+                            {"$expr", new BsonDocument
+                                {
+                                    {"$and", new BsonArray
+                                        {
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$month", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Thoigiandang" }, { "format", "%d-%m-%Y" } })), currentMonth}} },
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$year", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Thoigiandang" }, { "format", "%d-%m-%Y" } })), currentYear}} }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+
+                var group = new BsonDocument
+                {
+                    {
+                        "$group",
+                        new BsonDocument
+                        {
+                            {"_id", new BsonDocument { { "date", new BsonDocument("$dateFromString", new BsonDocument("dateString", "$Thoigiandang").Add("format", "%d-%m-%Y")) }, { "loainha", "$Loainha" } }},
+                            {"Soluongbaidang", new BsonDocument("$sum", 1)}
+                        }
+                    }
+                };
+
+                var project = new BsonDocument
+                {
+                    {
+                        "$project",
+                        new BsonDocument
+                        {
+                            {"_id", 0},
+                            {"Thoigiandang", "$_id.date"},
+                            {"Loainha", "$_id.loainha"},
+                            {"Soluongbaidang", 1}
+                        }
+                    }
+                };
+
+                var pipeline = new[] { BsonDocument.Parse(match.ToJson()), BsonDocument.Parse(group.ToJson()), BsonDocument.Parse(project.ToJson()) };
+                var result = baiDangColl.Aggregate<ThongKeDTO>(pipeline).ToList();
+                return result;
+            }
+            catch
+            {
+                return new List<ThongKeDTO>();
+            }
+        }
+
+        public List<ThongKeDoanhThuDTO> ThongKeDoanThuTrongThang()
+        {
+            try
+            {
+                var currentMonth = DateTime.Now.Month;
+                var currentYear = DateTime.Now.Year;
+
+                var matchStage = new BsonDocument
+                {
+                    {
+                        "$match",
+                        new BsonDocument
+                        {
+                            {"$expr", new BsonDocument
+                                {
+                                    {"$and", new BsonArray
+                                        {
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$month", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Ngaynap" }, { "format", "%d-%m-%Y" } })), currentMonth}} },
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$year", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Ngaynap" }, { "format", "%d-%m-%Y" } })), currentYear}} }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+
+                var groupStage = new BsonDocument
+                {
+                    {
+                        "$group",
+                        new BsonDocument
+                        {
+                            {"_id", "$Ngaynap"},
+                            {"Tongtiennap", new BsonDocument("$sum", "$Tiennap")}
+                        }
+                    }
+                };
+
+                var projectStage = new BsonDocument
+                {
+                    {
+                        "$project",
+                        new BsonDocument
+                        {
+                            {"_id", 0},
+                            {"Ngaynap", "$_id"},
+                            {"Tongtiennap", 1}
+                        }
+                    }
+                };
+
+                var sortStage = new BsonDocument("$sort", new BsonDocument("Ngaynap", 1));
+
+                var pipeline = new[] { matchStage, groupStage, projectStage, sortStage };
+
+                var result = logNapColl.Aggregate<ThongKeDoanhThuDTO>(pipeline).ToList();
+
+                return result;
+            }
+            catch
+            {
+                return new List<ThongKeDoanhThuDTO>();
+            }
+        }
+
+        public int SoBaiDangTheoNgay(DateTime ngay)
+        {
+            try
+            {
+                var filter = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Gte("Thoigiandang", ngay.ToString("dd-MM-yyyy")),
+                    Builders<BsonDocument>.Filter.Lte("Thoigiandang", ngay.AddDays(1).ToString("dd-MM-yyyy"))
+                );
+
+                var documents = baiDangColl.Find(filter).ToList();
+
+                var count = 0;
+
+                foreach (var document in documents)
+                {
+                    if (DateTime.TryParseExact(document["Thoigiandang"].AsString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate.Date == ngay.Date)
+                        {
+                            count++;
+                        }
+                    }
+                }
+
+                return count;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public int SoKhachHangTheoNgay(DateTime ngay)
+        {
+            try
+            {
+                var filter = Builders<BsonDocument>.Filter.And(
+                             Builders<BsonDocument>.Filter.Gte("Ngaydangki", ngay.ToString("dd-MM-yyyy")),
+                             Builders<BsonDocument>.Filter.Lte("Ngaydangki", ngay.AddDays(1).ToString("dd-MM-yyyy"))
+                             );
+
+                var documents = khachHangColl.Find(filter).ToList();
+
+                var count = 0;
+
+                foreach (var document in documents)
+                {
+                    if (DateTime.TryParseExact(document["Ngaydangki"].AsString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate.Date == ngay.Date)
+                        {
+                            count++;
+                        }
+                    }
+                }
+                return count;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public double TongGiaTriBDSTheoNgay(DateTime ngay)
+        {
+            try
+            {
+                var filter = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Gte("Thoigiandang", ngay.ToString("dd-MM-yyyy")),
+                    Builders<BsonDocument>.Filter.Lte("Thoigiandang", ngay.AddDays(1).ToString("dd-MM-yyyy"))
+                );
+
+                var documents = baiDangColl.Find(filter).ToList();
+
+                double sum = 0;
+
+                foreach (var document in documents)
+                {
+                    if (DateTime.TryParseExact(document["Thoigiandang"].AsString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate.Date == ngay.Date)
+                        {
+                            sum += document["Gia"].AsDouble;
+                        }
+                    }
+                }
+
+                return sum;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public double TongDoangThuTheoNgay(DateTime ngay)
+        {
+            try
+            {
+                var filter = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Gte("Ngaynap", ngay.ToString("dd-MM-yyyy")),
+                    Builders<BsonDocument>.Filter.Lte("Ngaynap", ngay.AddDays(1).ToString("dd-MM-yyyy"))
+                );
+
+                var documents = logNapColl.Find(filter).ToList();
+
+                double sum = 0;
+
+                foreach (var document in documents)
+                {
+                    if (DateTime.TryParseExact(document["Ngaynap"].AsString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate.Date == ngay.Date)
+                        {
+                            sum += document["Tiennap"].AsDouble;
+                        }
+                    }
+                }
+                return sum;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+        public List<ThongKeDTO> ThongKeLoaiNhaTheoNgay(DateTime ngay)
+        {
+            try
+            {
+                var match = new BsonDocument
+                {
+                    {
+                        "$match",
+                        new BsonDocument
+                        {
+                            {"$expr", new BsonDocument
+                                {
+                                    {"$and", new BsonArray
+                                        {
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$dayOfMonth", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Thoigiandang" }, { "format", "%d-%m-%Y" } })), ngay.Day}} },
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$month", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Thoigiandang" }, { "format", "%d-%m-%Y" } })), ngay.Month}} },
+                                            new BsonDocument { {"$eq", new BsonArray {new BsonDocument("$year", new BsonDocument("$dateFromString", new BsonDocument { { "dateString", "$Thoigiandang" }, { "format", "%d-%m-%Y" } })), ngay.Year}} }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+
+                // Các bước khác giữ nguyên không đổi
+                var group = new BsonDocument
+                {
+                    {
+                        "$group",
+                        new BsonDocument
+                        {
+                            {"_id", new BsonDocument { { "date", new BsonDocument("$dateFromString", new BsonDocument("dateString", "$Thoigiandang").Add("format", "%d-%m-%Y")) }, { "loainha", "$Loainha" } }},
+                            {"Soluongbaidang", new BsonDocument("$sum", 1)}
+                        }
+                    }
+                };
+
+                var project = new BsonDocument
+                {
+                    {
+                        "$project",
+                        new BsonDocument
+                        {
+                            {"_id", 0},
+                            {"Thoigiandang", "$_id.date"},
+                            {"Loainha", "$_id.loainha"},
+                            {"Soluongbaidang", 1}
+                        }
+                    }
+                };
+
+                var pipeline = new[] { BsonDocument.Parse(match.ToJson()), BsonDocument.Parse(group.ToJson()), BsonDocument.Parse(project.ToJson()) };
+                var result = baiDangColl.Aggregate<ThongKeDTO>(pipeline).ToList();
+
+                return result;
+            }
+            catch
+            {
+                return new List<ThongKeDTO>();
+            }
+        }
     }
 }

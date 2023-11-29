@@ -35,7 +35,7 @@
             panel2 = new Panel();
             labelKhachHang = new Label();
             label3 = new Label();
-            uiButton1 = new Sunny.UI.UIButton();
+            btnTrongThang = new Sunny.UI.UIButton();
             btnHomNay = new Sunny.UI.UIButton();
             panel3 = new Panel();
             labelTongGiaTri = new Label();
@@ -59,6 +59,7 @@
             label8 = new Label();
             label9 = new Label();
             chartDoanhThu = new Sunny.UI.UIBarChart();
+            btnChonNgay = new Sunny.UI.UIButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -144,22 +145,23 @@
             label3.TabIndex = 12;
             label3.Text = "Khách Hàng";
             // 
-            // uiButton1
+            // btnTrongThang
             // 
-            uiButton1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiButton1.Location = new Point(955, 30);
-            uiButton1.MinimumSize = new Size(1, 1);
-            uiButton1.Name = "uiButton1";
-            uiButton1.Size = new Size(136, 47);
-            uiButton1.Style = Sunny.UI.UIStyle.Custom;
-            uiButton1.TabIndex = 4;
-            uiButton1.Text = "Tháng Này";
-            uiButton1.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTrongThang.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTrongThang.Location = new Point(1113, 32);
+            btnTrongThang.MinimumSize = new Size(1, 1);
+            btnTrongThang.Name = "btnTrongThang";
+            btnTrongThang.Size = new Size(136, 47);
+            btnTrongThang.Style = Sunny.UI.UIStyle.Custom;
+            btnTrongThang.TabIndex = 4;
+            btnTrongThang.Text = "Tháng Này";
+            btnTrongThang.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTrongThang.Click += btnTrongThang_Click;
             // 
             // btnHomNay
             // 
             btnHomNay.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnHomNay.Location = new Point(774, 30);
+            btnHomNay.Location = new Point(932, 32);
             btnHomNay.MinimumSize = new Size(1, 1);
             btnHomNay.Name = "btnHomNay";
             btnHomNay.Size = new Size(136, 47);
@@ -167,6 +169,7 @@
             btnHomNay.TabIndex = 5;
             btnHomNay.Text = "Hôm Nay";
             btnHomNay.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnHomNay.Click += btnHomNay_Click;
             // 
             // panel3
             // 
@@ -203,7 +206,7 @@
             // btnTongQuat
             // 
             btnTongQuat.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTongQuat.Location = new Point(1138, 30);
+            btnTongQuat.Location = new Point(1296, 32);
             btnTongQuat.MinimumSize = new Size(1, 1);
             btnTongQuat.Name = "btnTongQuat";
             btnTongQuat.Size = new Size(136, 47);
@@ -412,12 +415,26 @@
             chartDoanhThu.TabIndex = 18;
             chartDoanhThu.Text = "uiBarChart1";
             // 
+            // btnChonNgay
+            // 
+            btnChonNgay.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnChonNgay.Location = new Point(749, 32);
+            btnChonNgay.MinimumSize = new Size(1, 1);
+            btnChonNgay.Name = "btnChonNgay";
+            btnChonNgay.Size = new Size(136, 47);
+            btnChonNgay.Style = Sunny.UI.UIStyle.Custom;
+            btnChonNgay.TabIndex = 19;
+            btnChonNgay.Text = "Chọn Ngày";
+            btnChonNgay.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnChonNgay.Click += btnChonNgay_Click;
+            // 
             // FrmThongKe
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1600, 965);
+            Controls.Add(btnChonNgay);
             Controls.Add(chartDoanhThu);
             Controls.Add(panel7);
             Controls.Add(labelPicker);
@@ -429,7 +446,7 @@
             Controls.Add(panel3);
             Controls.Add(labelMain);
             Controls.Add(btnHomNay);
-            Controls.Add(uiButton1);
+            Controls.Add(btnTrongThang);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(chartThongKeBaiDang);
@@ -461,7 +478,7 @@
         private Sunny.UI.UIBarChart chartThongKeBaiDang;
         private Panel panel1;
         private Panel panel2;
-        private Sunny.UI.UIButton uiButton1;
+        private Sunny.UI.UIButton btnTrongThang;
         private Sunny.UI.UIButton btnHomNay;
         private Panel panel3;
         private Sunny.UI.UIButton btnTongQuat;
@@ -489,5 +506,6 @@
         private Label labelBaiDangChuaDuyet;
         private Label labelTicketChuaDuyet;
         private Label labelTicketDaDuyet;
+        private Sunny.UI.UIButton btnChonNgay;
     }
 }

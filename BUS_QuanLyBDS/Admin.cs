@@ -200,5 +200,64 @@ namespace BUS_QuanLyBDS
             return dal_Admin.BaiDangChuaDuyet();
         }
 
+        public int ThongKeNgayTrongThang()
+        {
+            return dal_Admin.ThongKeBaiDangTrongThang();
+        }
+
+        public int ThongKeKhachHangTrongThang()
+        {
+            return dal_Admin.ThongKeKhachHangTrongThang();
+        }
+
+        public double ThongKeTongGiaTriBDS()
+        {
+            return dal_Admin.ThongKeTongGiaTriBDS();
+        }
+
+        public double ThongKeDoanhThuTrongThang()
+        {
+            return dal_Admin.ThongKeDoanhThuTrongThang();
+        }
+
+        public List<ThongKeDTO> ThongKeBaiDangTrongThangChart()
+        {
+            return dal_Admin.ThongKeBaiDangTrongThangChart();
+        }
+
+        public List<ThongKeDTO> ThongKeLoaiNhaTrongThangChart()
+        {
+            return dal_Admin.ThongKeLoaiNhaTrongThangChart();
+        }
+
+        public List<ThongKeDoanhThuDTO> ThongKeDoanThuTrongThang()
+        {
+            return dal_Admin.ThongKeDoanThuTrongThang();
+        }
+
+        public int SoBaiDangTheoNgay(DateTime ngay)
+        {
+            return dal_Admin.SoBaiDangTheoNgay(ngay);
+        }
+
+        public int SoKhachHangTheoNgay(DateTime ngay)
+        {
+            return dal_Admin.SoKhachHangTheoNgay(ngay);
+        }
+
+        public double TongGiaTriBDSTheoNgay(DateTime ngay)
+        {
+            return dal_Admin.TongGiaTriBDSTheoNgay(ngay);
+        }
+
+        public double TongDoangThuTheoNgay(DateTime ngay)
+        {
+            return dal_Admin.TongDoangThuTheoNgay(ngay);
+        }
+
+        public List<ThongKeDTO> ThongKeLoaiNhaTheoNgay(DateTime ngay)
+        {
+            return dal_Admin.ThongKeLoaiNhaTheoNgay(ngay);
+        }
     }
 }
