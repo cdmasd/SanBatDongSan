@@ -33,8 +33,10 @@ namespace QuanLyBDS.NhanVien
             bool result = nv.UpdateKhachhang(id, email, hoten, sdt, sodu);
             if (result)
             {
+                Mail.MailPayment(email,hoten,naptien.ToString(), sodu.ToString());
                 MessageBox.Show("Đã nạp tiền khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 LoadDataQLyKhachhang();
+                resetValue();
                 dtView.Refresh();
             }
             else
@@ -114,6 +116,15 @@ namespace QuanLyBDS.NhanVien
                 MessageBox.Show("Không tìm thấy email khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; 
             }
+        }
+        void resetValue()
+        {
+            txtNap.Text = "";
+            txtSodu.Text =  "";
+            txtEmail.Text = "";
+            txtHoten.Text = "";
+            txtSdt.Text = "";
+            txtId.Text = "";
         }
     }
 }
