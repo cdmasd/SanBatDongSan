@@ -33,6 +33,7 @@ namespace QuanLyBDS.NhanVien
             bool result = nv.UpdateKhachhang(id, email, hoten, sdt, sodu);
             if (result)
             {
+                Mail.MailPayment(email,hoten,naptien.ToString(), sodu.ToString());
                 MessageBox.Show("Đã nạp tiền khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 LoadDataQLyKhachhang();
                 dtView.Refresh();
