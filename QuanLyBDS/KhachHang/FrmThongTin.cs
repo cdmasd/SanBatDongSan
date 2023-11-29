@@ -17,5 +17,10 @@ namespace QuanLyBDS.KhachHang
         {
             InitializeComponent();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

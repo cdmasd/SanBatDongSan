@@ -17,5 +17,10 @@ namespace QuanLyBDS.Admin
         {
             InitializeComponent();
         }
+
+        private void FrmDaduyet_Admin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

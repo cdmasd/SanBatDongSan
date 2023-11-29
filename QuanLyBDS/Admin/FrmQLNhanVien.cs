@@ -24,7 +24,7 @@ namespace QuanLyBDS.Admin
 
         private void FrmQLNhanVien_Load(object sender, EventArgs e)
         {
-            LoadData();
+            //LoadData();
             SettingUI();
             DatetimePicker.Value = DateTime.Now;
         }

@@ -40,26 +40,26 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(373, 105);
             label1.Name = "label1";
-            label1.Size = new Size(131, 19);
+            label1.Size = new Size(177, 25);
             label1.TabIndex = 0;
             label1.Text = "Vấn đề cần hỗ trợ :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(373, 169);
             label2.Name = "label2";
-            label2.Size = new Size(238, 19);
+            label2.Size = new Size(313, 25);
             label2.TabIndex = 1;
             label2.Text = "Mô tả chi tiết về vấn đề cần hỗ trợ :";
             // 
             // txtHotro
             // 
-            txtHotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtHotro.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtHotro.Location = new Point(373, 132);
             txtHotro.Margin = new Padding(4, 5, 4, 5);
             txtHotro.MinimumSize = new Size(1, 16);
@@ -76,7 +76,7 @@
             // 
             btnGuiyeucau.FillColor = SystemColors.Highlight;
             btnGuiyeucau.FillHoverColor = Color.MidnightBlue;
-            btnGuiyeucau.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGuiyeucau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGuiyeucau.Location = new Point(1033, 614);
             btnGuiyeucau.MinimumSize = new Size(1, 1);
             btnGuiyeucau.Name = "btnGuiyeucau";
@@ -88,7 +88,7 @@
             // 
             // txtSodt
             // 
-            txtSodt.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSodt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtSodt.Location = new Point(828, 132);
             txtSodt.Margin = new Padding(4, 5, 4, 5);
             txtSodt.MinimumSize = new Size(1, 16);
@@ -104,16 +104,16 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(828, 105);
             label3.Name = "label3";
-            label3.Size = new Size(192, 19);
+            label3.Size = new Size(253, 25);
             label3.TabIndex = 3;
             label3.Text = "Số điện thoại liên hệ hỗ trợ :";
             // 
             // txtChitiethotro
             // 
-            txtChitiethotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtChitiethotro.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtChitiethotro.Location = new Point(373, 196);
             txtChitiethotro.Margin = new Padding(4, 5, 4, 5);
             txtChitiethotro.MinimumSize = new Size(1, 16);
@@ -146,6 +146,7 @@
             Style = Sunny.UI.UIStyle.Custom;
             Text = "FrmHoTro";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
+            Load += FrmHoTro_Load;
             ResumeLayout(false);
             PerformLayout();
         }

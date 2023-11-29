@@ -42,53 +42,53 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(731, 165);
             label1.Name = "label1";
-            label1.Size = new Size(60, 19);
+            label1.Size = new Size(80, 25);
             label1.TabIndex = 0;
             label1.Text = "Họ tên :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(731, 236);
             label2.Name = "label2";
-            label2.Size = new Size(53, 19);
+            label2.Size = new Size(71, 25);
             label2.TabIndex = 1;
             label2.Text = "Email :";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(731, 307);
             label3.Name = "label3";
-            label3.Size = new Size(102, 19);
+            label3.Size = new Size(137, 25);
             label3.TabIndex = 2;
             label3.Text = "Số điện thoại :";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(731, 378);
             label4.Name = "label4";
-            label4.Size = new Size(54, 19);
+            label4.Size = new Size(75, 25);
             label4.TabIndex = 3;
             label4.Text = "Số dư :";
             // 
             // txtHoten
             // 
-            txtHoten.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtHoten.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtHoten.Location = new Point(731, 198);
             txtHoten.Margin = new Padding(4, 5, 4, 5);
             txtHoten.MinimumSize = new Size(1, 16);
             txtHoten.Name = "txtHoten";
             txtHoten.Padding = new Padding(5);
             txtHoten.ShowText = false;
-            txtHoten.Size = new Size(203, 24);
+            txtHoten.Size = new Size(203, 27);
             txtHoten.Style = Sunny.UI.UIStyle.Custom;
             txtHoten.TabIndex = 4;
             txtHoten.TextAlignment = ContentAlignment.MiddleLeft;
@@ -96,14 +96,14 @@
             // 
             // txtEmail
             // 
-            txtEmail.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(731, 269);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.MinimumSize = new Size(1, 16);
             txtEmail.Name = "txtEmail";
             txtEmail.Padding = new Padding(5);
             txtEmail.ShowText = false;
-            txtEmail.Size = new Size(203, 24);
+            txtEmail.Size = new Size(203, 27);
             txtEmail.Style = Sunny.UI.UIStyle.Custom;
             txtEmail.TabIndex = 5;
             txtEmail.TextAlignment = ContentAlignment.MiddleLeft;
@@ -111,14 +111,14 @@
             // 
             // txtSdt
             // 
-            txtSdt.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSdt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtSdt.Location = new Point(731, 340);
             txtSdt.Margin = new Padding(4, 5, 4, 5);
             txtSdt.MinimumSize = new Size(1, 16);
             txtSdt.Name = "txtSdt";
             txtSdt.Padding = new Padding(5);
             txtSdt.ShowText = false;
-            txtSdt.Size = new Size(203, 24);
+            txtSdt.Size = new Size(203, 27);
             txtSdt.Style = Sunny.UI.UIStyle.Custom;
             txtSdt.TabIndex = 5;
             txtSdt.TextAlignment = ContentAlignment.MiddleLeft;
@@ -127,14 +127,14 @@
             // txtSodu
             // 
             txtSodu.Enabled = false;
-            txtSodu.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSodu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtSodu.Location = new Point(731, 411);
             txtSodu.Margin = new Padding(4, 5, 4, 5);
             txtSodu.MinimumSize = new Size(1, 16);
             txtSodu.Name = "txtSodu";
             txtSodu.Padding = new Padding(5);
             txtSodu.ShowText = false;
-            txtSodu.Size = new Size(203, 24);
+            txtSodu.Size = new Size(203, 27);
             txtSodu.Style = Sunny.UI.UIStyle.Custom;
             txtSodu.TabIndex = 5;
             txtSodu.TextAlignment = ContentAlignment.MiddleLeft;
@@ -144,7 +144,7 @@
             // 
             btnUpdate.FillColor = SystemColors.Highlight;
             btnUpdate.FillHoverColor = Color.MidnightBlue;
-            btnUpdate.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUpdate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnUpdate.Location = new Point(780, 464);
             btnUpdate.MinimumSize = new Size(1, 1);
             btnUpdate.Name = "btnUpdate";
@@ -153,6 +153,7 @@
             btnUpdate.TabIndex = 17;
             btnUpdate.Text = "Cập nhật";
             btnUpdate.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // FrmThongTin
             // 

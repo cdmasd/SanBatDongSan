@@ -25,27 +25,19 @@ namespace QuanLyBDS.KhachHang
             InitializeComponent();
             cbLoainha.DropDownStyle = UIDropDownStyle.DropDownList;
             InitializeCloudinary();
+            cbLoainha.SelectedIndex = 0;
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
             try
             {
-                // Kiểm tra nếu email đã được xác thực (đã đăng nhập)
-                string tieuDe = txtTieude.Text;
-                string loaiNha = cbLoainha.Text;
-                // Convert string inputs to appropriate numeric types
-                if (!double.TryParse(txtDientich.Text, out double dientich) ||
-                     !int.TryParse(txtSophong.Text, out int sophong) ||
-                     !double.TryParse(txtGia.Text, out double gia))
+                if (kh.getSodu(FrmMain.mail) < 20000)
                 {
-                    MessageBox.Show("Không được nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Số dư không đủ, vui lòng nạp tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-                string diaChi = txtDiachi.Text;
-
                 // Kiểm tra nếu có dữ liệu bị bỏ trống
-                if (string.IsNullOrEmpty(tieuDe) || string.IsNullOrEmpty(loaiNha) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(imagePath))
+                if (!checkNull())
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin và chọn ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -58,18 +50,19 @@ namespace QuanLyBDS.KhachHang
                 {
                     // Cập nhật hình ảnh với link từ Cloudinary
                     string hinhAnh = cloudinaryUrl;
-
-                    // Gọi phương thức DangTin từ lớp BUS và truyền địa chỉ email và URL của ảnh
-                    bool result = kh.DangTin(tieuDe, loaiNha, dientich, sophong, gia, diaChi, hinhAnh, FrmMain.mail);
-
-                    if (result)
+                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if(result == DialogResult.OK)
                     {
-                        MessageBox.Show("Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                    else
+                        bool thongbao = kh.DangTin(txtTieude.Text, cbLoainha.SelectedText, double.Parse(txtDientich.Text), int.Parse(txtSophong.Text), double.Parse(txtGia.Text), txtDiachi.Text, hinhAnh, FrmMain.mail);
+                        if (thongbao)
+                        {
+                            ResetValue();
+                            MessageBox.Show("Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK);
+                        }
+                    } else
                     {
-                        MessageBox.Show("Số dư của bạn không đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        return;
+                    }  
                 }
                 else
                 {
@@ -126,6 +119,7 @@ namespace QuanLyBDS.KhachHang
             }
         }
 
+        #region check valid
         private void txtDientich_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -159,5 +153,51 @@ namespace QuanLyBDS.KhachHang
         {
             UploadImageToCloudinary(imagePath);
         }
+        bool checkNull()
+        {
+            if (string.IsNullOrEmpty(txtTieude.Text))
+            {
+                txtTieude.Focus();
+                return false;
+            }
+         
+            if (string.IsNullOrEmpty(txtDientich.Text))
+            {
+                txtDientich.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtGia.Text))
+            {
+                txtGia.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtDiachi.Text))
+            {
+                txtDiachi.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtHinhanh.Text))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtSophong.Text))
+            {
+                txtSophong.Focus();
+                return false;
+            }
+            return true; 
+
+        }
+        void ResetValue()
+        {
+            txtTieude.Text = "";
+            txtDiachi.Text = "";
+            txtSophong.Text = "";
+            txtGia.Text = "";
+            txtDientich.Text = "";
+            txtHinhanh.Text = "";
+            picHinhAnh.Image = null; 
+        }
+        #endregion
     }
 }

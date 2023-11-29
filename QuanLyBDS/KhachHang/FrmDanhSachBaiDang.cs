@@ -27,8 +27,10 @@ namespace QuanLyBDS.KhachHang
             InitializeComponent();
             cbLoainha.DropDownStyle = UIDropDownStyle.DropDownList;
             dtView.CellClick += dtView_CellClick;
-            LoadDataBaiDang();
+            btDaduyet.Enabled = false;
+            LoadDaDuyet();
             InitializeCloudinary();
+            btXoa.Enabled = false;
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -105,8 +107,7 @@ namespace QuanLyBDS.KhachHang
 
                     if (result)
                     {
-                        MessageBox.Show("Đã cập nhật bài đăng của bạn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        LoadDataBaiDang();
+                        MessageBox.Show("Đã cập nhật bài đăng của bạn, Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK);
                     }
                     else
                     {
@@ -141,6 +142,7 @@ namespace QuanLyBDS.KhachHang
                 string diaChi = selectedRow.Cells["Diachi"].Value.ToString();
                 string hinhAnh = selectedRow.Cells["Hinhanh"].Value.ToString();
 
+                btXoa.Enabled = true;
                 // Hiển thị dữ liệu lên các controls
                 txtId.Text = id;
                 txtTieude.Text = tieuDe;
@@ -153,9 +155,9 @@ namespace QuanLyBDS.KhachHang
 
             }
         }
-        private void LoadDataBaiDang()
+        private void LoadDaDuyet()
         {
-            List<BsonDocument> dataBaiDang = kh.getBaiDang();
+            List<BsonDocument> dataBaiDang = kh.Daduyet(kh.getidKh(FrmMain.mail));
             dtView.ClearAll();
             // Load header name
             if (dataBaiDang.Count > 0)
@@ -194,14 +196,110 @@ namespace QuanLyBDS.KhachHang
                 dtView.Columns[5].HeaderText = "Giá";
                 dtView.Columns[6].HeaderText = "Địa chỉ";
                 dtView.Columns[7].HeaderText = "Hình Ảnh";
-                txtId.Visible = false;
+                label8.Visible = false;
             }
             else
             {
-                txtId.Visible = true;
+                label8.Visible = true;
             }
         }
 
+        public void LoadChuaDuyet()
+        {
+            List<BsonDocument> dataBaiDang = kh.Chuaduyet(kh.getidKh(FrmMain.mail));
+            dtView.ClearAll();
+            // Load header name
+            if (dataBaiDang.Count > 0)
+            {
+                foreach (var header in dataBaiDang[0].Names)
+                {
+                    if (header != "Thoigiandang")
+                    {
+                        if (header != "Trangthai")
+                        {
+                            dtView.Columns.Add(header, header);
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+
+                // Đổ dữ liệu vào từng dòng của DataGridView
+                foreach (var doc in dataBaiDang)
+                {
+                    List<object> values = new List<object>();
+                    foreach (var key in doc.Names)
+                    {
+                        values.Add(doc[key]);
+                    }
+                    dtView.Rows.Add(values.ToArray());
+                }
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Tiêu đề";
+                dtView.Columns[2].HeaderText = "Loại nhà";
+                dtView.Columns[3].HeaderText = "Diện tích";
+                dtView.Columns[4].HeaderText = "Số phòng";
+                dtView.Columns[5].HeaderText = "Giá";
+                dtView.Columns[6].HeaderText = "Địa chỉ";
+                dtView.Columns[7].HeaderText = "Hình Ảnh";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
+        }
+        public void LoadTuchoi()
+        {
+            List<BsonDocument> dataBaiDang = kh.Bituchoi(kh.getidKh(FrmMain.mail));
+            dtView.ClearAll();
+            // Load header name
+            if (dataBaiDang.Count > 0)
+            {
+                foreach (var header in dataBaiDang[0].Names)
+                {
+                    if (header != "Thoigiandang")
+                    {
+                        if (header != "Trangthai")
+                        {
+                            dtView.Columns.Add(header, header);
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
+
+                // Đổ dữ liệu vào từng dòng của DataGridView
+                foreach (var doc in dataBaiDang)
+                {
+                    List<object> values = new List<object>();
+                    foreach (var key in doc.Names)
+                    {
+                        values.Add(doc[key]);
+                    }
+                    dtView.Rows.Add(values.ToArray());
+                }
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Tiêu đề";
+                dtView.Columns[2].HeaderText = "Loại nhà";
+                dtView.Columns[3].HeaderText = "Diện tích";
+                dtView.Columns[4].HeaderText = "Số phòng";
+                dtView.Columns[5].HeaderText = "Giá";
+                dtView.Columns[6].HeaderText = "Địa chỉ";
+                dtView.Columns[7].HeaderText = "Hình Ảnh";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
+        }
         private void FrmDanhSachBaiDang_Load(object sender, EventArgs e)
         {
 
@@ -210,6 +308,43 @@ namespace QuanLyBDS.KhachHang
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             UploadImageToCloudinary(imagePath);
+        }
+
+        private void btDaduyet_Click(object sender, EventArgs e)
+        {
+            LoadDaDuyet();
+            btDaduyet.Enabled = false;
+            btChuaduyet.Enabled = true;
+            btBituchoi.Enabled = true;
+        }
+
+        private void btChuaduyet_Click(object sender, EventArgs e)
+        {
+            LoadChuaDuyet();
+            btDaduyet.Enabled = true;
+            btChuaduyet.Enabled = false;
+            btBituchoi.Enabled = true;
+        }
+
+        private void btBituchoi_Click(object sender, EventArgs e)
+        {
+            LoadTuchoi();
+            btDaduyet.Enabled = true;
+            btChuaduyet.Enabled = true;
+            btBituchoi.Enabled = false;
+        }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xoá bài đăng ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if(result == DialogResult.OK)
+            {
+                if (kh.DeleteBaiDang(txtId.Text))
+                {
+                    MessageBox.Show("Xoá bài đăng thành công", "Thông báo", MessageBoxButtons.OK);
+                    btXoa.Enabled = true;
+                }
+            }
         }
     }
 }

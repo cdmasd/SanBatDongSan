@@ -56,6 +56,10 @@
             label10 = new Label();
             txtTimKiem = new Sunny.UI.UITextBox();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            btDaduyet = new Sunny.UI.UIButton();
+            btChuaduyet = new Sunny.UI.UIButton();
+            btBituchoi = new Sunny.UI.UIButton();
+            btXoa = new Sunny.UI.UIButton();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             SuspendLayout();
             // 
@@ -344,11 +348,11 @@
             // 
             txtId.Anchor = AnchorStyles.None;
             txtId.AutoSize = true;
-            txtId.Location = new Point(734, 119);
+            txtId.Location = new Point(748, 165);
             txtId.Name = "txtId";
-            txtId.Size = new Size(69, 20);
+            txtId.Size = new Size(0, 20);
             txtId.TabIndex = 33;
-            txtId.Text = "label8";
+            txtId.Visible = false;
             // 
             // label8
             // 
@@ -368,7 +372,7 @@
             btnTimKiem.FillColor = SystemColors.Highlight;
             btnTimKiem.FillHoverColor = Color.MidnightBlue;
             btnTimKiem.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTimKiem.Location = new Point(870, 339);
+            btnTimKiem.Location = new Point(772, 349);
             btnTimKiem.MinimumSize = new Size(1, 1);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(100, 35);
@@ -381,7 +385,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(583, 348);
+            label10.Location = new Point(424, 357);
             label10.Name = "label10";
             label10.Size = new Size(95, 25);
             label10.TabIndex = 63;
@@ -390,7 +394,7 @@
             // txtTimKiem
             // 
             txtTimKiem.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTimKiem.Location = new Point(660, 343);
+            txtTimKiem.Location = new Point(536, 357);
             txtTimKiem.Margin = new Padding(4, 5, 4, 5);
             txtTimKiem.MinimumSize = new Size(1, 16);
             txtTimKiem.Name = "txtTimKiem";
@@ -406,12 +410,83 @@
             // 
             backgroundWorker1.DoWork += backgroundWorker1_DoWork;
             // 
+            // btDaduyet
+            // 
+            btDaduyet.BackColor = Color.LimeGreen;
+            btDaduyet.FillColor = Color.LimeGreen;
+            btDaduyet.FillHoverColor = Color.MediumSpringGreen;
+            btDaduyet.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btDaduyet.Location = new Point(1198, 435);
+            btDaduyet.MinimumSize = new Size(1, 1);
+            btDaduyet.Name = "btDaduyet";
+            btDaduyet.RectColor = Color.LimeGreen;
+            btDaduyet.Size = new Size(164, 46);
+            btDaduyet.Style = Sunny.UI.UIStyle.Custom;
+            btDaduyet.TabIndex = 65;
+            btDaduyet.Text = "Đã được duyệt";
+            btDaduyet.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btDaduyet.Click += btDaduyet_Click;
+            // 
+            // btChuaduyet
+            // 
+            btChuaduyet.BackColor = Color.RoyalBlue;
+            btChuaduyet.FillColor = Color.RoyalBlue;
+            btChuaduyet.FillHoverColor = Color.MidnightBlue;
+            btChuaduyet.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btChuaduyet.Location = new Point(1198, 501);
+            btChuaduyet.MinimumSize = new Size(1, 1);
+            btChuaduyet.Name = "btChuaduyet";
+            btChuaduyet.RectColor = Color.RoyalBlue;
+            btChuaduyet.Size = new Size(164, 46);
+            btChuaduyet.Style = Sunny.UI.UIStyle.Custom;
+            btChuaduyet.TabIndex = 66;
+            btChuaduyet.Text = "Chưa được duyệt";
+            btChuaduyet.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btChuaduyet.Click += btChuaduyet_Click;
+            // 
+            // btBituchoi
+            // 
+            btBituchoi.BackColor = Color.RoyalBlue;
+            btBituchoi.FillColor = Color.Crimson;
+            btBituchoi.FillHoverColor = Color.LightPink;
+            btBituchoi.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btBituchoi.Location = new Point(1198, 567);
+            btBituchoi.MinimumSize = new Size(1, 1);
+            btBituchoi.Name = "btBituchoi";
+            btBituchoi.RectColor = Color.Crimson;
+            btBituchoi.Size = new Size(164, 46);
+            btBituchoi.Style = Sunny.UI.UIStyle.Custom;
+            btBituchoi.TabIndex = 67;
+            btBituchoi.Text = "Bị từ chối";
+            btBituchoi.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btBituchoi.Click += btBituchoi_Click;
+            // 
+            // btXoa
+            // 
+            btXoa.Anchor = AnchorStyles.None;
+            btXoa.FillColor = SystemColors.Highlight;
+            btXoa.FillHoverColor = Color.MidnightBlue;
+            btXoa.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btXoa.Location = new Point(922, 300);
+            btXoa.MinimumSize = new Size(1, 1);
+            btXoa.Name = "btXoa";
+            btXoa.Size = new Size(100, 35);
+            btXoa.Style = Sunny.UI.UIStyle.Custom;
+            btXoa.TabIndex = 68;
+            btXoa.Text = "Xoá bài";
+            btXoa.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btXoa.Click += btXoa_Click;
+            // 
             // FrmDanhSachBaiDang
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1600, 965);
+            Controls.Add(btXoa);
+            Controls.Add(btBituchoi);
+            Controls.Add(btChuaduyet);
+            Controls.Add(btDaduyet);
             Controls.Add(btnTimKiem);
             Controls.Add(label10);
             Controls.Add(txtTimKiem);
@@ -471,5 +546,9 @@
         private Label label10;
         private Sunny.UI.UITextBox txtTimKiem;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Sunny.UI.UIButton btDaduyet;
+        private Sunny.UI.UIButton btChuaduyet;
+        private Sunny.UI.UIButton btBituchoi;
+        private Sunny.UI.UIButton btXoa;
     }
 }

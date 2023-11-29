@@ -1,9 +1,11 @@
-﻿using MongoDB.Bson;
+﻿using BUS_QuanLyBDS;
+using MongoDB.Bson;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,20 +47,7 @@ namespace QuanLyBDS.NhanVien
                 // Load header name
                 foreach (var header in dataBaiDang[0].Names)
                 {
-                    if (header != "_idnguoidang")
-                    {
-                        if (header != "Thoigiandang")
-                        {
-                            if (header != "Trangthai")
-                            {
-                                dtView.Columns.Add(header, header);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        continue;
-                    }
+                    dtView.Columns.Add(header, header);
                 }
                 // Đổ dữ liệu vào từng dòng của DataGridView
                 foreach (var doc in dataBaiDang)
@@ -78,6 +67,9 @@ namespace QuanLyBDS.NhanVien
                 dtView.Columns[5].HeaderText = "Giá";
                 dtView.Columns[6].HeaderText = "Địa chỉ";
                 dtView.Columns[7].HeaderText = "Hình ảnh";
+                dtView.Columns[8].HeaderText = "ID người đăng";
+                dtView.Columns[9].HeaderText = "Thời gian đăng";
+                dtView.Columns[10].HeaderText = "Trạng thái";
                 label8.Visible = false;
             }
             else
@@ -108,25 +100,29 @@ namespace QuanLyBDS.NhanVien
 
         private void btnTuchoi_Click(object sender, EventArgs e)
         {
-            if (txtTieude.Text != "")
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn từ chối ?","Xác nhận",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+            if(result == DialogResult.OK)
             {
-                if (nv.DeleteBaiDang(txtId.Text))
+                if (txtTieude.Text != "")
                 {
-                    resetValues();
-                    MessageBox.Show("Đã từ chối ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Lydo ld = new Lydo(txtId.Text);
+                    ld.Show();
+                    ld.FormClosed += new FormClosedEventHandler(Lydo_FormClosed);
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng chọn bài đăng trước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                resetValues();
+                LoadBaiDang();
             }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            LoadBaiDang();
         }
-
+        void Lydo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("Đã từ chối bài đăng", "Thông báo", MessageBoxButtons.OK);
+            this.Refresh();
+            FrmDuyetbai_Load(sender, e);
+        }
         private void dtView_Click(object sender, EventArgs e)
         {
             try
@@ -171,7 +167,7 @@ namespace QuanLyBDS.NhanVien
             }
             else
             {
-                 MessageBox.Show("Vui lòng chọn đối tượng","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             LoadBaiDang();
         }

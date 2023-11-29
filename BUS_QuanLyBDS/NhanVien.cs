@@ -49,5 +49,14 @@ namespace BUS_QuanLyBDS
         {
             return nv.DeleteTaikhoanKH(email, id); 
         }
+        public string getEmailKh(string id)
+        {
+            return nv.getEmailKh(id);
+        }
+        public bool TuchoiBaiDang(string id)
+        {
+            return nv.TuchoiBaiDang(id);
+        }
     }
+
 }

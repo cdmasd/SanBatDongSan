@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using System.Net.Mail;
 
 namespace DAL_QuanLyBDS
 {
@@ -26,7 +28,7 @@ namespace DAL_QuanLyBDS
         {
             return dangtin.Find(new BsonDocument
             {
-                { "Trangthai", "Đã duyệt" }
+                { "Trangthai", "Đã duyệt" }
             }).ToList();
         }
         public bool DeleteBaiDang(string id)
@@ -57,7 +59,7 @@ namespace DAL_QuanLyBDS
             try
             {
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-                var update = Builders<BsonDocument>.Update.Set("Trangthai", "Đã duyệt").Set("Nguoiduyet", getNameNv(email));
+                var update = Builders<BsonDocument>.Update.Set("Trangthai", "Đã duyệt").Set("Nguoiduyet", getNameNv(email));
                 var result = dangtin.UpdateOne(filter, update);
                 if (result.ModifiedCount > 0)
                 {
@@ -156,6 +158,56 @@ namespace DAL_QuanLyBDS
             }
 
         }
-
+        #region bài đăng
+        public string getEmailKh(string id)
+        {
+            // tìm người đăng bằng id
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", getIdNguoiDang(id));
+            var result = Khachhang.Find(filter).ToList();
+            return result[0]["Email"].ToString();
+        }
+        public string getSodu(string id)
+        {
+            // tìm người đăng bằng id
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", getIdNguoiDang(id));
+            var result = Khachhang.Find(filter).ToList();
+            return result[0]["Sodu"].ToString();
+        }
+        public string getIdNguoiDang(string id)
+        {
+            // tìm bài đăng
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            // chọn vào bài đăng
+            var baidang = dangtin.Find(filter).ToList();
+            // lấy id của khách đăng bài đó
+            var idkhach = baidang[0]["_idnguoidang"];
+            // tìm khách hàng dựa trên id của khách hàng
+            var khach = Khachhang.Find(new BsonDocument { { "_id", idkhach } }).ToList();
+            return khach[0]["_id"].ToString();
+        }
+        public bool TuchoiBaiDang(string id)
+        {
+            try
+            {
+                // tìm bài đăng
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+                // update bài đăng
+                var update = Builders<BsonDocument>.Update.Set("Trangthai", "Bị từ chối");
+                // tìm người đăng bằng id
+                var soDu = getSodu(id);
+                var nguoidang = Builders<BsonDocument>.Filter.Eq("_id", getIdNguoiDang(id));
+                var updateSodu = Builders<BsonDocument>.Update.Set("Sodu", double.Parse(soDu) + 20000);
+                // Cập nhật trạng thái
+                dangtin.UpdateOne(filter, update);
+                // Cập nhật số dư
+                Khachhang.UpdateOne(nguoidang, updateSodu);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }

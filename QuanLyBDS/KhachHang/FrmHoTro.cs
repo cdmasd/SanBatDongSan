@@ -17,5 +17,10 @@ namespace QuanLyBDS.KhachHang
         {
             InitializeComponent();
         }
+
+        private void FrmHoTro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

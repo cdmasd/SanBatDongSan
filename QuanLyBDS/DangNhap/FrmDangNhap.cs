@@ -1,10 +1,11 @@
-﻿using Sunny.UI;
+﻿        using Sunny.UI;
 using System.Net.Mail;
 using System.Net;
 using System.Text.RegularExpressions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Drawing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
+using BUS_QuanLyBDS;
 
 namespace QuanLyBDS
 {
@@ -201,7 +202,7 @@ namespace QuanLyBDS
             }
             else
             {
-                ShowErrorDialog("Dăng kí không thành công,email hoặc số điện thoại đã tồn tại");
+                MessageBox.Show("Dăng kí không thành công,email hoặc số điện thoại đã tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             ResetValues();
         }
@@ -214,7 +215,7 @@ namespace QuanLyBDS
             }
             if (dn.checkAccount(txtEmail.Text, txtPassword.Text))
             {
-                ShowSuccessDialog("Đăng nhập thành công");
+                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK);
                 // Gửi kết quả đăng nhập cho frmMain
                 FrmMain.mail = txtEmail.Text;
                 FrmMain.session = 1;
@@ -238,7 +239,7 @@ namespace QuanLyBDS
             }
             else
             {
-                ShowErrorDialog("Đăng nhập không thành công, kiểm tra lại email hoặc mật khẩu");
+                MessageBox.Show("Đăng nhập không thành công, email hoặc mật khẩu không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtEmail.Text = "";
                 txtPassword.Text = "";
                 txtEmail.Focus();
@@ -255,41 +256,7 @@ namespace QuanLyBDS
         private void btnLayma_Click(object sender, EventArgs e)
         {
             num = generateNum();
-            try
-            {
-                // Khởi tạo đối tượng MailMessage để tạo email.
-                MailMessage Msg = new MailMessage();
-
-                // Đặt người gửi email.
-                Msg.From = new MailAddress("tienphanps28044@gmail.com");
-
-                // Đặt người nhận email, thường là địa chỉ email của người dùng muốn khôi phục mật khẩu.
-                Msg.To.Add(txtEmailre.Text.Trim());
-
-                // Đặt tiêu đề của email.
-                Msg.Subject = "Mã xác thực phần mềm quản lý bất động sản";
-
-                // Đặt nội dung (body) của email và chèn mật khẩu mới vào nội dung email.
-                Msg.Body = $"Mã xác thực của bạn là : {num}";
-
-                using (SmtpClient client = new SmtpClient())
-                {
-                    client.EnableSsl = true;
-                    client.UseDefaultCredentials = false;
-                    client.Credentials = new NetworkCredential("tienphanps28044@gmail.com", "oxap pttt nkmb yvuu");
-                    client.Host = "smtp.gmail.com";
-                    client.Port = 587;
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-                    client.Send(Msg);
-                }
-                UIMessageDialog.ShowSuccessDialog(this, $"Đã gửi mã xác thực vào địa chỉ email : {txtEmailre.Text}");
-            }
-            catch (Exception ex)
-            {
-                // Nếu lỗi là do lỗi khác, hãy hiển thị thông báo lỗi.
-                UIMessageDialog.ShowErrorDialog(this, ex.Message);
-            }
+            MessageBox.Show(Mail.MailRegister(txtEmail.Text.Trim(), num), "Thông báo", MessageBoxButtons.OK);
         }
         private void btnForgotPassword_Click(object sender, EventArgs e)
         {
@@ -301,41 +268,7 @@ namespace QuanLyBDS
             }
             if (dn.changePass(txtEmail.Text, newpass))
             {
-                try
-                {
-                    // Khởi tạo đối tượng MailMessage để tạo email.
-                    MailMessage Msg = new MailMessage();
-
-                    // Đặt người gửi email.
-                    Msg.From = new MailAddress("tienphanps28044@gmail.com");
-
-                    // Đặt người nhận email, thường là địa chỉ email của người dùng muốn khôi phục mật khẩu.
-                    Msg.To.Add(txtEmail.Text.Trim());
-
-                    // Đặt tiêu đề của email.
-                    Msg.Subject = "Lấy lại mật khẩu";
-
-                    // Đặt nội dung (body) của email và chèn mật khẩu mới vào nội dung email.
-                    Msg.Body = $"Mật khẩu mới của bạn là : {newpass}";
-
-                    using (SmtpClient client = new SmtpClient())
-                    {
-                        client.EnableSsl = true;
-                        client.UseDefaultCredentials = false;
-                        client.Credentials = new NetworkCredential("tienphanps28044@gmail.com", "oxap pttt nkmb yvuu");
-                        client.Host = "smtp.gmail.com";
-                        client.Port = 587;
-                        client.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-                        client.Send(Msg);
-                    }
-                    UIMessageDialog.ShowSuccessDialog(this, $"Đã gửi mật khẩu mới vào địa chỉ email : {txtEmail.Text}");
-                }
-                catch (Exception ex)
-                {
-                    // Nếu lỗi là do lỗi khác, hãy hiển thị thông báo lỗi.
-                    UIMessageDialog.ShowErrorDialog(this, ex.Message);
-                }
+                MessageBox.Show(Mail.MailRecovery(txtEmail.Text.Trim(), newpass), "Thông báo");
             }
         }
 

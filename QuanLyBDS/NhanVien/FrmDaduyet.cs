@@ -40,7 +40,7 @@ namespace QuanLyBDS.NhanVien
                 }
                 else
                 {
-                    MessageBox.Show("Hàng không tồn tại dữ liệu","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Hàng không tồn tại dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch

@@ -472,3 +472,4 @@ C:\Users\Admin\Desktop\mới nhất\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-win
 C:\Users\Admin\Desktop\mới nhất\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Abstractions.dll
 C:\Users\Admin\Desktop\mới nhất\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\Admin\Desktop\mới nhất\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Admin\Desktop\mới nhất\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.NhanVien.Lydo.resources

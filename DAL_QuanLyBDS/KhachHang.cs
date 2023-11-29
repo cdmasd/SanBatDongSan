@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Net.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,17 @@ namespace DAL_QuanLyBDS
             }).ToList();
             var filter = Builders<BsonDocument>.Filter.Eq("Email", email);
             var sodu = result[0]["Sodu"];
-            var update = Builders<BsonDocument>.Update.Set("Sodu",(int.Parse(sodu.ToString()) -  20000));
+            var update = Builders<BsonDocument>.Update.Set("Sodu",(double.Parse(sodu.ToString()) -  20000));
             Khachhang.UpdateOne(filter, update);
+        }
+        public double getSodu(string email)
+        {
+            var result = Khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            var filter = Builders<BsonDocument>.Filter.Eq("Email", email);
+            return result[0]["Sodu"].ToDouble();
         }
         public bool DangTin(string tieuDe, string loaiNha, double dienTich, int soPhong, double gia, string diaChi, string hinhAnh,string email)
         {
@@ -77,9 +87,30 @@ namespace DAL_QuanLyBDS
                 return "DB01";
             }
         }
-        public List<BsonDocument> getBaiDang()
+        public List<BsonDocument> Daduyet(string makh)
         {
-            var filter = Builders<BsonDocument>.Filter.Empty;
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", makh),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt")
+                );
+            var DangtinData = khachhangdangtin.Find(filter).ToList();
+            return DangtinData;
+        }
+        public List<BsonDocument> Chuaduyet(string makh)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", makh),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa duyệt")
+                );
+            var DangtinData = khachhangdangtin.Find(filter).ToList();
+            return DangtinData;
+        }
+        public List<BsonDocument> Bituchoi(string makh)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", makh),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Bị từ chối")
+                );
             var DangtinData = khachhangdangtin.Find(filter).ToList();
             return DangtinData;
         }
@@ -116,11 +147,23 @@ namespace DAL_QuanLyBDS
                 return false;
             }
         }
-        public List<BsonDocument> Getkhachhang()
+        public bool DeleteBaiDang(string id)
         {
-            var filter = Builders<BsonDocument>.Filter.Empty;
-            var KhachhangData = Khachhang.Find(filter).ToList();
-            return KhachhangData;
+            try
+            {
+
+                // Tạo bộ lọc sử dụng id của bản ghi cần cập nhật
+                var filterBuilder = Builders<BsonDocument>.Filter;
+                var filter = filterBuilder.Eq("_id", id);
+                var result = khachhangdangtin.DeleteOne(filter);
+                // Kiểm tra xem có ít nhất một bản ghi đã được chỉnh sửa không
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Xử lý bất kỳ ngoại lệ nào xảy ra trong quá trình cập nhật
+                return false;
+            }
         }
         public bool UpdataKhachhang(string email, string hoten, string sdt, string sodu)
         {
@@ -157,5 +200,6 @@ namespace DAL_QuanLyBDS
             }
 
         }
+
     }
 }
