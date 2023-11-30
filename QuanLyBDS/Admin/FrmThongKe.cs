@@ -76,9 +76,6 @@ namespace QuanLyBDS.Admin
 
             option.YAxis.AxisLabel.DecimalPlaces = 1;
 
-            option.YAxisScaleLines.Add(new UIScaleLine() { Color = Color.Red, Name = "Giới Hạn Trên", Value = 12 });
-            option.YAxisScaleLines.Add(new UIScaleLine() { Color = Color.Gold, Name = "Giới Hạn dưới", Value = -20 });
-
             option.ToolTip.AxisPointer.Type = UIAxisPointerType.Shadow;
 
             option.ShowValue = true;

@@ -15,15 +15,22 @@ namespace QuanLyBDS.NhanVien
 {
     public partial class FrmHotro : UIForm
     {
+        private int currentpage = 1;
+        private int recordPerPages = 10;
+        private int totalRecord;
+
         BUS_QuanLyBDS.NhanVien nv = new BUS_QuanLyBDS.NhanVien();
+        BUS_QuanLyBDS.PhanTrang pt = new BUS_QuanLyBDS.PhanTrang();
         public FrmHotro()
         {
             InitializeComponent();
         }
         private void LoadBaiDang()
         {
+            var data = pt.GetDataPageTicketChuaDuyet(currentpage, recordPerPages);
             dtView.ClearAll();
-            dtView.DataSource = nv.Chuahotro();
+            dtView.DataSource = data;
+            UpdatePage();
             if (dtView.Rows.Count > 0)
             {
                 dtView.Columns[0].HeaderText = "ID";
@@ -109,6 +116,28 @@ namespace QuanLyBDS.NhanVien
             {
                 label8.Visible = true;
             }
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (currentpage > 1)
+            {
+                currentpage--;
+                LoadBaiDang();
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (currentpage * recordPerPages < totalRecord)
+            {
+                currentpage++;
+                LoadBaiDang();
+            }
+        }
+        void UpdatePage()
+        {
+            txtCurrentPage.Text = $"Trang : {currentpage}";
         }
     }
 }

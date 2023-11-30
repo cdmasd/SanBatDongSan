@@ -15,11 +15,17 @@ namespace QuanLyBDS.Admin
     public partial class FrmQLNhanVien : UIForm
     {
         private BUS_QuanLyBDS.Admin bus_Admin;
+        BUS_QuanLyBDS.PhanTrang bus_PhanTrang;
+        private int currentpage = 1;
+        private int recordPerPages = 10;
+        private int totalRecord;
 
         public FrmQLNhanVien()
         {
             InitializeComponent();
             bus_Admin = new BUS_QuanLyBDS.Admin();
+            bus_PhanTrang = new();
+            totalRecord = (int)bus_PhanTrang.GetTotalRecordNhanVien();
         }
 
         private void FrmQLNhanVien_Load(object sender, EventArgs e)
@@ -63,7 +69,7 @@ namespace QuanLyBDS.Admin
                 Matkhau = bus_Admin.Encrytion("abc123"),
                 Vaitro = "nhanvien"
             });
-            MessageBox.Show(thongBao,"Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadData();
             ClearFields();
         }
@@ -94,13 +100,20 @@ namespace QuanLyBDS.Admin
             {
                 DataGridViewCell cellEmail = dtView.Rows[e.RowIndex].Cells["Email"];
                 object cellDate = dtView.Rows[e.RowIndex].Cells[4].Value;
-
                 if (cellEmail != null && cellEmail.Value != null)
                 {
                     txtEmail.Text = cellEmail.Value.ToString();
                     txtSodienthoai.Text = dtView.Rows[e.RowIndex].Cells[2].Value.ToString();
                     txtDiachi.Text = dtView.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    DatetimePicker.Value = Convert.ToDateTime(dtView.Rows[e.RowIndex].Cells[4].Value);
+                    if (dtView.Rows[e.RowIndex].Cells[4].Value.ToString() != string.Empty)
+                    {
+                        DatetimePicker.Value = Convert.ToDateTime(dtView.Rows[e.RowIndex].Cells[4].Value);
+                    }
+                    else
+                    {
+                        // Xử lý trường hợp ô ngày không có giá trị
+                        DatetimePicker.Value = DateTime.Now; // Hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
+                    }
                     txtHoten.Text = dtView.Rows[e.RowIndex].Cells[5].Value.ToString();
                 }
             }
@@ -148,14 +161,17 @@ namespace QuanLyBDS.Admin
 
         private void LoadData()
         {
-            dtView.DataSource = bus_Admin.DanhSachNhanVien();
+            var data = bus_PhanTrang.GetDataPageNhanVien(currentpage, recordPerPages);
+            dtView.ClearAll();
+            dtView.DataSource = data;
+            UpdatePage();
             if (dtView.ColumnCount > 0)
             {
                 dtView.Columns["_id"].HeaderText = "Mã Nhân Viên";
-                dtView.Columns["HoTen"].HeaderText = "Họ Tên";
-                dtView.Columns["SoDienThoai"].HeaderText = "Số Điện Thoại";
-                dtView.Columns["DiaChi"].HeaderText = "Địa Chỉ";
-                dtView.Columns["NgayBatDau"].HeaderText = "Ngày Bắt Đầu";
+                dtView.Columns["Sodienthoai"].HeaderText = "Số Điện Thoại";
+                dtView.Columns["Diachi"].HeaderText = "Địa Chỉ";
+                dtView.Columns["Ngaybatdau"].HeaderText = "Ngày Bắt Đầu";
+                dtView.Columns["Hoten"].HeaderText = "Họ Tên";
                 label8.Visible = false;
             }
             else
@@ -209,6 +225,28 @@ namespace QuanLyBDS.Admin
         private void btnBoQua_Click(object sender, EventArgs e)
         {
             ClearFields();
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (currentpage > 1)
+            {
+                currentpage--;
+                LoadData();
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (currentpage * recordPerPages < totalRecord)
+            {
+                currentpage++;
+                LoadData();
+            }
+        }
+        void UpdatePage()
+        {
+            txtCurrentPage.Text = $"Trang : {currentpage}";
         }
     }
 }

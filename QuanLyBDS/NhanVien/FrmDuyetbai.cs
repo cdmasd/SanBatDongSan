@@ -17,7 +17,7 @@ namespace QuanLyBDS.NhanVien
     public partial class FrmDuyetbai : UIForm
     {
         private int currentpage = 1;
-        private int recordPerPages = 5;
+        private int recordPerPages = 10;
         private int totalRecord;
 
         BUS_QuanLyBDS.NhanVien nv = new BUS_QuanLyBDS.NhanVien();

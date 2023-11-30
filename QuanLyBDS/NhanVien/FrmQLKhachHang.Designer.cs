@@ -50,6 +50,9 @@
             btnTimKiem = new Sunny.UI.UIButton();
             label6 = new Label();
             txtTimKiem = new Sunny.UI.UITextBox();
+            txtCurrentPage = new Label();
+            btnSau = new Sunny.UI.UIButton();
+            btnTruoc = new Sunny.UI.UIButton();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             SuspendLayout();
             // 
@@ -315,12 +318,56 @@
             txtTimKiem.TextAlignment = ContentAlignment.MiddleLeft;
             txtTimKiem.Watermark = "Nhập Mã Khách Hàng";
             // 
+            // txtCurrentPage
+            // 
+            txtCurrentPage.AutoSize = true;
+            txtCurrentPage.BackColor = Color.White;
+            txtCurrentPage.Font = new Font("Roboto Condensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCurrentPage.Location = new Point(124, 735);
+            txtCurrentPage.Name = "txtCurrentPage";
+            txtCurrentPage.Size = new Size(54, 23);
+            txtCurrentPage.TabIndex = 70;
+            txtCurrentPage.Text = "label9";
+            // 
+            // btnSau
+            // 
+            btnSau.FillColor = SystemColors.Highlight;
+            btnSau.FillHoverColor = Color.MidnightBlue;
+            btnSau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSau.Location = new Point(1328, 802);
+            btnSau.MinimumSize = new Size(1, 1);
+            btnSau.Name = "btnSau";
+            btnSau.Size = new Size(100, 35);
+            btnSau.Style = Sunny.UI.UIStyle.Custom;
+            btnSau.TabIndex = 72;
+            btnSau.Text = "Trang Sau";
+            btnSau.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSau.Click += btnSau_Click;
+            // 
+            // btnTruoc
+            // 
+            btnTruoc.FillColor = SystemColors.Highlight;
+            btnTruoc.FillHoverColor = Color.MidnightBlue;
+            btnTruoc.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTruoc.Location = new Point(1223, 802);
+            btnTruoc.MinimumSize = new Size(1, 1);
+            btnTruoc.Name = "btnTruoc";
+            btnTruoc.Size = new Size(100, 35);
+            btnTruoc.Style = Sunny.UI.UIStyle.Custom;
+            btnTruoc.TabIndex = 73;
+            btnTruoc.Text = "Trang Trước";
+            btnTruoc.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTruoc.Click += btnTruoc_Click;
+            // 
             // FrmQLKhachHang
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1600, 965);
+            Controls.Add(btnTruoc);
+            Controls.Add(btnSau);
+            Controls.Add(txtCurrentPage);
             Controls.Add(btnTimKiem);
             Controls.Add(label6);
             Controls.Add(txtTimKiem);
@@ -368,5 +415,8 @@
         private Sunny.UI.UIButton btnTimKiem;
         private Label label6;
         private Sunny.UI.UITextBox txtTimKiem;
+        private Label txtCurrentPage;
+        private Sunny.UI.UIButton btnSau;
+        private Sunny.UI.UIButton btnTruoc;
     }
 }

@@ -16,9 +16,15 @@ namespace QuanLyBDS.NhanVien
     public partial class FrmDaduyet : UIForm
     {
         BUS_QuanLyBDS.NhanVien nv = new BUS_QuanLyBDS.NhanVien();
+        BUS_QuanLyBDS.PhanTrang pt;
+        private int currentpage = 1;
+        private int recordPerPages = 10;
+        private int totalRecord;
         public FrmDaduyet()
         {
             InitializeComponent();
+            pt = new();
+            totalRecord = (int)pt.GetTotalRecordsDangTinDaDuyet();
         }
 
         private void dtView_Click(object sender, EventArgs e)
@@ -55,8 +61,10 @@ namespace QuanLyBDS.NhanVien
         }
         private void LoadBaiDang()
         {
+            var data = pt.GetDataPageDangTinDaDuyet(currentpage, recordPerPages);
             dtView.ClearAll();
-            dtView.DataSource = nv.Daduyet();
+            dtView.DataSource = data;
+            UpdatePage();
             if (dtView.Rows.Count > 0)
             {
                 dtView.Columns[0].HeaderText = "ID";
@@ -121,6 +129,28 @@ namespace QuanLyBDS.NhanVien
             {
                 label8.Visible = true;
             }
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (currentpage > 1)
+            {
+                currentpage--;
+                LoadBaiDang();
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (currentpage * recordPerPages < totalRecord)
+            {
+                currentpage++;
+                LoadBaiDang();
+            }
+        }
+        void UpdatePage()
+        {
+            txtCurrentPage.Text = $"Trang : {currentpage}";
         }
     }
 }

@@ -28,5 +28,45 @@ namespace BUS_QuanLyBDS
         {
             return DAL_PhanTrang.GetDataPageDangTinChuaDuyet(page, pageSize);
         }
+
+        public long GetTotalRecordsDangTinDaDuyet()
+        {
+            return DAL_PhanTrang.GetTotalRecordsDangTinDaDuyet();
+        }
+
+        public DataTable GetDataPageDangTinDaDuyet(int page, int pageSize)
+        {
+            return DAL_PhanTrang.GetDataPageDangTinDaDuyet(page, pageSize);
+        }
+
+        public long GetTotalRecordNhanVien()
+        {
+            return DAL_PhanTrang.GetTotalRecordNhanVien();
+        }
+
+        public DataTable GetDataPageNhanVien(int page, int pageSize)
+        {
+            return DAL_PhanTrang.GetDataPageNhanVien(page, pageSize);
+        }
+
+        public long GetTotalRecordsTicketChuaDuyet()
+        {
+            return DAL_PhanTrang.GetTotalRecordsTicketChuaDuyet();
+        }
+
+        public DataTable GetDataPageTicketChuaDuyet(int page, int pageSize)
+        {
+            return DAL_PhanTrang.GetDataPageTicketChuaDuyet(page, pageSize);
+        }
+
+        public long GetTotalRecordsKhachHang()
+        {
+            return DAL_PhanTrang.GetTotalRecordsKhachHang();
+        }
+
+        public DataTable GetDataPageKhachHang(int page, int pageSize)
+        {
+            return DAL_PhanTrang.GetDataPageKhachHang(page, pageSize);
+        }
     }
 }

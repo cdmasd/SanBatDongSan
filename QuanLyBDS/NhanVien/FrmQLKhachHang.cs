@@ -16,11 +16,16 @@ namespace QuanLyBDS.NhanVien
     public partial class FrmQLKhachHang : UIForm
     {
         BUS_QuanLyBDS.NhanVien nv = new BUS_QuanLyBDS.NhanVien();
+        BUS_QuanLyBDS.PhanTrang pt = new PhanTrang();
+        private int currentpage = 1;
+        private int recordPerPages = 10;
+        private int totalRecord;
         public FrmQLKhachHang()
         {
             InitializeComponent();
             LoadDataQLyKhachhang();
             dtView.CellClick += dtView_CellClick;
+            totalRecord = (int)pt.GetTotalRecordsKhachHang();
         }
 
         private void btnNap_Click(object sender, EventArgs e)
@@ -47,8 +52,11 @@ namespace QuanLyBDS.NhanVien
         }
         private void LoadDataQLyKhachhang()
         {
-            dtView.ClearAll();
-            dtView.DataSource = nv.Getkhachhang();
+            if (pt.GetDataPageKhachHang(currentpage, recordPerPages) != null)
+            {
+                dtView.ClearAll();
+                dtView.DataSource = pt.GetDataPageKhachHang(currentpage, recordPerPages);
+            }
             if (dtView.Rows.Count > 0)
             {
                 dtView.Columns[0].HeaderText = "ID";
@@ -62,6 +70,7 @@ namespace QuanLyBDS.NhanVien
             {
                 label8.Visible = true;
             }
+            UpdatePage();
 
         }
         private void dtView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -135,5 +144,28 @@ namespace QuanLyBDS.NhanVien
                 label8.Visible = true;
             }
         }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (currentpage > 1)
+            {
+                currentpage--;
+                LoadDataQLyKhachhang();
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (currentpage * recordPerPages < totalRecord)
+            {
+                currentpage++;
+                LoadDataQLyKhachhang();
+            }
+        }
+        void UpdatePage()
+        {
+            txtCurrentPage.Text = $"Trang : {currentpage}";
+        }
+
     }
 }

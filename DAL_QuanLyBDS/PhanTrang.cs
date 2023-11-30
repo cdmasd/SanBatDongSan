@@ -14,7 +14,7 @@ namespace DAL_QuanLyBDS
         IMongoCollection<BsonDocument> dangtin = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("KhachHangDangTin");
         IMongoCollection<BsonDocument> nhanvien = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("NhanVien");
         IMongoCollection<BsonDocument> ticket = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Ticket");
-        IMongoCollection<BsonDocument> Khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
+        IMongoCollection<BsonDocument> khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
         #region Đăng tin chưa duyệt
         public long GetTotalRecordsDangTinChuaDuyet()
         {
@@ -29,20 +29,72 @@ namespace DAL_QuanLyBDS
             return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
         }
         #endregion
+
         #region Đăng tin Đã duyệt
-        /*public long GetTotalRecordsDangTinDaDuyet()
+        public long GetTotalRecordsDangTinDaDuyet()
         {
             var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
             return dangtin.CountDocuments(filter);
         }
 
-        public List<BsonDocument> GetDataPageDangTinDaDuyet(int page, int pageSize)
+        public DataTable GetDataPageDangTinDaDuyet(int page, int pageSize)
         {
             var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
             var skip = (page - 1) * pageSize;
-            return dangtin.Find(filter).Skip(skip).Limit(pageSize).ToList();
-        }*/
+            return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
+        }
         #endregion
+
+        #region Nhân Viên
+        public long GetTotalRecordNhanVien()
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            return nhanvien.CountDocuments(filter);
+        }
+
+        public DataTable GetDataPageNhanVien(int page, int pageSize)
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(nhanvien.Find(filter).Skip(skip).Limit(pageSize));
+        }
+        #endregion
+
+        #region Ticket Hỗ Trợ
+
+        public long GetTotalRecordsTicketChuaDuyet()
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
+            return ticket.CountDocuments(filter);
+        }
+
+        public DataTable GetDataPageTicketChuaDuyet(int page, int pageSize)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        #endregion
+
+        #region Khách Hàng
+
+        public long GetTotalRecordsKhachHang()
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            return khachhang.CountDocuments(filter);
+        }
+
+        public DataTable GetDataPageKhachHang(int page, int pageSize)
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(khachhang.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        #endregion
+
+
         static DataTable ConvertFindFluentToDataTable(IFindFluent<BsonDocument, BsonDocument> findFluent)
         {
             DataTable dataTable = new DataTable();
