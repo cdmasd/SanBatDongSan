@@ -76,50 +76,47 @@ namespace QuanLyBDS.KhachHang
             }
         }
 
+        void ResetValue()
+        {
+            txtTieude.Text = "";
+            txtDiachi.Text = "";
+            txtSophong.Text = "";
+            txtGia.Text = "";
+            txtDientich.Text = "";
+            txtHinhanh.Text = "";
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-                string id = txtId.Text;
-                string tieuDe = txtTieude.Text;
-                string loaiNha = cbLoainha.Text;
-
-                if (!double.TryParse(txtDientich.Text, out double dientich) ||
-                    !int.TryParse(txtSophong.Text, out int sophong) ||
-                    !double.TryParse(txtGia.Text, out double gia))
-                {
-                    MessageBox.Show("Không được nhập chữ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                string diaChi = txtDiachi.Text;
-                string hinhAnh = txtHinhanh.Text;
-
-                if (string.IsNullOrEmpty(tieuDe) || string.IsNullOrEmpty(loaiNha) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(hinhAnh))
+                // Kiểm tra nếu có dữ liệu bị bỏ trống
+                if (!checkNull())
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin và chọn ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string cloudinaryUrl = UploadImageToCloudinary(imagePath);
-                if (cloudinaryUrl != null)
+                string cloudinaryUrl = txtHinhanh.Text;
+                // Nếu có thay đổi ảnh, upload ảnh mới lên Cloudinary và lấy URL của ảnh
+                if (imagePath != null && imagePath == txtHinhanh.Text)
                 {
-                    hinhAnh = cloudinaryUrl;
-                    bool result = kh.UpdateBaidang(id, tieuDe, loaiNha, dientich, sophong, gia, diaChi, hinhAnh);
-
-                    if (result)
+                    cloudinaryUrl = UploadImageToCloudinary(imagePath);
+                }
+                DialogResult result = MessageBox.Show("Bạn Chắc chắn muốn sửa bài đăng", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
+                {
+                    txtHinhanh.Text = cloudinaryUrl;
+                    bool Ds = kh.UpdateBaidang(txtId.Text, txtTieude.Text, cbLoainha.SelectedText, double.Parse(txtDientich.Text), int.Parse(txtSophong.Text), double.Parse(txtGia.Text), txtDiachi.Text, txtHinhanh.Text);
+                    if (Ds)
                     {
                         MessageBox.Show("Đã cập nhật bài đăng của bạn, Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK);
+                        ResetValue();
                     }
                     else
                     {
-                        MessageBox.Show("Vui lòng chọn bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
+                        MessageBox.Show("Vui lòng chọn bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
-                else
-                {
-                    MessageBox.Show("Lỗi khi tải lên ảnh lên thư viện. Vui lòng thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
             }
             catch (Exception ex)
             {
@@ -345,6 +342,43 @@ namespace QuanLyBDS.KhachHang
                     btXoa.Enabled = true;
                 }
             }
+            ResetValue();
+        }
+
+        bool checkNull()
+        {
+            if (string.IsNullOrEmpty(txtTieude.Text))
+            {
+                txtTieude.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(txtDientich.Text))
+            {
+                txtDientich.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtGia.Text))
+            {
+                txtGia.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtDiachi.Text))
+            {
+                txtDiachi.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtHinhanh.Text))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtSophong.Text))
+            {
+                txtSophong.Focus();
+                return false;
+            }
+            return true;
+
         }
     }
 }

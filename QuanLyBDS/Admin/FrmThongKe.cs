@@ -37,10 +37,6 @@ namespace QuanLyBDS.Admin
             labelSoBaiDang.Text = bus_Admin.TongSoLuongBaiDang().ToString() + " Bài";
             labelTongGiaTri.Text = bus_Admin.TongGiaTriBDS().ToString() + " VND";
             labelDoanhThu.Text = bus_Admin.TongDoanhThu().ToString() + " VND";
-            labelTicketDaDuyet.Text = bus_Admin.TicketDaDuyet().ToString();
-            labelTicketChuaDuyet.Text = bus_Admin.TicketChuaDuyet().ToString();
-            labelBaiDangDaDuyet.Text = bus_Admin.BaiDangDaDuyet().ToString();
-            labelBaiDangChuaDuyet.Text = bus_Admin.BaiDangChuaDuyet().ToString();
         }
 
         private void LoadBarChart(List<ThongKeDTO> data)

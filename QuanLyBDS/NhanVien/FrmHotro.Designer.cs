@@ -52,7 +52,7 @@
             // txtChitiethotro
             // 
             txtChitiethotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtChitiethotro.Location = new Point(361, 201);
+            txtChitiethotro.Location = new Point(439, 136);
             txtChitiethotro.Margin = new Padding(4, 5, 4, 5);
             txtChitiethotro.MinimumSize = new Size(1, 16);
             txtChitiethotro.Multiline = true;
@@ -68,7 +68,7 @@
             // txtSodt
             // 
             txtSodt.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSodt.Location = new Point(901, 134);
+            txtSodt.Location = new Point(980, 69);
             txtSodt.Margin = new Padding(4, 5, 4, 5);
             txtSodt.MinimumSize = new Size(1, 16);
             txtSodt.Name = "txtSodt";
@@ -84,7 +84,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(901, 105);
+            label3.Location = new Point(980, 40);
             label3.Name = "label3";
             label3.Size = new Size(192, 19);
             label3.TabIndex = 9;
@@ -95,7 +95,7 @@
             btnDahotro.FillColor = SystemColors.Highlight;
             btnDahotro.FillHoverColor = Color.MidnightBlue;
             btnDahotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDahotro.Location = new Point(1024, 300);
+            btnDahotro.Location = new Point(1102, 232);
             btnDahotro.MinimumSize = new Size(1, 1);
             btnDahotro.Name = "btnDahotro";
             btnDahotro.Size = new Size(100, 35);
@@ -108,7 +108,7 @@
             // txtHotro
             // 
             txtHotro.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHotro.Location = new Point(361, 134);
+            txtHotro.Location = new Point(439, 69);
             txtHotro.Margin = new Padding(4, 5, 4, 5);
             txtHotro.MinimumSize = new Size(1, 16);
             txtHotro.Name = "txtHotro";
@@ -124,7 +124,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(361, 173);
+            label2.Location = new Point(439, 108);
             label2.Name = "label2";
             label2.Size = new Size(238, 19);
             label2.TabIndex = 7;
@@ -134,7 +134,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(361, 105);
+            label1.Location = new Point(439, 40);
             label1.Name = "label1";
             label1.Size = new Size(131, 19);
             label1.TabIndex = 6;
@@ -167,7 +167,7 @@
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
-            dtView.Location = new Point(358, 414);
+            dtView.Location = new Point(113, 331);
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
@@ -189,7 +189,7 @@
             dtView.ScrollBarRectColor = Color.FromArgb(80, 160, 255);
             dtView.SelectedIndex = -1;
             dtView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtView.Size = new Size(765, 302);
+            dtView.Size = new Size(1315, 465);
             dtView.Style = Sunny.UI.UIStyle.Custom;
             dtView.TabIndex = 54;
             dtView.Click += dtView_Click;
@@ -209,7 +209,7 @@
             // txtId
             // 
             txtId.AutoSize = true;
-            txtId.Location = new Point(661, 134);
+            txtId.Location = new Point(850, 69);
             txtId.Name = "txtId";
             txtId.Size = new Size(55, 16);
             txtId.TabIndex = 56;
@@ -221,7 +221,7 @@
             btnTimKiem.FillColor = SystemColors.Highlight;
             btnTimKiem.FillHoverColor = Color.MidnightBlue;
             btnTimKiem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTimKiem.Location = new Point(871, 347);
+            btnTimKiem.Location = new Point(968, 289);
             btnTimKiem.MinimumSize = new Size(1, 1);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(100, 35);
@@ -229,12 +229,13 @@
             btnTimKiem.TabIndex = 64;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(584, 356);
+            label5.Location = new Point(562, 297);
             label5.Name = "label5";
             label5.Size = new Size(70, 19);
             label5.TabIndex = 63;
@@ -243,13 +244,13 @@
             // uiTextBox1
             // 
             uiTextBox1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox1.Location = new Point(661, 351);
+            uiTextBox1.Location = new Point(639, 293);
             uiTextBox1.Margin = new Padding(4, 5, 4, 5);
             uiTextBox1.MinimumSize = new Size(1, 16);
             uiTextBox1.Name = "uiTextBox1";
             uiTextBox1.Padding = new Padding(5);
             uiTextBox1.ShowText = false;
-            uiTextBox1.Size = new Size(203, 27);
+            uiTextBox1.Size = new Size(308, 27);
             uiTextBox1.Style = Sunny.UI.UIStyle.Custom;
             uiTextBox1.TabIndex = 62;
             uiTextBox1.TextAlignment = ContentAlignment.MiddleLeft;

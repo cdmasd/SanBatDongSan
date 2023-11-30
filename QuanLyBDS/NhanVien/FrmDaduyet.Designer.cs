@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             btnXem = new Sunny.UI.UIButton();
             dtView = new Sunny.UI.UIDataGridView();
             txtDiachi = new Sunny.UI.UITextBox();
@@ -66,10 +66,10 @@
             btnXem.FillColor = SystemColors.Highlight;
             btnXem.FillHoverColor = Color.MidnightBlue;
             btnXem.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXem.Location = new Point(921, 208);
+            btnXem.Location = new Point(1121, 111);
             btnXem.MinimumSize = new Size(1, 1);
             btnXem.Name = "btnXem";
-            btnXem.Size = new Size(100, 35);
+            btnXem.Size = new Size(117, 42);
             btnXem.Style = Sunny.UI.UIStyle.Custom;
             btnXem.TabIndex = 54;
             btnXem.Text = "Xem ảnh";
@@ -77,56 +77,56 @@
             // 
             // dtView
             // 
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(243, 249, 255);
-            dtView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(243, 249, 255);
+            dtView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             dtView.Anchor = AnchorStyles.None;
             dtView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtView.BackgroundColor = Color.FromArgb(243, 249, 255);
             dtView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dtView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle12.ForeColor = Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dtView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             dtView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(220, 236, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dtView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.White;
+            dataGridViewCellStyle13.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle13.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle13.SelectionBackColor = Color.FromArgb(220, 236, 255);
+            dataGridViewCellStyle13.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.False;
+            dtView.DefaultCellStyle = dataGridViewCellStyle13;
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
-            dtView.Location = new Point(60, 362);
+            dtView.Location = new Point(113, 331);
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(243, 249, 255);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dtView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = Color.FromArgb(243, 249, 255);
+            dataGridViewCellStyle14.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle14.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle14.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+            dtView.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             dtView.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(220, 236, 255);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dtView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.BackColor = Color.White;
+            dataGridViewCellStyle15.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle15.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(220, 236, 255);
+            dataGridViewCellStyle15.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dtView.RowsDefaultCellStyle = dataGridViewCellStyle15;
             dtView.RowTemplate.Height = 25;
             dtView.ScrollBarRectColor = Color.FromArgb(80, 160, 255);
             dtView.SelectedIndex = -1;
             dtView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtView.Size = new Size(1388, 345);
+            dtView.Size = new Size(1315, 465);
             dtView.Style = Sunny.UI.UIStyle.Custom;
             dtView.TabIndex = 53;
             dtView.Click += dtView_Click;
@@ -135,14 +135,15 @@
             // 
             txtDiachi.Anchor = AnchorStyles.None;
             txtDiachi.Enabled = false;
-            txtDiachi.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDiachi.Location = new Point(929, 107);
+            txtDiachi.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDiachi.Location = new Point(733, 62);
             txtDiachi.Margin = new Padding(4, 5, 4, 5);
             txtDiachi.MinimumSize = new Size(1, 16);
+            txtDiachi.Multiline = true;
             txtDiachi.Name = "txtDiachi";
             txtDiachi.Padding = new Padding(5);
             txtDiachi.ShowText = false;
-            txtDiachi.Size = new Size(203, 34);
+            txtDiachi.Size = new Size(321, 98);
             txtDiachi.Style = Sunny.UI.UIStyle.Custom;
             txtDiachi.TabIndex = 49;
             txtDiachi.TextAlignment = ContentAlignment.MiddleLeft;
@@ -152,10 +153,10 @@
             // 
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(925, 81);
+            label7.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(735, 36);
             label7.Name = "label7";
-            label7.Size = new Size(275, 31);
+            label7.Size = new Size(149, 19);
             label7.TabIndex = 48;
             label7.Text = "Địa chỉ bất động sản :";
             // 
@@ -166,10 +167,10 @@
             btnXoa.FillColor = SystemColors.Highlight;
             btnXoa.FillHoverColor = Color.MidnightBlue;
             btnXoa.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXoa.Location = new Point(1038, 209);
+            btnXoa.Location = new Point(1121, 179);
             btnXoa.MinimumSize = new Size(1, 1);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(100, 35);
+            btnXoa.Size = new Size(117, 42);
             btnXoa.Style = Sunny.UI.UIStyle.Custom;
             btnXoa.TabIndex = 52;
             btnXoa.Text = "Xoá bài";
@@ -180,14 +181,15 @@
             // 
             txtHinhanh.Anchor = AnchorStyles.None;
             txtHinhanh.Enabled = false;
-            txtHinhanh.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHinhanh.Location = new Point(929, 167);
+            txtHinhanh.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtHinhanh.Location = new Point(733, 186);
             txtHinhanh.Margin = new Padding(4, 5, 4, 5);
             txtHinhanh.MinimumSize = new Size(1, 16);
+            txtHinhanh.Multiline = true;
             txtHinhanh.Name = "txtHinhanh";
             txtHinhanh.Padding = new Padding(5);
             txtHinhanh.ShowText = false;
-            txtHinhanh.Size = new Size(203, 34);
+            txtHinhanh.Size = new Size(321, 58);
             txtHinhanh.Style = Sunny.UI.UIStyle.Custom;
             txtHinhanh.TabIndex = 50;
             txtHinhanh.TextAlignment = ContentAlignment.MiddleLeft;
@@ -197,8 +199,8 @@
             // 
             txtGia.Anchor = AnchorStyles.None;
             txtGia.Enabled = false;
-            txtGia.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtGia.Location = new Point(539, 220);
+            txtGia.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtGia.Location = new Point(452, 210);
             txtGia.Margin = new Padding(4, 5, 4, 5);
             txtGia.MinimumSize = new Size(1, 16);
             txtGia.Name = "txtGia";
@@ -214,8 +216,8 @@
             // 
             txtSophong.Anchor = AnchorStyles.None;
             txtSophong.Enabled = false;
-            txtSophong.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSophong.Location = new Point(539, 185);
+            txtSophong.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSophong.Location = new Point(452, 168);
             txtSophong.Margin = new Padding(4, 5, 4, 5);
             txtSophong.MinimumSize = new Size(1, 16);
             txtSophong.Name = "txtSophong";
@@ -231,8 +233,8 @@
             // 
             txtDientich.Anchor = AnchorStyles.None;
             txtDientich.Enabled = false;
-            txtDientich.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDientich.Location = new Point(539, 150);
+            txtDientich.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDientich.Location = new Point(452, 126);
             txtDientich.Margin = new Padding(4, 5, 4, 5);
             txtDientich.MinimumSize = new Size(1, 16);
             txtDientich.Name = "txtDientich";
@@ -250,8 +252,8 @@
             cbLoainha.DataSource = null;
             cbLoainha.Enabled = false;
             cbLoainha.FillColor = Color.White;
-            cbLoainha.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            cbLoainha.Location = new Point(539, 115);
+            cbLoainha.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbLoainha.Location = new Point(452, 84);
             cbLoainha.Margin = new Padding(4, 5, 4, 5);
             cbLoainha.MinimumSize = new Size(63, 0);
             cbLoainha.Name = "cbLoainha";
@@ -266,8 +268,8 @@
             // 
             txtTieude.Anchor = AnchorStyles.None;
             txtTieude.Enabled = false;
-            txtTieude.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTieude.Location = new Point(539, 80);
+            txtTieude.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTieude.Location = new Point(452, 42);
             txtTieude.Margin = new Padding(4, 5, 4, 5);
             txtTieude.MinimumSize = new Size(1, 16);
             txtTieude.Name = "txtTieude";
@@ -283,10 +285,10 @@
             // 
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(925, 141);
+            label6.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(729, 163);
             label6.Name = "label6";
-            label6.Size = new Size(137, 31);
+            label6.Size = new Size(75, 19);
             label6.TabIndex = 42;
             label6.Text = "Hình ảnh :";
             // 
@@ -294,21 +296,21 @@
             // 
             label5.Anchor = AnchorStyles.None;
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(471, 220);
+            label5.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(365, 215);
             label5.Name = "label5";
-            label5.Size = new Size(71, 31);
+            label5.Size = new Size(80, 19);
             label5.TabIndex = 41;
-            label5.Text = "Giá :";
+            label5.Text = "Giá (VND) :";
             // 
             // label4
             // 
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(424, 186);
+            label4.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(368, 173);
             label4.Name = "label4";
-            label4.Size = new Size(144, 31);
+            label4.Size = new Size(77, 19);
             label4.TabIndex = 40;
             label4.Text = "Số phòng :";
             // 
@@ -316,21 +318,21 @@
             // 
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(427, 151);
+            label3.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(340, 131);
             label3.Name = "label3";
-            label3.Size = new Size(135, 31);
+            label3.Size = new Size(105, 19);
             label3.TabIndex = 39;
-            label3.Text = "Diện tích :";
+            label3.Text = "Diện tích (m²) :";
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(428, 116);
+            label2.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(372, 89);
             label2.Name = "label2";
-            label2.Size = new Size(132, 31);
+            label2.Size = new Size(73, 19);
             label2.TabIndex = 38;
             label2.Text = "Loại nhà :";
             // 
@@ -338,10 +340,10 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(436, 81);
+            label1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(380, 47);
             label1.Name = "label1";
-            label1.Size = new Size(119, 31);
+            label1.Size = new Size(65, 19);
             label1.TabIndex = 37;
             label1.Text = "Tiêu đề :";
             // 
@@ -351,9 +353,9 @@
             label8.AutoSize = true;
             label8.BackColor = SystemColors.Control;
             label8.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(671, 668);
+            label8.Location = new Point(683, 550);
             label8.Name = "label8";
-            label8.Size = new Size(214, 31);
+            label8.Size = new Size(174, 26);
             label8.TabIndex = 56;
             label8.Text = "Không có dữ liệu";
             label8.Visible = false;
@@ -364,7 +366,7 @@
             txtId.AutoSize = true;
             txtId.Location = new Point(167, 186);
             txtId.Name = "txtId";
-            txtId.Size = new Size(69, 20);
+            txtId.Size = new Size(55, 16);
             txtId.TabIndex = 57;
             txtId.Text = "label8";
             txtId.Visible = false;
@@ -374,7 +376,7 @@
             btnTimKiem.FillColor = SystemColors.Highlight;
             btnTimKiem.FillHoverColor = Color.MidnightBlue;
             btnTimKiem.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTimKiem.Location = new Point(905, 299);
+            btnTimKiem.Location = new Point(1004, 279);
             btnTimKiem.MinimumSize = new Size(1, 1);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(100, 35);
@@ -382,27 +384,28 @@
             btnTimKiem.TabIndex = 64;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(583, 305);
+            label10.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(592, 284);
             label10.Name = "label10";
-            label10.Size = new Size(127, 31);
+            label10.Size = new Size(70, 19);
             label10.TabIndex = 63;
             label10.Text = "Tìm Kiếm";
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTimKiem.Location = new Point(695, 303);
+            txtTimKiem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTimKiem.Location = new Point(673, 279);
             txtTimKiem.Margin = new Padding(4, 5, 4, 5);
             txtTimKiem.MinimumSize = new Size(1, 16);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Padding = new Padding(5);
             txtTimKiem.ShowText = false;
-            txtTimKiem.Size = new Size(203, 34);
+            txtTimKiem.Size = new Size(316, 34);
             txtTimKiem.Style = Sunny.UI.UIStyle.Custom;
             txtTimKiem.TabIndex = 62;
             txtTimKiem.TextAlignment = ContentAlignment.MiddleLeft;
@@ -413,7 +416,7 @@
             label9.AutoSize = true;
             label9.Location = new Point(224, 272);
             label9.Name = "label9";
-            label9.Size = new Size(0, 20);
+            label9.Size = new Size(0, 16);
             label9.TabIndex = 65;
             // 
             // FrmDaduyet

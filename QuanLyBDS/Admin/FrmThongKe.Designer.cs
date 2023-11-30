@@ -44,28 +44,16 @@
             panel5 = new Panel();
             labelDoanhThu = new Label();
             label5 = new Label();
-            panel6 = new Panel();
-            labelBaiDangDaDuyet = new Label();
-            labelBaiDangChuaDuyet = new Label();
-            label7 = new Label();
-            label6 = new Label();
             labelMain = new Label();
             chartTop5 = new Sunny.UI.UIPieChart();
             dateTimePicker = new DateTimePicker();
             labelPicker = new Label();
-            panel7 = new Panel();
-            labelTicketChuaDuyet = new Label();
-            labelTicketDaDuyet = new Label();
-            label8 = new Label();
-            label9 = new Label();
             chartDoanhThu = new Sunny.UI.UIBarChart();
             btnChonNgay = new Sunny.UI.UIButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
-            panel6.SuspendLayout();
-            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // chartThongKeBaiDang
@@ -75,7 +63,7 @@
             chartThongKeBaiDang.Location = new Point(535, 249);
             chartThongKeBaiDang.MinimumSize = new Size(1, 1);
             chartThongKeBaiDang.Name = "chartThongKeBaiDang";
-            chartThongKeBaiDang.Size = new Size(572, 386);
+            chartThongKeBaiDang.Size = new Size(572, 612);
             chartThongKeBaiDang.Style = Sunny.UI.UIStyle.Custom;
             chartThongKeBaiDang.SubFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chartThongKeBaiDang.TabIndex = 0;
@@ -248,62 +236,6 @@
             label5.TabIndex = 14;
             label5.Text = "Doanh Thu";
             // 
-            // panel6
-            // 
-            panel6.BackColor = Color.CornflowerBlue;
-            panel6.Controls.Add(labelBaiDangDaDuyet);
-            panel6.Controls.Add(labelBaiDangChuaDuyet);
-            panel6.Controls.Add(label7);
-            panel6.Controls.Add(label6);
-            panel6.Location = new Point(39, 641);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(490, 220);
-            panel6.TabIndex = 4;
-            // 
-            // labelBaiDangDaDuyet
-            // 
-            labelBaiDangDaDuyet.AutoSize = true;
-            labelBaiDangDaDuyet.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBaiDangDaDuyet.ForeColor = Color.White;
-            labelBaiDangDaDuyet.Location = new Point(54, 159);
-            labelBaiDangDaDuyet.Name = "labelBaiDangDaDuyet";
-            labelBaiDangDaDuyet.Size = new Size(87, 23);
-            labelBaiDangDaDuyet.TabIndex = 17;
-            labelBaiDangDaDuyet.Text = "1000000";
-            // 
-            // labelBaiDangChuaDuyet
-            // 
-            labelBaiDangChuaDuyet.AutoSize = true;
-            labelBaiDangChuaDuyet.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            labelBaiDangChuaDuyet.ForeColor = Color.White;
-            labelBaiDangChuaDuyet.Location = new Point(54, 66);
-            labelBaiDangChuaDuyet.Name = "labelBaiDangChuaDuyet";
-            labelBaiDangChuaDuyet.Size = new Size(87, 23);
-            labelBaiDangChuaDuyet.TabIndex = 15;
-            labelBaiDangChuaDuyet.Text = "1000000";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(22, 116);
-            label7.Name = "label7";
-            label7.Size = new Size(232, 18);
-            label7.TabIndex = 16;
-            label7.Text = "Số Bài Đăng Chưa Duyệt :";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(22, 24);
-            label6.Name = "label6";
-            label6.Size = new Size(210, 18);
-            label6.TabIndex = 15;
-            label6.Text = "Sô Bài Đăng Đã Duyệt :";
-            // 
             // labelMain
             // 
             labelMain.AutoSize = true;
@@ -346,62 +278,6 @@
             labelPicker.TabIndex = 14;
             labelPicker.Text = "Chọn Ngày Cần Xem:";
             // 
-            // panel7
-            // 
-            panel7.BackColor = Color.MediumSlateBlue;
-            panel7.Controls.Add(labelTicketChuaDuyet);
-            panel7.Controls.Add(labelTicketDaDuyet);
-            panel7.Controls.Add(label8);
-            panel7.Controls.Add(label9);
-            panel7.Location = new Point(535, 641);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(572, 220);
-            panel7.TabIndex = 17;
-            // 
-            // labelTicketChuaDuyet
-            // 
-            labelTicketChuaDuyet.AutoSize = true;
-            labelTicketChuaDuyet.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTicketChuaDuyet.ForeColor = Color.White;
-            labelTicketChuaDuyet.Location = new Point(50, 159);
-            labelTicketChuaDuyet.Name = "labelTicketChuaDuyet";
-            labelTicketChuaDuyet.Size = new Size(87, 23);
-            labelTicketChuaDuyet.TabIndex = 19;
-            labelTicketChuaDuyet.Text = "1000000";
-            // 
-            // labelTicketDaDuyet
-            // 
-            labelTicketDaDuyet.AutoSize = true;
-            labelTicketDaDuyet.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            labelTicketDaDuyet.ForeColor = Color.White;
-            labelTicketDaDuyet.Location = new Point(50, 66);
-            labelTicketDaDuyet.Name = "labelTicketDaDuyet";
-            labelTicketDaDuyet.Size = new Size(87, 23);
-            labelTicketDaDuyet.TabIndex = 18;
-            labelTicketDaDuyet.Text = "1000000";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(22, 116);
-            label8.Name = "label8";
-            label8.Size = new Size(215, 18);
-            label8.TabIndex = 16;
-            label8.Text = "Số Ticket Chưa Hỗ Trợ :";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.ForeColor = Color.White;
-            label9.Location = new Point(22, 24);
-            label9.Name = "label9";
-            label9.Size = new Size(193, 18);
-            label9.TabIndex = 15;
-            label9.Text = "Sô Ticket Đã Hổ Trợ :";
-            // 
             // chartDoanhThu
             // 
             chartDoanhThu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -409,7 +285,7 @@
             chartDoanhThu.Location = new Point(39, 249);
             chartDoanhThu.MinimumSize = new Size(1, 1);
             chartDoanhThu.Name = "chartDoanhThu";
-            chartDoanhThu.Size = new Size(490, 386);
+            chartDoanhThu.Size = new Size(490, 612);
             chartDoanhThu.Style = Sunny.UI.UIStyle.Custom;
             chartDoanhThu.SubFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chartDoanhThu.TabIndex = 18;
@@ -436,11 +312,9 @@
             ClientSize = new Size(1600, 965);
             Controls.Add(btnChonNgay);
             Controls.Add(chartDoanhThu);
-            Controls.Add(panel7);
             Controls.Add(labelPicker);
             Controls.Add(dateTimePicker);
             Controls.Add(chartTop5);
-            Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(btnTongQuat);
             Controls.Add(panel3);
@@ -465,10 +339,6 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -483,7 +353,6 @@
         private Panel panel3;
         private Sunny.UI.UIButton btnTongQuat;
         private Panel panel5;
-        private Panel panel6;
         private Label labelMain;
         private Label label2;
         private Label label3;
@@ -496,16 +365,7 @@
         private Sunny.UI.UIPieChart chartTop5;
         private DateTimePicker dateTimePicker;
         private Label labelPicker;
-        private Label label6;
-        private Label label7;
-        private Panel panel7;
-        private Label label8;
-        private Label label9;
         private Sunny.UI.UIBarChart chartDoanhThu;
-        private Label labelBaiDangDaDuyet;
-        private Label labelBaiDangChuaDuyet;
-        private Label labelTicketChuaDuyet;
-        private Label labelTicketDaDuyet;
         private Sunny.UI.UIButton btnChonNgay;
     }
 }

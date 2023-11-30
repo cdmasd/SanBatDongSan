@@ -16,11 +16,18 @@ namespace QuanLyBDS.NhanVien
 {
     public partial class FrmDuyetbai : UIForm
     {
+        private int currentpage = 1;
+        private int recordPerPages = 5;
+        private int totalRecord;
+
         BUS_QuanLyBDS.NhanVien nv = new BUS_QuanLyBDS.NhanVien();
+        BUS_QuanLyBDS.PhanTrang pt;
         public FrmDuyetbai()
         {
             InitializeComponent();
             UiSettings();
+            pt = new();
+            totalRecord = (int)pt.GetTotalRecordsDangTinChuaDuyet();
         }
         public void UiSettings()
         {
@@ -36,29 +43,15 @@ namespace QuanLyBDS.NhanVien
         private void FrmDuyetbai_Load(object sender, EventArgs e)
         {
             LoadBaiDang();
-
+            
         }
         private void LoadBaiDang()
         {
+            var data = pt.GetDataPageDangTinChuaDuyet(currentpage, recordPerPages);
             dtView.ClearAll();
-            List<BsonDocument> dataBaiDang = nv.Chuaduyet();
-            if (dataBaiDang.Count > 0)
+            dtView.DataSource = data;
+            if (dtView.Rows.Count > 0)
             {
-                // Load header name
-                foreach (var header in dataBaiDang[0].Names)
-                {
-                    dtView.Columns.Add(header, header);
-                }
-                // Đổ dữ liệu vào từng dòng của DataGridView
-                foreach (var doc in dataBaiDang)
-                {
-                    List<object> values = new List<object>();
-                    foreach (var key in doc.Names)
-                    {
-                        values.Add(doc[key]);
-                    }
-                    dtView.Rows.Add(values.ToArray());
-                }
                 dtView.Columns[0].HeaderText = "ID";
                 dtView.Columns[1].HeaderText = "Tiêu đề";
                 dtView.Columns[2].HeaderText = "Loại nhà";
@@ -76,6 +69,7 @@ namespace QuanLyBDS.NhanVien
             {
                 label8.Visible = true;
             }
+            UpdatePage();
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -100,8 +94,8 @@ namespace QuanLyBDS.NhanVien
 
         private void btnTuchoi_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn từ chối ?","Xác nhận",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
-            if(result == DialogResult.OK)
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn từ chối ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
             {
                 if (txtTieude.Text != "")
                 {
@@ -181,6 +175,53 @@ namespace QuanLyBDS.NhanVien
             txtHinhanh.Text = "";
             txtDiachi.Text = "";
             txtGia.Text = "";
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            dtView.ClearAll();
+            dtView.DataSource = nv.TimKiemBaiDang(txtTimKiem.Text.Trim().ToUpper());
+            if (dtView.Rows.Count > 0)
+            {
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Tiêu đề";
+                dtView.Columns[2].HeaderText = "Loại nhà";
+                dtView.Columns[3].HeaderText = "Diện tích";
+                dtView.Columns[4].HeaderText = "Số phòng";
+                dtView.Columns[5].HeaderText = "Giá";
+                dtView.Columns[6].HeaderText = "Địa chỉ";
+                dtView.Columns[7].HeaderText = "Hình ảnh";
+                dtView.Columns[8].HeaderText = "ID người đăng";
+                dtView.Columns[9].HeaderText = "Thời gian đăng";
+                dtView.Columns[10].HeaderText = "Trạng thái";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (currentpage > 1)
+            {
+                currentpage--;
+                LoadBaiDang();
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (currentpage * recordPerPages < totalRecord)
+            {
+                currentpage++;
+                LoadBaiDang();
+            }
+        }
+        void UpdatePage()
+        {
+            txtCurrentPage.Text = $"Trang : {currentpage}";
         }
     }
 }

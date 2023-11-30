@@ -176,6 +176,7 @@
             Style = Sunny.UI.UIStyle.Custom;
             Text = "FrmThongTin";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
+            Load += FrmThongTin_Load;
             ResumeLayout(false);
             PerformLayout();
         }

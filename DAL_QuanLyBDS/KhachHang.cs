@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Sockets;
 
 namespace DAL_QuanLyBDS
 {
@@ -13,6 +14,7 @@ namespace DAL_QuanLyBDS
     {
         IMongoCollection<BsonDocument> Khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
         IMongoCollection<BsonDocument> khachhangdangtin = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("KhachHangDangTin");
+        IMongoCollection<BsonDocument> Ticket = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Ticket");
         public string getidKh(string email)
         {
             var result = Khachhang.Find(new BsonDocument
@@ -200,6 +202,83 @@ namespace DAL_QuanLyBDS
             }
 
         }
+        public List<BsonDocument> showInfo(string Email)
+        {
+            return Khachhang.Find(new BsonDocument("Email", Email)).ToList();
+        }
+        public bool UpdateThongTinKH(string Email, string HoTen, string Sodienthoai)
+        {
+            try
+            {
+                var filterBuilder = Builders<BsonDocument>.Filter;
+                var filter = filterBuilder.Eq("Email", Email);
+                var updateBuilder = Builders<BsonDocument>.Update;
+                var update = updateBuilder
+                    .Set("Hoten", HoTen)
+                    .Set("Sodienthoai", Sodienthoai);
+                var result = Khachhang.UpdateOne(filter, update);
+                return result.ModifiedCount > 0;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        #region ticket
 
+        public bool insertTicket(string Sdt, string Vande, string Chitiet)
+        {
+            try
+            {
+                string nextTK = getIDticket();
+                var ticketDocument = new BsonDocument
+                {
+                    { "_id", nextTK },
+                    { "Sodienthoai", Sdt },
+                    { "Vande", Vande },
+                    { "Chitiet", Chitiet },
+                    { "Trangthai", false },
+                    { "Nguoihotro", ""},
+                    {"Ngaydang",DateTime.Now.ToString("dd-MM-yyyy") }
+                };
+                Ticket.InsertOne(ticketDocument);
+                Console.WriteLine("Thành Công");
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Lỗi khi cập nhật bài đăng: {ex.Message}");
+                return false;
+            }
+
+        }
+        string getIDticket()
+        {
+            var filter = Builders<BsonDocument>.Sort.Descending("_id");
+            // Lấy ra đối tượng có mã nhân viên cao nhất
+            var lastDocument = Ticket.Find(new BsonDocument()).Sort(filter).Limit(1).ToList();
+            // Nếu trong đối tượng lastDocument không tìm được đối tượng nào thì trả về null
+            // Ngược lại gán mã nhân viên cho lastMaNV
+            var lastMaNV = lastDocument.Count > 0 ? lastDocument[0]["_id"].ToString() : null;
+
+            if (lastMaNV != null)
+            {
+                // Lấy số từ chuỗi và tăng giá trị lên 1
+                var lastNumber = int.Parse(lastMaNV.Replace("TK", ""));
+                return $"TK{lastNumber + 1:00}";
+            }
+            else
+            {
+                return "TK01";
+            }
+        }
+        public List<BsonDocument> getThongTin()
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var Thongtin = Khachhang.Find(filter).ToList();
+            return Thongtin;
+        }
+        #endregion
     }
 }

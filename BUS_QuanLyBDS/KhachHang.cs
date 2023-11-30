@@ -45,5 +45,29 @@ namespace BUS_QuanLyBDS
         {
             return kh.DeleteBaiDang(id);
         }
+        public bool insertTicket(string Sdt, string Vande, string Chitiet)
+        {
+            return kh.insertTicket(Sdt, Vande, Chitiet);
+        }
+        public bool UpdateThongTinKH(string Email, string HoTen, string Sodienthoai)
+        {
+            return kh.UpdateThongTinKH(Email, HoTen, Sodienthoai);
+        }
+        public List<BsonDocument> GetThongTin()
+        {
+            try
+            {
+                return kh.getThongTin();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi lấy dữ liệu: {ex.Message}");
+                return null;
+            }
+        }
+        public List<BsonDocument> showInfo(string email)
+        {
+            return kh.showInfo(email);
+        }
     }
 }

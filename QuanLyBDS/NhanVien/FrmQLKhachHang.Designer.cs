@@ -49,7 +49,7 @@
             label8 = new Label();
             btnTimKiem = new Sunny.UI.UIButton();
             label6 = new Label();
-            uiTextBox1 = new Sunny.UI.UITextBox();
+            txtTimKiem = new Sunny.UI.UITextBox();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             btnNap.FillColor = SystemColors.Highlight;
             btnNap.FillHoverColor = Color.MidnightBlue;
             btnNap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNap.Location = new Point(1043, 156);
+            btnNap.Location = new Point(1244, 165);
             btnNap.MinimumSize = new Size(1, 1);
             btnNap.Name = "btnNap";
             btnNap.Size = new Size(85, 28);
@@ -72,7 +72,7 @@
             // 
             txtSodu.Enabled = false;
             txtSodu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSodu.Location = new Point(719, 190);
+            txtSodu.Location = new Point(649, 204);
             txtSodu.Margin = new Padding(4, 5, 4, 5);
             txtSodu.MinimumSize = new Size(1, 16);
             txtSodu.Name = "txtSodu";
@@ -87,7 +87,7 @@
             // txtSdt
             // 
             txtSdt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSdt.Location = new Point(719, 133);
+            txtSdt.Location = new Point(649, 134);
             txtSdt.Margin = new Padding(4, 5, 4, 5);
             txtSdt.MinimumSize = new Size(1, 16);
             txtSdt.Name = "txtSdt";
@@ -102,7 +102,7 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.Location = new Point(440, 190);
+            txtEmail.Location = new Point(192, 204);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.MinimumSize = new Size(1, 16);
             txtEmail.Name = "txtEmail";
@@ -117,7 +117,7 @@
             // txtHoten
             // 
             txtHoten.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHoten.Location = new Point(440, 133);
+            txtHoten.Location = new Point(192, 134);
             txtHoten.Margin = new Padding(4, 5, 4, 5);
             txtHoten.MinimumSize = new Size(1, 16);
             txtHoten.Name = "txtHoten";
@@ -133,7 +133,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(719, 166);
+            label4.Location = new Point(649, 176);
             label4.Name = "label4";
             label4.Size = new Size(59, 20);
             label4.TabIndex = 21;
@@ -143,7 +143,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(719, 109);
+            label3.Location = new Point(649, 105);
             label3.Name = "label3";
             label3.Size = new Size(110, 20);
             label3.TabIndex = 20;
@@ -153,7 +153,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(440, 166);
+            label2.Location = new Point(192, 176);
             label2.Name = "label2";
             label2.Size = new Size(56, 20);
             label2.TabIndex = 19;
@@ -163,7 +163,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(440, 109);
+            label1.Location = new Point(192, 105);
             label1.Name = "label1";
             label1.Size = new Size(65, 20);
             label1.TabIndex = 18;
@@ -172,7 +172,7 @@
             // txtNap
             // 
             txtNap.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtNap.Location = new Point(1018, 121);
+            txtNap.Location = new Point(1219, 131);
             txtNap.Margin = new Padding(4, 5, 4, 5);
             txtNap.MinimumSize = new Size(1, 16);
             txtNap.Name = "txtNap";
@@ -189,7 +189,7 @@
             btnXoa.FillColor = SystemColors.Highlight;
             btnXoa.FillHoverColor = Color.MidnightBlue;
             btnXoa.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXoa.Location = new Point(1022, 190);
+            btnXoa.Location = new Point(1223, 200);
             btnXoa.MinimumSize = new Size(1, 1);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(127, 31);
@@ -226,7 +226,7 @@
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
-            dtView.Location = new Point(410, 326);
+            dtView.Location = new Point(113, 331);
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
@@ -249,25 +249,26 @@
             dtView.ScrollBarRectColor = Color.FromArgb(80, 160, 255);
             dtView.SelectedIndex = -1;
             dtView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtView.Size = new Size(765, 398);
+            dtView.Size = new Size(1315, 465);
             dtView.Style = Sunny.UI.UIStyle.Custom;
             dtView.TabIndex = 28;
             // 
             // txtId
             // 
             txtId.AutoSize = true;
-            txtId.Location = new Point(914, 99);
+            txtId.Location = new Point(844, 109);
             txtId.Name = "txtId";
             txtId.Size = new Size(55, 16);
             txtId.TabIndex = 29;
             txtId.Text = "label5";
+            txtId.Visible = false;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.BackColor = SystemColors.Control;
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(733, 516);
+            label8.Location = new Point(707, 553);
             label8.Name = "label8";
             label8.Size = new Size(126, 20);
             label8.TabIndex = 56;
@@ -279,7 +280,7 @@
             btnTimKiem.FillColor = SystemColors.Highlight;
             btnTimKiem.FillHoverColor = Color.MidnightBlue;
             btnTimKiem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTimKiem.Location = new Point(896, 269);
+            btnTimKiem.Location = new Point(893, 262);
             btnTimKiem.MinimumSize = new Size(1, 1);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(100, 35);
@@ -287,31 +288,32 @@
             btnTimKiem.TabIndex = 64;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(609, 278);
+            label6.Location = new Point(450, 270);
             label6.Name = "label6";
             label6.Size = new Size(70, 19);
             label6.TabIndex = 63;
             label6.Text = "Tìm Kiếm";
             // 
-            // uiTextBox1
+            // txtTimKiem
             // 
-            uiTextBox1.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            uiTextBox1.Location = new Point(686, 273);
-            uiTextBox1.Margin = new Padding(4, 5, 4, 5);
-            uiTextBox1.MinimumSize = new Size(1, 16);
-            uiTextBox1.Name = "uiTextBox1";
-            uiTextBox1.Padding = new Padding(5);
-            uiTextBox1.ShowText = false;
-            uiTextBox1.Size = new Size(203, 27);
-            uiTextBox1.Style = Sunny.UI.UIStyle.Custom;
-            uiTextBox1.TabIndex = 62;
-            uiTextBox1.TextAlignment = ContentAlignment.MiddleLeft;
-            uiTextBox1.Watermark = "Nhập Mã Khách Hàng";
+            txtTimKiem.Font = new Font("Roboto Condensed", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTimKiem.Location = new Point(536, 266);
+            txtTimKiem.Margin = new Padding(4, 5, 4, 5);
+            txtTimKiem.MinimumSize = new Size(1, 16);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Padding = new Padding(5);
+            txtTimKiem.ShowText = false;
+            txtTimKiem.Size = new Size(341, 27);
+            txtTimKiem.Style = Sunny.UI.UIStyle.Custom;
+            txtTimKiem.TabIndex = 62;
+            txtTimKiem.TextAlignment = ContentAlignment.MiddleLeft;
+            txtTimKiem.Watermark = "Nhập Mã Khách Hàng";
             // 
             // FrmQLKhachHang
             // 
@@ -321,7 +323,7 @@
             ClientSize = new Size(1600, 965);
             Controls.Add(btnTimKiem);
             Controls.Add(label6);
-            Controls.Add(uiTextBox1);
+            Controls.Add(txtTimKiem);
             Controls.Add(label8);
             Controls.Add(txtId);
             Controls.Add(dtView);
@@ -365,6 +367,6 @@
         private Label label8;
         private Sunny.UI.UIButton btnTimKiem;
         private Label label6;
-        private Sunny.UI.UITextBox uiTextBox1;
+        private Sunny.UI.UITextBox txtTimKiem;
     }
 }

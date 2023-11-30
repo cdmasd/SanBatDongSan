@@ -103,7 +103,7 @@ namespace DAL_QuanLyBDS
                     .Set("Hoten", nhanVien.Hoten)
                     .Set("Diachi", nhanVien.Diachi)
                     .Set("Sodienthoai", nhanVien.Sodienthoai)
-                    .Set("Ngaybatbau", nhanVien.Ngaybatdau);
+                    .Set("Ngaybatdau", nhanVien.Ngaybatdau);
 
                 NhanVienCollection().UpdateOne(filter, update);
                 return "Cập nhật nhân viên thành công";

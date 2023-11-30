@@ -24,7 +24,7 @@ namespace QuanLyBDS.Admin
 
         private void FrmQLNhanVien_Load(object sender, EventArgs e)
         {
-            //LoadData();
+            LoadData();
             SettingUI();
             DatetimePicker.Value = DateTime.Now;
         }
@@ -44,7 +44,7 @@ namespace QuanLyBDS.Admin
             string emailCheck = await bus_Admin.KiemTraEmailTonTai(txtEmail.Text.Trim());
             if (emailCheck != "Email hợp lệ")
             {
-                MessageBox.Show(emailCheck,"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(emailCheck, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string thongBao = bus_Admin.ThemNhanVien(
@@ -63,7 +63,7 @@ namespace QuanLyBDS.Admin
                 Matkhau = bus_Admin.Encrytion("abc123"),
                 Vaitro = "nhanvien"
             });
-            UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", thongBao);
+            MessageBox.Show(thongBao,"Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
             LoadData();
             ClearFields();
         }
@@ -83,7 +83,7 @@ namespace QuanLyBDS.Admin
                 Sodienthoai = txtSodienthoai.Text.Trim(),
                 Ngaybatdau = DatetimePicker.Value,
             });
-            UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", thongBao);
+            MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadData();
             ClearFields();
         }
@@ -118,7 +118,7 @@ namespace QuanLyBDS.Admin
             if (xacNhan == true)
             {
                 string thongBao = bus_Admin.XoaNhanVien(txtEmail.Text.Trim());
-                UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", thongBao);
+                MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadData();
                 ClearFields();
             }
@@ -149,11 +149,20 @@ namespace QuanLyBDS.Admin
         private void LoadData()
         {
             dtView.DataSource = bus_Admin.DanhSachNhanVien();
-            dtView.Columns["_id"].HeaderText = "Mã Nhân Viên";
-            dtView.Columns["HoTen"].HeaderText = "Họ Tên";
-            dtView.Columns["SoDienThoai"].HeaderText = "Số Điện Thoại";
-            dtView.Columns["DiaChi"].HeaderText = "Địa Chỉ";
-            dtView.Columns["NgayBatDau"].HeaderText = "Ngày Bắt Đầu";
+            if (dtView.ColumnCount > 0)
+            {
+                dtView.Columns["_id"].HeaderText = "Mã Nhân Viên";
+                dtView.Columns["HoTen"].HeaderText = "Họ Tên";
+                dtView.Columns["SoDienThoai"].HeaderText = "Số Điện Thoại";
+                dtView.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+                dtView.Columns["NgayBatDau"].HeaderText = "Ngày Bắt Đầu";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
+
         }
 
         public void SettingUI()
@@ -172,7 +181,7 @@ namespace QuanLyBDS.Admin
         {
             if (txtHoten.Text == string.Empty)
             {
-                MessageBox.Show("Họ Tên đang trống","Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Họ Tên đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (txtEmail.Text == string.Empty)
@@ -195,6 +204,11 @@ namespace QuanLyBDS.Admin
                 MessageBox.Show("mail không hợp lệ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }

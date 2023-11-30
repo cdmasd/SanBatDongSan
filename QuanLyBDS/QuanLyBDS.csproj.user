@@ -34,6 +34,9 @@
     <Compile Update="Guest\FrmMainGuest.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Guest\XemAnhGues.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="KhachHang\FrmBaiDang.cs">
       <SubType>Form</SubType>
     </Compile>

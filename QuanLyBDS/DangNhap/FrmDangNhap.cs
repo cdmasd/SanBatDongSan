@@ -213,36 +213,42 @@ namespace QuanLyBDS
             {
                 return;
             }
-            if (dn.checkAccount(txtEmail.Text, txtPassword.Text))
+            try
             {
-                MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK);
-                // Gửi kết quả đăng nhập cho frmMain
-                FrmMain.mail = txtEmail.Text;
-                FrmMain.session = 1;
-                FrmMain.vaitro = dn.getRole(txtEmail.Text);
-                // Lưu thông tin tài khoản
-                Properties.Settings.Default.isSave = chkRemember.Checked;
-                if (chkRemember.Checked)
+                if (dn.checkAccount(txtEmail.Text, txtPassword.Text))
                 {
-                    Properties.Settings.Default.email = txtEmail.Text;
-                    Properties.Settings.Default.matkhau = txtPassword.Text;
-                    Properties.Settings.Default.Save();
+                    MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Gửi kết quả đăng nhập cho frmMain
+                    FrmMain.mail = txtEmail.Text;
+                    FrmMain.session = 1;
+                    FrmMain.vaitro = dn.getRole(txtEmail.Text);
+                    // Lưu thông tin tài khoản
+                    Properties.Settings.Default.isSave = chkRemember.Checked;
+                    if (chkRemember.Checked)
+                    {
+                        Properties.Settings.Default.email = txtEmail.Text;
+                        Properties.Settings.Default.matkhau = txtPassword.Text;
+                        Properties.Settings.Default.Save();
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.email = "";
+                        Properties.Settings.Default.matkhau = "";
+                        Properties.Settings.Default.Save();
+                    }
+
+                    this.Close();
                 }
                 else
                 {
-                    Properties.Settings.Default.email = "";
-                    Properties.Settings.Default.matkhau = "";
-                    Properties.Settings.Default.Save();
+                    MessageBox.Show("Đăng nhập không thành công, email hoặc mật khẩu không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEmail.Text = "";
+                    txtPassword.Text = "";
+                    txtEmail.Focus();
                 }
-
-                this.Close();
-            }
-            else
+            } catch
             {
-                MessageBox.Show("Đăng nhập không thành công, email hoặc mật khẩu không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtEmail.Text = "";
-                txtPassword.Text = "";
-                txtEmail.Focus();
+                MessageBox.Show("Máy chủ đang bận, vui lòng truy cập sau ít phút", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -256,14 +262,14 @@ namespace QuanLyBDS
         private void btnLayma_Click(object sender, EventArgs e)
         {
             num = generateNum();
-            MessageBox.Show(Mail.MailRegister(txtEmail.Text.Trim(), num), "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show(Mail.MailRegister(txtEmail.Text.Trim(), num), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void btnForgotPassword_Click(object sender, EventArgs e)
         {
             newpass = dn.RandomString();
             if (txtEmail.Text == "")
             {
-                ShowErrorNotifier("Vui lòng nhập email lấy lại mật khẩu");
+                MessageBox.Show("Vui lòng nhập email lấy lại mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (dn.changePass(txtEmail.Text, newpass))

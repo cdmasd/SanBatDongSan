@@ -1,4 +1,5 @@
-﻿using Sunny.UI;
+﻿using MongoDB.Bson;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +14,52 @@ namespace QuanLyBDS.KhachHang
 {
     public partial class FrmHoTro : UIForm
     {
+        BUS_QuanLyBDS.KhachHang kh = new BUS_QuanLyBDS.KhachHang();
         public FrmHoTro()
         {
             InitializeComponent();
         }
+        private void load()
+        {
+            try
+            {
+                List<BsonDocument> tt = kh.showInfo(FrmMain.mail);
+                if (tt.Count > 0)
+                {
+                    txtSodt.Text = tt[0]["Sodienthoai"].AsString;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi: {ex.Message}");
+            }
+        }
+        private void btnGuiyeucau_Click(object sender, EventArgs e)
+        {
+            string Sdt = txtSodt.Text;
+            string Chitiet = txtChitiethotro.Text;
+            string Vande = txtHotro.Text;
+
+            bool result = kh.insertTicket(Sdt, Vande, Chitiet);
+
+
+            if (result)
+            {
+                MessageBox.Show("Gửi phản hồi thành công");
+                txtChitiethotro.Text = null;
+                txtHotro.Text = null;
+            }
+            else
+            {
+                MessageBox.Show("Gửi phản hồi thất bại");
+            }
+        }
 
         private void FrmHoTro_Load(object sender, EventArgs e)
         {
-
+            load();
+            txtSodt.ReadOnly = true;
         }
     }
 }

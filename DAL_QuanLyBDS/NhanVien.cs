@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Mail;
+using System.Data;
 
 namespace DAL_QuanLyBDS
 {
@@ -17,19 +18,17 @@ namespace DAL_QuanLyBDS
         IMongoCollection<BsonDocument> ticket = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Ticket");
         IMongoCollection<BsonDocument> Khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
         IMongoCollection<BsonDocument> taikhoan = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("TaiKhoan");
-        public List<BsonDocument> Chuaduyet()
+        public DataTable Chuaduyet()
         {
-            return dangtin.Find(new BsonDocument
-            {
-                { "Trangthai", "Chưa duyệt" }
-            }).ToList();
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa duyệt");
+            var result = dangtin.Find(filter);
+            return ConvertFindFluentToDataTable(result);
         }
-        public List<BsonDocument> Daduyet()
+        public DataTable Daduyet()
         {
-            return dangtin.Find(new BsonDocument
-            {
-                { "Trangthai", "Đã duyệt" }
-            }).ToList();
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
+            var result = dangtin.Find(filter);
+            return ConvertFindFluentToDataTable(result);
         }
         public bool DeleteBaiDang(string id)
         {
@@ -75,12 +74,11 @@ namespace DAL_QuanLyBDS
                 return false;
             }
         }
-        public List<BsonDocument> Chuahotro()
+        public DataTable Chuahotro()
         {
-            return ticket.Find(new BsonDocument
-            {
-                { "Trangthai", false }
-            }).ToList();
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
+            var result = ticket.Find(filter);
+            return ConvertFindFluentToDataTable(result);
         }
         public bool Hotro(string id, string email)
         {
@@ -103,11 +101,11 @@ namespace DAL_QuanLyBDS
                 return false;
             }
         }
-        public List<BsonDocument> Getkhachhang()
+        public DataTable Getkhachhang()
         {
             var filter = Builders<BsonDocument>.Filter.Empty;
-            var KhachhangData = Khachhang.Find(filter).ToList();
-            return KhachhangData;
+            var result = Khachhang.Find(filter);
+            return ConvertFindFluentToDataTable(result);
         }
         public bool UpdataKhachhang(string id, string email, string hoten, string sdt, double sodu)
         {
@@ -157,6 +155,68 @@ namespace DAL_QuanLyBDS
                 return false; 
             }
 
+        }
+
+        public DataTable TimKiemBaiDang(string id)
+        {
+                var filter = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Eq("_id", id),
+                    Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa duyệt")
+                    );
+                var result =  dangtin.Find(filter);
+                return ConvertFindFluentToDataTable(result);
+        }
+        public DataTable TimKiemBaiDangDaDuyet(string id)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("_id", id),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt")
+                );
+            var result = dangtin.Find(filter);
+            return ConvertFindFluentToDataTable(result);
+        }
+        static DataTable ConvertFindFluentToDataTable(IFindFluent<BsonDocument, BsonDocument> findFluent)
+        {
+            DataTable dataTable = new DataTable();
+            // Lấy danh sách cột từ documents, nếu có
+            foreach (var document in findFluent.ToEnumerable())
+            {
+                if (dataTable.Columns.Count == 0)
+                {
+                    // Thêm cột vào DataTable với tên là tên của các trường trong BsonDocument
+                    foreach (var element in document.Elements)
+                    {
+                        dataTable.Columns.Add(element.Name, typeof(object));
+                    }
+                }
+
+                // Thêm dữ liệu vào từ BsonDocument
+                DataRow dataRow = dataTable.NewRow();
+                foreach (var element in document.Elements)
+                {
+                    dataRow[element.Name] = BsonTypeMapper.MapToDotNetValue(element.Value);
+                }
+                dataTable.Rows.Add(dataRow);
+            }
+
+            return dataTable;
+        }
+
+        public DataTable TimKiemTicket(string Sdt)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Sodienthoai", Sdt),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", false)
+                );
+            var result = ticket.Find(filter);
+            return ConvertFindFluentToDataTable(result);
+        }
+
+        public DataTable TimKiemKH(string id)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var result = Khachhang.Find(filter);
+            return ConvertFindFluentToDataTable(result);
         }
         #region bài đăng
         public string getEmailKh(string id)

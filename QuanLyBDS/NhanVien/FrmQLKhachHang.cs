@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using BUS_QuanLyBDS;
+using MongoDB.Bson;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ namespace QuanLyBDS.NhanVien
             bool result = nv.UpdateKhachhang(id, email, hoten, sdt, sodu);
             if (result)
             {
-                Mail.MailPayment(email,hoten,naptien.ToString(), sodu.ToString());
+                Mail.MailPayment(email, hoten, naptien.ToString(), sodu.ToString());
                 MessageBox.Show("Đã nạp tiền khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 LoadDataQLyKhachhang();
                 resetValue();
@@ -46,31 +47,20 @@ namespace QuanLyBDS.NhanVien
         }
         private void LoadDataQLyKhachhang()
         {
-            List<BsonDocument> dataKhachhang = nv.Getkhachhang();
             dtView.ClearAll();
-            if (dataKhachhang.Count > 0)
+            dtView.DataSource = nv.Getkhachhang();
+            if (dtView.Rows.Count > 0)
             {
-                dtView.Columns.Add("_id", "ID");
-                dtView.Columns.Add("Email", "Email");
-                dtView.Columns.Add("Hoten", "Họ tên");
-                dtView.Columns.Add("Sodienthoai", "Số điện thoại");
-                dtView.Columns.Add("SoDu", "Số dư");
-                txtId.Visible = false;
-                dtView.Rows.Clear();
-
-                foreach (var doc in dataKhachhang)
-                {
-                    List<object> values = new List<object>();
-                    foreach (var key in doc.Names)
-                    {
-                        values.Add(doc[key]);
-                    }
-                    dtView.Rows.Add(values.ToArray());
-                }
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Email";
+                dtView.Columns[2].HeaderText = "Số điện thoại";
+                dtView.Columns[3].HeaderText = "Họ tên";
+                dtView.Columns[4].HeaderText = "Số dư";
+                label8.Visible = false;
             }
             else
             {
-                txtId.Visible = true;
+                label8.Visible = true;
             }
 
         }
@@ -85,7 +75,7 @@ namespace QuanLyBDS.NhanVien
                 string email = selectedRow.Cells["Email"].Value.ToString();
                 string hoten = selectedRow.Cells["Hoten"].Value.ToString();
                 string sdt = selectedRow.Cells["Sodienthoai"].Value.ToString();
-                string sodu = selectedRow.Cells["SoDu"].Value.ToString();
+                string sodu = selectedRow.Cells["Sodu"].Value.ToString();
 
                 // Hiển thị dữ liệu lên các controls
                 txtId.Text = id;
@@ -99,32 +89,51 @@ namespace QuanLyBDS.NhanVien
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrEmpty(txtEmail.Text))
             {
                 MessageBox.Show("Chọn khách hàng cần xoá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; 
-                
+                return;
+
             }
-            if (nv.DeleteTaikhoanKH( txtEmail.Text, txtId.Text))
+            if (nv.DeleteTaikhoanKH(txtEmail.Text, txtId.Text))
             {
                 MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoadDataQLyKhachhang(); 
+                LoadDataQLyKhachhang();
+                resetValue();
             }
             else
             {
                 MessageBox.Show("Không tìm thấy email khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; 
+                return;
             }
         }
         void resetValue()
         {
             txtNap.Text = "";
-            txtSodu.Text =  "";
+            txtSodu.Text = "";
             txtEmail.Text = "";
             txtHoten.Text = "";
             txtSdt.Text = "";
             txtId.Text = "";
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            dtView.ClearAll();
+            dtView.DataSource = nv.TimKiemKH(txtTimKiem.Text.Trim().ToUpper());
+            if (dtView.Rows.Count > 0)
+            {
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Email";
+                dtView.Columns[2].HeaderText = "Số điện thoại";
+                dtView.Columns[3].HeaderText = "Họ tên";
+                dtView.Columns[4].HeaderText = "Số dư";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
         }
     }
 }

@@ -73,6 +73,7 @@ namespace QuanLyBDS
                     guest.TopLevel = false;
                     PanelMain.Controls.Add(guest);
                     guest.Show();
+                    guest.FormClosed += new FormClosedEventHandler(FrmMainGuest_FormClosed);
                 }
             }
         }

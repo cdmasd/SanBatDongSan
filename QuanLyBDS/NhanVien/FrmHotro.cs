@@ -23,36 +23,16 @@ namespace QuanLyBDS.NhanVien
         private void LoadBaiDang()
         {
             dtView.ClearAll();
-            List<BsonDocument> hotro = nv.Chuahotro();
-            if (hotro.Count > 0)
+            dtView.DataSource = nv.Chuahotro();
+            if (dtView.Rows.Count > 0)
             {
-                // Load header name
-                foreach (var header in hotro[0].Names)
-                {
-
-                    if (header != "TrangThai")
-                    {
-                        dtView.Columns.Add(header, header);
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-                // Đổ dữ liệu vào từng dòng của DataGridView
-                foreach (var doc in hotro)
-                {
-                    List<object> values = new List<object>();
-                    foreach (var key in doc.Names)
-                    {
-                        values.Add(doc[key]);
-                    }
-                    dtView.Rows.Add(values.ToArray());
-                }
-                dtView.Columns[0].HeaderText = "Mã ticket";
-                dtView.Columns[1].HeaderText = "Số điện thoại";
-                dtView.Columns[2].HeaderText = "Vấn đề";
-                dtView.Columns[3].HeaderText = "Chi tiết";
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Số điện thoại";
+                dtView.Columns[2].HeaderText = "Vấn đề";
+                dtView.Columns[3].HeaderText = "Chi tiết vấn đề";
+                dtView.Columns[4].HeaderText = "Trạng thái";
+                dtView.Columns[5].HeaderText = "Người hỗ trợ";
+                dtView.Columns[6].HeaderText = "Ngày đăng";
                 label8.Visible = false;
             }
             else
@@ -108,6 +88,27 @@ namespace QuanLyBDS.NhanVien
                 MessageBox.Show("Vui lòng chọn khách hàng phản hồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             LoadBaiDang();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            dtView.ClearAll();
+            dtView.DataSource = nv.TimKiemTicket(txtSodt.Text);
+            if (dtView.Rows.Count > 0)
+            {
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Số điện thoại";
+                dtView.Columns[2].HeaderText = "Vấn đề";
+                dtView.Columns[3].HeaderText = "Chi tiết vấn đề";
+                dtView.Columns[4].HeaderText = "Trạng thái";
+                dtView.Columns[5].HeaderText = "Người hỗ trợ";
+                dtView.Columns[6].HeaderText = "Ngày đăng";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
         }
     }
 }

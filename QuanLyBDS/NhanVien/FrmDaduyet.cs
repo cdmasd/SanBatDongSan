@@ -56,34 +56,9 @@ namespace QuanLyBDS.NhanVien
         private void LoadBaiDang()
         {
             dtView.ClearAll();
-            List<BsonDocument> dataBaiDang = nv.Daduyet();
-            if (dataBaiDang.Count > 0)
+            dtView.DataSource = nv.Daduyet();
+            if (dtView.Rows.Count > 0)
             {
-                // Load header name
-                foreach (var header in dataBaiDang[0].Names)
-                {
-                    if (header != "Thoigiandang")
-                    {
-                        if (header != "Trangthai")
-                        {
-                            dtView.Columns.Add(header, header);
-                        }
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-                // Đổ dữ liệu vào từng dòng của DataGridView
-                foreach (var doc in dataBaiDang)
-                {
-                    List<object> values = new List<object>();
-                    foreach (var key in doc.Names)
-                    {
-                        values.Add(doc[key]);
-                    }
-                    dtView.Rows.Add(values.ToArray());
-                }
                 dtView.Columns[0].HeaderText = "ID";
                 dtView.Columns[1].HeaderText = "Tiêu đề";
                 dtView.Columns[2].HeaderText = "Loại nhà";
@@ -92,6 +67,9 @@ namespace QuanLyBDS.NhanVien
                 dtView.Columns[5].HeaderText = "Giá";
                 dtView.Columns[6].HeaderText = "Địa chỉ";
                 dtView.Columns[7].HeaderText = "Hình ảnh";
+                dtView.Columns[8].HeaderText = "ID người đăng";
+                dtView.Columns[9].HeaderText = "Thời gian đăng";
+                dtView.Columns[10].HeaderText = "Trạng thái";
                 label8.Visible = false;
             }
             else
@@ -118,6 +96,31 @@ namespace QuanLyBDS.NhanVien
                 MessageBox.Show("Vui lòng đối tượng cần xoá ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             LoadBaiDang();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            dtView.ClearAll();
+            dtView.DataSource = nv.TimKiemBaiDangDaDuyet(txtTimKiem.Text.Trim().ToUpper());
+            if (dtView.Rows.Count > 0)
+            {
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Tiêu đề";
+                dtView.Columns[2].HeaderText = "Loại nhà";
+                dtView.Columns[3].HeaderText = "Diện tích";
+                dtView.Columns[4].HeaderText = "Số phòng";
+                dtView.Columns[5].HeaderText = "Giá";
+                dtView.Columns[6].HeaderText = "Địa chỉ";
+                dtView.Columns[7].HeaderText = "Hình ảnh";
+                dtView.Columns[8].HeaderText = "ID người đăng";
+                dtView.Columns[9].HeaderText = "Thời gian đăng";
+                dtView.Columns[10].HeaderText = "Trạng thái";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
         }
     }
 }

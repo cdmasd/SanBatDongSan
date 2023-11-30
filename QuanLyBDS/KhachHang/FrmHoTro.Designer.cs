@@ -85,6 +85,7 @@
             btnGuiyeucau.TabIndex = 4;
             btnGuiyeucau.Text = "Gửi yêu cầu";
             btnGuiyeucau.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGuiyeucau.Click += btnGuiyeucau_Click;
             // 
             // txtSodt
             // 

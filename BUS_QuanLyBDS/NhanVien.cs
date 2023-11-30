@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -12,11 +13,11 @@ namespace BUS_QuanLyBDS
     public partial class NhanVien
     {
         DAL_QuanLyBDS.NhanVien nv = new DAL_QuanLyBDS.NhanVien();
-        public List<BsonDocument> Chuaduyet()
+        public DataTable Chuaduyet()
         {
             return nv.Chuaduyet();
         }
-        public List<BsonDocument> Daduyet()
+        public DataTable Daduyet()
         {
             return nv.Daduyet();
         }
@@ -28,7 +29,7 @@ namespace BUS_QuanLyBDS
         {
             return nv.DeleteBaiDang(id);
         }
-        public List<BsonDocument> Chuahotro()
+        public DataTable Chuahotro()
         {
             return nv.Chuahotro();
         }
@@ -37,7 +38,7 @@ namespace BUS_QuanLyBDS
             return nv.Hotro(id, email);
         }
         // khách hàng
-        public List<BsonDocument> Getkhachhang()
+        public DataTable Getkhachhang()
         {
             return nv.Getkhachhang();
         }
@@ -56,6 +57,23 @@ namespace BUS_QuanLyBDS
         public bool TuchoiBaiDang(string id)
         {
             return nv.TuchoiBaiDang(id);
+        }
+        public DataTable TimKiemBaiDang(string id)
+        {
+            return nv.TimKiemBaiDang(id);
+        }
+        public DataTable TimKiemBaiDangDaDuyet(string id)
+        {
+            return nv.TimKiemBaiDangDaDuyet(id);
+        }
+
+        public DataTable TimKiemTicket(string Sdt)
+        {
+            return nv.TimKiemTicket(Sdt);
+        }
+        public DataTable TimKiemKH(string id)
+        {
+            return nv.TimKiemKH(id);
         }
     }
 

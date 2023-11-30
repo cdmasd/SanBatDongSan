@@ -56,7 +56,7 @@
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(391, 87);
             label1.Name = "label1";
-            label1.Size = new Size(89, 25);
+            label1.Size = new Size(69, 20);
             label1.TabIndex = 0;
             label1.Text = "Tiêu đề :";
             // 
@@ -66,7 +66,7 @@
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(383, 122);
             label2.Name = "label2";
-            label2.Size = new Size(98, 25);
+            label2.Size = new Size(78, 20);
             label2.TabIndex = 1;
             label2.Text = "Loại nhà :";
             // 
@@ -74,19 +74,19 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(382, 157);
+            label3.Location = new Point(349, 157);
             label3.Name = "label3";
-            label3.Size = new Size(98, 25);
+            label3.Size = new Size(111, 20);
             label3.TabIndex = 2;
-            label3.Text = "Diện tích :";
+            label3.Text = "Diện tích (m²) :";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(379, 192);
+            label4.Location = new Point(375, 192);
             label4.Name = "label4";
-            label4.Size = new Size(108, 25);
+            label4.Size = new Size(86, 20);
             label4.TabIndex = 3;
             label4.Text = "Số phòng :";
             // 
@@ -94,19 +94,19 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(418, 227);
+            label5.Location = new Point(365, 227);
             label5.Name = "label5";
-            label5.Size = new Size(53, 25);
+            label5.Size = new Size(90, 20);
             label5.TabIndex = 4;
-            label5.Text = "Giá :";
+            label5.Text = "Giá (VND) :";
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(861, 145);
+            label6.Location = new Point(836, 167);
             label6.Name = "label6";
-            label6.Size = new Size(101, 25);
+            label6.Size = new Size(81, 20);
             label6.TabIndex = 5;
             label6.Text = "Hình ảnh :";
             // 
@@ -193,13 +193,14 @@
             // txtHinhanh
             // 
             txtHinhanh.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHinhanh.Location = new Point(865, 171);
+            txtHinhanh.Location = new Point(836, 192);
             txtHinhanh.Margin = new Padding(4, 5, 4, 5);
             txtHinhanh.MinimumSize = new Size(1, 16);
+            txtHinhanh.Multiline = true;
             txtHinhanh.Name = "txtHinhanh";
             txtHinhanh.Padding = new Padding(5);
             txtHinhanh.ShowText = false;
-            txtHinhanh.Size = new Size(203, 27);
+            txtHinhanh.Size = new Size(232, 55);
             txtHinhanh.Style = Sunny.UI.UIStyle.Custom;
             txtHinhanh.TabIndex = 14;
             txtHinhanh.TextAlignment = ContentAlignment.MiddleLeft;
@@ -210,7 +211,7 @@
             btnUpload.FillColor = SystemColors.Highlight;
             btnUpload.FillHoverColor = Color.MidnightBlue;
             btnUpload.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpload.Location = new Point(836, 212);
+            btnUpload.Location = new Point(1075, 189);
             btnUpload.MinimumSize = new Size(1, 1);
             btnUpload.Name = "btnUpload";
             btnUpload.Size = new Size(100, 35);
@@ -225,7 +226,7 @@
             btnInsert.FillColor = SystemColors.Highlight;
             btnInsert.FillHoverColor = Color.MidnightBlue;
             btnInsert.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnInsert.Location = new Point(987, 212);
+            btnInsert.Location = new Point(1075, 108);
             btnInsert.MinimumSize = new Size(1, 1);
             btnInsert.Name = "btnInsert";
             btnInsert.Size = new Size(100, 35);
@@ -262,13 +263,14 @@
             // txtDiachi
             // 
             txtDiachi.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDiachi.Location = new Point(865, 111);
+            txtDiachi.Location = new Point(836, 108);
             txtDiachi.Margin = new Padding(4, 5, 4, 5);
             txtDiachi.MinimumSize = new Size(1, 16);
+            txtDiachi.Multiline = true;
             txtDiachi.Name = "txtDiachi";
             txtDiachi.Padding = new Padding(5);
             txtDiachi.ShowText = false;
-            txtDiachi.Size = new Size(203, 27);
+            txtDiachi.Size = new Size(232, 54);
             txtDiachi.Style = Sunny.UI.UIStyle.Custom;
             txtDiachi.TabIndex = 13;
             txtDiachi.TextAlignment = ContentAlignment.MiddleLeft;
@@ -278,9 +280,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(861, 85);
+            label7.Location = new Point(836, 83);
             label7.Name = "label7";
-            label7.Size = new Size(200, 25);
+            label7.Size = new Size(162, 20);
             label7.TabIndex = 12;
             label7.Text = "Địa chỉ bất động sản :";
             // 
