@@ -123,12 +123,11 @@ namespace QuanLyBDS.Admin
         {
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                UIMessageDialog.ShowSuccessDialog(this, "Thông Báo", "Hãy Chọn Nhân Viên Muốn Xóa", UIStyle.Red);
+                MessageBox.Show("Hãy chọn nhân viên muốn xóa","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            UILocalize.AskTitle = "Xác Nhận";
-            bool xacNhan = UIMessageBox.ShowAsk("Bạn có muốn xóa nhân viên này", true, false);
-            if (xacNhan == true)
+            DialogResult log = MessageBox.Show("Bạn có muốn xóa nhân viên này ?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (log == DialogResult.Yes)
             {
                 string thongBao = bus_Admin.XoaNhanVien(txtEmail.Text.Trim());
                 MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -200,7 +199,6 @@ namespace QuanLyBDS.Admin
                 MessageBox.Show("Họ Tên đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (txtEmail.Text == string.Empty)
             {
                 MessageBox.Show("Email đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

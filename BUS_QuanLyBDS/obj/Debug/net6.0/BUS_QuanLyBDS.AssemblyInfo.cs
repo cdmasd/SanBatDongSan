@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BUS_QuanLyBDS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8fa25c0f5a0589eaf1381616ac881f932bab7d17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe147138cc8531bb5bb2fceaa47bbc78ca4c0e33")]
 [assembly: System.Reflection.AssemblyProductAttribute("BUS_QuanLyBDS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BUS_QuanLyBDS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

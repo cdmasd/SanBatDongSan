@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
             btnUpdate = new Sunny.UI.UIButton();
             btnUpload = new Sunny.UI.UIButton();
             txtGia = new Sunny.UI.UITextBox();
@@ -60,6 +60,9 @@
             btChuaduyet = new Sunny.UI.UIButton();
             btBituchoi = new Sunny.UI.UIButton();
             btXoa = new Sunny.UI.UIButton();
+            txtCurrentPage = new Label();
+            btnSau = new Sunny.UI.UIButton();
+            btnTruoc = new Sunny.UI.UIButton();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             SuspendLayout();
             // 
@@ -236,30 +239,30 @@
             // 
             dtView.AllowUserToAddRows = false;
             dtView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.BackColor = Color.FromArgb(243, 249, 255);
-            dtView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle16.BackColor = Color.FromArgb(243, 249, 255);
+            dtView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             dtView.Anchor = AnchorStyles.None;
             dtView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtView.BackgroundColor = Color.FromArgb(243, 249, 255);
             dtView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle22.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle22.ForeColor = Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle22.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
-            dtView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle17.ForeColor = Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            dtView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             dtView.ColumnHeadersHeight = 32;
             dtView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = Color.White;
-            dataGridViewCellStyle23.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle23.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb(220, 236, 255);
-            dataGridViewCellStyle23.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.False;
-            dtView.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = Color.White;
+            dataGridViewCellStyle18.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle18.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(220, 236, 255);
+            dataGridViewCellStyle18.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
+            dtView.DefaultCellStyle = dataGridViewCellStyle18;
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
@@ -267,21 +270,21 @@
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = Color.FromArgb(243, 249, 255);
-            dataGridViewCellStyle24.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle24.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle24.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.True;
-            dtView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = Color.FromArgb(243, 249, 255);
+            dataGridViewCellStyle19.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle19.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle19.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle19.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
+            dtView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             dtView.RowHeadersWidth = 51;
-            dataGridViewCellStyle25.BackColor = Color.White;
-            dataGridViewCellStyle25.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle25.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle25.SelectionBackColor = Color.FromArgb(220, 236, 255);
-            dataGridViewCellStyle25.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dtView.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle20.BackColor = Color.White;
+            dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle20.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(220, 236, 255);
+            dataGridViewCellStyle20.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dtView.RowsDefaultCellStyle = dataGridViewCellStyle20;
             dtView.RowTemplate.Height = 25;
             dtView.ScrollBarRectColor = Color.FromArgb(80, 160, 255);
             dtView.SelectedIndex = -1;
@@ -479,12 +482,56 @@
             btXoa.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btXoa.Click += btXoa_Click;
             // 
+            // txtCurrentPage
+            // 
+            txtCurrentPage.AutoSize = true;
+            txtCurrentPage.BackColor = Color.White;
+            txtCurrentPage.Font = new Font("Roboto Condensed", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCurrentPage.Location = new Point(124, 735);
+            txtCurrentPage.Name = "txtCurrentPage";
+            txtCurrentPage.Size = new Size(54, 23);
+            txtCurrentPage.TabIndex = 72;
+            txtCurrentPage.Text = "label9";
+            // 
+            // btnSau
+            // 
+            btnSau.FillColor = SystemColors.Highlight;
+            btnSau.FillHoverColor = Color.MidnightBlue;
+            btnSau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSau.Location = new Point(1328, 802);
+            btnSau.MinimumSize = new Size(1, 1);
+            btnSau.Name = "btnSau";
+            btnSau.Size = new Size(100, 35);
+            btnSau.Style = Sunny.UI.UIStyle.Custom;
+            btnSau.TabIndex = 74;
+            btnSau.Text = "Trang Sau";
+            btnSau.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSau.Click += btnSau_Click;
+            // 
+            // btnTruoc
+            // 
+            btnTruoc.FillColor = SystemColors.Highlight;
+            btnTruoc.FillHoverColor = Color.MidnightBlue;
+            btnTruoc.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTruoc.Location = new Point(1221, 802);
+            btnTruoc.MinimumSize = new Size(1, 1);
+            btnTruoc.Name = "btnTruoc";
+            btnTruoc.Size = new Size(100, 35);
+            btnTruoc.Style = Sunny.UI.UIStyle.Custom;
+            btnTruoc.TabIndex = 73;
+            btnTruoc.Text = "Trang Trước";
+            btnTruoc.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTruoc.Click += btnTruoc_Click;
+            // 
             // FrmDanhSachBaiDang
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1600, 965);
+            Controls.Add(btnSau);
+            Controls.Add(btnTruoc);
+            Controls.Add(txtCurrentPage);
             Controls.Add(btXoa);
             Controls.Add(btBituchoi);
             Controls.Add(btChuaduyet);
@@ -552,5 +599,8 @@
         private Sunny.UI.UIButton btChuaduyet;
         private Sunny.UI.UIButton btBituchoi;
         private Sunny.UI.UIButton btXoa;
+        private Label txtCurrentPage;
+        private Sunny.UI.UIButton btnSau;
+        private Sunny.UI.UIButton btnTruoc;
     }
 }

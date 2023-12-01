@@ -16,14 +16,13 @@ namespace QuanLyBDS.NhanVien
     public partial class FrmDaduyet : UIForm
     {
         BUS_QuanLyBDS.NhanVien nv = new BUS_QuanLyBDS.NhanVien();
-        BUS_QuanLyBDS.PhanTrang pt;
+        BUS_QuanLyBDS.PhanTrang pt = new BUS_QuanLyBDS.PhanTrang();
         private int currentpage = 1;
         private int recordPerPages = 10;
         private int totalRecord;
         public FrmDaduyet()
         {
             InitializeComponent();
-            pt = new();
             totalRecord = (int)pt.GetTotalRecordsDangTinDaDuyet();
         }
 

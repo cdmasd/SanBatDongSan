@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,11 @@ namespace QuanLyBDS.KhachHang
         private const string ApiSecret = "a4qvVx8GHsPG8xZYTaedG5XJVc8";
         private Cloudinary cloudinary;
         private string imagePath;
+        BUS_QuanLyBDS.PhanTrang pt = new BUS_QuanLyBDS.PhanTrang();
+        private int currentpage = 1;
+        private int recordPerPages = 10;
+        private int totalRecord;
+        private int index = 1;
         public FrmDanhSachBaiDang()
         {
             InitializeComponent();
@@ -154,37 +160,12 @@ namespace QuanLyBDS.KhachHang
         }
         private void LoadDaDuyet()
         {
-            List<BsonDocument> dataBaiDang = kh.Daduyet(kh.getidKh(FrmMain.mail));
             dtView.ClearAll();
-            // Load header name
-            if (dataBaiDang.Count > 0)
+            totalRecord = (int)pt.GetTotalRecordsCuaKHDangTinDaDuyet(FrmMain.mail);
+            var data = pt.GetDataPageCuaKHDangTinDaDuyet(currentpage,recordPerPages,FrmMain.mail);
+            dtView.DataSource = data;
+            if (dtView.ColumnCount > 0)
             {
-                foreach (var header in dataBaiDang[0].Names)
-                {
-                    if (header != "Thoigiandang")
-                    {
-                        if (header != "Trangthai")
-                        {
-                            dtView.Columns.Add(header, header);
-                        }
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-
-
-                // Đổ dữ liệu vào từng dòng của DataGridView
-                foreach (var doc in dataBaiDang)
-                {
-                    List<object> values = new List<object>();
-                    foreach (var key in doc.Names)
-                    {
-                        values.Add(doc[key]);
-                    }
-                    dtView.Rows.Add(values.ToArray());
-                }
                 dtView.Columns[0].HeaderText = "ID";
                 dtView.Columns[1].HeaderText = "Tiêu đề";
                 dtView.Columns[2].HeaderText = "Loại nhà";
@@ -199,41 +180,19 @@ namespace QuanLyBDS.KhachHang
             {
                 label8.Visible = true;
             }
+            UpdatePage();
         }
 
         public void LoadChuaDuyet()
         {
-            List<BsonDocument> dataBaiDang = kh.Chuaduyet(kh.getidKh(FrmMain.mail));
             dtView.ClearAll();
+
+            totalRecord = (int)pt.GetTotalRecordsCuaKHDangTinChuaDuyet(FrmMain.mail);
+            var data = pt.GetDataPageCuaKHDangTinChuaDuyet(currentpage, recordPerPages, FrmMain.mail);
+            dtView.DataSource = data;
             // Load header name
-            if (dataBaiDang.Count > 0)
+            if (dtView.ColumnCount > 0)
             {
-                foreach (var header in dataBaiDang[0].Names)
-                {
-                    if (header != "Thoigiandang")
-                    {
-                        if (header != "Trangthai")
-                        {
-                            dtView.Columns.Add(header, header);
-                        }
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-
-
-                // Đổ dữ liệu vào từng dòng của DataGridView
-                foreach (var doc in dataBaiDang)
-                {
-                    List<object> values = new List<object>();
-                    foreach (var key in doc.Names)
-                    {
-                        values.Add(doc[key]);
-                    }
-                    dtView.Rows.Add(values.ToArray());
-                }
                 dtView.Columns[0].HeaderText = "ID";
                 dtView.Columns[1].HeaderText = "Tiêu đề";
                 dtView.Columns[2].HeaderText = "Loại nhà";
@@ -248,40 +207,18 @@ namespace QuanLyBDS.KhachHang
             {
                 label8.Visible = true;
             }
+            UpdatePage();
         }
         public void LoadTuchoi()
         {
-            List<BsonDocument> dataBaiDang = kh.Bituchoi(kh.getidKh(FrmMain.mail));
             dtView.ClearAll();
+            index = 3;
+            totalRecord = (int)pt.GetTotalRecordsCuaKHDangTinBiTuChoi(FrmMain.mail);
+            var data = pt.GetDataPageCuaHKDangTinBiTuChoi(currentpage, recordPerPages, FrmMain.mail);
+            dtView.DataSource = data;
             // Load header name
-            if (dataBaiDang.Count > 0)
+            if (dtView.ColumnCount > 0)
             {
-                foreach (var header in dataBaiDang[0].Names)
-                {
-                    if (header != "Thoigiandang")
-                    {
-                        if (header != "Trangthai")
-                        {
-                            dtView.Columns.Add(header, header);
-                        }
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-
-
-                // Đổ dữ liệu vào từng dòng của DataGridView
-                foreach (var doc in dataBaiDang)
-                {
-                    List<object> values = new List<object>();
-                    foreach (var key in doc.Names)
-                    {
-                        values.Add(doc[key]);
-                    }
-                    dtView.Rows.Add(values.ToArray());
-                }
                 dtView.Columns[0].HeaderText = "ID";
                 dtView.Columns[1].HeaderText = "Tiêu đề";
                 dtView.Columns[2].HeaderText = "Loại nhà";
@@ -296,6 +233,7 @@ namespace QuanLyBDS.KhachHang
             {
                 label8.Visible = true;
             }
+            UpdatePage();
         }
         private void FrmDanhSachBaiDang_Load(object sender, EventArgs e)
         {
@@ -309,6 +247,9 @@ namespace QuanLyBDS.KhachHang
 
         private void btDaduyet_Click(object sender, EventArgs e)
         {
+            index = 1;
+            currentpage = 1;
+            totalRecord = (int)pt.GetTotalRecordsCuaKHDangTinDaDuyet(FrmMain.mail);
             LoadDaDuyet();
             btDaduyet.Enabled = false;
             btChuaduyet.Enabled = true;
@@ -317,6 +258,9 @@ namespace QuanLyBDS.KhachHang
 
         private void btChuaduyet_Click(object sender, EventArgs e)
         {
+            index = 2;
+            currentpage = 1;
+            totalRecord = (int)pt.GetTotalRecordsCuaKHDangTinChuaDuyet(FrmMain.mail);
             LoadChuaDuyet();
             btDaduyet.Enabled = true;
             btChuaduyet.Enabled = false;
@@ -325,6 +269,9 @@ namespace QuanLyBDS.KhachHang
 
         private void btBituchoi_Click(object sender, EventArgs e)
         {
+            index = 3;
+            currentpage = 1;
+            totalRecord = (int)pt.GetTotalRecordsCuaKHDangTinBiTuChoi(FrmMain.mail);
             LoadTuchoi();
             btDaduyet.Enabled = true;
             btChuaduyet.Enabled = true;
@@ -334,7 +281,7 @@ namespace QuanLyBDS.KhachHang
         private void btXoa_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xoá bài đăng ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 if (kh.DeleteBaiDang(txtId.Text))
                 {
@@ -379,6 +326,50 @@ namespace QuanLyBDS.KhachHang
             }
             return true;
 
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (currentpage > 1)
+            {
+                currentpage--;
+                if (index == 1)
+                {
+                    LoadDaDuyet();
+                }
+                else if (index == 2)
+                {
+                    LoadChuaDuyet();
+                }
+                else
+                {
+                    LoadTuchoi();
+                }
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (currentpage * recordPerPages < totalRecord)
+            {
+                currentpage++;
+                if (index == 1)
+                {
+                    LoadDaDuyet();
+                }
+                else if (index == 2)
+                {
+                    LoadChuaDuyet();
+                }
+                else
+                {
+                    LoadTuchoi();
+                }
+            }
+        }
+        void UpdatePage()
+        {
+            txtCurrentPage.Text = $"Trang : {currentpage}";
         }
     }
 }

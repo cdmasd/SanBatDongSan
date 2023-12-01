@@ -275,6 +275,11 @@ namespace QuanLyBDS
             if (dn.changePass(txtEmail.Text, newpass))
             {
                 MessageBox.Show(Mail.MailRecovery(txtEmail.Text.Trim(), newpass), "Thông báo");
+            } 
+            else
+            {
+                MessageBox.Show("Email chưa được đăng kí", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
 

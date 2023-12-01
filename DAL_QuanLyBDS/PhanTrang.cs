@@ -77,8 +77,100 @@ namespace DAL_QuanLyBDS
 
         #endregion
 
-        #region Khách Hàng
+        #region Bài đăng bị từ chối của khách hàng
 
+        public long GetTotalRecordsCuaKHDangTinBiTuChoi(string email)
+        {
+            var result = khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            string id = result[0]["_id"].ToString();
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Bị từ chối"),
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", id));
+            return dangtin.CountDocuments(filter);
+        }
+
+        public DataTable GetDataPageCuaKHDangTinBiTuChoi(int page, int pageSize, string email)
+        {
+            var result = khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            string id = result[0]["_id"].ToString();
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Bị từ chối"),
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", id));
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        #endregion
+
+        #region Bài đăng đã được duyệt của khách hàng
+
+        public long GetTotalRecordsCuaKHDangTinDaDuyet(string email)
+        {
+            var result = khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            string id = result[0]["_id"].ToString();
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"),
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", id));
+            return dangtin.CountDocuments(filter);
+        }
+
+        public DataTable GetDataPageCuaKHDangTinDaDuyet(int page, int pageSize, string email)
+        {
+            var result = khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            string id = result[0]["_id"].ToString();
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"),
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", id));
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        #endregion
+
+        #region Bài đăng chưa duyệt của khách hàng
+
+        public long GetTotalRecordsCuaKHDangTinChuaDuyet(string email)
+        {
+            var result = khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            string id = result[0]["_id"].ToString();
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa duyệt"),
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", id));
+            return dangtin.CountDocuments(filter);
+        }
+
+        public DataTable GetDataPageCuaKHDangTinChuaDuyet(int page, int pageSize, string email)
+        {
+            var result = khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            string id = result[0]["_id"].ToString();
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa duyệt"),
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", id));
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        #endregion
+
+        #region Khách hàng
         public long GetTotalRecordsKhachHang()
         {
             var filter = Builders<BsonDocument>.Filter.Empty;
