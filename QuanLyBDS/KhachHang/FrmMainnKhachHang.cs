@@ -134,6 +134,19 @@ namespace QuanLyBDS.KhachHang
         {
             ResetColor();
             btnNaptien.BackColor = SystemColors.ActiveCaption;
+            if (!CheckExistForm("FrmNapTien"))
+            {
+                FrmNapTien dmk = new FrmNapTien();
+                dmk.TopLevel = false;
+                panelKhachHang.Controls.Add(dmk);
+                dmk.Show();
+                dmk.BringToFront();
+
+            }
+            else
+            {
+                ActiveChildForm("FrmNapTien");
+            }
         }
         private void btnDanhsachbaidang_Click(object sender, EventArgs e)
         {

@@ -52,6 +52,9 @@
     <Compile Update="KhachHang\FrmMainnKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="KhachHang\FrmNapTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="KhachHang\FrmThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
