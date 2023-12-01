@@ -33,7 +33,7 @@ namespace QuanLyBDS.KhachHang
             {
                 if (kh.getSodu(FrmMain.mail) < 20000)
                 {
-                    MessageBox.Show("Số dư không đủ, vui lòng nạp tiền", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBohiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 // Kiểm tra nếu có dữ liệu bị bỏ trống

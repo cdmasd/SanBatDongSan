@@ -99,7 +99,7 @@ namespace QuanLyBDS.KhachHang
                 // Kiểm tra nếu có dữ liệu bị bỏ trống
                 if (!checkNull())
                 {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin và chọn ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin và ảnh cần chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 string cloudinaryUrl = txtHinhanh.Text;
@@ -108,7 +108,7 @@ namespace QuanLyBDS.KhachHang
                 {
                     cloudinaryUrl = UploadImageToCloudinary(imagePath);
                 }
-                DialogResult result = MessageBox.Show("Bạn Chắc chắn muốn sửa bài đăng", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Bạn chắc chắn muốn sửa bài đăng", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
                     txtHinhanh.Text = cloudinaryUrl;

@@ -60,7 +60,7 @@ namespace QuanLyBDS.KhachHang
             }
             catch (FormatException)
             {
-                MessageBox.Show("Vui lòng sửa thông tin mới ấn cập nhật please");
+                MessageBox.Show("Vui lòng sửa thông tin mới ấn cập nhật");
             }
             catch (Exception ex)
             {
