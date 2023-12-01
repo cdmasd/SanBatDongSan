@@ -15,6 +15,9 @@ namespace DAL_QuanLyBDS
         IMongoCollection<BsonDocument> nhanvien = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("NhanVien");
         IMongoCollection<BsonDocument> ticket = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Ticket");
         IMongoCollection<BsonDocument> khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
+        IMongoCollection<BsonDocument> baidang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("KhachHangDangTin");
+
+
         #region Đăng tin chưa duyệt
         public long GetTotalRecordsDangTinChuaDuyet()
         {
@@ -182,6 +185,121 @@ namespace DAL_QuanLyBDS
             var filter = Builders<BsonDocument>.Filter.Empty;
             var skip = (page - 1) * pageSize;
             return ConvertFindFluentToDataTable(khachhang.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        #endregion
+
+        #region Khách Thăm
+
+        public long GetTotalRecordsDanhSach() 
+        {
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            return baidang.CountDocuments(filter);
+        }
+
+        public DataTable Danhsach(int page, int pageSize)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
+            /*var KhachthamData = baidang.Find(filter);*/
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(baidang.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        public long GetTotalRecordsLocLoaiNha(string loainha)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Loainha", loainha),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt")
+                );
+            return baidang.CountDocuments(filter);
+        }
+
+        public DataTable LocLoaiNha(int page, int pageSize, string loainha)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+            Builders<BsonDocument>.Filter.Eq("Loainha", loainha),
+            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
+            var locnha = baidang.Find(filter);
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(locnha.Skip(skip).Limit(pageSize));
+        }
+
+        public long GetTotalRecordsLocKhuVuc(string quan)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Khuvuc", quan),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt")
+                );
+            return baidang.CountDocuments(filter);
+        }
+
+        public DataTable LocKhuVuc(int page, int pageSize, string quan)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+            Builders<BsonDocument>.Filter.Eq("Khuvuc", quan),
+            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
+            var lockv = baidang.Find(filter);
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(lockv.Skip(skip).Limit(pageSize));
+        }
+
+        public long GetTotalRecordsLocSoPhong(int sophong)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+            Builders<BsonDocument>.Filter.Eq("Sophong", sophong),
+            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt")
+                );
+            return baidang.CountDocuments(filter);
+        }
+
+        public DataTable LocSoPhong(int page, int pageSize, int sophong)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+            Builders<BsonDocument>.Filter.Eq("Sophong", sophong),
+            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
+            var locphong = baidang.Find(filter);
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(locphong.Skip(skip).Limit(pageSize));
+        }
+
+        public long GetTotalRecordsLocDienTich(double start, double end)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+            Builders<BsonDocument>.Filter.Gte("Dientich", start),
+            Builders<BsonDocument>.Filter.Lte("Dientich", end),
+            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
+            return baidang.CountDocuments(filter);
+        }
+
+        public DataTable LocDienTich(int page, int pageSize, double start, double end)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+            Builders<BsonDocument>.Filter.Gte("Dientich", start),
+            Builders<BsonDocument>.Filter.Lte("Dientich", end),
+            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
+            var locdientich = baidang.Find(filter);
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(locdientich.Skip(skip).Limit(pageSize));
+        }
+
+        public long GetTotalRecordsLocGia(double start, double end)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+            Builders<BsonDocument>.Filter.Gte("Gia", start),
+            Builders<BsonDocument>.Filter.Lte("Gia", end),
+            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
+            return baidang.CountDocuments(filter);
+        }
+
+        public DataTable LocGia(int page, int pageSize, double start, double end)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+            Builders<BsonDocument>.Filter.Gte("Gia", start),
+            Builders<BsonDocument>.Filter.Lte("Gia", end),
+            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
+            var locGia = baidang.Find(filter);
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(locGia.Skip(skip).Limit(pageSize));
         }
 
         #endregion

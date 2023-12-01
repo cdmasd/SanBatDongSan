@@ -29,10 +29,9 @@ namespace QuanLyBDS.NhanVien
             string OldPass = txtMatkhauhientai.Text;
             string NewPass = txtMatkhaumoi.Text;
             string verifyPass = txtVerify.Text;
-            if(OldPass = "" && NewPass = "" && verifyPass = ""){
-                return;
-            }
-            if(OldPass = "" || NewPass = "" || verifyPass = ""){
+
+            if(OldPass == "" || NewPass == "" || verifyPass == "")
+            {
                 MessageBox.Show("Vui lòng nhập đầy đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ResetValues();
                 return;

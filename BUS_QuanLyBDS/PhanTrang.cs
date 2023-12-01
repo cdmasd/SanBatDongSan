@@ -98,5 +98,65 @@ namespace BUS_QuanLyBDS
         {
             return DAL_PhanTrang.GetDataPageCuaKHDangTinChuaDuyet(page, pageSize, email);
         }
+
+        public long GetTotalRecordsDanhSach()
+        {
+            return DAL_PhanTrang.GetTotalRecordsDanhSach();
+        }
+
+        public DataTable Danhsach(int page, int pageSize)
+        {
+            return DAL_PhanTrang.Danhsach(page, pageSize);
+        }
+
+        public long GetTotalRecordsLocLoaiNha(string loainha)
+        {
+            return DAL_PhanTrang.GetTotalRecordsLocLoaiNha(loainha);
+        }
+
+        public DataTable LocLoaiNha(int page, int pageSize, string loainha)
+        {
+            return DAL_PhanTrang.LocLoaiNha(page, pageSize, loainha);
+        }
+
+        public long GetTotalRecordsLocKhuVuc(string quan)
+        {
+            return DAL_PhanTrang.GetTotalRecordsLocKhuVuc(quan);
+        }
+
+        public DataTable LocKhuVuc(int page, int pageSize, string quan)
+        {
+            return DAL_PhanTrang.LocKhuVuc(page, pageSize, quan);
+        }
+
+        public long GetTotalRecordsLocSoPhong(int sophong)
+        {
+            return DAL_PhanTrang.GetTotalRecordsLocSoPhong(sophong);
+        }
+
+        public DataTable LocSoPhong(int page, int pageSize, int sophong)
+        {
+            return DAL_PhanTrang.LocSoPhong(page, pageSize, sophong);
+        }
+
+        public long GetTotalRecordsLocDienTich(double start, double end)
+        {
+            return DAL_PhanTrang.GetTotalRecordsLocDienTich(start, end);
+        }
+
+        public DataTable LocDienTich(int page, int pageSize, double start, double end)
+        {
+            return DAL_PhanTrang.LocDienTich(page, pageSize, start, end);
+        }
+
+        public long GetTotalRecordsLocGia(double start, double end)
+        {
+            return DAL_PhanTrang.GetTotalRecordsLocGia(start, end);
+        }
+
+        public DataTable LocGia(int page, int pageSize, double start, double end)
+        {
+            return DAL_PhanTrang.LocGia(page, pageSize, start, end);
+        }
     }
 }

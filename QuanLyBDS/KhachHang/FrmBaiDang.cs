@@ -33,7 +33,7 @@ namespace QuanLyBDS.KhachHang
             {
                 if (kh.getSodu(FrmMain.mail) < 20000)
                 {
-                    MessageBohiện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 // Kiểm tra nếu có dữ liệu bị bỏ trống
