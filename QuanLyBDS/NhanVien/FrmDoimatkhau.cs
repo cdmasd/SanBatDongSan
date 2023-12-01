@@ -40,7 +40,6 @@ namespace QuanLyBDS.NhanVien
             if (NewPass != verifyPass)
             {
                 MessageBox.Show("Mật khẩu nhập lại không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                ResetValues();
                 txtVerify.Focus();
                 return;
             }
