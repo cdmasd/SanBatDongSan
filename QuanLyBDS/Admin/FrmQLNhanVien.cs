@@ -53,6 +53,15 @@ namespace QuanLyBDS.Admin
                 MessageBox.Show(emailCheck, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            bool trangThai = true;
+            if (rBtnHoatDong.Checked == true)
+            {
+                trangThai = true;
+            }
+            else if (rBtnNgungHoatDong.Checked == true)
+            {
+                trangThai = false;
+            }
             string thongBao = bus_Admin.ThemNhanVien(
             new NhanVienDTO
             {
@@ -62,6 +71,8 @@ namespace QuanLyBDS.Admin
                 Sodienthoai = txtSodienthoai.Text.Trim(),
                 Diachi = txtDiachi.Text.Trim(),
                 Ngaybatdau = DatetimePicker.Value,
+                Luong = (double)numLuong.Value,
+                Trangthai = trangThai,
             },
             new TaiKhoanDTO
             {
@@ -81,14 +92,34 @@ namespace QuanLyBDS.Admin
                 KiemTraTextBox();
                 return;
             }
-            string thongBao = bus_Admin.CapNhatNhanVien(new NhanVienDTO
+
+            bool trangThai = true;
+            if (rBtnHoatDong.Checked == true)
+            {
+                trangThai = true;
+            }
+            else if (rBtnNgungHoatDong.Checked == true)
+            {
+                trangThai = false;
+            }
+            NhanVienDTO nv = new NhanVienDTO
             {
                 Hoten = txtHoten.Text.Trim(),
                 Diachi = txtDiachi.Text.Trim(),
                 Email = txtEmail.Text.Trim(),
                 Sodienthoai = txtSodienthoai.Text.Trim(),
                 Ngaybatdau = DatetimePicker.Value,
-            });
+                Luong = (double)numLuong.Value,
+                Trangthai = trangThai,
+            };
+            TaiKhoanDTO tk = new TaiKhoanDTO
+            {
+                Email = txtEmail.Text.Trim(),
+                Matkhau = bus_Admin.Encrytion("abc123"),
+                Vaitro = "nhanvien"
+            };
+            string thongBao = bus_Admin.CapNhatNhanVien(nv, tk);
+            
             MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadData();
             ClearFields();
@@ -103,18 +134,42 @@ namespace QuanLyBDS.Admin
                 if (cellEmail != null && cellEmail.Value != null)
                 {
                     txtEmail.Text = cellEmail.Value.ToString();
+                    txtEmail.ReadOnly = true;
                     txtSodienthoai.Text = dtView.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    txtDiachi.Text = dtView.Rows[e.RowIndex].Cells[3].Value.ToString();
-                    if (dtView.Rows[e.RowIndex].Cells[4].Value.ToString() != string.Empty)
+                    numLuong.Text = dtView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                    txtDiachi.Text = dtView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                    if (dtView.Rows[e.RowIndex].Cells[5].Value.ToString() != string.Empty)
                     {
-                        DatetimePicker.Value = Convert.ToDateTime(dtView.Rows[e.RowIndex].Cells[4].Value);
+                        DatetimePicker.Value = Convert.ToDateTime(dtView.Rows[e.RowIndex].Cells[5].Value);
                     }
                     else
                     {
                         // Xử lý trường hợp ô ngày không có giá trị
                         DatetimePicker.Value = DateTime.Now; // Hoặc giá trị mặc định khác tùy vào yêu cầu của bạn
                     }
-                    txtHoten.Text = dtView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                    txtHoten.Text = dtView.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    if (dtView.Rows[e.RowIndex].Cells[7].Value.ToString() != string.Empty)
+                    {
+                        bool Trangthai = (bool)dtView.Rows[e.RowIndex].Cells[7].Value;
+                        if (Trangthai == true)
+                        {
+                            rBtnHoatDong.Checked = true;
+                        }
+                        else if (Trangthai == false)
+                        {
+                            rBtnNgungHoatDong.Checked = true;
+                        }
+                        else
+                        {
+                            rBtnHoatDong.Checked = false;
+                            rBtnNgungHoatDong.Checked = false;
+                        }
+                    }
+                    else
+                    {
+                        rBtnHoatDong.Checked = false;
+                        rBtnNgungHoatDong.Checked = false;
+                    }
                 }
             }
         }
@@ -152,10 +207,14 @@ namespace QuanLyBDS.Admin
         private void ClearFields()
         {
             txtEmail.Text = string.Empty;
+            txtEmail.ReadOnly = false;
             txtHoten.Text = string.Empty;
             txtDiachi.Text = string.Empty;
             txtSodienthoai.Text = "0";
             DatetimePicker.Value = DateTime.Now.Date;
+            numLuong.Text = string.Empty;
+            rBtnHoatDong.Checked = false;
+            rBtnNgungHoatDong.Checked = false;
         }
 
         private void LoadData()

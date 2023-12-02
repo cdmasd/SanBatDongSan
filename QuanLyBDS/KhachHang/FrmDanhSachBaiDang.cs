@@ -162,7 +162,7 @@ namespace QuanLyBDS.KhachHang
         {
             dtView.ClearAll();
             totalRecord = (int)pt.GetTotalRecordsCuaKHDangTinDaDuyet(FrmMain.mail);
-            var data = pt.GetDataPageCuaKHDangTinDaDuyet(currentpage,recordPerPages,FrmMain.mail);
+            var data = pt.GetDataPageCuaKHDangTinDaDuyet(currentpage, recordPerPages, FrmMain.mail);
             dtView.DataSource = data;
             if (dtView.ColumnCount > 0)
             {
@@ -370,6 +370,33 @@ namespace QuanLyBDS.KhachHang
         void UpdatePage()
         {
             txtCurrentPage.Text = $"Trang : {currentpage}";
+        }
+
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+            if (index == 1)
+            {
+                LoadDaDuyet();
+            }
+            else if (index == 2)
+            {
+                LoadChuaDuyet();
+            }
+            else
+            {
+                LoadTuchoi();
+            }
+        }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            cbLoainha.Text = string.Empty;
+            ResetValue();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

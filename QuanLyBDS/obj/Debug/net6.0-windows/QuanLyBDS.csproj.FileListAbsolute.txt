@@ -479,5 +479,4 @@ D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Micros
 D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Features.dll
 D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
 D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.NhanVien.Lydo.resources
-D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.Guest.XemAnhGues.resources
 D:\PRO131_DA1_K4\Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.KhachHang.FrmNapTien.resources

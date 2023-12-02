@@ -17,6 +17,25 @@ namespace DAL_QuanLyBDS
         IMongoCollection<BsonDocument> khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
         IMongoCollection<BsonDocument> baidang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("KhachHangDangTin");
 
+        #region Tìm kiếm bài đăng của khách hàng
+
+
+        // chưa làm xong
+        public DataTable GetDataPageTimKiemBaiDangCuaKHDangTinBiTuChoi(int page, int pageSize, string email, string idBaiDang)
+        {
+            var result = khachhang.Find(new BsonDocument
+            {
+                { "Email", email }
+            }).ToList();
+            string id = result[0]["_id"].ToString();
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("_id", idBaiDang),
+                Builders<BsonDocument>.Filter.Eq("_idnguoidang", id));
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        #endregion
 
         #region Đăng tin chưa duyệt
         public long GetTotalRecordsDangTinChuaDuyet()

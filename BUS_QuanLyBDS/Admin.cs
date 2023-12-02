@@ -62,9 +62,9 @@ namespace BUS_QuanLyBDS
             return dal_Admin.ThemNhanVien(nhanVien, taiKhoan);
         }
 
-        public string CapNhatNhanVien(NhanVienDTO nhanVien)
+        public string CapNhatNhanVien(NhanVienDTO nhanVien, TaiKhoanDTO taiKhoan)
         {
-            return dal_Admin.CapNhatNhanVien(nhanVien);
+            return dal_Admin.CapNhatNhanVien(nhanVien, taiKhoan);
         }
 
         public string Encrytion(string password)

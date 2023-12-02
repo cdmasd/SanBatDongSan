@@ -28,7 +28,7 @@ namespace QuanLyBDS.Guest
             InitializeComponent();
             UpdatePage();
             totalRecord = (int)pt.GetTotalRecordsDanhSach();
-            dtView.DataSource = pt.Danhsach(currentpage,recordPerPages);
+            dtView.DataSource = pt.Danhsach(currentpage, recordPerPages);
             cbDiachi.DropDownStyle = UIDropDownStyle.DropDownList;
             cbLoainha.DropDownStyle = UIDropDownStyle.DropDownList;
             cbGia.DropDownStyle = UIDropDownStyle.DropDownList;
@@ -39,6 +39,11 @@ namespace QuanLyBDS.Guest
         private void btnXemanh_Click(object sender, EventArgs e)
         {
             int data = dtView.CurrentCell.RowIndex;
+            if (string.IsNullOrEmpty(txtHinhanh.Text))
+            {
+                MessageBox.Show("Hãy chọn một dòng để xem hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             if (data >= 0)
             {
                 txtHinhanh.Text = dtView.Rows[data].Cells["Hinhanh"].Value.ToString();
@@ -181,6 +186,7 @@ namespace QuanLyBDS.Guest
             if (e.RowIndex >= 0)
             {
                 string tinDangId = dtView.Rows[e.RowIndex].Cells["_id"].Value.ToString();
+                string hinhAnh = dtView.Rows[e.RowIndex].Cells["Hinhanh"].Value.ToString();
                 List<BsonDocument> thongTinNguoiDangList = guest.Thongtinnguoidang(tinDangId);
                 if (thongTinNguoiDangList != null && thongTinNguoiDangList.Count > 0)
                 {
@@ -189,7 +195,7 @@ namespace QuanLyBDS.Guest
                     txtEmail.Text = thongTinNguoiDang.GetValue("Email").AsString;
                     txtHoten.Text = thongTinNguoiDang.GetValue("Hoten").AsString;
                     txtSodt.Text = thongTinNguoiDang.GetValue("Sodienthoai").AsString;
-
+                    txtHinhanh.Text = hinhAnh;
                     panelGuest.Visible = true;
                 }
                 else
@@ -288,6 +294,7 @@ namespace QuanLyBDS.Guest
                 }
             }
         }
+
         private void UpdatePage()
         {
             txtCurrentPage.Text = $"Trang : {currentpage}";
@@ -361,5 +368,33 @@ namespace QuanLyBDS.Guest
             UpdatePage();
         }
 
+        private void LoadDanhSach()
+        {
+            index = 1;
+            UpdatePage();
+            totalRecord = (int)pt.GetTotalRecordsDanhSach();
+            dtView.DataSource = pt.Danhsach(currentpage, recordPerPages);
+        }
+
+        private void ClearFiedls()
+        {
+            txtEmail.Text = string.Empty;
+            txtHoten.Text = string.Empty;
+            txtSodt.Text = string.Empty;
+            txtHinhanh.Text = string.Empty;
+            panelGuest.Visible = false;
+            cbLoainha.Text = string.Empty;
+            cbDientich.Text = string.Empty;
+            cbSophong.Text = string.Empty;
+            cbDiachi.Text = string.Empty;
+            cbGia.Text = string.Empty;
+        }
+
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+            currentpage = 1;
+            LoadDanhSach();
+            ClearFiedls();
+        }
     }
 }

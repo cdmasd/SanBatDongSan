@@ -16,6 +16,8 @@ namespace DAL_QuanLyBDS
 
         IMongoCollection<BsonDocument> logNapColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("LogNapTien");
 
+        IMongoCollection<BsonDocument> taiKhoanColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("TaiKhoan");
+
         private IMongoCollection<NhanVienDTO> NhanVienCollection()
         {
             var db = client.GetDatabase("QLBatDongSan");
@@ -75,12 +77,15 @@ namespace DAL_QuanLyBDS
                 var nvColl = NhanVienCollection();
                 var tkColl = TaiKhoanCollection();
                 nvColl.InsertOne(nhanVien);
-                tkColl.InsertOne(new TaiKhoanDTO
+                if (nhanVien.Trangthai == true)
                 {
-                    Email = taiKhoan.Email,
-                    Matkhau = taiKhoan.Matkhau,
-                    Vaitro = "nhanvien"
-                });
+                    tkColl.InsertOne(new TaiKhoanDTO
+                    {
+                        Email = taiKhoan.Email,
+                        Matkhau = taiKhoan.Matkhau,
+                        Vaitro = "nhanvien"
+                    });
+                }
                 return "Thêm nhân viên thành công";
             }
             catch (Exception ex)
@@ -89,7 +94,7 @@ namespace DAL_QuanLyBDS
             }
         }
 
-        public string CapNhatNhanVien(NhanVienDTO nhanVien)
+        public string CapNhatNhanVien(NhanVienDTO nhanVien, TaiKhoanDTO taiKhoan)
         {
             try
             {
@@ -103,9 +108,29 @@ namespace DAL_QuanLyBDS
                     .Set("Hoten", nhanVien.Hoten)
                     .Set("Diachi", nhanVien.Diachi)
                     .Set("Sodienthoai", nhanVien.Sodienthoai)
-                    .Set("Ngaybatdau", nhanVien.Ngaybatdau);
+                    .Set("Ngaybatdau", nhanVien.Ngaybatdau)
+                    .Set("Luong", nhanVien.Luong)
+                    .Set("Trangthai", nhanVien.Trangthai);
 
                 NhanVienCollection().UpdateOne(filter, update);
+                var filterTK = Builders<BsonDocument>.Filter.And(
+                    Builders<BsonDocument>.Filter.Eq("Email", nhanVien.Email),
+                    Builders<BsonDocument>.Filter.Eq("Vaitro", "nhanvien"));
+                var checkTK = taiKhoanColl.Find(filterTK);
+                if (nhanVien.Trangthai == false)
+                {
+                    if (checkTK != null)
+                    {
+                        taiKhoanColl.DeleteOne(filterTK);
+                    }
+                }
+                else
+                {
+                    if (checkTK == null)
+                    {
+                        TaiKhoanCollection().InsertOne(taiKhoan);
+                    }
+                }
                 return "Cập nhật nhân viên thành công";
             }
             catch (Exception ex)
