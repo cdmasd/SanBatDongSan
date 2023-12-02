@@ -45,26 +45,28 @@ namespace QuanLyBDS.KhachHang
                 string Email = txtEmail.Text;
                 string HoTen = txtHoten.Text;
                 string Sodienthoai = txtSdt.Text;
-
-
+                // Kiểm tra nếu có dữ liệu bị bỏ trống
+                if (!checknull())
+                {
+                    MessageBox.Show("Không được để trống thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    loadData();
+                    return;
+                }
                 bool result = kh.UpdateThongTinKH(Email, HoTen, Sodienthoai);
+
                 if (result)
                 {
-                    MessageBox.Show("Cập nhật thành công");
+                    MessageBox.Show("Cập nhật thành công", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadData();
                 }
                 else
                 {
-                    MessageBox.Show("Cập nhật thất bại.");
+                    MessageBox.Show("bạn chưa thay đổi thông tin", "thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Vui lòng sửa thông tin mới ấn cập nhật");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi: {ex.Message}");
+                MessageBox.Show("Có lỗi trong quá trình cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -73,5 +75,21 @@ namespace QuanLyBDS.KhachHang
             loadData();
             txtEmail.ReadOnly = true;
         }
+        #region 
+        bool checknull()
+        {
+            if (string.IsNullOrEmpty(txtHoten.Text))
+            {
+                txtHoten.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtSdt.Text))
+            {
+                txtSdt.Focus();
+                return false;
+            }
+            return true;
+        }
+        #endregion
     }
 }

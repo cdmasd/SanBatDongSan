@@ -42,17 +42,21 @@ namespace QuanLyBDS.KhachHang
             string Vande = txtHotro.Text;
 
             bool result = kh.insertTicket(Sdt, Vande, Chitiet);
-
+            if (!checkNull())
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin trước khi gửi ticket", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (result)
             {
-                MessageBox.Show("Gửi phản hồi thành công");
+                MessageBox.Show("Gửi phản hồi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtChitiethotro.Text = null;
                 txtHotro.Text = null;
             }
             else
             {
-                MessageBox.Show("Gửi phản hồi thất bại");
+                MessageBox.Show("Gửi phản hồi thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -61,5 +65,21 @@ namespace QuanLyBDS.KhachHang
             load();
             txtSodt.ReadOnly = true;
         }
+        #region check null
+        bool checkNull()
+        {
+            if (string.IsNullOrEmpty(txtChitiethotro.Text))
+            {
+                txtChitiethotro.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(txtHotro.Text))
+            {
+                txtHotro.Focus();
+                return false;
+            }
+            return true;
+        }
+        #endregion
     }
 }
