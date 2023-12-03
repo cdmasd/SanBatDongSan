@@ -151,5 +151,29 @@ namespace QuanLyBDS.NhanVien
         {
             txtCurrentPage.Text = $"Trang : {currentpage}";
         }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private void ClearFields()
+        {
+            txtTieude.Text = string.Empty;
+            cbLoainha.Text = string.Empty;
+            cbLoainha.SelectedIndex = -1;
+            txtDientich.Text = string.Empty;
+            txtSophong.Text = string.Empty;
+            txtGia.Text = string.Empty;
+            txtDiachi.Text = string.Empty;
+            txtHinhanh.Text = string.Empty;
+            dtView.ClearSelection();
+        }
+
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+            currentpage = 1;
+            LoadBaiDang();
+        }
     }
 }

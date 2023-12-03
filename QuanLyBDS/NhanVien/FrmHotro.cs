@@ -24,6 +24,7 @@ namespace QuanLyBDS.NhanVien
         public FrmHotro()
         {
             InitializeComponent();
+            totalRecord = (int)pt.GetTotalRecordsTicketChuaDuyet();
         }
         private void LoadBaiDang()
         {
@@ -100,7 +101,9 @@ namespace QuanLyBDS.NhanVien
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             dtView.ClearAll();
-            dtView.DataSource = nv.TimKiemTicket(txtSodt.Text);
+            currentpage = 1;
+            totalRecord = (int)pt.GetTotalRecordsFindTicketChuaDuyet(txtTimKiem.Text.Trim());
+            dtView.DataSource = pt.GetDataPageFindTicketChuaDuyet(currentpage, recordPerPages, txtTimKiem.Text.Trim());
             if (dtView.Rows.Count > 0)
             {
                 dtView.Columns[0].HeaderText = "ID";
@@ -116,6 +119,7 @@ namespace QuanLyBDS.NhanVien
             {
                 label8.Visible = true;
             }
+            txtTimKiem.Text = string.Empty;
         }
 
         private void btnTruoc_Click(object sender, EventArgs e)
@@ -126,8 +130,24 @@ namespace QuanLyBDS.NhanVien
                 LoadBaiDang();
             }
         }
+        void UpdatePage()
+        {
+            txtCurrentPage.Text = $"Trang : {currentpage}";
+        }
 
-        private void btnSau_Click(object sender, EventArgs e)
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            resetValues();
+        }
+
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+            currentpage = 1;
+            totalRecord = (int)pt.GetTotalRecordsFindTicketChuaDuyet(txtSodt.Text.Trim());
+            LoadBaiDang();
+        }
+
+        private void btnTrangSau_Click(object sender, EventArgs e)
         {
             if (currentpage * recordPerPages < totalRecord)
             {
@@ -135,9 +155,21 @@ namespace QuanLyBDS.NhanVien
                 LoadBaiDang();
             }
         }
-        void UpdatePage()
+
+        private void txtSodt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            txtCurrentPage.Text = $"Trang : {currentpage}";
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
             btnXem = new Sunny.UI.UIButton();
             dtView = new Sunny.UI.UIDataGridView();
             txtDiachi = new Sunny.UI.UITextBox();
@@ -59,6 +59,8 @@
             btnSau = new Sunny.UI.UIButton();
             btnTruoc = new Sunny.UI.UIButton();
             txtCurrentPage = new Label();
+            btnDanhSach = new Sunny.UI.UIButton();
+            btnBoQua = new Sunny.UI.UIButton();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             btnXem.FillColor = SystemColors.Highlight;
             btnXem.FillHoverColor = Color.MidnightBlue;
             btnXem.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXem.Location = new Point(1121, 111);
+            btnXem.Location = new Point(1121, 50);
             btnXem.MinimumSize = new Size(1, 1);
             btnXem.Name = "btnXem";
             btnXem.Size = new Size(117, 42);
@@ -80,29 +82,29 @@
             // 
             // dtView
             // 
-            dataGridViewCellStyle21.BackColor = Color.FromArgb(243, 249, 255);
-            dtView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle16.BackColor = Color.FromArgb(243, 249, 255);
+            dtView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             dtView.Anchor = AnchorStyles.None;
             dtView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtView.BackgroundColor = Color.FromArgb(243, 249, 255);
             dtView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle22.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle22.ForeColor = Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle22.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
-            dtView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle17.ForeColor = Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            dtView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             dtView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = Color.White;
-            dataGridViewCellStyle23.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle23.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb(220, 236, 255);
-            dataGridViewCellStyle23.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.False;
-            dtView.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = Color.White;
+            dataGridViewCellStyle18.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle18.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(220, 236, 255);
+            dataGridViewCellStyle18.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
+            dtView.DefaultCellStyle = dataGridViewCellStyle18;
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
@@ -110,21 +112,21 @@
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = Color.FromArgb(243, 249, 255);
-            dataGridViewCellStyle24.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle24.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(80, 160, 255);
-            dataGridViewCellStyle24.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.True;
-            dtView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = Color.FromArgb(243, 249, 255);
+            dataGridViewCellStyle19.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle19.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle19.SelectionBackColor = Color.FromArgb(80, 160, 255);
+            dataGridViewCellStyle19.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
+            dtView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             dtView.RowHeadersWidth = 51;
-            dataGridViewCellStyle25.BackColor = Color.White;
-            dataGridViewCellStyle25.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle25.ForeColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle25.SelectionBackColor = Color.FromArgb(220, 236, 255);
-            dataGridViewCellStyle25.SelectionForeColor = Color.FromArgb(48, 48, 48);
-            dtView.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle20.BackColor = Color.White;
+            dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle20.ForeColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(220, 236, 255);
+            dataGridViewCellStyle20.SelectionForeColor = Color.FromArgb(48, 48, 48);
+            dtView.RowsDefaultCellStyle = dataGridViewCellStyle20;
             dtView.RowTemplate.Height = 25;
             dtView.ScrollBarRectColor = Color.FromArgb(80, 160, 255);
             dtView.SelectedIndex = -1;
@@ -170,7 +172,7 @@
             btnXoa.FillColor = SystemColors.Highlight;
             btnXoa.FillHoverColor = Color.MidnightBlue;
             btnXoa.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXoa.Location = new Point(1121, 179);
+            btnXoa.Location = new Point(1121, 108);
             btnXoa.MinimumSize = new Size(1, 1);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(117, 42);
@@ -463,12 +465,48 @@
             txtCurrentPage.TabIndex = 71;
             txtCurrentPage.Text = "label9";
             // 
+            // btnDanhSach
+            // 
+            btnDanhSach.Anchor = AnchorStyles.None;
+            btnDanhSach.BackColor = SystemColors.ActiveCaption;
+            btnDanhSach.FillColor = SystemColors.Highlight;
+            btnDanhSach.FillHoverColor = Color.MidnightBlue;
+            btnDanhSach.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDanhSach.Location = new Point(1121, 166);
+            btnDanhSach.MinimumSize = new Size(1, 1);
+            btnDanhSach.Name = "btnDanhSach";
+            btnDanhSach.Size = new Size(117, 42);
+            btnDanhSach.Style = Sunny.UI.UIStyle.Custom;
+            btnDanhSach.TabIndex = 72;
+            btnDanhSach.Text = "Danh sách";
+            btnDanhSach.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnDanhSach.Click += btnDanhSach_Click;
+            // 
+            // btnBoQua
+            // 
+            btnBoQua.Anchor = AnchorStyles.None;
+            btnBoQua.BackColor = SystemColors.ActiveCaption;
+            btnBoQua.FillColor = SystemColors.Highlight;
+            btnBoQua.FillHoverColor = Color.MidnightBlue;
+            btnBoQua.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBoQua.Location = new Point(1121, 224);
+            btnBoQua.MinimumSize = new Size(1, 1);
+            btnBoQua.Name = "btnBoQua";
+            btnBoQua.Size = new Size(117, 42);
+            btnBoQua.Style = Sunny.UI.UIStyle.Custom;
+            btnBoQua.TabIndex = 73;
+            btnBoQua.Text = "Bỏ qua";
+            btnBoQua.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnBoQua.Click += btnBoQua_Click;
+            // 
             // FrmDaduyet
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1600, 965);
+            Controls.Add(btnBoQua);
+            Controls.Add(btnDanhSach);
             Controls.Add(txtCurrentPage);
             Controls.Add(btnSau);
             Controls.Add(btnTruoc);
@@ -535,5 +573,7 @@
         private Sunny.UI.UIButton btnSau;
         private Sunny.UI.UIButton btnTruoc;
         private Label txtCurrentPage;
+        private Sunny.UI.UIButton btnDanhSach;
+        private Sunny.UI.UIButton btnBoQua;
     }
 }

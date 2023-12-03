@@ -396,7 +396,9 @@ namespace QuanLyBDS.KhachHang
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            var result = pt.TimKiemBaiDangCuaKHDangTin(FrmMain.mail, txtTimKiem.Text.Trim().ToUpper());
+            dtView.DataSource = result;
+            txtTimKiem.Text = string.Empty;
         }
     }
 }

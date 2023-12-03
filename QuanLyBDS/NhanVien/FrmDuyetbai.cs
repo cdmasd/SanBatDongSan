@@ -43,7 +43,7 @@ namespace QuanLyBDS.NhanVien
         private void FrmDuyetbai_Load(object sender, EventArgs e)
         {
             LoadBaiDang();
-            
+
         }
         private void LoadBaiDang()
         {
@@ -222,6 +222,30 @@ namespace QuanLyBDS.NhanVien
         void UpdatePage()
         {
             txtCurrentPage.Text = $"Trang : {currentpage}";
+        }
+
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+            currentpage = 1;
+            LoadBaiDang();
+        }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private void ClearFields()
+        {
+            txtTieude.Text = string.Empty;
+            cbLoainha.Text = string.Empty;
+            cbLoainha.SelectedIndex = -1;
+            txtDientich.Text = string.Empty;
+            txtSophong.Text = string.Empty;
+            txtGia.Text = string.Empty;
+            txtDiachi.Text = string.Empty;
+            txtHinhanh.Text = string.Empty;
+            dtView.ClearSelection();
         }
     }
 }

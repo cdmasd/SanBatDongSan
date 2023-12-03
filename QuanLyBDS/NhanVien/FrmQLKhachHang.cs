@@ -167,5 +167,15 @@ namespace QuanLyBDS.NhanVien
             txtCurrentPage.Text = $"Trang : {currentpage}";
         }
 
+        private void btnDanhSach_Click(object sender, EventArgs e)
+        {
+            currentpage = 1;
+            LoadDataQLyKhachhang();
+        }
+
+        private void btnBoQua_Click(object sender, EventArgs e)
+        {
+            resetValue();
+        }
     }
 }

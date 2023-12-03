@@ -19,9 +19,7 @@ namespace DAL_QuanLyBDS
 
         #region Tìm kiếm bài đăng của khách hàng
 
-
-        // chưa làm xong
-        public DataTable GetDataPageTimKiemBaiDangCuaKHDangTinBiTuChoi(int page, int pageSize, string email, string idBaiDang)
+        public DataTable TimKiemBaiDangCuaKHDangTin(string email, string idBaiDang)
         {
             var result = khachhang.Find(new BsonDocument
             {
@@ -31,8 +29,7 @@ namespace DAL_QuanLyBDS
             var filter = Builders<BsonDocument>.Filter.And(
                 Builders<BsonDocument>.Filter.Eq("_id", idBaiDang),
                 Builders<BsonDocument>.Filter.Eq("_idnguoidang", id));
-            var skip = (page - 1) * pageSize;
-            return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
+            return ConvertFindFluentToDataTable(dangtin.Find(filter));
         }
 
         #endregion
@@ -55,13 +52,13 @@ namespace DAL_QuanLyBDS
         #region Đăng tin Đã duyệt
         public long GetTotalRecordsDangTinDaDuyet()
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
             return dangtin.CountDocuments(filter);
         }
 
         public DataTable GetDataPageDangTinDaDuyet(int page, int pageSize)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt");
             var skip = (page - 1) * pageSize;
             return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
         }
@@ -94,7 +91,24 @@ namespace DAL_QuanLyBDS
         {
             var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
             var skip = (page - 1) * pageSize;
-            return ConvertFindFluentToDataTable(dangtin.Find(filter).Skip(skip).Limit(pageSize));
+            return ConvertFindFluentToDataTable(ticket.Find(filter).Skip(skip).Limit(pageSize));
+        }
+
+        public long GetTotalRecordsFindTicketChuaDuyet(string soDienThoai)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Trangthai", false),
+                Builders<BsonDocument>.Filter.Eq("Sodienthoai", soDienThoai));
+            return ticket.CountDocuments(filter);
+        }
+
+        public DataTable GetDataPageFindTicketChuaDuyet(int page, int pageSize, string soDienThoai)
+        {
+            var filter = Builders<BsonDocument>.Filter.And(
+                Builders<BsonDocument>.Filter.Eq("Trangthai", false),
+                Builders<BsonDocument>.Filter.Eq("Sodienthoai", soDienThoai));
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(ticket.Find(filter).Skip(skip).Limit(pageSize));
         }
 
         #endregion
