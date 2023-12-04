@@ -63,7 +63,7 @@ namespace QuanLyBDS.KhachHang
                 var uploadResult = cloudinary.Upload(uploadParams);
                 return uploadResult.Uri.ToString();
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Lỗi khi tải ảnh lên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
@@ -76,7 +76,7 @@ namespace QuanLyBDS.KhachHang
                 Account account = new Account(CloudName, ApiKey, ApiSecret);
                 cloudinary = new Cloudinary(account);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Lỗi khởi tạo thư viện", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -124,7 +124,7 @@ namespace QuanLyBDS.KhachHang
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Lỗi phát sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

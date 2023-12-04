@@ -54,7 +54,7 @@ namespace QuanLyBDS.NhanVien
                     MessageBox.Show("Mật khẩu hiện tại không chính xác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Lỗi không tìm thấy email", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

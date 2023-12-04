@@ -135,11 +135,6 @@ namespace BUS_QuanLyBDS
             }
         }
 
-        public string XoaNhanVien(string Email)
-        {
-            return dal_Admin.XoaNhanVien(Email);
-        }
-
         public List<NhanVienDTO> TimKiemNhanVienTheoId(string Id)
         {
             return dal_Admin.TimKiemNhanVienTheoId(Id);

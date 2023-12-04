@@ -3,6 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Numerics;
 
 namespace DAL_QuanLyBDS
 {
@@ -17,6 +18,7 @@ namespace DAL_QuanLyBDS
         IMongoCollection<BsonDocument> logNapColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("LogNapTien");
 
         IMongoCollection<BsonDocument> taiKhoanColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("TaiKhoan");
+        IMongoCollection<BsonDocument> nhanVienColl = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("NhanVien");
 
         private IMongoCollection<NhanVienDTO> NhanVienCollection()
         {
@@ -76,8 +78,16 @@ namespace DAL_QuanLyBDS
                 }
                 var nvColl = NhanVienCollection();
                 var tkColl = TaiKhoanCollection();
+                if (!checkEmail(nhanVien.Email))
+                {
+                    return "Email đã tồn tại";
+                }
+                if (!checkPhone(nhanVien.Sodienthoai))
+                {
+                    return "Số điện thoại đã tồn tại";
+                }
                 nvColl.InsertOne(nhanVien);
-                if (nhanVien.Trangthai == true)
+                if (nhanVien.Trangthai == "Hoạt động")
                 {
                     tkColl.InsertOne(new TaiKhoanDTO
                     {
@@ -117,7 +127,7 @@ namespace DAL_QuanLyBDS
                     Builders<BsonDocument>.Filter.Eq("Email", nhanVien.Email),
                     Builders<BsonDocument>.Filter.Eq("Vaitro", "nhanvien"));
                 var checkTK = taiKhoanColl.Find(filterTK);
-                if (nhanVien.Trangthai == false)
+                if (nhanVien.Trangthai == "Ngưng hoạt động")
                 {
                     if (checkTK != null)
                     {
@@ -132,28 +142,6 @@ namespace DAL_QuanLyBDS
                     }
                 }
                 return "Cập nhật nhân viên thành công";
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
-
-        public string XoaNhanVien(string Email)
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(Email))
-                {
-                    return "Xoá Nhân Viên Không Thành Công Hãy Kiểm Tra Lại";
-                }
-                var nvColl = NhanVienCollection();
-                var tkColl = TaiKhoanCollection();
-                var nvfilter = Builders<NhanVienDTO>.Filter.Eq("Email", Email);
-                var tkfilter = Builders<TaiKhoanDTO>.Filter.Eq("Email", Email);
-                nvColl.DeleteOne(nvfilter);
-                tkColl.DeleteOne(tkfilter);
-                return "Xóa Nhân Viên Thành Công";
             }
             catch (Exception ex)
             {
@@ -934,6 +922,26 @@ namespace DAL_QuanLyBDS
             {
                 return new List<ThongKeDTO>();
             }
+        }
+        public bool checkEmail(string email)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Email", email);
+            var result = nhanVienColl.Find(filter).ToList();
+            if (result.Count == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool checkPhone(string phone)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Sodienthoai", phone);
+            var result = nhanVienColl.Find(filter).ToList();
+            if (result.Count == 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

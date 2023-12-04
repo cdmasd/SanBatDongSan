@@ -69,7 +69,7 @@ namespace QuanLyBDS.KhachHang
                     MessageBox.Show("Lỗi khi tải lên ảnh lên thư viện. Vui lòng thử lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Lỗi phát sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

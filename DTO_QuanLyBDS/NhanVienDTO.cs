@@ -15,6 +15,6 @@ namespace DTO_QuanLyBDS
         public string Diachi { get; set; }
         public DateTime Ngaybatdau { get; set; } = DateTime.Now;
         public string Hoten { get; set; }
-        public bool Trangthai { get; set; }
+        public string Trangthai { get; set; }
     }
 }

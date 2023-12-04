@@ -173,5 +173,14 @@ namespace BUS_QuanLyBDS
         {
             return DAL_PhanTrang.GetDataPageFindTicketChuaDuyet(page, pageSize, soDienThoai);
         }
+        public long GetTotalRecordNhanVienNgungHoatDong()
+        {
+            return DAL_PhanTrang.GetTotalRecordNhanVienNgungHoatDong();
+        }
+
+        public DataTable GetDataPageNhanVienNgungHoatDong(int page, int pageSize)
+        {
+            return DAL_PhanTrang.GetDataPageNhanVienNgungHoatDong(page, pageSize);
+        }
     }
 }

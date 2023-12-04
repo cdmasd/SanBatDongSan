@@ -68,7 +68,7 @@ namespace DAL_QuanLyBDS
                 UpdateSodu(email);
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -143,7 +143,7 @@ namespace DAL_QuanLyBDS
                 // Kiểm tra xem có ít nhất một bản ghi đã được chỉnh sửa không
                 return result.ModifiedCount > 0;
             }
-            catch (Exception ex)
+            catch
             {
                 // Xử lý bất kỳ ngoại lệ nào xảy ra trong quá trình cập nhật
                 return false;
@@ -161,7 +161,7 @@ namespace DAL_QuanLyBDS
                 // Kiểm tra xem có ít nhất một bản ghi đã được chỉnh sửa không
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 // Xử lý bất kỳ ngoại lệ nào xảy ra trong quá trình cập nhật
                 return false;
@@ -182,7 +182,7 @@ namespace DAL_QuanLyBDS
                 var result = Khachhang.UpdateOne(filter, update);
                 return result.ModifiedCount > 0;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -196,7 +196,7 @@ namespace DAL_QuanLyBDS
                 var result = Khachhang.DeleteOne(filter);
                 return result.DeletedCount > 0;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -219,7 +219,7 @@ namespace DAL_QuanLyBDS
                 var result = Khachhang.UpdateOne(filter, update);
                 return result.ModifiedCount > 0;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }

@@ -67,13 +67,25 @@ namespace DAL_QuanLyBDS
         #region Nhân Viên
         public long GetTotalRecordNhanVien()
         {
-            var filter = Builders<BsonDocument>.Filter.Empty;
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Hoạt động");
             return nhanvien.CountDocuments(filter);
         }
 
         public DataTable GetDataPageNhanVien(int page, int pageSize)
         {
-            var filter = Builders<BsonDocument>.Filter.Empty;
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Hoạt động");
+            var skip = (page - 1) * pageSize;
+            return ConvertFindFluentToDataTable(nhanvien.Find(filter).Skip(skip).Limit(pageSize));
+        }
+        public long GetTotalRecordNhanVienNgungHoatDong()
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Ngưng hoạt động");
+            return nhanvien.CountDocuments(filter);
+        }
+
+        public DataTable GetDataPageNhanVienNgungHoatDong(int page, int pageSize)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Ngưng hoạt động");
             var skip = (page - 1) * pageSize;
             return ConvertFindFluentToDataTable(nhanvien.Find(filter).Skip(skip).Limit(pageSize));
         }

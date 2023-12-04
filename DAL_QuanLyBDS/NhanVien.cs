@@ -121,7 +121,7 @@ namespace DAL_QuanLyBDS
                 var result = Khachhang.UpdateOne(filter, update);
                 return result.ModifiedCount > 0;
             }
-            catch (Exception ex)
+            catch
             {
 
                 return false;

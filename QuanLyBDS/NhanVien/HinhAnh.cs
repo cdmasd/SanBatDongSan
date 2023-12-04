@@ -33,7 +33,7 @@ namespace QuanLyBDS.NhanVien
                 {
                     pic.ImageLocation = imageUrl;
                 }
-                catch (Exception ex)
+                catch
                 {
                     // Handle the exception (e.g., log, show error message)
                     MessageBox.Show("Lỗi khi tải ảnh lên", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

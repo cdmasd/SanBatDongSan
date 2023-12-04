@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,7 +20,7 @@ namespace QuanLyBDS.Admin
         private int currentpage = 1;
         private int recordPerPages = 10;
         private int totalRecord;
-
+        private int index = 1;
         public FrmQLNhanVien()
         {
             InitializeComponent();
@@ -30,13 +31,17 @@ namespace QuanLyBDS.Admin
 
         private void FrmQLNhanVien_Load(object sender, EventArgs e)
         {
+            txtSodienthoai.MaxLength = 10;
             LoadData();
+            btnDSHoatDong.Enabled = false;
             SettingUI();
             DatetimePicker.Value = DateTime.Now;
         }
 
         private void btnDanhsach_Click(object sender, EventArgs e)
         {
+
+            currentpage = 1;
             LoadData();
         }
 
@@ -47,20 +52,30 @@ namespace QuanLyBDS.Admin
                 KiemTraTextBox();
                 return;
             }
+            if (isPhone(txtSodienthoai.Text.Trim()) == false)
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string emailCheck = await bus_Admin.KiemTraEmailTonTai(txtEmail.Text.Trim());
             if (emailCheck != "Email hợp lệ")
             {
                 MessageBox.Show(emailCheck, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            bool trangThai = true;
+            string trangThai = string.Empty;
             if (rBtnHoatDong.Checked == true)
             {
-                trangThai = true;
+                trangThai = "Hoạt động";
             }
             else if (rBtnNgungHoatDong.Checked == true)
             {
-                trangThai = false;
+                trangThai = "Ngưng hoạt động";
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn trạng thái hoạt động", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             string thongBao = bus_Admin.ThemNhanVien(
             new NhanVienDTO
@@ -81,7 +96,13 @@ namespace QuanLyBDS.Admin
                 Vaitro = "nhanvien"
             });
             MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadData();
+            if(index == 1)
+            {
+                LoadData();
+            } else
+            {
+                LoadDataNoActive();
+            }
             ClearFields();
         }
 
@@ -92,15 +113,24 @@ namespace QuanLyBDS.Admin
                 KiemTraTextBox();
                 return;
             }
-
-            bool trangThai = true;
+            if (isPhone(txtSodienthoai.Text.Trim()) == false)
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string trangThai = string.Empty;
             if (rBtnHoatDong.Checked == true)
             {
-                trangThai = true;
+                trangThai = "Hoạt động";
             }
             else if (rBtnNgungHoatDong.Checked == true)
             {
-                trangThai = false;
+                trangThai = "Ngưng hoạt động";
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn trạng thái hoạt động", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             NhanVienDTO nv = new NhanVienDTO
             {
@@ -119,9 +149,16 @@ namespace QuanLyBDS.Admin
                 Vaitro = "nhanvien"
             };
             string thongBao = bus_Admin.CapNhatNhanVien(nv, tk);
-            
+
             MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadData();
+            if (index == 1)
+            {
+                LoadData();
+            }
+            else
+            {
+                LoadDataNoActive();
+            }
             ClearFields();
         }
 
@@ -150,12 +187,12 @@ namespace QuanLyBDS.Admin
                     txtHoten.Text = dtView.Rows[e.RowIndex].Cells[6].Value.ToString();
                     if (dtView.Rows[e.RowIndex].Cells[7].Value.ToString() != string.Empty)
                     {
-                        bool Trangthai = (bool)dtView.Rows[e.RowIndex].Cells[7].Value;
-                        if (Trangthai == true)
+                        string Trangthai = dtView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                        if (Trangthai == "Hoạt động")
                         {
                             rBtnHoatDong.Checked = true;
                         }
-                        else if (Trangthai == false)
+                        else if (Trangthai == "Ngưng hoạt động")
                         {
                             rBtnNgungHoatDong.Checked = true;
                         }
@@ -171,23 +208,6 @@ namespace QuanLyBDS.Admin
                         rBtnNgungHoatDong.Checked = false;
                     }
                 }
-            }
-        }
-
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                MessageBox.Show("Hãy chọn nhân viên muốn xóa","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            DialogResult log = MessageBox.Show("Bạn có muốn xóa nhân viên này ?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (log == DialogResult.Yes)
-            {
-                string thongBao = bus_Admin.XoaNhanVien(txtEmail.Text.Trim());
-                MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
-                ClearFields();
             }
         }
 
@@ -229,7 +249,9 @@ namespace QuanLyBDS.Admin
                 dtView.Columns["Sodienthoai"].HeaderText = "Số Điện Thoại";
                 dtView.Columns["Diachi"].HeaderText = "Địa Chỉ";
                 dtView.Columns["Ngaybatdau"].HeaderText = "Ngày Bắt Đầu";
+                dtView.Columns["Luong"].HeaderText = "Lương";
                 dtView.Columns["Hoten"].HeaderText = "Họ Tên";
+                dtView.Columns["Trangthai"].HeaderText = "Trạng Thái";
                 label8.Visible = false;
             }
             else
@@ -301,9 +323,71 @@ namespace QuanLyBDS.Admin
                 LoadData();
             }
         }
+
         void UpdatePage()
         {
             txtCurrentPage.Text = $"Trang : {currentpage}";
+        }
+
+        private void txtSodienthoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public static bool isPhone(string phone)
+        {
+            string strRegex = @"^0\d{9}$";
+            Regex re = new Regex(strRegex);
+            if (re.IsMatch(phone))
+                return (true);
+            else
+                return (false);
+        }
+
+        private void btnDSHoatDong_Click(object sender, EventArgs e)
+        {
+            index = 1;
+            btnDSHoatDong.Enabled = false;
+            btnDSNgungHoatDong.Enabled = true;
+            currentpage = 1;
+            totalRecord = (int)bus_PhanTrang.GetTotalRecordNhanVien();
+            LoadData();
+        
+        }
+
+        private void btnDSNgungHoatDong_Click(object sender, EventArgs e)
+        {
+            index = 2;
+            btnDSNgungHoatDong.Enabled = false;
+            btnDSHoatDong.Enabled = true;
+            currentpage = 1;
+            totalRecord = (int)bus_PhanTrang.GetTotalRecordNhanVienNgungHoatDong();
+            LoadDataNoActive();
+        }
+        void LoadDataNoActive()
+        {
+            var data = bus_PhanTrang.GetDataPageNhanVienNgungHoatDong(currentpage, recordPerPages);
+            dtView.ClearAll();
+            dtView.DataSource = data;
+            UpdatePage();
+            if (dtView.ColumnCount > 0)
+            {
+                dtView.Columns["_id"].HeaderText = "Mã Nhân Viên";
+                dtView.Columns["Sodienthoai"].HeaderText = "Số Điện Thoại";
+                dtView.Columns["Diachi"].HeaderText = "Địa Chỉ";
+                dtView.Columns["Ngaybatdau"].HeaderText = "Ngày Bắt Đầu";
+                dtView.Columns["Luong"].HeaderText = "Lương";
+                dtView.Columns["Hoten"].HeaderText = "Họ Tên";
+                dtView.Columns["Trangthai"].HeaderText = "Trạng Thái";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
         }
     }
 }
