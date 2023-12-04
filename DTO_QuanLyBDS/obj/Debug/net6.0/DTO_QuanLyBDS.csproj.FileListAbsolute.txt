@@ -96,3 +96,15 @@ C:\Users\Admin\Desktop\moi nhat\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO
 C:\Users\Admin\Desktop\moi nhat\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\refint\DTO_QuanLyBDS.dll
 C:\Users\Admin\Desktop\moi nhat\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO_QuanLyBDS.pdb
 C:\Users\Admin\Desktop\moi nhat\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\ref\DTO_QuanLyBDS.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\bin\Debug\net6.0\DTO_QuanLyBDS.deps.json
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\bin\Debug\net6.0\DTO_QuanLyBDS.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\bin\Debug\net6.0\DTO_QuanLyBDS.pdb
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO_QuanLyBDS.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO_QuanLyBDS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO_QuanLyBDS.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO_QuanLyBDS.AssemblyInfo.cs
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO_QuanLyBDS.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO_QuanLyBDS.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\refint\DTO_QuanLyBDS.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\DTO_QuanLyBDS.pdb
+C:\Users\USER\Desktop\New Project\SanBatDongSan\DTO_QuanLyBDS\obj\Debug\net6.0\ref\DTO_QuanLyBDS.dll

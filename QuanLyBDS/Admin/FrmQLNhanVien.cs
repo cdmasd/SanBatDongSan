@@ -96,10 +96,11 @@ namespace QuanLyBDS.Admin
                 Vaitro = "nhanvien"
             });
             MessageBox.Show(thongBao, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if(index == 1)
+            if (index == 1)
             {
                 LoadData();
-            } else
+            }
+            else
             {
                 LoadDataNoActive();
             }
@@ -355,7 +356,7 @@ namespace QuanLyBDS.Admin
             currentpage = 1;
             totalRecord = (int)bus_PhanTrang.GetTotalRecordNhanVien();
             LoadData();
-        
+
         }
 
         private void btnDSNgungHoatDong_Click(object sender, EventArgs e)

@@ -77,7 +77,7 @@
             btnGuiyeucau.FillColor = SystemColors.Highlight;
             btnGuiyeucau.FillHoverColor = Color.MidnightBlue;
             btnGuiyeucau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGuiyeucau.Location = new Point(1033, 614);
+            btnGuiyeucau.Location = new Point(684, 131);
             btnGuiyeucau.MinimumSize = new Size(1, 1);
             btnGuiyeucau.Name = "btnGuiyeucau";
             btnGuiyeucau.Size = new Size(100, 35);
