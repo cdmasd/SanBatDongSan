@@ -61,9 +61,10 @@ namespace QuanLyBDS.NhanVien
             {
                 dtView.Columns[0].HeaderText = "ID";
                 dtView.Columns[1].HeaderText = "Email";
-                dtView.Columns[2].HeaderText = "Số điện thoại";
-                dtView.Columns[3].HeaderText = "Họ tên";
-                dtView.Columns[4].HeaderText = "Số dư";
+                dtView.Columns[2].HeaderText = "Họ tên";
+                dtView.Columns[3].HeaderText = "Số điện thoại";
+                dtView.Columns[4].HeaderText = "Số dư";
+                dtView.Columns[5].HeaderText = "Ngày đăng ký";
                 label8.Visible = false;
             }
             else
@@ -134,9 +135,10 @@ namespace QuanLyBDS.NhanVien
             {
                 dtView.Columns[0].HeaderText = "ID";
                 dtView.Columns[1].HeaderText = "Email";
-                dtView.Columns[2].HeaderText = "Số điện thoại";
-                dtView.Columns[3].HeaderText = "Họ tên";
-                dtView.Columns[4].HeaderText = "Số dư";
+                dtView.Columns[2].HeaderText = "Họ tên";
+                dtView.Columns[3].HeaderText = "Số điện thoại";
+                dtView.Columns[4].HeaderText = "Số dư";
+                dtView.Columns[5].HeaderText = "Ngày đăng ký";
                 label8.Visible = false;
             }
             else

@@ -888,23 +888,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\BUS_QuanLyBDS\\BUS_QuanLyBDS.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\SanBatDongSan\\BUS_QuanLyBDS\\BUS_QuanLyBDS.csproj",
       "projectName": "BUS_QuanLyBDS",
-      "projectPath": "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\BUS_QuanLyBDS\\BUS_QuanLyBDS.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\BUS_QuanLyBDS\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\SanBatDongSan\\BUS_QuanLyBDS\\BUS_QuanLyBDS.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\SanBatDongSan\\BUS_QuanLyBDS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -913,18 +913,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DAL_QuanLyBDS\\DAL_QuanLyBDS.csproj": {
-              "projectPath": "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DAL_QuanLyBDS\\DAL_QuanLyBDS.csproj"
+            "C:\\Users\\Admin\\Desktop\\SanBatDongSan\\DAL_QuanLyBDS\\DAL_QuanLyBDS.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\SanBatDongSan\\DAL_QuanLyBDS\\DAL_QuanLyBDS.csproj"
             },
-            "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj": {
-              "projectPath": "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj"
+            "C:\\Users\\Admin\\Desktop\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj"
             }
           }
         }
@@ -964,7 +963,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -94,22 +94,22 @@ namespace QuanLyBDS.NhanVien
 
         private void btnTuchoi_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn từ chối ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
+            if (txtTieude.Text != "")
             {
-                if (txtTieude.Text != "")
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn từ chối ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
                 {
                     Lydo ld = new Lydo(txtId.Text);
                     ld.Show();
                     ld.FormClosed += new FormClosedEventHandler(Lydo_FormClosed);
                 }
-                else
-                {
-                    MessageBox.Show("Vui lòng chọn bài đăng trước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                resetValues();
-                LoadBaiDang();
             }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn bài đăng trước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            resetValues();
+            LoadBaiDang();
         }
         void Lydo_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -133,6 +133,7 @@ namespace QuanLyBDS.NhanVien
                     txtHinhanh.Text = dtView.CurrentRow.Cells[7].Value.ToString();
                     txtDiachi.Text = dtView.CurrentRow.Cells[6].Value.ToString();
                     txtGia.Text = dtView.CurrentRow.Cells[5].Value.ToString();
+                    picSmallImage.ImageLocation = dtView.CurrentRow.Cells[7].Value.ToString();
                 }
                 else
                 {

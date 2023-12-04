@@ -1,4 +1,4 @@
-﻿        using Sunny.UI;
+﻿using Sunny.UI;
 using System.Net.Mail;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -246,7 +246,8 @@ namespace QuanLyBDS
                     txtPassword.Text = "";
                     txtEmail.Focus();
                 }
-            } catch
+            }
+            catch
             {
                 MessageBox.Show("Máy chủ đang bận, vui lòng truy cập sau ít phút", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -275,7 +276,7 @@ namespace QuanLyBDS
             if (dn.changePass(txtEmail.Text, newpass))
             {
                 MessageBox.Show(Mail.MailRecovery(txtEmail.Text.Trim(), newpass), "Thông báo");
-            } 
+            }
             else
             {
                 MessageBox.Show("Email chưa được đăng kí", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

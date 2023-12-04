@@ -628,3 +628,11 @@ C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windo
 C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.pdb
 C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.genruntimeconfig.cache
 C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\ref\QuanLyBDS.dll
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\CloudinaryDotNet.dll
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Html.Abstractions.dll
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.KhachHang.FrmNapTien.resources
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.NhanVien.Lydo.resources
