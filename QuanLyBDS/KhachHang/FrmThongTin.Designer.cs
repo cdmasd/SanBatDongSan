@@ -43,9 +43,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(731, 165);
+            label1.Location = new Point(421, 163);
             label1.Name = "label1";
-            label1.Size = new Size(80, 25);
+            label1.Size = new Size(65, 20);
             label1.TabIndex = 0;
             label1.Text = "Họ tên :";
             // 
@@ -53,9 +53,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(731, 236);
+            label2.Location = new Point(421, 234);
             label2.Name = "label2";
-            label2.Size = new Size(71, 25);
+            label2.Size = new Size(56, 20);
             label2.TabIndex = 1;
             label2.Text = "Email :";
             // 
@@ -63,9 +63,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(731, 307);
+            label3.Location = new Point(421, 305);
             label3.Name = "label3";
-            label3.Size = new Size(137, 25);
+            label3.Size = new Size(110, 20);
             label3.TabIndex = 2;
             label3.Text = "Số điện thoại :";
             // 
@@ -73,16 +73,16 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(731, 378);
+            label4.Location = new Point(421, 376);
             label4.Name = "label4";
-            label4.Size = new Size(75, 25);
+            label4.Size = new Size(59, 20);
             label4.TabIndex = 3;
             label4.Text = "Số dư :";
             // 
             // txtHoten
             // 
             txtHoten.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtHoten.Location = new Point(731, 198);
+            txtHoten.Location = new Point(421, 196);
             txtHoten.Margin = new Padding(4, 5, 4, 5);
             txtHoten.MinimumSize = new Size(1, 16);
             txtHoten.Name = "txtHoten";
@@ -97,7 +97,7 @@
             // txtEmail
             // 
             txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.Location = new Point(731, 269);
+            txtEmail.Location = new Point(421, 267);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.MinimumSize = new Size(1, 16);
             txtEmail.Name = "txtEmail";
@@ -112,7 +112,7 @@
             // txtSdt
             // 
             txtSdt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSdt.Location = new Point(731, 340);
+            txtSdt.Location = new Point(421, 338);
             txtSdt.Margin = new Padding(4, 5, 4, 5);
             txtSdt.MinimumSize = new Size(1, 16);
             txtSdt.Name = "txtSdt";
@@ -128,7 +128,7 @@
             // 
             txtSodu.Enabled = false;
             txtSodu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSodu.Location = new Point(731, 411);
+            txtSodu.Location = new Point(421, 409);
             txtSodu.Margin = new Padding(4, 5, 4, 5);
             txtSodu.MinimumSize = new Size(1, 16);
             txtSodu.Name = "txtSodu";
@@ -145,7 +145,7 @@
             btnUpdate.FillColor = SystemColors.Highlight;
             btnUpdate.FillHoverColor = Color.MidnightBlue;
             btnUpdate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpdate.Location = new Point(780, 464);
+            btnUpdate.Location = new Point(470, 462);
             btnUpdate.MinimumSize = new Size(1, 1);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(100, 35);
@@ -160,7 +160,7 @@
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1600, 965);
+            ClientSize = new Size(1085, 670);
             Controls.Add(btnUpdate);
             Controls.Add(txtSodu);
             Controls.Add(txtSdt);

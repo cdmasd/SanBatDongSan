@@ -214,13 +214,13 @@ namespace QuanLyBDS.Admin
 
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            if (txtTimkiem.Text != null)
+            if (txtTimkiem.Text != string.Empty)
             {
                 dtView.DataSource = bus_Admin.TimKiemNhanVienTheoId(txtTimkiem.Text);
             }
             else
             {
-                dtView.DataSource = new DataTable();
+                dtView.DataSource = bus_Admin.DanhSachNhanVien();
             }
             txtTimkiem.Text = string.Empty;
         }
@@ -281,6 +281,7 @@ namespace QuanLyBDS.Admin
                 MessageBox.Show("Họ Tên đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (txtEmail.Text == string.Empty)
             {
                 MessageBox.Show("Email đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -309,19 +310,41 @@ namespace QuanLyBDS.Admin
 
         private void btnTruoc_Click(object sender, EventArgs e)
         {
-            if (currentpage > 1)
+            if (index == 1)
             {
-                currentpage--;
-                LoadData();
+                if (currentpage > 1)
+                {
+                    currentpage--;
+                    LoadData();
+                }
+            }
+            else
+            {
+                if (currentpage > 1)
+                {
+                    currentpage--;
+                    LoadDataNoActive();
+                }
             }
         }
 
         private void btnSau_Click(object sender, EventArgs e)
         {
-            if (currentpage * recordPerPages < totalRecord)
+            if (index == 1)
             {
-                currentpage++;
-                LoadData();
+                if (currentpage * recordPerPages < totalRecord)
+                {
+                    currentpage++;
+                    LoadData();
+                }
+            }
+            else
+            {
+                if (currentpage * recordPerPages < totalRecord)
+                {
+                    currentpage++;
+                    LoadDataNoActive();
+                }
             }
         }
 

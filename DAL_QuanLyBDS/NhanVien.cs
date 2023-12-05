@@ -18,6 +18,7 @@ namespace DAL_QuanLyBDS
         IMongoCollection<BsonDocument> ticket = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Ticket");
         IMongoCollection<BsonDocument> Khachhang = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("Khachhang");
         IMongoCollection<BsonDocument> taikhoan = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("TaiKhoan");
+        IMongoCollection<BsonDocument> lognap = client.GetDatabase("QLBatDongSan").GetCollection<BsonDocument>("LogNapTien");
         public DataTable Chuaduyet()
         {
             var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa duyệt");
@@ -74,18 +75,12 @@ namespace DAL_QuanLyBDS
                 return false;
             }
         }
-        public DataTable Chuahotro()
-        {
-            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
-            var result = ticket.Find(filter);
-            return ConvertFindFluentToDataTable(result);
-        }
         public bool Hotro(string id, string email)
         {
             try
             {
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-                var update = Builders<BsonDocument>.Update.Set("Trangthai", true).Set("Nguoihotro", getNameNv(email));
+                var update = Builders<BsonDocument>.Update.Set("Trangthai", "Đã hỗ trợ").Set("Nguoihotro", getNameNv(email));
                 var result = ticket.UpdateOne(filter, update);
                 if (result.ModifiedCount > 0)
                 {
@@ -107,18 +102,26 @@ namespace DAL_QuanLyBDS
             var result = Khachhang.Find(filter);
             return ConvertFindFluentToDataTable(result);
         }
-        public bool UpdataKhachhang(string id, string email, string hoten, string sdt, double sodu)
+        public bool UpdataKhachhang(string id,string email, string hoten, double tiennap, double sodu)
         {
             try
             {
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
                 var updateBuilder = Builders<BsonDocument>.Update;
                 var update = updateBuilder
-                    .Set("Email", email)
-                    .Set("Hoten", hoten)
-                    .Set("Sodienthoai", sdt)
                     .Set("Sodu", sodu);
                 var result = Khachhang.UpdateOne(filter, update);
+                if (result.ModifiedCount > 0)
+                {
+                    lognap.InsertOne(new BsonDocument
+                    {
+                        {"Makhachhang", id },
+                        {"Email", email },
+                        {"Hoten", hoten },
+                        {"Tiennap", tiennap },
+                        {"Ngaynap", DateTime.Now.ToString("dd-MM-yyyy") }
+                    });
+                }
                 return result.ModifiedCount > 0;
             }
             catch

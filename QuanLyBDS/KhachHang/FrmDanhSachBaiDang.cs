@@ -1,6 +1,7 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using MongoDB.Bson;
+using QuanLyBDS.NhanVien;
 using Sunny.UI;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,10 @@ namespace QuanLyBDS.KhachHang
             LoadDaDuyet();
             InitializeCloudinary();
             btXoa.Enabled = false;
+            txtDientich.MaxLength = 3;
+            txtSophong.MaxLength = 1;
+            txtGia.MaxLength = 12; // Dưới 999 tỉ
+            txtHinhanh.Enabled = false;
         }
         private void btnUpload_Click(object sender, EventArgs e)
         {
@@ -102,6 +107,12 @@ namespace QuanLyBDS.KhachHang
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin và ảnh cần chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                if (double.Parse(txtGia.Text) <= 100000000 || double.Parse(txtGia.Text) % 20000 != 0)
+                {
+                    MessageBox.Show("Số tiền không hợp lệ\n Vui lòng lớn hơn 100 triệu và chia hết cho 20.000", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtGia.Focus();
+                    return;
+                }
                 string cloudinaryUrl = txtHinhanh.Text;
                 // Nếu có thay đổi ảnh, upload ảnh mới lên Cloudinary và lấy URL của ảnh
                 if (imagePath != null && imagePath == txtHinhanh.Text)
@@ -115,7 +126,7 @@ namespace QuanLyBDS.KhachHang
                     bool Ds = kh.UpdateBaidang(txtId.Text, txtTieude.Text, cbLoainha.SelectedText, double.Parse(txtDientich.Text), int.Parse(txtSophong.Text), double.Parse(txtGia.Text), txtDiachi.Text, txtHinhanh.Text);
                     if (Ds)
                     {
-                        MessageBox.Show("Đã cập nhật bài đăng của bạn, Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK);
+                        MessageBox.Show("Đã cập nhật bài đăng của bạn\n Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetValue();
                     }
                     else
@@ -174,6 +185,10 @@ namespace QuanLyBDS.KhachHang
                 dtView.Columns[5].HeaderText = "Giá";
                 dtView.Columns[6].HeaderText = "Địa chỉ";
                 dtView.Columns[7].HeaderText = "Hình Ảnh";
+                dtView.Columns[8].HeaderText = "ID Người Đăng";
+                dtView.Columns[9].HeaderText = "Thời gian đăng";
+                dtView.Columns[10].HeaderText = "Trạng thái";
+                dtView.Columns[11].HeaderText = "Người duyệt";
                 label8.Visible = false;
             }
             else
@@ -201,6 +216,10 @@ namespace QuanLyBDS.KhachHang
                 dtView.Columns[5].HeaderText = "Giá";
                 dtView.Columns[6].HeaderText = "Địa chỉ";
                 dtView.Columns[7].HeaderText = "Hình Ảnh";
+                dtView.Columns[8].HeaderText = "ID Người Đăng";
+                dtView.Columns[9].HeaderText = "Thời gian đăng";
+                dtView.Columns[10].HeaderText = "Trạng thái";
+
                 label8.Visible = false;
             }
             else
@@ -227,6 +246,9 @@ namespace QuanLyBDS.KhachHang
                 dtView.Columns[5].HeaderText = "Giá";
                 dtView.Columns[6].HeaderText = "Địa chỉ";
                 dtView.Columns[7].HeaderText = "Hình Ảnh";
+                dtView.Columns[8].HeaderText = "ID Người Đăng";
+                dtView.Columns[9].HeaderText = "Thời gian đăng";
+                dtView.Columns[10].HeaderText = "Trạng thái";
                 label8.Visible = false;
             }
             else
@@ -391,6 +413,7 @@ namespace QuanLyBDS.KhachHang
         private void btnBoQua_Click(object sender, EventArgs e)
         {
             cbLoainha.Text = string.Empty;
+            btXoa.Enabled = false;
             ResetValue();
         }
 
@@ -399,6 +422,22 @@ namespace QuanLyBDS.KhachHang
             var result = pt.TimKiemBaiDangCuaKHDangTin(FrmMain.mail, txtTimKiem.Text.Trim().ToUpper());
             dtView.DataSource = result;
             txtTimKiem.Text = string.Empty;
+        }
+
+        private void btXemanh_Click(object sender, EventArgs e)
+        {
+            string localFilePath = txtHinhanh.Text;
+
+            if (!string.IsNullOrEmpty(localFilePath))
+            {
+                string imageUrl = new Uri(localFilePath).AbsoluteUri;
+                HinhAnh hinhanh = new HinhAnh(imageUrl);
+                hinhanh.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

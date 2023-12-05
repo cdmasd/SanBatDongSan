@@ -60,10 +60,10 @@
             // 
             chartThongKeBaiDang.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartThongKeBaiDang.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartThongKeBaiDang.Location = new Point(535, 249);
+            chartThongKeBaiDang.Location = new Point(400, 309);
             chartThongKeBaiDang.MinimumSize = new Size(1, 1);
             chartThongKeBaiDang.Name = "chartThongKeBaiDang";
-            chartThongKeBaiDang.Size = new Size(572, 612);
+            chartThongKeBaiDang.Size = new Size(318, 331);
             chartThongKeBaiDang.Style = Sunny.UI.UIStyle.Custom;
             chartThongKeBaiDang.SubFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chartThongKeBaiDang.TabIndex = 0;
@@ -74,9 +74,9 @@
             panel1.BackColor = Color.Coral;
             panel1.Controls.Add(labelSoBaiDang);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(39, 109);
+            panel1.Location = new Point(25, 133);
             panel1.Name = "panel1";
-            panel1.Size = new Size(262, 134);
+            panel1.Size = new Size(183, 134);
             panel1.TabIndex = 2;
             // 
             // labelSoBaiDang
@@ -84,7 +84,7 @@
             labelSoBaiDang.AutoSize = true;
             labelSoBaiDang.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Point);
             labelSoBaiDang.ForeColor = Color.White;
-            labelSoBaiDang.Location = new Point(42, 58);
+            labelSoBaiDang.Location = new Point(15, 58);
             labelSoBaiDang.Name = "labelSoBaiDang";
             labelSoBaiDang.Size = new Size(87, 23);
             labelSoBaiDang.TabIndex = 12;
@@ -106,9 +106,9 @@
             panel2.BackColor = Color.Orange;
             panel2.Controls.Add(labelKhachHang);
             panel2.Controls.Add(label3);
-            panel2.Location = new Point(307, 109);
+            panel2.Location = new Point(278, 133);
             panel2.Name = "panel2";
-            panel2.Size = new Size(288, 134);
+            panel2.Size = new Size(192, 134);
             panel2.TabIndex = 3;
             // 
             // labelKhachHang
@@ -116,7 +116,7 @@
             labelKhachHang.AutoSize = true;
             labelKhachHang.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Point);
             labelKhachHang.ForeColor = Color.White;
-            labelKhachHang.Location = new Point(43, 58);
+            labelKhachHang.Location = new Point(17, 58);
             labelKhachHang.Name = "labelKhachHang";
             labelKhachHang.Size = new Size(87, 23);
             labelKhachHang.TabIndex = 13;
@@ -136,10 +136,10 @@
             // btnTrongThang
             // 
             btnTrongThang.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTrongThang.Location = new Point(1113, 32);
+            btnTrongThang.Location = new Point(918, 78);
             btnTrongThang.MinimumSize = new Size(1, 1);
             btnTrongThang.Name = "btnTrongThang";
-            btnTrongThang.Size = new Size(136, 47);
+            btnTrongThang.Size = new Size(114, 36);
             btnTrongThang.Style = Sunny.UI.UIStyle.Custom;
             btnTrongThang.TabIndex = 4;
             btnTrongThang.Text = "Tháng Này";
@@ -149,10 +149,10 @@
             // btnHomNay
             // 
             btnHomNay.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnHomNay.Location = new Point(932, 32);
+            btnHomNay.Location = new Point(761, 78);
             btnHomNay.MinimumSize = new Size(1, 1);
             btnHomNay.Name = "btnHomNay";
-            btnHomNay.Size = new Size(136, 47);
+            btnHomNay.Size = new Size(114, 36);
             btnHomNay.Style = Sunny.UI.UIStyle.Custom;
             btnHomNay.TabIndex = 5;
             btnHomNay.Text = "Hôm Nay";
@@ -164,9 +164,9 @@
             panel3.BackColor = Color.Turquoise;
             panel3.Controls.Add(labelTongGiaTri);
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(601, 109);
+            panel3.Location = new Point(556, 133);
             panel3.Name = "panel3";
-            panel3.Size = new Size(438, 134);
+            panel3.Size = new Size(200, 134);
             panel3.TabIndex = 3;
             // 
             // labelTongGiaTri
@@ -174,7 +174,7 @@
             labelTongGiaTri.AutoSize = true;
             labelTongGiaTri.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Point);
             labelTongGiaTri.ForeColor = Color.White;
-            labelTongGiaTri.Location = new Point(83, 58);
+            labelTongGiaTri.Location = new Point(14, 58);
             labelTongGiaTri.Name = "labelTongGiaTri";
             labelTongGiaTri.Size = new Size(87, 23);
             labelTongGiaTri.TabIndex = 14;
@@ -209,9 +209,9 @@
             panel5.BackColor = Color.RosyBrown;
             panel5.Controls.Add(labelDoanhThu);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(1045, 109);
+            panel5.Location = new Point(834, 133);
             panel5.Name = "panel5";
-            panel5.Size = new Size(451, 134);
+            panel5.Size = new Size(199, 134);
             panel5.TabIndex = 4;
             // 
             // labelDoanhThu
@@ -219,7 +219,7 @@
             labelDoanhThu.AutoSize = true;
             labelDoanhThu.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Point);
             labelDoanhThu.ForeColor = Color.White;
-            labelDoanhThu.Location = new Point(34, 58);
+            labelDoanhThu.Location = new Point(14, 58);
             labelDoanhThu.Name = "labelDoanhThu";
             labelDoanhThu.Size = new Size(87, 23);
             labelDoanhThu.TabIndex = 15;
@@ -230,7 +230,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(17, 12);
+            label5.Location = new Point(14, 12);
             label5.Name = "label5";
             label5.Size = new Size(104, 18);
             label5.TabIndex = 14;
@@ -251,10 +251,10 @@
             // 
             chartTop5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartTop5.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartTop5.Location = new Point(1113, 249);
+            chartTop5.Location = new Point(758, 309);
             chartTop5.MinimumSize = new Size(1, 1);
             chartTop5.Name = "chartTop5";
-            chartTop5.Size = new Size(383, 612);
+            chartTop5.Size = new Size(301, 331);
             chartTop5.Style = Sunny.UI.UIStyle.Custom;
             chartTop5.SubFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chartTop5.TabIndex = 10;
@@ -262,9 +262,10 @@
             // 
             // dateTimePicker
             // 
-            dateTimePicker.Location = new Point(518, 43);
+            dateTimePicker.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePicker.Location = new Point(761, 24);
             dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(200, 26);
+            dateTimePicker.Size = new Size(270, 26);
             dateTimePicker.TabIndex = 11;
             // 
             // labelPicker
@@ -272,7 +273,7 @@
             labelPicker.AutoSize = true;
             labelPicker.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
             labelPicker.ForeColor = Color.White;
-            labelPicker.Location = new Point(320, 49);
+            labelPicker.Location = new Point(556, 30);
             labelPicker.Name = "labelPicker";
             labelPicker.Size = new Size(192, 18);
             labelPicker.TabIndex = 14;
@@ -282,10 +283,10 @@
             // 
             chartDoanhThu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartDoanhThu.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartDoanhThu.Location = new Point(39, 249);
+            chartDoanhThu.Location = new Point(25, 309);
             chartDoanhThu.MinimumSize = new Size(1, 1);
             chartDoanhThu.Name = "chartDoanhThu";
-            chartDoanhThu.Size = new Size(490, 612);
+            chartDoanhThu.Size = new Size(330, 331);
             chartDoanhThu.Style = Sunny.UI.UIStyle.Custom;
             chartDoanhThu.SubFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             chartDoanhThu.TabIndex = 18;
@@ -294,10 +295,10 @@
             // btnChonNgay
             // 
             btnChonNgay.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnChonNgay.Location = new Point(749, 32);
+            btnChonNgay.Location = new Point(604, 78);
             btnChonNgay.MinimumSize = new Size(1, 1);
             btnChonNgay.Name = "btnChonNgay";
-            btnChonNgay.Size = new Size(136, 47);
+            btnChonNgay.Size = new Size(114, 36);
             btnChonNgay.Style = Sunny.UI.UIStyle.Custom;
             btnChonNgay.TabIndex = 19;
             btnChonNgay.Text = "Chọn Ngày";
@@ -309,19 +310,19 @@
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1600, 965);
+            ClientSize = new Size(1085, 670);
             Controls.Add(btnChonNgay);
             Controls.Add(chartDoanhThu);
+            Controls.Add(panel2);
+            Controls.Add(panel3);
+            Controls.Add(panel5);
             Controls.Add(labelPicker);
             Controls.Add(dateTimePicker);
             Controls.Add(chartTop5);
-            Controls.Add(panel5);
             Controls.Add(btnTongQuat);
-            Controls.Add(panel3);
             Controls.Add(labelMain);
             Controls.Add(btnHomNay);
             Controls.Add(btnTrongThang);
-            Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(chartThongKeBaiDang);
             Name = "FrmThongKe";

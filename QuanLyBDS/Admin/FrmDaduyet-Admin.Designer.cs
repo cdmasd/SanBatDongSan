@@ -33,10 +33,9 @@
             // FrmDaduyet_Admin
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(1600, 965);
+            ClientSize = new Size(1366, 720);
             Name = "FrmDaduyet_Admin";
             Text = "FrmDaduyet_Admin";
-            Load += FrmDaduyet_Admin_Load;
             ResumeLayout(false);
             PerformLayout();
         }

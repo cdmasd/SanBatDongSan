@@ -101,25 +101,30 @@ namespace QuanLyBDS.NhanVien
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             dtView.ClearAll();
-            currentpage = 1;
-            totalRecord = (int)pt.GetTotalRecordsFindTicketChuaDuyet(txtTimKiem.Text.Trim());
-            dtView.DataSource = pt.GetDataPageFindTicketChuaDuyet(currentpage, recordPerPages, txtTimKiem.Text.Trim());
-            if (dtView.Rows.Count > 0)
+            if(txtTimKiem.Text != string.Empty )
             {
-                dtView.Columns[0].HeaderText = "ID";
-                dtView.Columns[1].HeaderText = "Số điện thoại";
-                dtView.Columns[2].HeaderText = "Vấn đề";
-                dtView.Columns[3].HeaderText = "Chi tiết vấn đề";
-                dtView.Columns[4].HeaderText = "Trạng thái";
-                dtView.Columns[5].HeaderText = "Người hỗ trợ";
-                dtView.Columns[6].HeaderText = "Ngày đăng";
-                label8.Visible = false;
-            }
-            else
+                currentpage = 1;
+                totalRecord = (int)pt.GetTotalRecordsFindTicketChuaDuyet(txtTimKiem.Text.Trim());
+                dtView.DataSource = pt.GetDataPageFindTicketChuaDuyet(currentpage, recordPerPages, txtTimKiem.Text.Trim());
+                if (dtView.Rows.Count > 0)
+                {
+                    dtView.Columns[0].HeaderText = "ID";
+                    dtView.Columns[1].HeaderText = "Số điện thoại";
+                    dtView.Columns[2].HeaderText = "Vấn đề";
+                    dtView.Columns[3].HeaderText = "Chi tiết vấn đề";
+                    dtView.Columns[4].HeaderText = "Trạng thái";
+                    dtView.Columns[5].HeaderText = "Người hỗ trợ";
+                    dtView.Columns[6].HeaderText = "Ngày đăng";
+                    label8.Visible = false;
+                }
+                else
+                {
+                    label8.Visible = true;
+                }
+            } else
             {
-                label8.Visible = true;
+                LoadBaiDang();
             }
-            txtTimKiem.Text = string.Empty;
         }
 
         private void btnTruoc_Click(object sender, EventArgs e)

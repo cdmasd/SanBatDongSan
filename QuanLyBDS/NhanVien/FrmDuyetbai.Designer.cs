@@ -75,14 +75,14 @@
             // 
             txtDiachi.Enabled = false;
             txtDiachi.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDiachi.Location = new Point(367, 94);
+            txtDiachi.Location = new Point(367, 100);
             txtDiachi.Margin = new Padding(4, 5, 4, 5);
             txtDiachi.MinimumSize = new Size(1, 16);
             txtDiachi.Multiline = true;
             txtDiachi.Name = "txtDiachi";
             txtDiachi.Padding = new Padding(5);
             txtDiachi.ShowText = false;
-            txtDiachi.Size = new Size(203, 68);
+            txtDiachi.Size = new Size(203, 62);
             txtDiachi.Style = Sunny.UI.UIStyle.Custom;
             txtDiachi.TabIndex = 29;
             txtDiachi.TextAlignment = ContentAlignment.MiddleLeft;

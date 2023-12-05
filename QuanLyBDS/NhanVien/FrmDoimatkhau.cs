@@ -19,7 +19,8 @@ namespace QuanLyBDS.NhanVien
             InitializeComponent();
             txtEmail.Text = FrmMain.mail;
         }
-        void ResetValues(){
+        void ResetValues()
+        {
             txtMatkhauhientai.Text = "";
             txtMatkhaumoi.Text = "";
             txtVerify.Text = "";
@@ -30,7 +31,7 @@ namespace QuanLyBDS.NhanVien
             string NewPass = txtMatkhaumoi.Text;
             string verifyPass = txtVerify.Text;
 
-            if(OldPass == "" || NewPass == "" || verifyPass == "")
+            if (OldPass == "" || NewPass == "" || verifyPass == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ResetValues();

@@ -122,9 +122,7 @@ namespace DAL_QuanLyBDS
             {
 
                 // Tạo bộ lọc sử dụng id của bản ghi cần cập nhật
-                var filterBuilder = Builders<BsonDocument>.Filter;
-                var filter = filterBuilder.Eq("_id", id);
-
+                var filterBuilder = Builders<BsonDocument>.Filter.Eq("_id", id);
                 // Tạo bộ cập nhật để thiết lập các giá trị mới cho các trường trong bản ghi
                 var updateBuilder = Builders<BsonDocument>.Update;
                 var update = updateBuilder
@@ -137,8 +135,9 @@ namespace DAL_QuanLyBDS
                     .Set("Hinhanh", hinhAnh)
                     .Set("Trangthai", "Chưa duyệt");
 
+
                 // Thực hiện hoạt động cập nhật với bộ lọc và cập nhật đã xác định
-                var result = khachhangdangtin.UpdateOne(filter, update);
+                var result = khachhangdangtin.UpdateOne(filterBuilder, update);
 
                 // Kiểm tra xem có ít nhất một bản ghi đã được chỉnh sửa không
                 return result.ModifiedCount > 0;
@@ -237,8 +236,8 @@ namespace DAL_QuanLyBDS
                     { "Sodienthoai", Sdt },
                     { "Vande", Vande },
                     { "Chitiet", Chitiet },
-                    { "Trangthai", false },
-                    { "Nguoihotro", ""},
+                    { "Trangthai", "Chưa hỗ trợ" },
+                    { "Nguoihotro", "Chưa có"},
                     {"Ngaydang",DateTime.Now.ToString("dd-MM-yyyy") }
                 };
                 Ticket.InsertOne(ticketDocument);

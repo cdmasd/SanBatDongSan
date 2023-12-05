@@ -95,13 +95,13 @@ namespace DAL_QuanLyBDS
 
         public long GetTotalRecordsTicketChuaDuyet()
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa hỗ trợ");
             return ticket.CountDocuments(filter);
         }
 
         public DataTable GetDataPageTicketChuaDuyet(int page, int pageSize)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", false);
+            var filter = Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa hỗ trợ");
             var skip = (page - 1) * pageSize;
             return ConvertFindFluentToDataTable(ticket.Find(filter).Skip(skip).Limit(pageSize));
         }
@@ -109,7 +109,7 @@ namespace DAL_QuanLyBDS
         public long GetTotalRecordsFindTicketChuaDuyet(string soDienThoai)
         {
             var filter = Builders<BsonDocument>.Filter.And(
-                Builders<BsonDocument>.Filter.Eq("Trangthai", false),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa hỗ trợ"),
                 Builders<BsonDocument>.Filter.Eq("Sodienthoai", soDienThoai));
             return ticket.CountDocuments(filter);
         }
@@ -117,7 +117,7 @@ namespace DAL_QuanLyBDS
         public DataTable GetDataPageFindTicketChuaDuyet(int page, int pageSize, string soDienThoai)
         {
             var filter = Builders<BsonDocument>.Filter.And(
-                Builders<BsonDocument>.Filter.Eq("Trangthai", false),
+                Builders<BsonDocument>.Filter.Eq("Trangthai", "Chưa hỗ trợ"),
                 Builders<BsonDocument>.Filter.Eq("Sodienthoai", soDienThoai));
             var skip = (page - 1) * pageSize;
             return ConvertFindFluentToDataTable(ticket.Find(filter).Skip(skip).Limit(pageSize));

@@ -26,6 +26,9 @@ namespace QuanLyBDS.KhachHang
             cbLoainha.DropDownStyle = UIDropDownStyle.DropDownList;
             InitializeCloudinary();
             cbLoainha.SelectedIndex = 0;
+            txtDientich.MaxLength = 3;
+            txtSophong.MaxLength = 1;
+            txtGia.MaxLength = 12; // Dưới 999 tỉ
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
@@ -33,7 +36,7 @@ namespace QuanLyBDS.KhachHang
             {
                 if (kh.getSodu(FrmMain.mail) < 20000)
                 {
-                    MessageBox.Show("", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Số dư không đủ, vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 // Kiểm tra nếu có dữ liệu bị bỏ trống
@@ -42,7 +45,12 @@ namespace QuanLyBDS.KhachHang
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin và chọn ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
+                if (double.Parse(txtGia.Text) <= 100000000 || double.Parse(txtGia.Text) % 20000 != 0)
+                {
+                    MessageBox.Show("Số tiền không hợp lệ\n Vui lòng lớn hơn 100 triệu và chia hết cho 20.000", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtGia.Focus();
+                    return;
+                }
                 // Đăng ảnh lên Cloudinary
                 string cloudinaryUrl = UploadImageToCloudinary(imagePath);
 
@@ -51,18 +59,19 @@ namespace QuanLyBDS.KhachHang
                     // Cập nhật hình ảnh với link từ Cloudinary
                     string hinhAnh = cloudinaryUrl;
                     DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if(result == DialogResult.OK)
+                    if (result == DialogResult.OK)
                     {
                         bool thongbao = kh.DangTin(txtTieude.Text, cbLoainha.SelectedText, double.Parse(txtDientich.Text), int.Parse(txtSophong.Text), double.Parse(txtGia.Text), txtDiachi.Text, hinhAnh, FrmMain.mail);
                         if (thongbao)
                         {
                             ResetValue();
-                            MessageBox.Show("Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK);
+                            MessageBox.Show("Đã đăng thành công \nVui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                    } else
+                    }
+                    else
                     {
                         return;
-                    }  
+                    }
                 }
                 else
                 {
@@ -160,7 +169,7 @@ namespace QuanLyBDS.KhachHang
                 txtTieude.Focus();
                 return false;
             }
-         
+
             if (string.IsNullOrEmpty(txtDientich.Text))
             {
                 txtDientich.Focus();
@@ -185,7 +194,7 @@ namespace QuanLyBDS.KhachHang
                 txtSophong.Focus();
                 return false;
             }
-            return true; 
+            return true;
 
         }
         void ResetValue()
@@ -196,7 +205,7 @@ namespace QuanLyBDS.KhachHang
             txtGia.Text = "";
             txtDientich.Text = "";
             txtHinhanh.Text = "";
-            picHinhAnh.Image = null; 
+            picHinhAnh.Image = null;
         }
         #endregion
     }

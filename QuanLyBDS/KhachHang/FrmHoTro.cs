@@ -40,15 +40,13 @@ namespace QuanLyBDS.KhachHang
             string Sdt = txtSodt.Text;
             string Chitiet = txtChitiethotro.Text;
             string Vande = txtHotro.Text;
-
-            bool result = kh.insertTicket(Sdt, Vande, Chitiet);
             if (!checkNull())
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin trước khi gửi ticket", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (result)
+            if (kh.insertTicket(Sdt, Vande, Chitiet))
             {
                 MessageBox.Show("Gửi phản hồi thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtChitiethotro.Text = null;

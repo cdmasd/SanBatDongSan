@@ -36,7 +36,7 @@ namespace QuanLyBDS.NhanVien
             string hoten = txtHoten.Text;
             string sdt = txtSdt.Text;
             string id = txtId.Text;
-            bool result = nv.UpdateKhachhang(id, email, hoten, sdt, sodu);
+            bool result = nv.UpdateKhachhang(id,email,hoten,naptien, sodu);
             if (result)
             {
                 Mail.MailPayment(email, hoten, naptien.ToString(), sodu.ToString());

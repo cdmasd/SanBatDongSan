@@ -29,10 +29,6 @@ namespace BUS_QuanLyBDS
         {
             return nv.DeleteBaiDang(id);
         }
-        public DataTable Chuahotro()
-        {
-            return nv.Chuahotro();
-        }
         public bool Hotro(string id, string email)
         {
             return nv.Hotro(id, email);
@@ -42,9 +38,9 @@ namespace BUS_QuanLyBDS
         {
             return nv.Getkhachhang();
         }
-        public bool UpdateKhachhang(string id, string email, string hoten, string sdt, double sodu)
+        public bool UpdateKhachhang(string id,string email, string hoten,double tiennap, double sodu)
         {
-            return nv.UpdataKhachhang(id, email, hoten, sdt, sodu);
+            return nv.UpdataKhachhang(id,email,hoten,tiennap, sodu);
         }
         public bool DeleteTaikhoanKH(string email, string id)
         {

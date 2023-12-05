@@ -42,6 +42,7 @@ namespace QuanLyBDS.NhanVien
                     txtHinhanh.Text = dtView.CurrentRow.Cells[7].Value.ToString();
                     txtDiachi.Text = dtView.CurrentRow.Cells[6].Value.ToString();
                     txtGia.Text = dtView.CurrentRow.Cells[5].Value.ToString();
+                    picSmallImage.ImageLocation = dtView.CurrentRow.Cells[7].Value.ToString();
                 }
                 else
                 {
@@ -77,6 +78,7 @@ namespace QuanLyBDS.NhanVien
                 dtView.Columns[8].HeaderText = "ID người đăng";
                 dtView.Columns[9].HeaderText = "Thời gian đăng";
                 dtView.Columns[10].HeaderText = "Trạng thái";
+                dtView.Columns[11].HeaderText = "Người duyệt bài";
                 label8.Visible = false;
             }
             else
@@ -89,13 +91,17 @@ namespace QuanLyBDS.NhanVien
         {
             if (txtTieude.Text != "")
             {
-                if (nv.DeleteBaiDang(txtId.Text))
+                var result = MessageBox.Show("Bạn có chắc chắn muốn xoá ?", "Xác nhận",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if(result == DialogResult.OK)
                 {
-                    MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                else
-                {
-                    MessageBox.Show("Xoá thất bại, Không tìm thấy đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (nv.DeleteBaiDang(txtId.Text))
+                    {
+                        MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoá thất bại, Không tìm thấy đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else
@@ -108,25 +114,32 @@ namespace QuanLyBDS.NhanVien
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             dtView.ClearAll();
-            dtView.DataSource = nv.TimKiemBaiDangDaDuyet(txtTimKiem.Text.Trim().ToUpper());
-            if (dtView.Rows.Count > 0)
+            if (!string.IsNullOrEmpty(txtTimKiem.Text.Trim().ToUpper()))
             {
-                dtView.Columns[0].HeaderText = "ID";
-                dtView.Columns[1].HeaderText = "Tiêu đề";
-                dtView.Columns[2].HeaderText = "Loại nhà";
-                dtView.Columns[3].HeaderText = "Diện tích";
-                dtView.Columns[4].HeaderText = "Số phòng";
-                dtView.Columns[5].HeaderText = "Giá";
-                dtView.Columns[6].HeaderText = "Địa chỉ";
-                dtView.Columns[7].HeaderText = "Hình ảnh";
-                dtView.Columns[8].HeaderText = "ID người đăng";
-                dtView.Columns[9].HeaderText = "Thời gian đăng";
-                dtView.Columns[10].HeaderText = "Trạng thái";
-                label8.Visible = false;
-            }
-            else
+                dtView.DataSource = nv.TimKiemBaiDangDaDuyet(txtTimKiem.Text.Trim().ToUpper());
+                if (dtView.Rows.Count > 0)
+                {
+                    dtView.Columns[0].HeaderText = "ID";
+                    dtView.Columns[1].HeaderText = "Tiêu đề";
+                    dtView.Columns[2].HeaderText = "Loại nhà";
+                    dtView.Columns[3].HeaderText = "Diện tích";
+                    dtView.Columns[4].HeaderText = "Số phòng";
+                    dtView.Columns[5].HeaderText = "Giá";
+                    dtView.Columns[6].HeaderText = "Địa chỉ";
+                    dtView.Columns[7].HeaderText = "Hình ảnh";
+                    dtView.Columns[8].HeaderText = "ID người đăng";
+                    dtView.Columns[9].HeaderText = "Thời gian đăng";
+                    dtView.Columns[10].HeaderText = "Trạng thái";
+                    label8.Visible = false;
+                }
+                else
+                {
+                    label8.Visible = true;
+                }
+            } else
             {
-                label8.Visible = true;
+                currentpage = 1;
+                LoadBaiDang();
             }
         }
 
@@ -174,6 +187,25 @@ namespace QuanLyBDS.NhanVien
         {
             currentpage = 1;
             LoadBaiDang();
+        }
+        private void ShowImageDialog(string imageUrl)
+        {
+            HinhAnh hinhanh = new HinhAnh(imageUrl);
+            hinhanh.ShowDialog();
+        }
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            string localFilePath = txtHinhanh.Text;
+
+            if (!string.IsNullOrEmpty(localFilePath))
+            {
+                string imageUrl = new Uri(localFilePath).AbsoluteUri;
+                ShowImageDialog(imageUrl);
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
