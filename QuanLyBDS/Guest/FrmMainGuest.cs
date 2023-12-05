@@ -34,6 +34,7 @@ namespace QuanLyBDS.Guest
             cbGia.DropDownStyle = UIDropDownStyle.DropDownList;
             cbDientich.DropDownStyle = UIDropDownStyle.DropDownList;
             cbSophong.DropDownStyle = UIDropDownStyle.DropDownList;
+            btnXemanh.Enabled = false;
         }
 
         private void btnXemanh_Click(object sender, EventArgs e)
@@ -185,6 +186,7 @@ namespace QuanLyBDS.Guest
         {
             if (e.RowIndex >= 0)
             {
+                btnXemanh.Enabled = true;
                 string tinDangId = dtView.Rows[e.RowIndex].Cells["_id"].Value.ToString();
                 string hinhAnh = dtView.Rows[e.RowIndex].Cells["Hinhanh"].Value.ToString();
                 List<BsonDocument> thongTinNguoiDangList = guest.Thongtinnguoidang(tinDangId);
@@ -203,13 +205,6 @@ namespace QuanLyBDS.Guest
                     MessageBox.Show("Không tìm thấy thông tin người đăng.");
                 }
             }
-        }
-
-
-
-        private void dtView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnQuayLai_Click(object sender, EventArgs e)

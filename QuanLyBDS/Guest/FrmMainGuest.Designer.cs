@@ -90,7 +90,7 @@
             dtView.EnableHeadersVisualStyles = false;
             dtView.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtView.GridColor = Color.FromArgb(104, 173, 255);
-            dtView.Location = new Point(106, 327);
+            dtView.Location = new Point(12, 178);
             dtView.MultiSelect = false;
             dtView.Name = "dtView";
             dtView.ReadOnly = true;
@@ -113,11 +113,10 @@
             dtView.ScrollBarRectColor = Color.FromArgb(80, 160, 255);
             dtView.SelectedIndex = -1;
             dtView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtView.Size = new Size(1315, 465);
+            dtView.Size = new Size(1016, 410);
             dtView.Style = Sunny.UI.UIStyle.Custom;
             dtView.TabIndex = 45;
             dtView.CellClick += dtView_CellClick;
-            dtView.CellContentClick += dtView_CellContentClick;
             // 
             // cbLoainha
             // 
@@ -127,7 +126,7 @@
             cbLoainha.FillColor = Color.White;
             cbLoainha.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbLoainha.Items.AddRange(new object[] { "Chung cư", "Căn hộ mini", "Nhà nguyên căn", "Biệt thự", "Văn phòng", "Khác" });
-            cbLoainha.Location = new Point(326, 135);
+            cbLoainha.Location = new Point(75, 24);
             cbLoainha.Margin = new Padding(4, 5, 4, 5);
             cbLoainha.MinimumSize = new Size(63, 0);
             cbLoainha.Name = "cbLoainha";
@@ -147,7 +146,7 @@
             cbDientich.FillColor = Color.White;
             cbDientich.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbDientich.Items.AddRange(new object[] { "20 đến 30 m²", "30 đến 70 m²", "70 đến 80 m²", "80 đến 100 m²", "100 đến 150 m²", "150 đến 200 m²", "200 đến 250 m²" });
-            cbDientich.Location = new Point(630, 135);
+            cbDientich.Location = new Point(379, 24);
             cbDientich.Margin = new Padding(4, 5, 4, 5);
             cbDientich.MinimumSize = new Size(63, 0);
             cbDientich.Name = "cbDientich";
@@ -167,7 +166,7 @@
             cbSophong.FillColor = Color.White;
             cbSophong.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbSophong.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
-            cbSophong.Location = new Point(923, 135);
+            cbSophong.Location = new Point(672, 24);
             cbSophong.Margin = new Padding(4, 5, 4, 5);
             cbSophong.MinimumSize = new Size(63, 0);
             cbSophong.Name = "cbSophong";
@@ -187,7 +186,7 @@
             cbGia.FillColor = Color.White;
             cbGia.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbGia.Items.AddRange(new object[] { "Dưới 1 tỷ", "1 - 3 tỷ", "3 - 5 tỷ", "5 - 10 tỷ", "10 - 40 tỷ", "40 - 70 tỷ", "70 - 100 tỷ" });
-            cbGia.Location = new Point(630, 215);
+            cbGia.Location = new Point(379, 104);
             cbGia.Margin = new Padding(4, 5, 4, 5);
             cbGia.MinimumSize = new Size(63, 0);
             cbGia.Name = "cbGia";
@@ -207,7 +206,7 @@
             cbDiachi.FillColor = Color.White;
             cbDiachi.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbDiachi.Items.AddRange(new object[] { "Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Quận Bình Tân", "TP.Thủ Đức", "Huyện Bình Chánh", "Cần Giờ", "Củ Chi", "Hóc Môn", "Nhà Bè" });
-            cbDiachi.Location = new Point(326, 215);
+            cbDiachi.Location = new Point(75, 104);
             cbDiachi.Margin = new Padding(4, 5, 4, 5);
             cbDiachi.MinimumSize = new Size(63, 0);
             cbDiachi.Name = "cbDiachi";
@@ -224,9 +223,9 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(933, 344);
+            label1.Location = new Point(1088, 189);
             label1.Name = "label1";
-            label1.Size = new Size(192, 29);
+            label1.Size = new Size(152, 24);
             label1.TabIndex = 51;
             label1.Text = "Thông tin liên hệ";
             // 
@@ -236,7 +235,7 @@
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(11, 39);
             label2.Name = "label2";
-            label2.Size = new Size(106, 25);
+            label2.Size = new Size(85, 20);
             label2.TabIndex = 0;
             label2.Text = "Họ và tên :";
             // 
@@ -246,7 +245,7 @@
             txtHoten.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtHoten.Location = new Point(11, 64);
             txtHoten.Name = "txtHoten";
-            txtHoten.Size = new Size(171, 25);
+            txtHoten.Size = new Size(137, 20);
             txtHoten.TabIndex = 1;
             txtHoten.Text = "Bấm vào dataview";
             // 
@@ -256,7 +255,7 @@
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(11, 111);
             label3.Name = "label3";
-            label3.Size = new Size(71, 25);
+            label3.Size = new Size(56, 20);
             label3.TabIndex = 2;
             label3.Text = "Email :";
             // 
@@ -266,7 +265,7 @@
             txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(11, 136);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(171, 25);
+            txtEmail.Size = new Size(137, 20);
             txtEmail.TabIndex = 3;
             txtEmail.Text = "Bấm vào dataview";
             // 
@@ -276,7 +275,7 @@
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(11, 183);
             label5.Name = "label5";
-            label5.Size = new Size(137, 25);
+            label5.Size = new Size(110, 20);
             label5.TabIndex = 4;
             label5.Text = "Số điện thoại :";
             // 
@@ -286,7 +285,7 @@
             txtSodt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtSodt.Location = new Point(11, 208);
             txtSodt.Name = "txtSodt";
-            txtSodt.Size = new Size(171, 25);
+            txtSodt.Size = new Size(137, 20);
             txtSodt.TabIndex = 5;
             txtSodt.Text = "Bấm vào dataview";
             // 
@@ -300,7 +299,7 @@
             panelGuest.Controls.Add(label3);
             panelGuest.Controls.Add(txtHoten);
             panelGuest.Controls.Add(label2);
-            panelGuest.Location = new Point(909, 391);
+            panelGuest.Location = new Point(1064, 236);
             panelGuest.Name = "panelGuest";
             panelGuest.Size = new Size(203, 268);
             panelGuest.TabIndex = 52;
@@ -313,7 +312,7 @@
             btnXemanh.FillColor = SystemColors.Highlight;
             btnXemanh.FillHoverColor = Color.MidnightBlue;
             btnXemanh.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnXemanh.Location = new Point(958, 674);
+            btnXemanh.Location = new Point(1113, 519);
             btnXemanh.MinimumSize = new Size(1, 1);
             btnXemanh.Name = "btnXemanh";
             btnXemanh.Size = new Size(100, 35);
@@ -328,7 +327,7 @@
             txtHinhanh.AutoSize = true;
             txtHinhanh.Location = new Point(1515, 717);
             txtHinhanh.Name = "txtHinhanh";
-            txtHinhanh.Size = new Size(0, 20);
+            txtHinhanh.Size = new Size(0, 16);
             txtHinhanh.TabIndex = 56;
             txtHinhanh.Visible = false;
             // 
@@ -339,10 +338,10 @@
             btnQuayLai.FillColor = SystemColors.Highlight;
             btnQuayLai.FillHoverColor = Color.MidnightBlue;
             btnQuayLai.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnQuayLai.Location = new Point(370, 333);
+            btnQuayLai.Location = new Point(1076, 611);
             btnQuayLai.MinimumSize = new Size(1, 1);
             btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(173, 65);
+            btnQuayLai.Size = new Size(173, 35);
             btnQuayLai.Style = Sunny.UI.UIStyle.Custom;
             btnQuayLai.TabIndex = 57;
             btnQuayLai.Text = "Quay lại đăng nhập";
@@ -354,9 +353,9 @@
             label8.AutoSize = true;
             label8.BackColor = SystemColors.Control;
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(700, 549);
+            label8.Location = new Point(457, 373);
             label8.Name = "label8";
-            label8.Size = new Size(158, 25);
+            label8.Size = new Size(126, 20);
             label8.TabIndex = 58;
             label8.Text = "Không có dữ liệu";
             label8.Visible = false;
@@ -364,11 +363,11 @@
             // txtCurrentPage
             // 
             txtCurrentPage.AutoSize = true;
-            txtCurrentPage.BackColor = Color.White;
+            txtCurrentPage.BackColor = SystemColors.ActiveCaption;
             txtCurrentPage.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCurrentPage.Location = new Point(124, 735);
+            txtCurrentPage.Location = new Point(12, 622);
             txtCurrentPage.Name = "txtCurrentPage";
-            txtCurrentPage.Size = new Size(79, 29);
+            txtCurrentPage.Size = new Size(60, 24);
             txtCurrentPage.TabIndex = 72;
             txtCurrentPage.Text = "label9";
             // 
@@ -377,7 +376,7 @@
             btnSau.FillColor = SystemColors.Highlight;
             btnSau.FillHoverColor = Color.MidnightBlue;
             btnSau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSau.Location = new Point(231, 363);
+            btnSau.Location = new Point(928, 611);
             btnSau.MinimumSize = new Size(1, 1);
             btnSau.Name = "btnSau";
             btnSau.Size = new Size(100, 35);
@@ -392,7 +391,7 @@
             btnTruoc.FillColor = SystemColors.Highlight;
             btnTruoc.FillHoverColor = Color.MidnightBlue;
             btnTruoc.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnTruoc.Location = new Point(124, 363);
+            btnTruoc.Location = new Point(802, 611);
             btnTruoc.MinimumSize = new Size(1, 1);
             btnTruoc.Name = "btnTruoc";
             btnTruoc.Size = new Size(100, 35);
@@ -409,7 +408,7 @@
             btnDanhSach.FillColor = SystemColors.Highlight;
             btnDanhSach.FillHoverColor = Color.MidnightBlue;
             btnDanhSach.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDanhSach.Location = new Point(1261, 270);
+            btnDanhSach.Location = new Point(715, 101);
             btnDanhSach.MinimumSize = new Size(1, 1);
             btnDanhSach.Name = "btnDanhSach";
             btnDanhSach.Size = new Size(160, 51);
@@ -424,7 +423,7 @@
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1800, 965);
+            ClientSize = new Size(1300, 665);
             Controls.Add(btnDanhSach);
             Controls.Add(btnSau);
             Controls.Add(btnTruoc);

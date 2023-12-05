@@ -168,7 +168,6 @@ namespace QuanLyBDS.Admin
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 DataGridViewCell cellEmail = dtView.Rows[e.RowIndex].Cells["Email"];
-                object cellDate = dtView.Rows[e.RowIndex].Cells[4].Value;
                 if (cellEmail != null && cellEmail.Value != null)
                 {
                     txtEmail.Text = cellEmail.Value.ToString();
