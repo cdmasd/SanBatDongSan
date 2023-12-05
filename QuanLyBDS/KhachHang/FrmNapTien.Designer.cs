@@ -35,6 +35,7 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -95,11 +96,11 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             label5.ForeColor = Color.Red;
-            label5.Location = new Point(108, 557);
+            label5.Location = new Point(108, 575);
             label5.Name = "label5";
-            label5.Size = new Size(759, 25);
+            label5.Size = new Size(758, 25);
             label5.TabIndex = 5;
-            label5.Text = "- mọi thắc mắc xin hãy liên hệ đến Hotline : 0937806350 hoặc tạo ticket để được hỗ trợ";
+            label5.Text = "- Mọi thắc mắc xin hãy liên hệ đến Hotline : 0937806350 hoặc tạo ticket để được hỗ trợ";
             // 
             // label6
             // 
@@ -112,6 +113,17 @@
             label6.TabIndex = 6;
             label6.Text = "- Để tránh mất tiền quý khách vui lòng kiểm tra kỹ các thông tin trước khi chuyển khoản";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(108, 544);
+            label7.Name = "label7";
+            label7.Size = new Size(409, 25);
+            label7.TabIndex = 7;
+            label7.Text = "- Số tiền chuyển khoản phải chia hết cho 1000";
+            // 
             // FrmNapTien
             // 
             AllowShowTitle = false;
@@ -119,6 +131,7 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1085, 670);
             ControlBox = false;
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -148,5 +161,6 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private Label label7;
     }
 }

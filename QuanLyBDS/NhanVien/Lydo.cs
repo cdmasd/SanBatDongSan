@@ -15,23 +15,38 @@ namespace QuanLyBDS.NhanVien
     {
         BUS_QuanLyBDS.NhanVien nv = new BUS_QuanLyBDS.NhanVien();
         string idbai;
-        public Lydo(string id)
+        string reason;
+        public Lydo(string id,string cause)
         {
             InitializeComponent();
             this.idbai = id;
+            this.reason = cause;
         }
 
         private void btSend_Click(object sender, EventArgs e)
         {
             string email = nv.getEmailKh(idbai);
-            if (nv.TuchoiBaiDang(idbai))
+            if(reason == "từ chối")
             {
-                Mail.MailRejected(email, idbai, txtLydo.Text);
-                this.Close();
-            }
-            else
+                if (nv.TuchoiBaiDang(idbai))
+                {
+                    Mail.MailRejected(email, idbai, txtLydo.Text);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Từ chối thất bại, Không tìm thấy đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            } else
             {
-                MessageBox.Show("Không tìm được bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (nv.DeleteBaiDang(idbai))
+                {
+                    Mail.MailDelete(email, idbai, txtLydo.Text); this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Xoá thất bại, Không tìm thấy đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

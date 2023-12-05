@@ -35,35 +35,39 @@
             // txtLydo
             // 
             txtLydo.BorderStyle = BorderStyle.FixedSingle;
-            txtLydo.Location = new Point(12, 12);
+            txtLydo.Location = new Point(10, 9);
+            txtLydo.Margin = new Padding(3, 2, 3, 2);
             txtLydo.Multiline = true;
             txtLydo.Name = "txtLydo";
-            txtLydo.PlaceholderText = "Vui lòng nhập lí do từ chối";
-            txtLydo.Size = new Size(500, 158);
+            txtLydo.PlaceholderText = "Vui lòng nhập lí do";
+            txtLydo.Size = new Size(438, 119);
             txtLydo.TabIndex = 0;
             // 
             // btSend
             // 
+            btSend.BackColor = SystemColors.MenuHighlight;
             btSend.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btSend.Location = new Point(383, 180);
+            btSend.Location = new Point(335, 135);
+            btSend.Margin = new Padding(3, 2, 3, 2);
             btSend.MinimumSize = new Size(1, 1);
             btSend.Name = "btSend";
-            btSend.Size = new Size(129, 44);
+            btSend.Size = new Size(113, 33);
             btSend.TabIndex = 1;
-            btSend.Text = "Gửi từ chối";
+            btSend.Text = "Gửi kết quả";
             btSend.TipsFont = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btSend.Click += btSend_Click;
             // 
             // Lydo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(527, 236);
+            ClientSize = new Size(461, 177);
             Controls.Add(btSend);
             Controls.Add(txtLydo);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Lydo";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Lý do từ chối";
+            Text = "Lý do";
             ResumeLayout(false);
             PerformLayout();
         }

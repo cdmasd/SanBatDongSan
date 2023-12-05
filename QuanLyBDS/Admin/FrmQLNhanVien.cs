@@ -47,9 +47,8 @@ namespace QuanLyBDS.Admin
 
         private async void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtHoten.Text == string.Empty || txtEmail.Text == string.Empty || txtDiachi.Text == string.Empty || txtSodienthoai.Text == string.Empty || !bus_Admin.KiemTraEmail(txtEmail.Text.Trim()))
+            if (!KiemTraTextBox())
             {
-                KiemTraTextBox();
                 return;
             }
             if (isPhone(txtSodienthoai.Text.Trim()) == false)
@@ -109,9 +108,9 @@ namespace QuanLyBDS.Admin
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (txtHoten.Text == string.Empty || txtEmail.Text == string.Empty || txtDiachi.Text == string.Empty || txtSodienthoai.Text == string.Empty || !bus_Admin.KiemTraEmail(txtEmail.Text.Trim()))
+            if (!KiemTraTextBox())
             {
-                KiemTraTextBox();
+                
                 return;
             }
             if (isPhone(txtSodienthoai.Text.Trim()) == false)
@@ -273,33 +272,34 @@ namespace QuanLyBDS.Admin
             UILocalize.ErrorTitle = "Error";
         }
 
-        private void KiemTraTextBox()
+        private bool KiemTraTextBox()
         {
             if (txtHoten.Text == string.Empty)
             {
                 MessageBox.Show("Họ Tên đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
             if (txtEmail.Text == string.Empty)
             {
                 MessageBox.Show("Email đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
             if (txtDiachi.Text == string.Empty)
             {
                 MessageBox.Show("Địa chỉ đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
             if (txtSodienthoai.Text == string.Empty)
             {
                 MessageBox.Show("Số điện đang trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
             if (!bus_Admin.KiemTraEmail(txtEmail.Text.Trim()))
             {
                 MessageBox.Show("mail không hợp lệ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
+            return true;
         }
 
         private void btnBoQua_Click(object sender, EventArgs e)

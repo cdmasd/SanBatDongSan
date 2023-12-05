@@ -123,6 +123,7 @@
             txtSdt.TabIndex = 5;
             txtSdt.TextAlignment = ContentAlignment.MiddleLeft;
             txtSdt.Watermark = "";
+            txtSdt.KeyPress += txtSdt_KeyPress;
             // 
             // txtSodu
             // 

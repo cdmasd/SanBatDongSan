@@ -99,21 +99,21 @@ namespace QuanLyBDS.NhanVien
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn từ chối ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
-                    Lydo ld = new Lydo(txtId.Text);
+                    Lydo ld = new Lydo(txtId.Text,"từ chối");
                     ld.Show();
                     ld.FormClosed += new FormClosedEventHandler(Lydo_FormClosed);
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn bài đăng trước", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn bài đăng cần từ chối", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             resetValues();
             LoadBaiDang();
         }
         void Lydo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MessageBox.Show("Đã từ chối bài đăng", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show("Đã từ chối bài đăng", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Information);
             this.Refresh();
             FrmDuyetbai_Load(sender, e);
         }
@@ -152,7 +152,7 @@ namespace QuanLyBDS.NhanVien
             {
                 if (nv.Duyetbai(txtId.Text, FrmMain.mail))
                 {
-                    MessageBox.Show("Duyệt thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Duyệt thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     resetValues();
                 }
                 else
@@ -162,7 +162,7 @@ namespace QuanLyBDS.NhanVien
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Vui lòng chọn bài đăng cần duyệt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             LoadBaiDang();
         }
@@ -176,6 +176,7 @@ namespace QuanLyBDS.NhanVien
             txtHinhanh.Text = "";
             txtDiachi.Text = "";
             txtGia.Text = "";
+            picSmallImage.Image = null;
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -233,20 +234,7 @@ namespace QuanLyBDS.NhanVien
 
         private void btnBoQua_Click(object sender, EventArgs e)
         {
-            ClearFields();
-        }
-
-        private void ClearFields()
-        {
-            txtTieude.Text = string.Empty;
-            cbLoainha.Text = string.Empty;
-            cbLoainha.SelectedIndex = -1;
-            txtDientich.Text = string.Empty;
-            txtSophong.Text = string.Empty;
-            txtGia.Text = string.Empty;
-            txtDiachi.Text = string.Empty;
-            txtHinhanh.Text = string.Empty;
-            dtView.ClearSelection();
+            resetValues();
         }
     }
 }

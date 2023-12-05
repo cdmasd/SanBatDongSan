@@ -107,7 +107,7 @@ namespace QuanLyBDS.KhachHang
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin và ảnh cần chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (double.Parse(txtGia.Text) <= 100000000 || double.Parse(txtGia.Text) % 20000 != 0)
+                if (double.Parse(txtGia.Text) <= 100000000 || double.Parse(txtGia.Text) % 10000 != 0)
                 {
                     MessageBox.Show("Số tiền không hợp lệ\n Vui lòng lớn hơn 100 triệu và chia hết cho 20.000", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtGia.Focus();
@@ -123,15 +123,25 @@ namespace QuanLyBDS.KhachHang
                 if (result == DialogResult.OK)
                 {
                     txtHinhanh.Text = cloudinaryUrl;
-                    bool Ds = kh.UpdateBaidang(txtId.Text, txtTieude.Text, cbLoainha.SelectedText, double.Parse(txtDientich.Text), int.Parse(txtSophong.Text), double.Parse(txtGia.Text), txtDiachi.Text, txtHinhanh.Text);
-                    if (Ds)
+                    if (kh.UpdateBaidang(txtId.Text, txtTieude.Text, cbLoainha.SelectedText, double.Parse(txtDientich.Text), int.Parse(txtSophong.Text), double.Parse(txtGia.Text), txtDiachi.Text, txtHinhanh.Text))
                     {
                         MessageBox.Show("Đã cập nhật bài đăng của bạn\n Vui lòng chờ nhân viên duyệt", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetValue();
+                        if(index == 1)
+                        {
+                            LoadDaDuyet();
+                        } else if(index == 2)
+                        {
+                            LoadChuaDuyet();
+                        } else
+                        {
+                            LoadTuchoi();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Vui lòng chọn bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Không thể cập nhật bài đăng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
             }
@@ -421,7 +431,14 @@ namespace QuanLyBDS.KhachHang
         {
             var result = pt.TimKiemBaiDangCuaKHDangTin(FrmMain.mail, txtTimKiem.Text.Trim().ToUpper());
             dtView.DataSource = result;
-            txtTimKiem.Text = string.Empty;
+            if (result.Columns.Count == 0)
+            {
+                label8.Visible = true;
+            } else
+            {   
+                label8.Visible = false;
+            }
+            
         }
 
         private void btXemanh_Click(object sender, EventArgs e)
@@ -437,6 +454,31 @@ namespace QuanLyBDS.KhachHang
             else
             {
                 MessageBox.Show("Không tìm thấy hình ảnh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtDientich_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSophong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

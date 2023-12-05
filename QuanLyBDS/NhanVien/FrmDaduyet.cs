@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Sources;
 using System.Windows.Forms;
 
 namespace QuanLyBDS.NhanVien
@@ -91,26 +92,27 @@ namespace QuanLyBDS.NhanVien
         {
             if (txtTieude.Text != "")
             {
-                var result = MessageBox.Show("Bạn có chắc chắn muốn xoá ?", "Xác nhận",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if(result == DialogResult.OK)
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn từ chối ?", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.OK)
                 {
-                    if (nv.DeleteBaiDang(txtId.Text))
-                    {
-                        MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xoá thất bại, Không tìm thấy đối tượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    Lydo ld = new Lydo(txtId.Text, "xoá");
+                    ld.Show();
+                    ld.FormClosed += new FormClosedEventHandler(Lydo_FormClosed);
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng đối tượng cần xoá ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn bài đăng cần từ chối", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            ClearFields();
             LoadBaiDang();
         }
-
+        void Lydo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("Đã xoá bài đăng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Refresh();
+            FrmDaduyet_Load(sender, e);
+        }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             dtView.ClearAll();
@@ -181,6 +183,7 @@ namespace QuanLyBDS.NhanVien
             txtDiachi.Text = string.Empty;
             txtHinhanh.Text = string.Empty;
             dtView.ClearSelection();
+            picSmallImage.Image = null;
         }
 
         private void btnDanhSach_Click(object sender, EventArgs e)

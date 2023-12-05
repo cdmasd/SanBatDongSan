@@ -30,17 +30,28 @@ namespace QuanLyBDS.NhanVien
 
         private void btnNap_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtNap.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số tiền cần nạp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNap.Focus();
+                return;
+            }
             double naptien = double.Parse(txtNap.Text);
             double sodu = double.Parse(txtSodu.Text) + naptien;
             string email = txtEmail.Text;
             string hoten = txtHoten.Text;
-            string sdt = txtSdt.Text;
             string id = txtId.Text;
-            bool result = nv.UpdateKhachhang(id,email,hoten,naptien, sodu);
+            if(naptien % 20000 == 0)
+            {
+                MessageBox.Show("Vui lòng nhập số tiền chia hết cho 1000", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNap.Focus();
+                return;
+            }
+            bool result = nv.UpdateKhachhang(id, email, hoten, naptien, sodu);
             if (result)
             {
                 Mail.MailPayment(email, hoten, naptien.ToString(), sodu.ToString());
-                MessageBox.Show("Đã nạp tiền khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Đã nạp tiền khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadDataQLyKhachhang();
                 resetValue();
                 dtView.Refresh();
@@ -178,6 +189,14 @@ namespace QuanLyBDS.NhanVien
         private void btnBoQua_Click(object sender, EventArgs e)
         {
             resetValue();
+        }
+
+        private void txtNap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
