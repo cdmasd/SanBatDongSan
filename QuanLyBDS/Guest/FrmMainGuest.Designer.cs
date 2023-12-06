@@ -166,7 +166,7 @@
             cbSophong.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
             cbSophong.FillColor = Color.White;
             cbSophong.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbSophong.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
+            cbSophong.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" });
             cbSophong.Location = new Point(257, 80);
             cbSophong.Margin = new Padding(4, 5, 4, 5);
             cbSophong.MinimumSize = new Size(63, 0);
@@ -206,7 +206,7 @@
             label1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(1088, 189);
             label1.Name = "label1";
-            label1.Size = new Size(152, 24);
+            label1.Size = new Size(192, 29);
             label1.TabIndex = 51;
             label1.Text = "Thông tin liên hệ";
             // 
@@ -216,7 +216,7 @@
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(11, 39);
             label2.Name = "label2";
-            label2.Size = new Size(85, 20);
+            label2.Size = new Size(106, 25);
             label2.TabIndex = 0;
             label2.Text = "Họ và tên :";
             // 
@@ -226,7 +226,7 @@
             txtHoten.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtHoten.Location = new Point(11, 64);
             txtHoten.Name = "txtHoten";
-            txtHoten.Size = new Size(137, 20);
+            txtHoten.Size = new Size(171, 25);
             txtHoten.TabIndex = 1;
             txtHoten.Text = "Bấm vào dataview";
             // 
@@ -236,7 +236,7 @@
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(11, 111);
             label3.Name = "label3";
-            label3.Size = new Size(56, 20);
+            label3.Size = new Size(71, 25);
             label3.TabIndex = 2;
             label3.Text = "Email :";
             // 
@@ -246,7 +246,7 @@
             txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtEmail.Location = new Point(11, 136);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(137, 20);
+            txtEmail.Size = new Size(171, 25);
             txtEmail.TabIndex = 3;
             txtEmail.Text = "Bấm vào dataview";
             // 
@@ -256,7 +256,7 @@
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(11, 183);
             label5.Name = "label5";
-            label5.Size = new Size(110, 20);
+            label5.Size = new Size(137, 25);
             label5.TabIndex = 4;
             label5.Text = "Số điện thoại :";
             // 
@@ -266,7 +266,7 @@
             txtSodt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtSodt.Location = new Point(11, 208);
             txtSodt.Name = "txtSodt";
-            txtSodt.Size = new Size(137, 20);
+            txtSodt.Size = new Size(171, 25);
             txtSodt.TabIndex = 5;
             txtSodt.Text = "Bấm vào dataview";
             // 
@@ -308,7 +308,7 @@
             txtHinhanh.AutoSize = true;
             txtHinhanh.Location = new Point(1515, 717);
             txtHinhanh.Name = "txtHinhanh";
-            txtHinhanh.Size = new Size(0, 16);
+            txtHinhanh.Size = new Size(0, 20);
             txtHinhanh.TabIndex = 56;
             txtHinhanh.Visible = false;
             // 
@@ -336,7 +336,7 @@
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label8.Location = new Point(457, 373);
             label8.Name = "label8";
-            label8.Size = new Size(126, 20);
+            label8.Size = new Size(158, 25);
             label8.TabIndex = 58;
             label8.Text = "Không có dữ liệu";
             label8.Visible = false;
@@ -348,7 +348,7 @@
             txtCurrentPage.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             txtCurrentPage.Location = new Point(12, 622);
             txtCurrentPage.Name = "txtCurrentPage";
-            txtCurrentPage.Size = new Size(60, 24);
+            txtCurrentPage.Size = new Size(79, 29);
             txtCurrentPage.TabIndex = 72;
             txtCurrentPage.Text = "label9";
             // 
@@ -406,7 +406,7 @@
             txtTimkiem.Location = new Point(315, 143);
             txtTimkiem.Name = "txtTimkiem";
             txtTimkiem.PlaceholderText = "Tìm kiếm theo khu vực";
-            txtTimkiem.Size = new Size(308, 29);
+            txtTimkiem.Size = new Size(308, 34);
             txtTimkiem.TabIndex = 76;
             // 
             // btnTimkiem

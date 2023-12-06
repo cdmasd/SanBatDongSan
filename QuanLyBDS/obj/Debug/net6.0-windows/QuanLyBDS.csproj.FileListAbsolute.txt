@@ -641,3 +641,8 @@ C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\RestShar
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\System.Text.Json.dll
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\RestSharp.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\USER\Desktop\New Project\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.DangNhap.QuenMatKhau.resources
