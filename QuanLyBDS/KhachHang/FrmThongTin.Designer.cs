@@ -37,6 +37,9 @@
             txtSdt = new Sunny.UI.UITextBox();
             txtSodu = new Sunny.UI.UITextBox();
             btnUpdate = new Sunny.UI.UIButton();
+            label9 = new Label();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -156,12 +159,34 @@
             btnUpdate.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnUpdate.Click += btnUpdate_Click;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(7, 7);
+            label9.Name = "label9";
+            label9.Size = new Size(231, 30);
+            label9.TabIndex = 78;
+            label9.Text = "Thông tin khách hàng";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.MenuHighlight;
+            panel1.Controls.Add(label9);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1085, 45);
+            panel1.TabIndex = 82;
+            // 
             // FrmThongTin
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1085, 670);
+            Controls.Add(panel1);
             Controls.Add(btnUpdate);
             Controls.Add(txtSodu);
             Controls.Add(txtSdt);
@@ -178,6 +203,8 @@
             Text = "FrmThongTin";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
             Load += FrmThongTin_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -193,5 +220,7 @@
         private Sunny.UI.UITextBox txtSdt;
         private Sunny.UI.UITextBox txtSodu;
         private Sunny.UI.UIButton btnUpdate;
+        private Label label9;
+        private Panel panel1;
     }
 }

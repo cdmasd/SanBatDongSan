@@ -37,6 +37,9 @@
             label1 = new Label();
             txtVerify = new Sunny.UI.UITextBox();
             label4 = new Label();
+            label9 = new Label();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnDoimatkhau
@@ -44,7 +47,7 @@
             btnDoimatkhau.FillColor = SystemColors.Highlight;
             btnDoimatkhau.FillHoverColor = Color.MidnightBlue;
             btnDoimatkhau.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDoimatkhau.Location = new Point(477, 395);
+            btnDoimatkhau.Location = new Point(481, 482);
             btnDoimatkhau.MinimumSize = new Size(1, 1);
             btnDoimatkhau.Name = "btnDoimatkhau";
             btnDoimatkhau.Size = new Size(113, 35);
@@ -57,7 +60,7 @@
             // txtMatkhaumoi
             // 
             txtMatkhaumoi.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMatkhaumoi.Location = new Point(413, 278);
+            txtMatkhaumoi.Location = new Point(417, 365);
             txtMatkhaumoi.Margin = new Padding(4, 5, 4, 5);
             txtMatkhaumoi.MinimumSize = new Size(1, 16);
             txtMatkhaumoi.Name = "txtMatkhaumoi";
@@ -73,7 +76,7 @@
             // txtMatkhauhientai
             // 
             txtMatkhauhientai.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtMatkhauhientai.Location = new Point(413, 207);
+            txtMatkhauhientai.Location = new Point(417, 294);
             txtMatkhauhientai.Margin = new Padding(4, 5, 4, 5);
             txtMatkhauhientai.MinimumSize = new Size(1, 16);
             txtMatkhauhientai.Name = "txtMatkhauhientai";
@@ -90,7 +93,7 @@
             // 
             txtEmail.Enabled = false;
             txtEmail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtEmail.Location = new Point(413, 136);
+            txtEmail.Location = new Point(417, 223);
             txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.MinimumSize = new Size(1, 16);
             txtEmail.Name = "txtEmail";
@@ -106,7 +109,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(413, 247);
+            label3.Location = new Point(417, 334);
             label3.Name = "label3";
             label3.Size = new Size(104, 20);
             label3.TabIndex = 9;
@@ -116,7 +119,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(413, 176);
+            label2.Location = new Point(417, 263);
             label2.Name = "label2";
             label2.Size = new Size(130, 20);
             label2.TabIndex = 8;
@@ -126,7 +129,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(413, 105);
+            label1.Location = new Point(417, 192);
             label1.Name = "label1";
             label1.Size = new Size(48, 20);
             label1.TabIndex = 7;
@@ -135,7 +138,7 @@
             // txtVerify
             // 
             txtVerify.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtVerify.Location = new Point(413, 349);
+            txtVerify.Location = new Point(417, 436);
             txtVerify.Margin = new Padding(4, 5, 4, 5);
             txtVerify.MinimumSize = new Size(1, 16);
             txtVerify.Name = "txtVerify";
@@ -152,11 +155,32 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(413, 318);
+            label4.Location = new Point(417, 405);
             label4.Name = "label4";
             label4.Size = new Size(165, 20);
             label4.TabIndex = 13;
             label4.Text = "Nhập lại mật khẩu mới";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(7, 7);
+            label9.Name = "label9";
+            label9.Size = new Size(146, 30);
+            label9.TabIndex = 78;
+            label9.Text = "Đổi mật khẩu";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.MenuHighlight;
+            panel1.Controls.Add(label9);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1085, 45);
+            panel1.TabIndex = 80;
             // 
             // FrmDoimatkhau
             // 
@@ -164,6 +188,7 @@
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1085, 670);
+            Controls.Add(panel1);
             Controls.Add(txtVerify);
             Controls.Add(label4);
             Controls.Add(btnDoimatkhau);
@@ -179,6 +204,8 @@
             Style = Sunny.UI.UIStyle.Custom;
             Text = "FrmDoimatkhau";
             ZoomScaleRect = new Rectangle(15, 15, 800, 450);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,5 +221,7 @@
         private Label label1;
         private Sunny.UI.UITextBox txtVerify;
         private Label label4;
+        private Label label9;
+        private Panel panel1;
     }
 }

@@ -265,6 +265,14 @@
               "target": "Package",
               "version": "[1.23.0, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[110.2.0, )"
+            },
             "SunnyUI": {
               "target": "Package",
               "version": "[3.5.2, )"
