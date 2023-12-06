@@ -25,9 +25,9 @@ namespace BUS_QuanLyBDS
             return kh.locLoaiNha(loainha);
         }
 
-        public DataTable locKhuVuc(string quan)
+        public DataTable SearchArea(string area)
         {
-            return kh.locKhuVuc(quan);
+            return kh.SearchArea(area);
         }
         public DataTable locsophong(int sophong)
         {

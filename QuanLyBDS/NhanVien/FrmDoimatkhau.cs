@@ -48,7 +48,7 @@ namespace QuanLyBDS.NhanVien
                 if (dn.checkAccount(FrmMain.mail, OldPass))
                 {
                     dn.changePass(FrmMain.mail, NewPass);
-                    MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {

@@ -45,15 +45,6 @@ namespace DAL_QuanLyBDS
             var locnha = baidang.Find(filter);
             return ConvertFindFluentToDataTable(locnha);
         }
-
-        public DataTable locKhuVuc(string quan)
-        {
-            var filter = Builders<BsonDocument>.Filter.And(
-            Builders<BsonDocument>.Filter.Eq("Khuvuc", quan),
-            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
-            var lockv = baidang.Find(filter);
-            return ConvertFindFluentToDataTable(lockv);
-        }
         public DataTable locsophong(int sophong)
         {
             var filter = Builders<BsonDocument>.Filter.And(
@@ -80,6 +71,11 @@ namespace DAL_QuanLyBDS
             Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
             var locGia = baidang.Find(filter);
             return ConvertFindFluentToDataTable(locGia);
+        }
+        public DataTable SearchArea(string area)
+        {
+            var khuvuc = baidang.Find(new BsonDocument("Diachi", new BsonDocument("$regex", area)));
+            return ConvertFindFluentToDataTable(khuvuc);
         }
         static DataTable ConvertFindFluentToDataTable(IFindFluent<BsonDocument, BsonDocument> findFluent)
         {

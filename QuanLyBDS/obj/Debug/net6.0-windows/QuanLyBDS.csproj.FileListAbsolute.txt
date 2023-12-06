@@ -636,3 +636,4 @@ C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Microsof
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.KhachHang.FrmNapTien.resources
 C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.NhanVien.Lydo.resources
+C:\Users\Admin\Desktop\SanBatDongSan\QuanLyBDS\obj\Debug\net6.0-windows\QuanLyBDS.DangNhap.QuenMatKhau.resources

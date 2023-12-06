@@ -38,7 +38,6 @@
             cbDientich = new Sunny.UI.UIComboBox();
             cbSophong = new Sunny.UI.UIComboBox();
             cbGia = new Sunny.UI.UIComboBox();
-            cbDiachi = new Sunny.UI.UIComboBox();
             label1 = new Label();
             label2 = new Label();
             txtHoten = new Label();
@@ -55,6 +54,8 @@
             btnSau = new Sunny.UI.UIButton();
             btnTruoc = new Sunny.UI.UIButton();
             btnDanhSach = new Sunny.UI.UIButton();
+            txtTimkiem = new TextBox();
+            btnTimkiem = new Sunny.UI.UIButton();
             ((System.ComponentModel.ISupportInitialize)dtView).BeginInit();
             panelGuest.SuspendLayout();
             SuspendLayout();
@@ -126,12 +127,12 @@
             cbLoainha.FillColor = Color.White;
             cbLoainha.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbLoainha.Items.AddRange(new object[] { "Chung cư", "Căn hộ mini", "Nhà nguyên căn", "Biệt thự", "Văn phòng", "Khác" });
-            cbLoainha.Location = new Point(75, 24);
+            cbLoainha.Location = new Point(257, 24);
             cbLoainha.Margin = new Padding(4, 5, 4, 5);
             cbLoainha.MinimumSize = new Size(63, 0);
             cbLoainha.Name = "cbLoainha";
             cbLoainha.Padding = new Padding(0, 0, 30, 2);
-            cbLoainha.Size = new Size(241, 48);
+            cbLoainha.Size = new Size(214, 31);
             cbLoainha.Style = Sunny.UI.UIStyle.Custom;
             cbLoainha.TabIndex = 46;
             cbLoainha.TextAlignment = ContentAlignment.MiddleLeft;
@@ -146,12 +147,12 @@
             cbDientich.FillColor = Color.White;
             cbDientich.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbDientich.Items.AddRange(new object[] { "20 đến 30 m²", "30 đến 70 m²", "70 đến 80 m²", "80 đến 100 m²", "100 đến 150 m²", "150 đến 200 m²", "200 đến 250 m²" });
-            cbDientich.Location = new Point(379, 24);
+            cbDientich.Location = new Point(561, 24);
             cbDientich.Margin = new Padding(4, 5, 4, 5);
             cbDientich.MinimumSize = new Size(63, 0);
             cbDientich.Name = "cbDientich";
             cbDientich.Padding = new Padding(0, 0, 30, 2);
-            cbDientich.Size = new Size(241, 48);
+            cbDientich.Size = new Size(214, 31);
             cbDientich.Style = Sunny.UI.UIStyle.Custom;
             cbDientich.TabIndex = 47;
             cbDientich.TextAlignment = ContentAlignment.MiddleLeft;
@@ -166,12 +167,12 @@
             cbSophong.FillColor = Color.White;
             cbSophong.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbSophong.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
-            cbSophong.Location = new Point(672, 24);
+            cbSophong.Location = new Point(257, 80);
             cbSophong.Margin = new Padding(4, 5, 4, 5);
             cbSophong.MinimumSize = new Size(63, 0);
             cbSophong.Name = "cbSophong";
             cbSophong.Padding = new Padding(0, 0, 30, 2);
-            cbSophong.Size = new Size(241, 48);
+            cbSophong.Size = new Size(214, 31);
             cbSophong.Style = Sunny.UI.UIStyle.Custom;
             cbSophong.TabIndex = 48;
             cbSophong.TextAlignment = ContentAlignment.MiddleLeft;
@@ -186,37 +187,17 @@
             cbGia.FillColor = Color.White;
             cbGia.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbGia.Items.AddRange(new object[] { "Dưới 1 tỷ", "1 - 3 tỷ", "3 - 5 tỷ", "5 - 10 tỷ", "10 - 40 tỷ", "40 - 70 tỷ", "70 - 100 tỷ" });
-            cbGia.Location = new Point(379, 104);
+            cbGia.Location = new Point(561, 80);
             cbGia.Margin = new Padding(4, 5, 4, 5);
             cbGia.MinimumSize = new Size(63, 0);
             cbGia.Name = "cbGia";
             cbGia.Padding = new Padding(0, 0, 30, 2);
-            cbGia.Size = new Size(241, 48);
+            cbGia.Size = new Size(214, 31);
             cbGia.Style = Sunny.UI.UIStyle.Custom;
             cbGia.TabIndex = 49;
             cbGia.TextAlignment = ContentAlignment.MiddleLeft;
             cbGia.Watermark = "Khoảng giá";
             cbGia.SelectedIndexChanged += cbGia_SelectedIndexChanged;
-            // 
-            // cbDiachi
-            // 
-            cbDiachi.Anchor = AnchorStyles.None;
-            cbDiachi.DataSource = null;
-            cbDiachi.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
-            cbDiachi.FillColor = Color.White;
-            cbDiachi.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbDiachi.Items.AddRange(new object[] { "Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Bình", "Quận Tân Phú", "Quận Bình Tân", "TP.Thủ Đức", "Huyện Bình Chánh", "Cần Giờ", "Củ Chi", "Hóc Môn", "Nhà Bè" });
-            cbDiachi.Location = new Point(75, 104);
-            cbDiachi.Margin = new Padding(4, 5, 4, 5);
-            cbDiachi.MinimumSize = new Size(63, 0);
-            cbDiachi.Name = "cbDiachi";
-            cbDiachi.Padding = new Padding(0, 0, 30, 2);
-            cbDiachi.Size = new Size(241, 48);
-            cbDiachi.Style = Sunny.UI.UIStyle.Custom;
-            cbDiachi.TabIndex = 50;
-            cbDiachi.TextAlignment = ContentAlignment.MiddleLeft;
-            cbDiachi.Watermark = "Khu vực";
-            cbDiachi.SelectedIndexChanged += cbDiachi_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -408,7 +389,7 @@
             btnDanhSach.FillColor = SystemColors.Highlight;
             btnDanhSach.FillHoverColor = Color.MidnightBlue;
             btnDanhSach.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDanhSach.Location = new Point(715, 101);
+            btnDanhSach.Location = new Point(1001, 24);
             btnDanhSach.MinimumSize = new Size(1, 1);
             btnDanhSach.Name = "btnDanhSach";
             btnDanhSach.Size = new Size(160, 51);
@@ -418,12 +399,41 @@
             btnDanhSach.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnDanhSach.Click += btnDanhSach_Click;
             // 
+            // txtTimkiem
+            // 
+            txtTimkiem.BorderStyle = BorderStyle.FixedSingle;
+            txtTimkiem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTimkiem.Location = new Point(315, 143);
+            txtTimkiem.Name = "txtTimkiem";
+            txtTimkiem.PlaceholderText = "Tìm kiếm theo khu vực";
+            txtTimkiem.Size = new Size(308, 29);
+            txtTimkiem.TabIndex = 76;
+            // 
+            // btnTimkiem
+            // 
+            btnTimkiem.Anchor = AnchorStyles.None;
+            btnTimkiem.BackColor = SystemColors.Highlight;
+            btnTimkiem.FillColor = SystemColors.Highlight;
+            btnTimkiem.FillHoverColor = Color.MidnightBlue;
+            btnTimkiem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTimkiem.Location = new Point(654, 143);
+            btnTimkiem.MinimumSize = new Size(1, 1);
+            btnTimkiem.Name = "btnTimkiem";
+            btnTimkiem.Size = new Size(100, 29);
+            btnTimkiem.Style = Sunny.UI.UIStyle.Custom;
+            btnTimkiem.TabIndex = 77;
+            btnTimkiem.Text = "Tìm kiếm";
+            btnTimkiem.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnTimkiem.Click += btnTimkiem_Click;
+            // 
             // FrmMainGuest
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1300, 665);
+            Controls.Add(btnTimkiem);
+            Controls.Add(txtTimkiem);
             Controls.Add(btnDanhSach);
             Controls.Add(btnSau);
             Controls.Add(btnTruoc);
@@ -434,7 +444,6 @@
             Controls.Add(btnXemanh);
             Controls.Add(panelGuest);
             Controls.Add(label1);
-            Controls.Add(cbDiachi);
             Controls.Add(cbGia);
             Controls.Add(cbSophong);
             Controls.Add(cbDientich);
@@ -461,7 +470,6 @@
         private Sunny.UI.UIComboBox cbDientich;
         private Sunny.UI.UIComboBox cbSophong;
         private Sunny.UI.UIComboBox cbGia;
-        private Sunny.UI.UIComboBox cbDiachi;
         private Label label1;
         private Label label2;
         private Label txtHoten;
@@ -478,5 +486,7 @@
         private Sunny.UI.UIButton btnSau;
         private Sunny.UI.UIButton btnTruoc;
         private Sunny.UI.UIButton btnDanhSach;
+        private TextBox txtTimkiem;
+        private Sunny.UI.UIButton btnTimkiem;
     }
 }

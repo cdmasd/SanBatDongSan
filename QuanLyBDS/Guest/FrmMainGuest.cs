@@ -29,12 +29,12 @@ namespace QuanLyBDS.Guest
             UpdatePage();
             totalRecord = (int)pt.GetTotalRecordsDanhSach();
             dtView.DataSource = pt.Danhsach(currentpage, recordPerPages);
-            cbDiachi.DropDownStyle = UIDropDownStyle.DropDownList;
             cbLoainha.DropDownStyle = UIDropDownStyle.DropDownList;
             cbGia.DropDownStyle = UIDropDownStyle.DropDownList;
             cbDientich.DropDownStyle = UIDropDownStyle.DropDownList;
             cbSophong.DropDownStyle = UIDropDownStyle.DropDownList;
             btnXemanh.Enabled = false;
+            ChangeHeader();
         }
 
         private void btnXemanh_Click(object sender, EventArgs e)
@@ -131,23 +131,6 @@ namespace QuanLyBDS.Guest
                     LoadDatalocSoPhong();
                     label8.Visible = true;
                 }
-            }
-        }
-
-        private void cbDiachi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string diachi = cbDiachi.SelectedText;
-            dtView.ClearAll();
-            // Kiểm tra xem DataTable có dữ liệu hay không
-            if (guest.locKhuVuc(diachi) != null && guest.locKhuVuc(diachi).Rows.Count == 0)
-            {
-                label8.Visible = true;
-            }
-            else
-            {
-                currentpage = 1;
-                LoadDataDiaChi();
-                label8.Visible = false;
             }
         }
 
@@ -295,6 +278,16 @@ namespace QuanLyBDS.Guest
             txtCurrentPage.Text = $"Trang : {currentpage}";
         }
 
+        void LoadDataDiaChi()
+        {
+            dtView.ClearAll();
+            string area = txtTimkiem.Text.Trim();
+            index = 4;
+            totalRecord = (int)pt.GetTotalRecordsLocKhuVuc(area);
+            dtView.DataSource = pt.LocKhuVuc(currentpage, recordPerPages, area);
+            UpdatePage();
+            ChangeHeader();
+        }
         private void LoadDataLocLoaiNha()
         {
             dtView.ClearAll();
@@ -303,6 +296,7 @@ namespace QuanLyBDS.Guest
             totalRecord = (int)pt.GetTotalRecordsLocLoaiNha(loainha);
             dtView.DataSource = pt.LocLoaiNha(currentpage, recordPerPages, loainha);
             UpdatePage();
+            ChangeHeader();
         }
 
         private void LoadDataLocDienTich()
@@ -318,6 +312,7 @@ namespace QuanLyBDS.Guest
             totalRecord = (int)pt.GetTotalRecordsLocDienTich(start, end);
             dtView.DataSource = pt.LocDienTich(currentpage, recordPerPages, start, end);
             UpdatePage();
+            ChangeHeader();
         }
 
         private void LoadDatalocSoPhong()
@@ -327,16 +322,7 @@ namespace QuanLyBDS.Guest
             totalRecord = (int)pt.GetTotalRecordsLocSoPhong(sophong);
             dtView.DataSource = pt.LocSoPhong(currentpage, recordPerPages, sophong);
             UpdatePage();
-        }
-
-        private void LoadDataDiaChi()
-        {
-            string diachi = cbDiachi.SelectedText;
-
-            index = 4;
-            totalRecord = (int)pt.GetTotalRecordsLocKhuVuc(diachi);
-            dtView.DataSource = pt.LocKhuVuc(currentpage, recordPerPages, diachi);
-            UpdatePage();
+            ChangeHeader();
         }
 
         private void LoadDataLocGia()
@@ -361,6 +347,7 @@ namespace QuanLyBDS.Guest
             totalRecord = (int)pt.GetTotalRecordsLocGia(start, end);
             dtView.DataSource = pt.LocGia(currentpage, recordPerPages, start, end);
             UpdatePage();
+            ChangeHeader();
         }
 
         private void LoadDanhSach()
@@ -369,6 +356,7 @@ namespace QuanLyBDS.Guest
             UpdatePage();
             totalRecord = (int)pt.GetTotalRecordsDanhSach();
             dtView.DataSource = pt.Danhsach(currentpage, recordPerPages);
+            ChangeHeader();
         }
 
         private void ClearFiedls()
@@ -381,7 +369,6 @@ namespace QuanLyBDS.Guest
             cbLoainha.Text = string.Empty;
             cbDientich.Text = string.Empty;
             cbSophong.Text = string.Empty;
-            cbDiachi.Text = string.Empty;
             cbGia.Text = string.Empty;
         }
 
@@ -390,6 +377,34 @@ namespace QuanLyBDS.Guest
             currentpage = 1;
             LoadDanhSach();
             ClearFiedls();
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
+        {
+            LoadDataDiaChi();
+        }
+        void ChangeHeader()
+        {
+            if (dtView.Rows.Count > 0)
+            {
+                dtView.Columns[0].HeaderText = "ID";
+                dtView.Columns[1].HeaderText = "Tiêu đề";
+                dtView.Columns[2].HeaderText = "Loại nhà";
+                dtView.Columns[3].HeaderText = "Diện tích";
+                dtView.Columns[4].HeaderText = "Số phòng";
+                dtView.Columns[5].HeaderText = "Giá";
+                dtView.Columns[6].HeaderText = "Địa chỉ";
+                dtView.Columns[7].HeaderText = "Hình ảnh";
+                dtView.Columns[8].HeaderText = "ID người đăng";
+                dtView.Columns[9].HeaderText = "Thời gian đăng";
+                dtView.Columns[10].HeaderText = "Trạng thái";
+                dtView.Columns[11].HeaderText = "Người duyệt bài";
+                label8.Visible = false;
+            }
+            else
+            {
+                label8.Visible = true;
+            }
         }
     }
 }

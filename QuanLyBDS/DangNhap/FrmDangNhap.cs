@@ -6,6 +6,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Drawing;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using BUS_QuanLyBDS;
+using QuanLyBDS.DangNhap;
 
 namespace QuanLyBDS
 {
@@ -268,22 +269,15 @@ namespace QuanLyBDS
         private void btnForgotPassword_Click(object sender, EventArgs e)
         {
             newpass = dn.RandomString();
-            if (txtEmail.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập email lấy lại mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dn.changePass(txtEmail.Text, newpass))
-            {
-                MessageBox.Show(Mail.MailRecovery(txtEmail.Text.Trim(), newpass), "Thông báo");
-            }
-            else
-            {
-                MessageBox.Show("Email chưa được đăng kí", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            QuenMatKhau qmk = new QuenMatKhau(newpass);
+            qmk.ShowDialog();
+            qmk.FormClosed += new FormClosedEventHandler(QuenMatKhau_FormClosed);
         }
-
+        void QuenMatKhau_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Refresh();
+            FrmDangNhap_Load(sender, e);
+        }
         #endregion
         #region Xác thực
         public static bool isEmail(string inputEmail)

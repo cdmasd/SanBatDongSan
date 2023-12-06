@@ -269,21 +269,24 @@ namespace DAL_QuanLyBDS
             return ConvertFindFluentToDataTable(locnha.Skip(skip).Limit(pageSize));
         }
 
-        public long GetTotalRecordsLocKhuVuc(string quan)
+        public long GetTotalRecordsLocKhuVuc(string area)
         {
-            var filter = Builders<BsonDocument>.Filter.And(
-                Builders<BsonDocument>.Filter.Eq("Khuvuc", quan),
-                Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt")
-                );
-            return baidang.CountDocuments(filter);
+            var khuvuc = new BsonDocument
+            {
+                { "Diachi", new BsonDocument("$regex", area) },
+                { "Trangthai", "Đã duyệt" }
+            };
+            return baidang.CountDocuments(khuvuc);
         }
 
-        public DataTable LocKhuVuc(int page, int pageSize, string quan)
+        public DataTable LocKhuVuc(int page, int pageSize, string area)
         {
-            var filter = Builders<BsonDocument>.Filter.And(
-            Builders<BsonDocument>.Filter.Eq("Khuvuc", quan),
-            Builders<BsonDocument>.Filter.Eq("Trangthai", "Đã duyệt"));
-            var lockv = baidang.Find(filter);
+            var khuvuc = new BsonDocument
+            {
+                { "Diachi", new BsonDocument("$regex", area) },
+                { "Trangthai", "Đã duyệt" }
+            };
+            var lockv = baidang.Find(khuvuc);
             var skip = (page - 1) * pageSize;
             return ConvertFindFluentToDataTable(lockv.Skip(skip).Limit(pageSize));
         }
