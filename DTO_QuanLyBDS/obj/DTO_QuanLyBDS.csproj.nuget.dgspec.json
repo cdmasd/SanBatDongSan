@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj": {}
+    "D:\\PRO131_DA1_K4\\Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj": {
+    "D:\\PRO131_DA1_K4\\Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj",
+        "projectUniqueName": "D:\\PRO131_DA1_K4\\Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj",
         "projectName": "DTO_QuanLyBDS",
-        "projectPath": "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Desktop\\New Project\\SanBatDongSan\\DTO_QuanLyBDS\\obj\\",
+        "projectPath": "D:\\PRO131_DA1_K4\\Project\\SanBatDongSan\\DTO_QuanLyBDS\\DTO_QuanLyBDS.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\PRO131_DA1_K4\\Project\\SanBatDongSan\\DTO_QuanLyBDS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2\\RuntimeIdentifierGraph.json"
         }
       }
     }

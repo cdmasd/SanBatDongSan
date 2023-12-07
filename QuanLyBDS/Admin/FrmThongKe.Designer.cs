@@ -50,6 +50,7 @@
             labelPicker = new Label();
             chartDoanhThu = new Sunny.UI.UIBarChart();
             btnChonNgay = new Sunny.UI.UIButton();
+            btnXuatFileExcel = new Sunny.UI.UIButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             chartThongKeBaiDang.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartThongKeBaiDang.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartThongKeBaiDang.Location = new Point(400, 309);
+            chartThongKeBaiDang.Location = new Point(400, 273);
             chartThongKeBaiDang.MinimumSize = new Size(1, 1);
             chartThongKeBaiDang.Name = "chartThongKeBaiDang";
             chartThongKeBaiDang.Size = new Size(318, 331);
@@ -251,7 +252,7 @@
             // 
             chartTop5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartTop5.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartTop5.Location = new Point(758, 309);
+            chartTop5.Location = new Point(761, 273);
             chartTop5.MinimumSize = new Size(1, 1);
             chartTop5.Name = "chartTop5";
             chartTop5.Size = new Size(301, 331);
@@ -283,7 +284,7 @@
             // 
             chartDoanhThu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             chartDoanhThu.LegendFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            chartDoanhThu.Location = new Point(25, 309);
+            chartDoanhThu.Location = new Point(25, 273);
             chartDoanhThu.MinimumSize = new Size(1, 1);
             chartDoanhThu.Name = "chartDoanhThu";
             chartDoanhThu.Size = new Size(330, 331);
@@ -305,12 +306,26 @@
             btnChonNgay.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
             btnChonNgay.Click += btnChonNgay_Click;
             // 
+            // btnXuatFileExcel
+            // 
+            btnXuatFileExcel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnXuatFileExcel.Location = new Point(948, 610);
+            btnXuatFileExcel.MinimumSize = new Size(1, 1);
+            btnXuatFileExcel.Name = "btnXuatFileExcel";
+            btnXuatFileExcel.Size = new Size(114, 36);
+            btnXuatFileExcel.Style = Sunny.UI.UIStyle.Custom;
+            btnXuatFileExcel.TabIndex = 20;
+            btnXuatFileExcel.Text = "Xuất File Excel";
+            btnXuatFileExcel.TipsFont = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnXuatFileExcel.Click += btnXuatFileExcel_Click;
+            // 
             // FrmThongKe
             // 
             AllowShowTitle = false;
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1085, 670);
+            Controls.Add(btnXuatFileExcel);
             Controls.Add(btnChonNgay);
             Controls.Add(chartDoanhThu);
             Controls.Add(panel2);
@@ -368,5 +383,6 @@
         private Label labelPicker;
         private Sunny.UI.UIBarChart chartDoanhThu;
         private Sunny.UI.UIButton btnChonNgay;
+        private Sunny.UI.UIButton btnXuatFileExcel;
     }
 }
